@@ -70,6 +70,22 @@ img{max-width:100%}
   background:var(--surface); white-space:nowrap}
 .tbtn:hover{border-color:var(--border-strong)}
 .tbtn.on{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.views{display:flex; gap:2px; background:var(--surface-2); padding:2px; border-radius:7px}
+.views button{padding:5px 13px; border-radius:5px; font-size:13px; color:var(--ink-2); white-space:nowrap}
+.views button.on{background:var(--surface); color:var(--ink); font-weight:600; box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.views .cnt{font-family:var(--mono); font-size:10px; color:var(--muted); margin-left:4px}
+.daylist{display:flex; flex-direction:column; gap:1px}
+.daybtn{display:flex; align-items:baseline; gap:8px; padding:6px 8px; border-radius:5px; text-align:left; width:100%}
+.daybtn:hover{background:var(--surface-2)}
+.daybtn.on{background:var(--surface-2)}
+.daybtn.on .d-date{color:var(--accent); font-weight:600}
+.d-date{font-family:var(--mono); font-size:12.5px; color:var(--ink-2)}
+.d-wd{font-size:11px; color:var(--muted)}
+.d-n{margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--muted); font-variant-numeric:tabular-nums}
+.d-new{width:4px; height:4px; border-radius:50%; background:var(--accent); display:inline-block; margin-left:4px}
+.rank{position:absolute; left:-2px; top:14px; font-family:var(--mono); font-size:10px; font-weight:600;
+  color:var(--bg); background:var(--accent); border-radius:3px; padding:1px 4px; letter-spacing:.02em}
+.paper.top{padding-left:24px}
 
 .layout{max-width:1160px; margin:0 auto; padding:22px 20px 90px; display:grid;
   grid-template-columns:228px minmax(0,1fr); gap:30px; align-items:start}
@@ -215,14 +231,19 @@ img{max-width:100%}
       <input id="q" type="search" autocomplete="off" placeholder="搜标题 / 摘要 / 作者 / 标签">
       <span class="kbd">/</span>
     </div>
+    <nav class="views" id="views">
+      <button data-view="day" class="on">日榜</button>
+      <button data-view="month">全月</button>
+      <button data-view="star">收藏<span class="cnt" id="starCnt">0</span></button>
+    </nav>
     <button class="tbtn" id="btnUnreadOnly">只看未读</button>
-    <button class="tbtn" id="btnStarOnly">只看收藏 <span class="n" id="starCnt">0</span></button>
     <button class="tbtn" id="btnSync">同步</button>
   </div>
 </div>
 
 <div class="layout">
   <aside class="rail">
+    <div id="dayBox"><h3>公告日</h3><div class="daylist" id="dayList"></div></div>
     <div><h3>主题</h3><div class="chips" id="topicChips"></div></div>
     <div><h3>贡献类型</h3><div class="chips" id="typeChips"></div></div>
     <div>
@@ -236,11 +257,9 @@ img{max-width:100%}
       <div class="railrow"><label for="artSel">Artifact</label>
         <select id="artSel"><option value="">全部</option><option value="公开">公开</option><option value="承诺公开">承诺公开</option></select>
       </div>
-      <div class="railrow"><label for="daySel">公告日</label>
-        <select id="daySel"><option value="">全部</option></select>
-      </div>
       <div class="railrow"><label for="sortBy">排序</label>
         <select id="sortBy">
+          <option value="rank">综合（证据+新颖）</option>
           <option value="ev">证据强度</option>
           <option value="nov">新颖性</option>
           <option value="id">编号（新→旧）</option>
@@ -272,8 +291,11 @@ var PAPERS = [], META = {}, byId = {};
 var LS = "paper-reading:arxiv-se-2026-09";
 var TLS = "paper-reading:gh";
 
-var state = { topics:{}, types:{}, minEv:0, minNov:0, art:"", day:"", sort:"ev", q:"",
-              unreadOnly:false, starOnly:false, read:{}, stars:{}, open:{}, en:{}, sel:-1 };
+var state = { view:"day", day:"", topics:{}, types:{}, minEv:0, minNov:0, art:"", sort:"rank", q:"",
+              unreadOnly:false, read:{}, stars:{}, open:{}, en:{}, sel:-1 };
+var DAYS = [], dayCount = {};
+function wd(s){ var n=["周日","周一","周二","周三","周四","周五","周六"], p=s.split("-");
+  return n[new Date(Date.UTC(+p[0], +p[1]-1, +p[2])).getUTCDay()]; }
 
 try{
   var saved = JSON.parse(localStorage.getItem(LS) || "{}");
@@ -299,14 +321,14 @@ function toast(msg){
 
 /* ---------------- filtering ---------------- */
 function matches(p){
+  if(state.view === "day"){ if(p.day !== state.day) return false; }
+  else if(state.view === "star"){ if(!state.stars[p.id]) return false; }
   var t = keys(state.topics); if(t.length && t.indexOf(p.topic) < 0) return false;
   var c = keys(state.types);  if(c.length && c.indexOf(p.contribution_type) < 0) return false;
   if((p.evidence_strength||0) < state.minEv) return false;
   if((p.novelty||0) < state.minNov) return false;
   if(state.art && p.artifact !== state.art) return false;
-  if(state.day && p.day !== state.day) return false;
   if(state.unreadOnly && state.read[p.id]) return false;
-  if(state.starOnly && !state.stars[p.id]) return false;
   if(state.q){
     var q = state.q.toLowerCase();
     var hay = [p.title,p.title_cn,p.summary_cn,p.objective_summary,p.abstract_cn,p.abstract,p.topic,
@@ -318,9 +340,12 @@ function matches(p){
 var TOPIC_RANK = ["AI Coding Agent","LLM4SE","Software Testing","Bug & Defect","Code Analysis",
   "MSR & Empirical","Maintenance & Evolution","Requirements & Architecture","Security & Vulnerability",
   "ML/AI Security & Quality","Human & Process","Systems & Performance","Other"];
+function rankScore(p){ return (p.evidence_strength||0) + (p.novelty||0); }
 function currentList(){
   var arr = PAPERS.filter(matches);
-  if(state.sort === "ev") arr.sort(function(a,b){
+  if(state.sort === "rank") arr.sort(function(a,b){
+    return rankScore(b)-rankScore(a) || (b.evidence_strength||0)-(a.evidence_strength||0) || b.id.localeCompare(a.id); });
+  else if(state.sort === "ev") arr.sort(function(a,b){
     return (b.evidence_strength||0)-(a.evidence_strength||0) || (b.novelty||0)-(a.novelty||0) || b.id.localeCompare(a.id); });
   else if(state.sort === "nov") arr.sort(function(a,b){
     return (b.novelty||0)-(a.novelty||0) || (b.evidence_strength||0)-(a.evidence_strength||0) || b.id.localeCompare(a.id); });
@@ -344,7 +369,10 @@ function scoreRow(lab, val, note){
 }
 function paperRow(p, i, total){
   var open = !!state.open[p.id], en = !!state.en[p.id];
-  var h = '<article class="paper' + (state.read[p.id] ? " read" : "") + '" data-id="' + esc(p.id) + '">';
+  var topN = (state.sort === "rank" && i < 3) ? (i+1) : 0;
+  var h = '<article class="paper' + (state.read[p.id] ? " read" : "") + (topN ? " top" : "") +
+          '" data-id="' + esc(p.id) + '">';
+  if(topN) h += '<span class="rank" title="本榜第 ' + topN + '">' + topN + "</span>";
   h += '<div class="p-head"><div class="p-gut">' +
        '<span class="p-idx" title="当前列表第 ' + (i+1) + ' 篇，共 ' + total + ' 篇"><b>' + (i+1) +
        '</b><span>/' + total + '</span></span>' +
@@ -412,9 +440,18 @@ function render(){
   chipHtml("typeChips", cc, state.types, "type");
   $("starCnt").textContent = keys(state.stars).length;
   $("btnUnreadOnly").classList.toggle("on", state.unreadOnly);
-  $("btnStarOnly").classList.toggle("on", state.starOnly);
+  $("dayBox").hidden = state.view !== "day";
+  $("dayList").innerHTML = DAYS.map(function(d){
+    var un = PAPERS.filter(function(p){ return p.day === d && !state.read[p.id]; }).length;
+    return '<button class="daybtn' + (state.view === "day" && d === state.day ? " on" : "") +
+      '" data-act="goday" data-date="' + d + '"><span class="d-date">' + d.slice(5) +
+      '</span><span class="d-wd">' + wd(d) + '</span><span class="d-n">' + (dayCount[d]||0) +
+      (un ? '<span class="d-new" title="' + un + ' 篇未读"></span>' : "") + "</span></button>";
+  }).join("");
+  Array.prototype.forEach.call($("views").children, function(b){
+    b.classList.toggle("on", b.dataset.view === state.view); });
   $("minEv").value = String(state.minEv); $("minNov").value = String(state.minNov);
-  $("artSel").value = state.art; $("daySel").value = state.day; $("sortBy").value = state.sort;
+  $("artSel").value = state.art; $("sortBy").value = state.sort;
 
   var f = [];
   keys(state.topics).forEach(function(t){ f.push(t); });
@@ -422,13 +459,13 @@ function render(){
   if(state.minEv) f.push("证据 ≥ " + state.minEv);
   if(state.minNov) f.push("新颖 ≥ " + state.minNov);
   if(state.art) f.push("artifact " + state.art);
-  if(state.day) f.push(state.day);
   if(state.unreadOnly) f.push("未读");
-  if(state.starOnly) f.push("收藏");
   if(state.q) f.push('"' + state.q + '"');
 
+  var title = state.view === "day" ? (state.day + " " + wd(state.day) + " 日榜")
+            : state.view === "star" ? "收藏" : "全月";
   var h = introHtml();
-  h += '<div class="listhead"><h2>论文' + (f.length ? " · " + esc(f.join(" · ")) : "") +
+  h += '<div class="listhead"><h2>' + esc(title) + (f.length ? " · " + esc(f.join(" · ")) : "") +
        '</h2><span class="n">' + list.length + " 篇</span></div>";
   if(!list.length) h += '<div class="empty">没有符合条件的论文 — 试着放宽筛选。</div>';
   else list.forEach(function(p, i){ h += paperRow(p, i, list.length); });
@@ -443,12 +480,26 @@ function render(){
 }
 function introHtml(){
   var done = keys(state.read).length;
+  if(state.view === "day"){
+    var n = PAPERS.filter(function(p){ return p.day === state.day; }).length;
+    var un = PAPERS.filter(function(p){ return p.day === state.day && !state.read[p.id]; }).length;
+    return '<section class="intro"><h1>' + esc(state.day) + " " + wd(state.day) + ' · cs.SE 日榜</h1>' +
+      '<p>arXiv 当天公告的 <strong>' + n + '</strong> 篇 cs.SE 论文，默认按<strong>证据强度 + 新颖性</strong>排序。' +
+      '这两项<strong>只依据论文自身内容</strong>：前者看样本规模、baseline 与对照、统计检验，' +
+      '后者看相对已有工作的新意。排序不代表「值不值得读」——那取决于你在做什么。</p>' +
+      '<div class="stats"><span class="stat"><b>' + n + '</b>篇</span>' +
+      '<span class="stat"><b>' + (n-un) + '</b>已读</span>' +
+      '<span class="stat"><b>' + DAYS.length + '</b>个公告日可切换</span>' +
+      '<span class="stat">数据更新于 ' + esc((META.generated||"").slice(0,10)) + '</span></div></section>';
+  }
   return '<section class="intro"><h1>' + esc(META.title || "arXiv cs.SE") + '</h1>' +
     '<p>这一页收录 ' + (META.count||0) + ' 篇 2026 年 9 月 arXiv <code>cs.SE</code> 论文的中文标题与摘要，' +
     '以及一份<strong>只依据论文自身内容</strong>的评价：贡献类型、证据强度、新颖性、适用边界、局限、artifact 是否公开。' +
     '评分不代表「值不值得读」，只描述这篇论文<em>拿出了什么证据</em>、<em>新在哪里</em>、<em>结论在什么范围内成立</em>。</p>' +
     '<p class="hint">阅读进度只存在你自己的浏览器里；点右上角「同步」可以改存到你自己 GitHub 账号下的 private gist。' +
     '本站不收集任何数据，也没有后端。</p>' +
+    '<p class="hint">其中 ' + (META.count - (META.with_day||0)) + ' 篇是月初批量归档进来的，' +
+    'arXiv 不保留历史公告日，所以它们只出现在「全月」里，不进日榜。</p>' +
     '<div class="stats"><span class="stat"><b>' + (META.count||0) + '</b>篇</span>' +
     '<span class="stat"><b>' + (META.days||[]).length + '</b>个公告日</span>' +
     '<span class="stat"><b>' + done + '</b>已读</span>' +
@@ -536,13 +587,21 @@ $("q").addEventListener("input", function(e){
 $("minEv").addEventListener("change", function(e){ state.minEv = +e.target.value; render(); });
 $("minNov").addEventListener("change", function(e){ state.minNov = +e.target.value; render(); });
 $("artSel").addEventListener("change", function(e){ state.art = e.target.value; render(); });
-$("daySel").addEventListener("change", function(e){ state.day = e.target.value; render(); });
 $("sortBy").addEventListener("change", function(e){ state.sort = e.target.value; persist(); render(); });
-$("btnUnreadOnly").addEventListener("click", function(){ state.unreadOnly = !state.unreadOnly; if(state.unreadOnly) state.starOnly = false; render(); });
-$("btnStarOnly").addEventListener("click", function(){ state.starOnly = !state.starOnly; if(state.starOnly) state.unreadOnly = false; render(); });
+$("btnUnreadOnly").addEventListener("click", function(){ state.unreadOnly = !state.unreadOnly; render(); });
+$("views").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-view]"); if(!b) return;
+  state.view = b.dataset.view;
+  if(state.view === "day" && !state.day) state.day = DAYS[0] || "";
+  render(); window.scrollTo({top:0});
+});
+$("dayList").addEventListener("click", function(e){
+  var b = e.target.closest("[data-act='goday']"); if(!b) return;
+  state.view = "day"; state.day = b.dataset.date; render(); window.scrollTo({top:0});
+});
 $("btnReset").addEventListener("click", function(){
   state.topics = {}; state.types = {}; state.minEv = 0; state.minNov = 0; state.art = "";
-  state.day = ""; state.q = ""; $("q").value = ""; state.unreadOnly = false; state.starOnly = false; render();
+  state.q = ""; $("q").value = ""; state.unreadOnly = false; render();
 });
 $("btnMarkAll").addEventListener("click", function(){
   currentList().forEach(function(p){ state.read[p.id] = true; });
@@ -550,7 +609,8 @@ $("btnMarkAll").addEventListener("click", function(){
 });
 $("btnExport").addEventListener("click", function(){
   var list = currentList();
-  var out = ["---","tags: [arxiv, cs.SE]","source: paper-reading","---","","# arXiv cs.SE · " + (META.month||""),""];
+  var scope = state.view === "day" ? state.day + " 日榜" : state.view === "star" ? "收藏" : (META.month||"") + " 全月";
+  var out = ["---","tags: [arxiv, cs.SE]","source: paper-reading","---","","# arXiv cs.SE · " + scope,""];
   list.forEach(function(p){
     out.push("## " + p.title);
     if(p.title_cn) out.push("**" + p.title_cn + "**", "");
@@ -707,9 +767,12 @@ fetch("data/papers.json").then(function(r){ return r.json(); }).then(function(ps
   return fetch("data/meta.json").then(function(r){ return r.json(); });
 }).then(function(m){
   META = m;
+  PAPERS.forEach(function(p){ if(p.day) dayCount[p.day] = (dayCount[p.day]||0) + 1; });
+  DAYS = Object.keys(dayCount).sort().reverse();
+  META.with_day = PAPERS.filter(function(p){ return p.day; }).length;
+  state.day = DAYS[0] || "";
+  if(!state.day) state.view = "month";
   $("brandMeta").textContent = (m.month || "") + " · " + (m.count || 0) + " 篇";
-  $("daySel").innerHTML = '<option value="">全部</option>' +
-    (m.days||[]).map(function(d){ return '<option value="' + d + '">' + d + "</option>"; }).join("");
   if(GH.token && GH.gist){
     ghState("同步中…");
     pullProgress().then(function(){ ghState("已连接 @" + GH.user); render(); },
