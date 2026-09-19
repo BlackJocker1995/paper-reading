@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>arXiv cs.SE · 2026-09</title>
+<meta name="description" content="2026 年 9 月 arXiv cs.SE 论文的中文摘要与客观评价：贡献类型、证据强度、新颖性、适用边界与局限。">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#FAF7F5; --surface:#FFFFFF; --surface-2:#F2EDEA; --surface-3:#EAE2DD;
+  --border:#E4DBD6; --border-strong:#CFC2BB;
+  --ink:#1B1614; --ink-2:#4C433E; --muted:#877B75;
+  --accent:#B31B1B; --accent-soft:#F7E6E3; --accent-line:#E2B3AD;
+  --gold:#8A6508; --gold-soft:#F6EBD4;
+  --good:#2E6B4E; --meter:#A2958E;
+  --shadow:0 1px 2px rgba(27,22,20,.05), 0 8px 24px -16px rgba(27,22,20,.25);
+  --sans:"IBM Plex Sans","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --serif:"IBM Plex Serif","Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#151211; --surface:#1D1918; --surface-2:#262120; --surface-3:#2F2927;
+    --border:#352F2C; --border-strong:#4B423E;
+    --ink:#F0EAE6; --ink-2:#CABFB9; --muted:#968B85;
+    --accent:#E4695B; --accent-soft:#3A211E; --accent-line:#6B3830;
+    --gold:#D4A445; --gold-soft:#332914;
+    --good:#69BC92; --meter:#7A6E69;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151211; --surface:#1D1918; --surface-2:#262120; --surface-3:#2F2927;
+  --border:#352F2C; --border-strong:#4B423E;
+  --ink:#F0EAE6; --ink-2:#CABFB9; --muted:#968B85;
+  --accent:#E4695B; --accent-soft:#3A211E; --accent-line:#6B3830;
+  --gold:#D4A445; --gold-soft:#332914;
+  --good:#69BC92; --meter:#7A6E69;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.6;
+  -webkit-font-smoothing:antialiased; margin:0}
+button,input,select,textarea{font:inherit; color:inherit}
+button{cursor:pointer; background:none; border:none; padding:0}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:3px}
+img{max-width:100%}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+
+.topbar{position:sticky; top:0; z-index:30; background:color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--border)}
+.topbar-in{max-width:1180px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.brand{display:flex; align-items:baseline; gap:8px; min-width:0}
+.brand-mark{font-family:var(--mono); font-weight:600; font-size:15px; color:var(--accent)}
+.brand-name{font-family:var(--serif); font-weight:600; font-size:17px}
+.brand-meta{font-family:var(--mono); font-size:11px; color:var(--muted); white-space:nowrap}
+.grow{flex:1 1 80px}
+.searchwrap{position:relative; flex:1 1 240px; max-width:360px}
+.searchwrap input{width:100%; padding:7px 30px 7px 11px; background:var(--surface); border:1px solid var(--border);
+  border-radius:6px; font-size:13px}
+.searchwrap .kbd{position:absolute; right:8px; top:50%; transform:translateY(-50%); font-family:var(--mono);
+  font-size:10px; color:var(--muted); border:1px solid var(--border); border-radius:3px; padding:1px 4px; pointer-events:none}
+.tbtn{padding:6px 12px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; color:var(--ink-2);
+  background:var(--surface); white-space:nowrap}
+.tbtn:hover{border-color:var(--border-strong)}
+.tbtn.on{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+
+.layout{max-width:1160px; margin:0 auto; padding:22px 20px 90px; display:grid;
+  grid-template-columns:228px minmax(0,1fr); gap:30px; align-items:start}
+.rail{position:sticky; top:62px; display:flex; flex-direction:column; gap:20px; max-height:calc(100vh - 80px); overflow-y:auto}
+.rail h3{font-family:var(--mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); margin:0 0 8px}
+.chips{display:flex; flex-wrap:wrap; gap:5px}
+.chip{padding:3px 9px; border:1px solid var(--border); border-radius:20px; font-size:12px; color:var(--ink-2); background:var(--surface)}
+.chip:hover{border-color:var(--border-strong)}
+.chip.on{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.chip .n{font-family:var(--mono); font-size:10px; opacity:.65; margin-left:4px}
+.railrow{display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:12.5px;
+  color:var(--ink-2); padding:3px 0}
+.railrow select{background:var(--surface); border:1px solid var(--border); border-radius:5px; padding:3px 6px; font-size:12px}
+.textbtn{font-size:12px; color:var(--muted); text-align:left}
+.textbtn:hover{color:var(--accent)}
+.railfoot{border-top:1px solid var(--border); padding-top:12px; display:flex; flex-direction:column; gap:6px; align-items:flex-start}
+.hint{font-family:var(--mono); font-size:11px; color:var(--muted)}
+
+.intro{background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 22px;
+  margin-bottom:22px; box-shadow:var(--shadow)}
+.intro h1{font-family:var(--serif); font-size:20px; margin:0 0 8px; font-weight:600}
+.intro p{font-size:13.2px; color:var(--ink-2); margin:0 0 8px; max-width:62em; line-height:1.75}
+.intro p:last-child{margin-bottom:0}
+.intro code{font-family:var(--mono); font-size:12px; background:var(--surface-2); padding:1px 5px; border-radius:3px}
+.stats{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; padding-top:12px; border-top:1px dashed var(--border)}
+.stat{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
+.stat b{color:var(--ink); font-size:14px; font-weight:600; margin-right:3px}
+
+.listhead{display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin:0 0 10px;
+  padding-bottom:8px; border-bottom:1px solid var(--border)}
+.listhead h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); margin:0; font-weight:600}
+.listhead .n{font-family:var(--mono); font-size:11px; color:var(--muted)}
+.paper{position:relative; padding:14px 14px 14px 15px; border-bottom:1px solid var(--border)}
+.paper.sel{background:var(--surface-2)}
+.paper.read .p-main{opacity:.75; transition:opacity .12s}
+.paper.read:hover .p-main,.paper.read.sel .p-main{opacity:1}
+.paper.read .p-title{color:var(--muted)}
+.p-head{display:flex; gap:11px; align-items:flex-start}
+.p-gut{flex:none; display:flex; flex-direction:column; align-items:center; gap:7px; padding-top:3px; min-width:28px}
+.p-idx{font-family:var(--mono); font-variant-numeric:tabular-nums; line-height:1.15; text-align:center; color:var(--muted)}
+.p-idx b{display:block; font-size:12px; font-weight:600; color:var(--ink-2)}
+.p-idx span{display:block; font-size:9.5px; opacity:.75}
+.paper.read .p-idx b{color:var(--muted); font-weight:400}
+.readbox{width:19px; height:19px; flex:none; border-radius:50%; border:1.5px solid var(--border-strong);
+  background:var(--surface); color:transparent; font-size:11px; line-height:1;
+  display:flex; align-items:center; justify-content:center; transition:background .12s,border-color .12s,color .12s}
+.readbox:hover{border-color:var(--good); color:var(--good)}
+.paper.read .readbox{background:var(--good); border-color:var(--good); color:var(--surface)}
+.p-main{min-width:0; flex:1}
+.p-title{font-family:var(--serif); font-size:15.5px; line-height:1.42; font-weight:500; color:var(--ink);
+  text-align:left; display:block}
+.p-title:hover{color:var(--accent)}
+.p-title-cn{font-size:13px; color:var(--ink-2); margin-top:2px}
+.p-meta{display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:6px; font-size:11.5px; color:var(--muted)}
+.p-id{font-family:var(--mono); font-size:11px; color:var(--muted)}
+.badge{font-family:var(--mono); font-size:10px; padding:1px 6px; border-radius:3px; border:1px solid var(--border);
+  color:var(--ink-2); background:var(--surface-2); white-space:nowrap}
+.badge.type{border-color:var(--accent-line); color:var(--accent); background:var(--accent-soft)}
+.badge.venue{border-color:var(--border-strong)}
+.badge.star{border-color:var(--gold); color:var(--gold); background:var(--gold-soft)}
+.badge.art{border-color:var(--good); color:var(--good)}
+.p-sum{font-size:13.5px; line-height:1.75; color:var(--ink-2); margin-top:8px; max-width:46em}
+.scores{display:flex; flex-wrap:wrap; gap:16px; margin-top:9px}
+.score{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--muted)}
+.score .lab{font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase}
+.meter{display:flex; gap:2px; flex:none}
+.meter i{width:11px; height:5px; border-radius:1px; background:var(--surface-3); display:block}
+.meter i.f{background:var(--accent); opacity:.75}
+.score .val{font-family:var(--mono); font-size:11.5px; color:var(--ink-2); font-variant-numeric:tabular-nums; flex:none}
+.score .note{color:var(--ink-2); font-size:12px; max-width:34em}
+.p-acts{display:flex; flex-wrap:wrap; gap:14px; margin-top:10px}
+.act{font-size:12px; color:var(--muted)}
+.act:hover{color:var(--accent)}
+.act.ax{color:var(--accent); opacity:.82}
+.act.ax:hover{opacity:1}
+.act.on{color:var(--gold); font-weight:500}
+.p-body{margin-top:12px; padding:14px 16px; background:var(--surface-2); border-radius:8px; border:1px solid var(--border)}
+.p-body h5{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 7px; font-weight:600; display:flex; gap:10px; align-items:center}
+.p-body h5 button{font-family:var(--mono); font-size:10px; color:var(--muted); text-transform:none}
+.p-body h5 button.on{color:var(--accent)}
+.p-abs{font-size:13.5px; line-height:1.86; color:var(--ink-2); max-width:44em}
+.p-abs.en{font-family:var(--serif); max-width:66ch}
+.facts{display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 14px; margin-top:12px; padding-top:10px;
+  border-top:1px solid var(--border); font-size:12.5px}
+.facts dt{font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); padding-top:2px}
+.facts dd{margin:0; color:var(--ink-2)}
+.tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:10px}
+.tag{font-size:11px; color:var(--muted); background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:1px 6px}
+.tag:hover{color:var(--accent); border-color:var(--accent-line)}
+.empty,.loading{padding:50px 10px; text-align:center; color:var(--muted); font-size:13px}
+.loading .bar{width:120px; height:3px; background:var(--surface-2); border-radius:2px; margin:12px auto 0; overflow:hidden}
+.loading .bar i{display:block; width:40%; height:100%; background:var(--accent); animation:slide 1.1s ease-in-out infinite}
+@keyframes slide{0%{transform:translateX(-100%)}100%{transform:translateX(320%)}}
+
+.fabs{position:fixed; right:20px; bottom:20px; z-index:50; display:flex; flex-direction:column; gap:8px; align-items:flex-end}
+.jumpbtn{display:flex; align-items:center; gap:7px; padding:9px 15px; border-radius:22px; background:var(--ink);
+  color:var(--bg); font-size:12.5px; font-weight:500; box-shadow:var(--shadow)}
+.jumpbtn:hover{background:var(--accent)}
+.jumpbtn .n{font-family:var(--mono); font-size:11.5px; opacity:.85}
+.topbtn{width:36px; height:36px; border-radius:50%; background:var(--surface); border:1px solid var(--border-strong);
+  color:var(--ink-2); font-size:15px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow)}
+.topbtn:hover{border-color:var(--accent); color:var(--accent)}
+.toast{position:fixed; left:50%; bottom:24px; transform:translateX(-50%); z-index:70; background:var(--ink);
+  color:var(--bg); padding:8px 16px; border-radius:6px; font-size:12.5px; box-shadow:var(--shadow); max-width:90vw}
+
+.modal{position:fixed; inset:0; z-index:80; background:rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; padding:20px}
+.modal-in{background:var(--surface); border:1px solid var(--border); border-radius:12px; max-width:560px; width:100%;
+  max-height:86vh; overflow:auto; padding:22px 24px; box-shadow:var(--shadow)}
+.modal-in h2{font-family:var(--serif); font-size:18px; margin:0 0 6px}
+.modal-in p{font-size:13px; color:var(--ink-2); line-height:1.75; margin:0 0 10px}
+.modal-in ol{font-size:13px; color:var(--ink-2); line-height:1.85; padding-left:20px; margin:0 0 12px}
+.modal-in code{font-family:var(--mono); font-size:12px; background:var(--surface-2); padding:1px 5px; border-radius:3px}
+.modal-in input[type=password],.modal-in input[type=text]{width:100%; padding:8px 11px; background:var(--bg);
+  border:1px solid var(--border); border-radius:6px; font-family:var(--mono); font-size:12.5px}
+.modal-acts{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center}
+.btn{padding:8px 16px; border-radius:6px; font-size:13px; border:1px solid var(--border); background:var(--surface); color:var(--ink-2)}
+.btn.primary{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+.btn.primary:hover{background:var(--accent); border-color:var(--accent)}
+.btn:hover{border-color:var(--border-strong)}
+.note-warn{font-size:12px; color:var(--muted); line-height:1.7; border-left:2px solid var(--accent-line); padding-left:10px}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:minmax(0,1fr); gap:18px; padding:16px 16px 80px}
+  .rail{position:static; max-height:none; overflow:visible}
+  .fabs{right:12px; bottom:12px}
+  .facts{grid-template-columns:minmax(0,1fr); gap:2px 0}
+  .facts dt{padding-top:8px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">
+      <span class="brand-mark">arXiv</span><span class="brand-name">cs.SE</span>
+      <span class="brand-meta" id="brandMeta">2026-09</span>
+    </div>
+    <div class="grow"></div>
+    <div class="searchwrap">
+      <input id="q" type="search" autocomplete="off" placeholder="搜标题 / 摘要 / 作者 / 标签">
+      <span class="kbd">/</span>
+    </div>
+    <button class="tbtn" id="btnUnreadOnly">只看未读</button>
+    <button class="tbtn" id="btnStarOnly">只看收藏 <span class="n" id="starCnt">0</span></button>
+    <button class="tbtn" id="btnSync">同步</button>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="rail">
+    <div><h3>主题</h3><div class="chips" id="topicChips"></div></div>
+    <div><h3>贡献类型</h3><div class="chips" id="typeChips"></div></div>
+    <div>
+      <h3>筛选</h3>
+      <div class="railrow"><label for="minEv">证据强度 ≥</label>
+        <select id="minEv"><option value="0">全部</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+      </div>
+      <div class="railrow"><label for="minNov">新颖性 ≥</label>
+        <select id="minNov"><option value="0">全部</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+      </div>
+      <div class="railrow"><label for="artSel">Artifact</label>
+        <select id="artSel"><option value="">全部</option><option value="公开">公开</option><option value="承诺公开">承诺公开</option></select>
+      </div>
+      <div class="railrow"><label for="daySel">公告日</label>
+        <select id="daySel"><option value="">全部</option></select>
+      </div>
+      <div class="railrow"><label for="sortBy">排序</label>
+        <select id="sortBy">
+          <option value="ev">证据强度</option>
+          <option value="nov">新颖性</option>
+          <option value="id">编号（新→旧）</option>
+          <option value="topic">主题</option>
+        </select>
+      </div>
+    </div>
+    <div class="railfoot">
+      <button class="textbtn" id="btnExport">导出当前列表 Markdown</button>
+      <button class="textbtn" id="btnMarkAll">把当前列表标为已读</button>
+      <button class="textbtn" id="btnReset">清空筛选</button>
+      <span class="hint" id="syncState">进度：本机</span>
+    </div>
+  </aside>
+  <main id="main"><div class="loading">正在载入论文数据…<div class="bar"><i></i></div></div></main>
+</div>
+
+<div class="fabs">
+  <button class="topbtn" id="btnTop" hidden title="回到顶部（g）" aria-label="回到顶部">↑</button>
+  <button class="jumpbtn" id="btnUnread" hidden title="跳到下一篇未读（n，Shift+N 往回）"></button>
+</div>
+
+<script>
+(function(){
+"use strict";
+var $ = function(id){ return document.getElementById(id); };
+var main = $("main");
+var PAPERS = [], META = {}, byId = {};
+var LS = "paper-reading:arxiv-se-2026-09";
+var TLS = "paper-reading:gh";
+
+var state = { topics:{}, types:{}, minEv:0, minNov:0, art:"", day:"", sort:"ev", q:"",
+              unreadOnly:false, starOnly:false, read:{}, stars:{}, open:{}, en:{}, sel:-1 };
+
+try{
+  var saved = JSON.parse(localStorage.getItem(LS) || "{}");
+  if(saved.read) state.read = saved.read;
+  if(saved.stars) state.stars = saved.stars;
+  if(saved.sort) state.sort = saved.sort;
+}catch(e){}
+
+var pushT = null;
+function persist(){
+  try{ localStorage.setItem(LS, JSON.stringify({read:state.read, stars:state.stars, sort:state.sort})); }catch(e){}
+  if(GH.token && GH.gist){ clearTimeout(pushT); pushT = setTimeout(pushProgress, 1200); }
+}
+var keys = function(o){ return Object.keys(o).filter(function(k){ return o[k]; }); };
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function base(id){ return String(id||"").split("v")[0]; }
+function toast(msg){
+  var el = document.createElement("div");
+  el.className = "toast"; el.textContent = msg; document.body.appendChild(el);
+  setTimeout(function(){ el.remove(); }, 2600);
+}
+
+/* ---------------- filtering ---------------- */
+function matches(p){
+  var t = keys(state.topics); if(t.length && t.indexOf(p.topic) < 0) return false;
+  var c = keys(state.types);  if(c.length && c.indexOf(p.contribution_type) < 0) return false;
+  if((p.evidence_strength||0) < state.minEv) return false;
+  if((p.novelty||0) < state.minNov) return false;
+  if(state.art && p.artifact !== state.art) return false;
+  if(state.day && p.day !== state.day) return false;
+  if(state.unreadOnly && state.read[p.id]) return false;
+  if(state.starOnly && !state.stars[p.id]) return false;
+  if(state.q){
+    var q = state.q.toLowerCase();
+    var hay = [p.title,p.title_cn,p.summary_cn,p.objective_summary,p.abstract_cn,p.abstract,p.topic,
+               p.contribution_type,p.id,p.venue,(p.tags||[]).join(" "),(p.authors||[]).join(" ")].join(" ").toLowerCase();
+    if(hay.indexOf(q) < 0) return false;
+  }
+  return true;
+}
+var TOPIC_RANK = ["AI Coding Agent","LLM4SE","Software Testing","Bug & Defect","Code Analysis",
+  "MSR & Empirical","Maintenance & Evolution","Requirements & Architecture","Security & Vulnerability",
+  "ML/AI Security & Quality","Human & Process","Systems & Performance","Other"];
+function currentList(){
+  var arr = PAPERS.filter(matches);
+  if(state.sort === "ev") arr.sort(function(a,b){
+    return (b.evidence_strength||0)-(a.evidence_strength||0) || (b.novelty||0)-(a.novelty||0) || b.id.localeCompare(a.id); });
+  else if(state.sort === "nov") arr.sort(function(a,b){
+    return (b.novelty||0)-(a.novelty||0) || (b.evidence_strength||0)-(a.evidence_strength||0) || b.id.localeCompare(a.id); });
+  else if(state.sort === "topic") arr.sort(function(a,b){
+    var ia = TOPIC_RANK.indexOf(a.topic), ib = TOPIC_RANK.indexOf(b.topic);
+    return (ia<0?99:ia)-(ib<0?99:ib) || (b.evidence_strength||0)-(a.evidence_strength||0) || b.id.localeCompare(a.id); });
+  else arr.sort(function(a,b){ return b.id.localeCompare(a.id); });
+  return arr;
+}
+
+/* ---------------- render ---------------- */
+function meter(n){
+  var h = '<span class="meter">';
+  for(var i=1;i<=5;i++) h += '<i class="' + (i <= (n||0) ? "f" : "") + '"></i>';
+  return h + "</span>";
+}
+function scoreRow(lab, val, note){
+  return '<span class="score"><span class="lab">' + lab + '</span>' + meter(val) +
+         '<span class="val">' + (val||0) + '/5</span>' +
+         '<span class="note">' + esc(note||"") + "</span></span>";
+}
+function paperRow(p, i, total){
+  var open = !!state.open[p.id], en = !!state.en[p.id];
+  var h = '<article class="paper' + (state.read[p.id] ? " read" : "") + '" data-id="' + esc(p.id) + '">';
+  h += '<div class="p-head"><div class="p-gut">' +
+       '<span class="p-idx" title="当前列表第 ' + (i+1) + ' 篇，共 ' + total + ' 篇"><b>' + (i+1) +
+       '</b><span>/' + total + '</span></span>' +
+       '<button class="readbox" data-act="read" title="' + (state.read[p.id] ? "取消已读" : "标为已读") +
+       '" aria-pressed="' + (state.read[p.id] ? "true" : "false") + '">✓</button></div><div class="p-main">';
+  h += '<button class="p-title" data-act="toggle">' + esc(p.title) + "</button>";
+  if(p.title_cn) h += '<div class="p-title-cn">' + esc(p.title_cn) + "</div>";
+  h += '<div class="p-meta"><span class="p-id">' + esc(p.id) + "</span>";
+  h += '<span class="badge" data-act="topic" data-topic="' + esc(p.topic) + '">' + esc(p.topic) + "</span>";
+  if(p.contribution_type) h += '<span class="badge type" data-act="type" data-type="' + esc(p.contribution_type) + '">' + esc(p.contribution_type) + "</span>";
+  if(p.artifact === "公开") h += '<span class="badge art">artifact 公开</span>';
+  if(p.venue) h += '<span class="badge venue">' + esc(p.venue) + "</span>";
+  if(state.stars[p.id]) h += '<span class="badge star">★</span>';
+  if(p.day) h += '<span class="p-id">' + esc(p.day) + "</span>";
+  var a = p.authors || [];
+  if(a.length) h += "<span>" + esc(a.slice(0,3).join(", ") + (a.length > 3 ? " 等 " + a.length + " 人" : "")) + "</span>";
+  h += "</div>";
+  if(p.objective_summary) h += '<div class="p-sum">' + esc(p.objective_summary) + "</div>";
+  h += '<div class="scores">' + scoreRow("证据", p.evidence_strength, p.evidence_note) +
+       scoreRow("新颖", p.novelty, p.novelty_note) + "</div>";
+  h += '<div class="p-acts">';
+  h += '<button class="act" data-act="toggle">' + (open ? "收起" : "详情") + "</button>";
+  h += '<a class="act" href="' + esc(p.url) + '" target="_blank" rel="noopener">abs ↗</a>';
+  h += '<a class="act" href="' + esc(p.pdf) + '" target="_blank" rel="noopener">PDF ↗</a>';
+  h += '<a class="act ax" href="https://www.alphaxiv.org/abs/' + esc(base(p.id)) + '" target="_blank" rel="noopener">alphaXiv ↗</a>';
+  h += '<button class="act' + (state.stars[p.id] ? " on" : "") + '" data-act="star">' + (state.stars[p.id] ? "★ 已收藏" : "☆ 收藏") + "</button>";
+  h += '<button class="act" data-act="bib">复制 BibTeX</button></div>';
+  if(open){
+    h += '<div class="p-body"><dl class="facts">';
+    if(p.scope) h += "<dt>适用边界</dt><dd>" + esc(p.scope) + "</dd>";
+    if(p.limitations) h += "<dt>局限</dt><dd>" + esc(p.limitations) + "</dd>";
+    if(p.artifact) h += "<dt>Artifact</dt><dd>" + esc(p.artifact) + "</dd>";
+    if(p.summary_cn) h += "<dt>一句话</dt><dd>" + esc(p.summary_cn) + "</dd>";
+    if(p.published) h += "<dt>提交</dt><dd>" + esc(p.published) + "</dd>";
+    if((p.categories||[]).length) h += "<dt>分类</dt><dd>" + esc(p.categories.join(" · ")) + "</dd>";
+    if(p.comment) h += "<dt>Comment</dt><dd>" + esc(p.comment) + "</dd>";
+    h += "</dl>";
+    h += '<h5 style="margin-top:14px">摘要' +
+         '<button data-act="lang" data-lang="cn" class="' + (en ? "" : "on") + '">中文</button>' +
+         '<button data-act="lang" data-lang="en" class="' + (en ? "on" : "") + '">English</button></h5>';
+    h += '<div class="p-abs' + (en ? " en" : "") + '">' + esc(en ? p.abstract : (p.abstract_cn || p.abstract)) + "</div>";
+    if((p.tags||[]).length) h += '<div class="tags">' + p.tags.map(function(t){
+      return '<button class="tag" data-act="tag" data-tag="' + esc(t) + '">' + esc(t) + "</button>"; }).join("") + "</div>";
+    h += "</div>";
+  }
+  return h + "</div></div></article>";
+}
+function chipHtml(id, counts, sel, act){
+  var ks = Object.keys(counts);
+  if(id === "topicChips") ks.sort(function(a,b){
+    var ia = TOPIC_RANK.indexOf(a), ib = TOPIC_RANK.indexOf(b); return (ia<0?99:ia)-(ib<0?99:ib); });
+  else ks.sort(function(a,b){ return counts[b]-counts[a]; });
+  $(id).innerHTML = ks.map(function(k){
+    return '<button class="chip' + (sel[k] ? " on" : "") + '" data-act="' + act + '" data-' + act + '="' + esc(k) +
+      '">' + esc(k) + '<span class="n">' + counts[k] + "</span></button>"; }).join("");
+}
+function render(){
+  var list = currentList();
+  var tc = {}, cc = {};
+  PAPERS.forEach(function(p){
+    tc[p.topic] = (tc[p.topic]||0)+1;
+    if(p.contribution_type) cc[p.contribution_type] = (cc[p.contribution_type]||0)+1;
+  });
+  chipHtml("topicChips", tc, state.topics, "topic");
+  chipHtml("typeChips", cc, state.types, "type");
+  $("starCnt").textContent = keys(state.stars).length;
+  $("btnUnreadOnly").classList.toggle("on", state.unreadOnly);
+  $("btnStarOnly").classList.toggle("on", state.starOnly);
+  $("minEv").value = String(state.minEv); $("minNov").value = String(state.minNov);
+  $("artSel").value = state.art; $("daySel").value = state.day; $("sortBy").value = state.sort;
+
+  var f = [];
+  keys(state.topics).forEach(function(t){ f.push(t); });
+  keys(state.types).forEach(function(t){ f.push(t); });
+  if(state.minEv) f.push("证据 ≥ " + state.minEv);
+  if(state.minNov) f.push("新颖 ≥ " + state.minNov);
+  if(state.art) f.push("artifact " + state.art);
+  if(state.day) f.push(state.day);
+  if(state.unreadOnly) f.push("未读");
+  if(state.starOnly) f.push("收藏");
+  if(state.q) f.push('"' + state.q + '"');
+
+  var h = introHtml();
+  h += '<div class="listhead"><h2>论文' + (f.length ? " · " + esc(f.join(" · ")) : "") +
+       '</h2><span class="n">' + list.length + " 篇</span></div>";
+  if(!list.length) h += '<div class="empty">没有符合条件的论文 — 试着放宽筛选。</div>';
+  else list.forEach(function(p, i){ h += paperRow(p, i, list.length); });
+  main.innerHTML = h;
+
+  var unread = list.filter(function(p){ return !state.read[p.id]; }).length;
+  var jb = $("btnUnread");
+  jb.hidden = !unread;
+  if(unread) jb.innerHTML = '未读 <span class="n">' + unread + "</span> ↓";
+  syncTopBtn();
+  state.sel = -1;
+}
+function introHtml(){
+  var done = keys(state.read).length;
+  return '<section class="intro"><h1>' + esc(META.title || "arXiv cs.SE") + '</h1>' +
+    '<p>这一页收录 ' + (META.count||0) + ' 篇 2026 年 9 月 arXiv <code>cs.SE</code> 论文的中文标题与摘要，' +
+    '以及一份<strong>只依据论文自身内容</strong>的评价：贡献类型、证据强度、新颖性、适用边界、局限、artifact 是否公开。' +
+    '评分不代表「值不值得读」，只描述这篇论文<em>拿出了什么证据</em>、<em>新在哪里</em>、<em>结论在什么范围内成立</em>。</p>' +
+    '<p class="hint">阅读进度只存在你自己的浏览器里；点右上角「同步」可以改存到你自己 GitHub 账号下的 private gist。' +
+    '本站不收集任何数据，也没有后端。</p>' +
+    '<div class="stats"><span class="stat"><b>' + (META.count||0) + '</b>篇</span>' +
+    '<span class="stat"><b>' + (META.days||[]).length + '</b>个公告日</span>' +
+    '<span class="stat"><b>' + done + '</b>已读</span>' +
+    '<span class="stat">更新于 ' + esc((META.generated||"").slice(0,10)) + '</span></div></section>';
+}
+
+/* ---------------- interactions ---------------- */
+function selectRow(i){
+  var rows = main.querySelectorAll(".paper");
+  if(!rows[i]) return;
+  Array.prototype.forEach.call(rows, function(r){ r.classList.remove("sel"); });
+  state.sel = i; rows[i].classList.add("sel");
+  rows[i].scrollIntoView({block:"center", behavior:"smooth"});
+}
+function focusRow(i){
+  var rows = main.querySelectorAll(".paper");
+  if(rows[i]){ state.sel = i; rows[i].classList.add("sel"); rows[i].scrollIntoView({block:"center"}); }
+}
+function jumpUnread(dir){
+  var list = currentList();
+  if(!list.length) return;
+  var len = list.length, hit = -1;
+  var from = state.sel >= 0 ? state.sel : (dir > 0 ? -1 : len);
+  for(var s=1; s<=len; s++){
+    var i = ((from + dir*s) % len + len) % len;
+    if(!state.read[list[i].id]){ hit = i; break; }
+  }
+  if(hit < 0){ toast("当前列表已经没有未读的了"); return; }
+  selectRow(hit);
+}
+function bibtex(p){
+  return "@misc{arxiv" + base(p.id).replace(".","_") + ",\n  title  = {" + p.title + "},\n  author = {" +
+    (p.authors||[]).join(" and ") + "},\n  year   = {" + (p.published||"").slice(0,4) + "},\n  eprint = {" +
+    base(p.id) + "},\n  archivePrefix = {arXiv},\n  primaryClass  = {" + (p.primary_category||"cs.SE") +
+    "},\n  url    = {" + p.url + "}\n}";
+}
+function copy(text, msg){
+  if(navigator.clipboard && navigator.clipboard.writeText)
+    navigator.clipboard.writeText(text).then(function(){ toast(msg); }, function(){ fallback(text,msg); });
+  else fallback(text, msg);
+}
+function fallback(text, msg){
+  var ta = document.createElement("textarea");
+  ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand("copy"); toast(msg); }catch(e){ toast("复制失败"); }
+  ta.remove();
+}
+main.addEventListener("click", function(e){
+  var btn = e.target.closest("[data-act]"); if(!btn) return;
+  var act = btn.dataset.act;
+  var art = e.target.closest(".paper");
+  var p = art ? byId[art.dataset.id] : null;
+  var rowIdx = art ? Array.prototype.indexOf.call(main.querySelectorAll(".paper"), art) : -1;
+  if(act === "topic"){ var t = btn.dataset.topic;
+    if(state.topics[t]) delete state.topics[t]; else state.topics[t] = true; render(); return; }
+  if(act === "type"){ var c = btn.dataset.type;
+    if(state.types[c]) delete state.types[c]; else state.types[c] = true; render(); return; }
+  if(act === "tag"){ state.q = btn.dataset.tag; $("q").value = state.q; render(); return; }
+  if(!p) return;
+  if(act === "toggle"){ state.open[p.id] = !state.open[p.id];
+    if(state.open[p.id] && !state.read[p.id]){ state.read[p.id] = true; persist(); }
+    render(); if(rowIdx >= 0) focusRow(rowIdx); }
+  else if(act === "lang"){ state.en[p.id] = btn.dataset.lang === "en"; render(); if(rowIdx>=0) focusRow(rowIdx); }
+  else if(act === "read"){ if(state.read[p.id]) delete state.read[p.id]; else state.read[p.id] = true;
+    persist(); render(); if(rowIdx >= 0) focusRow(rowIdx); }
+  else if(act === "star"){ if(state.stars[p.id]) delete state.stars[p.id]; else state.stars[p.id] = true;
+    persist(); render(); if(rowIdx >= 0) focusRow(rowIdx); }
+  else if(act === "bib"){ copy(bibtex(p), "BibTeX 已复制"); }
+});
+["topicChips","typeChips"].forEach(function(id){
+  $(id).addEventListener("click", function(e){
+    var b = e.target.closest("[data-act]"); if(!b) return;
+    if(b.dataset.act === "topic"){ var t = b.dataset.topic;
+      if(state.topics[t]) delete state.topics[t]; else state.topics[t] = true; }
+    else { var c = b.dataset.type; if(state.types[c]) delete state.types[c]; else state.types[c] = true; }
+    render();
+  });
+});
+var qt;
+$("q").addEventListener("input", function(e){
+  clearTimeout(qt); var v = e.target.value;
+  qt = setTimeout(function(){ state.q = v.trim(); render(); }, 160);
+});
+$("minEv").addEventListener("change", function(e){ state.minEv = +e.target.value; render(); });
+$("minNov").addEventListener("change", function(e){ state.minNov = +e.target.value; render(); });
+$("artSel").addEventListener("change", function(e){ state.art = e.target.value; render(); });
+$("daySel").addEventListener("change", function(e){ state.day = e.target.value; render(); });
+$("sortBy").addEventListener("change", function(e){ state.sort = e.target.value; persist(); render(); });
+$("btnUnreadOnly").addEventListener("click", function(){ state.unreadOnly = !state.unreadOnly; if(state.unreadOnly) state.starOnly = false; render(); });
+$("btnStarOnly").addEventListener("click", function(){ state.starOnly = !state.starOnly; if(state.starOnly) state.unreadOnly = false; render(); });
+$("btnReset").addEventListener("click", function(){
+  state.topics = {}; state.types = {}; state.minEv = 0; state.minNov = 0; state.art = "";
+  state.day = ""; state.q = ""; $("q").value = ""; state.unreadOnly = false; state.starOnly = false; render();
+});
+$("btnMarkAll").addEventListener("click", function(){
+  currentList().forEach(function(p){ state.read[p.id] = true; });
+  persist(); render(); toast("已标记为已读");
+});
+$("btnExport").addEventListener("click", function(){
+  var list = currentList();
+  var out = ["---","tags: [arxiv, cs.SE]","source: paper-reading","---","","# arXiv cs.SE · " + (META.month||""),""];
+  list.forEach(function(p){
+    out.push("## " + p.title);
+    if(p.title_cn) out.push("**" + p.title_cn + "**", "");
+    out.push("- arXiv: [" + base(p.id) + "](" + p.url + ") · " + p.topic + " · " + (p.contribution_type||""));
+    out.push("- 证据强度 " + (p.evidence_strength||0) + "/5 — " + (p.evidence_note||""));
+    out.push("- 新颖性 " + (p.novelty||0) + "/5 — " + (p.novelty_note||""));
+    if(p.scope) out.push("- 适用边界: " + p.scope);
+    if(p.limitations) out.push("- 局限: " + p.limitations);
+    out.push("");
+    if(p.objective_summary) out.push(p.objective_summary, "");
+  });
+  var md = out.join("\n");
+  var blob = new Blob([md], {type:"text/markdown"});
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "arxiv-cs-se-" + (META.month||"") + ".md";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+});
+document.addEventListener("keydown", function(e){
+  if(e.key === "/" && document.activeElement !== $("q")){ e.preventDefault(); $("q").focus(); $("q").select(); return; }
+  if(e.key === "Escape"){ if(document.activeElement === $("q")) $("q").blur(); closeModal(); return; }
+  if(e.target.matches("input,select,textarea")) return;
+  if(e.key === "g"){ e.preventDefault(); toTop(); return; }
+  var rows = Array.prototype.slice.call(main.querySelectorAll(".paper"));
+  if(!rows.length) return;
+  if(e.key === "n" || e.key === "N"){ e.preventDefault(); jumpUnread(e.key === "n" ? 1 : -1); return; }
+  if(e.key === "j" || e.key === "k"){
+    e.preventDefault();
+    selectRow(Math.max(0, Math.min(rows.length-1, state.sel + (e.key === "j" ? 1 : -1))));
+    return;
+  }
+  var cur = rows[state.sel]; if(!cur) return;
+  var p = byId[cur.dataset.id]; if(!p) return;
+  if(e.key === "Enter" || e.key === "e"){ e.preventDefault(); state.open[p.id] = !state.open[p.id];
+    state.read[p.id] = true; persist(); var i = state.sel; render(); focusRow(i); }
+  else if(e.key === "o"){ window.open(p.url, "_blank", "noopener"); }
+  else if(e.key === "a"){ window.open("https://www.alphaxiv.org/abs/" + base(p.id), "_blank", "noopener"); }
+  else if(e.key === "A"){ window.open("https://www.alphaxiv.org/pdf/" + base(p.id), "_blank", "noopener"); }
+  else if(e.key === "s"){ if(state.stars[p.id]) delete state.stars[p.id]; else state.stars[p.id] = true;
+    persist(); var j = state.sel; render(); focusRow(j); }
+  else if(e.key === "r"){ if(state.read[p.id]) delete state.read[p.id]; else state.read[p.id] = true;
+    persist(); var k2 = state.sel; render(); focusRow(k2); }
+});
+function toTop(){ window.scrollTo({top:0, behavior:"smooth"}); }
+$("btnTop").addEventListener("click", toTop);
+function syncTopBtn(){ $("btnTop").hidden = (window.scrollY || document.documentElement.scrollTop || 0) < 400; }
+window.addEventListener("scroll", syncTopBtn, {passive:true});
+$("btnUnread").addEventListener("click", function(){ jumpUnread(1); });
+
+/* ---------------- GitHub gist 同步（数据存在读者自己账号里）---------------- */
+var GH = { token:"", gist:"", user:"" };
+try{ var g = JSON.parse(localStorage.getItem(TLS) || "{}");
+     GH.token = g.token || ""; GH.gist = g.gist || ""; GH.user = g.user || ""; }catch(e){}
+function ghSave(){ try{ localStorage.setItem(TLS, JSON.stringify(GH)); }catch(e){} }
+function ghState(msg){ $("syncState").textContent = "进度：" + msg; }
+function api(path, opts){
+  opts = opts || {};
+  return fetch("https://api.github.com" + path, {
+    method: opts.method || "GET",
+    headers: { "Authorization": "Bearer " + GH.token, "Accept": "application/vnd.github+json" },
+    body: opts.body ? JSON.stringify(opts.body) : undefined
+  }).then(function(r){
+    if(!r.ok) return r.text().then(function(t){ throw new Error(r.status + " " + t.slice(0,120)); });
+    return r.json();
+  });
+}
+var FNAME = "paper-reading-progress.json";
+function payload(){ return { read: keys(state.read), stars: keys(state.stars), updated: new Date().toISOString() }; }
+function pushProgress(){
+  if(!GH.token || !GH.gist) return;
+  var files = {}; files[FNAME] = { content: JSON.stringify(payload(), null, 1) };
+  api("/gists/" + GH.gist, { method:"PATCH", body:{ files: files } })
+    .then(function(){ ghState("已同步到你的 gist"); })
+    .catch(function(e){ ghState("同步失败 — " + e.message.slice(0,40)); });
+}
+function pullProgress(){
+  return api("/gists/" + GH.gist).then(function(g){
+    var f = g.files && g.files[FNAME];
+    if(!f || !f.content) return;
+    var d = JSON.parse(f.content);
+    (d.read||[]).forEach(function(id){ state.read[id] = true; });
+    (d.stars||[]).forEach(function(id){ state.stars[id] = true; });
+    try{ localStorage.setItem(LS, JSON.stringify({read:state.read, stars:state.stars, sort:state.sort})); }catch(e){}
+  });
+}
+function connect(token){
+  GH.token = token;
+  return api("/user").then(function(u){
+    GH.user = u.login;
+    return api("/gists?per_page=100");
+  }).then(function(list){
+    var found = list.filter(function(g){ return g.files && g.files[FNAME]; })[0];
+    if(found){ GH.gist = found.id; return pullProgress(); }
+    var files = {}; files[FNAME] = { content: JSON.stringify(payload(), null, 1) };
+    return api("/gists", { method:"POST", body:{ description:"paper-reading 阅读进度", public:false, files:files } })
+      .then(function(g){ GH.gist = g.id; });
+  }).then(function(){
+    ghSave(); ghState("已连接 @" + GH.user); render(); closeModal();
+    toast("已连接 GitHub，进度存在你自己的 private gist 里");
+  });
+}
+var modal = null;
+function closeModal(){ if(modal){ modal.remove(); modal = null; } }
+function openSync(){
+  closeModal();
+  modal = document.createElement("div");
+  modal.className = "modal";
+  var connected = GH.token && GH.gist;
+  modal.innerHTML = '<div class="modal-in">' +
+    '<h2>跨设备同步阅读进度</h2>' +
+    (connected
+      ? '<p>当前已连接 <code>@' + esc(GH.user) + '</code>，进度保存在你自己账号下的一个 private gist。</p>' +
+        '<div class="modal-acts"><button class="btn" id="mPull">从 gist 拉取</button>' +
+        '<button class="btn" id="mPush">立即上传</button>' +
+        '<button class="btn" id="mOut">断开并清除 token</button></div>'
+      : '<p>默认情况下，你的已读和收藏只存在这台设备的浏览器里。想跨设备就连一个你自己的 GitHub 账号——' +
+        '进度会写进<strong>你自己</strong>账号下的一个 private gist，本站没有后端，拿不到也不保存任何人的数据。</p>' +
+        '<ol><li>打开 <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">GitHub → Fine-grained tokens</a></li>' +
+        '<li>Generate new token，把 <code>Account permissions → Gists</code> 设成 <code>Read and write</code></li>' +
+        '<li>其他权限都不用给，生成后粘贴到下面</li></ol>' +
+        '<input id="mTok" type="password" placeholder="github_pat_… 或 ghp_…" autocomplete="off">' +
+        '<div class="modal-acts"><button class="btn primary" id="mGo">连接</button>' +
+        '<button class="btn" id="mCancel">取消</button></div>' +
+        '<p class="note-warn">token 只存在这台设备的 localStorage，只会发给 api.github.com。' +
+        '任何时候都可以在 GitHub 页面直接吊销。</p>') +
+    "</div>";
+  document.body.appendChild(modal);
+  modal.addEventListener("click", function(e){ if(e.target === modal) closeModal(); });
+  if(connected){
+    $("mPull").onclick = function(){ pullProgress().then(function(){ render(); closeModal(); toast("已从 gist 拉取"); },
+      function(e){ toast("拉取失败：" + e.message.slice(0,50)); }); };
+    $("mPush").onclick = function(){ pushProgress(); closeModal(); };
+    $("mOut").onclick = function(){ GH = {token:"",gist:"",user:""}; ghSave(); ghState("本机"); closeModal(); toast("已断开"); };
+  }else{
+    $("mCancel").onclick = closeModal;
+    $("mGo").onclick = function(){
+      var v = $("mTok").value.trim();
+      if(!v){ toast("请先粘贴 token"); return; }
+      $("mGo").textContent = "连接中…"; $("mGo").disabled = true;
+      connect(v).catch(function(e){
+        $("mGo").textContent = "连接"; $("mGo").disabled = false;
+        toast("连接失败：" + e.message.slice(0,60));
+      });
+    };
+  }
+}
+$("btnSync").addEventListener("click", openSync);
+
+/* ---------------- boot ---------------- */
+fetch("data/papers.json").then(function(r){ return r.json(); }).then(function(ps){
+  PAPERS = ps;
+  ps.forEach(function(p){ byId[p.id] = p; });
+  return fetch("data/meta.json").then(function(r){ return r.json(); });
+}).then(function(m){
+  META = m;
+  $("brandMeta").textContent = (m.month || "") + " · " + (m.count || 0) + " 篇";
+  $("daySel").innerHTML = '<option value="">全部</option>' +
+    (m.days||[]).map(function(d){ return '<option value="' + d + '">' + d + "</option>"; }).join("");
+  if(GH.token && GH.gist){
+    ghState("同步中…");
+    pullProgress().then(function(){ ghState("已连接 @" + GH.user); render(); },
+                        function(){ ghState("同步失败，用本机数据"); render(); });
+  }
+  render();
+}).catch(function(e){
+  main.innerHTML = '<div class="empty">数据载入失败：' + esc(e.message) + "</div>";
+});
+})();
+</script>
+</body>
+</html>

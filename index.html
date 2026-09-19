@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paper Reading</title>
+<meta name="description" content="论文合集：中文摘要 + 只依据论文内容的客观评价。">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@0,400;0,500;0,600&display=swap">
+<style>
+:root{
+  --bg:#FAF7F5; --surface:#FFFFFF; --surface-2:#F2EDEA; --border:#E4DBD6; --border-strong:#CFC2BB;
+  --ink:#1B1614; --ink-2:#4C433E; --muted:#877B75; --accent:#B31B1B; --accent-soft:#F7E6E3;
+  --shadow:0 1px 2px rgba(27,22,20,.05), 0 8px 24px -16px rgba(27,22,20,.25);
+  --sans:"IBM Plex Sans","PingFang SC","Hiragino Sans GB",system-ui,sans-serif;
+  --serif:"IBM Plex Serif","Songti SC",Georgia,serif;
+  --mono:"IBM Plex Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151211; --surface:#1D1918; --surface-2:#262120; --border:#352F2C; --border-strong:#4B423E;
+  --ink:#F0EAE6; --ink-2:#CABFB9; --muted:#968B85; --accent:#E4695B; --accent-soft:#3A211E;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+}}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:14px; line-height:1.7;
+  margin:0; -webkit-font-smoothing:antialiased}
+a{color:var(--accent); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:780px; margin:0 auto; padding:56px 20px 90px}
+.mark{font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600}
+h1{font-family:var(--serif); font-size:30px; line-height:1.25; margin:10px 0 14px; font-weight:600; letter-spacing:-.01em}
+.lede{font-size:15px; color:var(--ink-2); max-width:44em; margin:0 0 10px}
+.lede code{font-family:var(--mono); font-size:13px; background:var(--surface-2); padding:1px 5px; border-radius:3px}
+h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  margin:44px 0 14px; font-weight:600}
+.card{display:block; background:var(--surface); border:1px solid var(--border); border-radius:11px;
+  padding:20px 22px; margin-bottom:14px; box-shadow:var(--shadow); color:inherit}
+.card:hover{border-color:var(--border-strong); text-decoration:none}
+.card h3{font-family:var(--serif); font-size:18px; margin:0 0 6px; font-weight:600; color:var(--ink)}
+.card p{margin:0; color:var(--ink-2); font-size:13.4px}
+.card .meta{display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; padding-top:11px; border-top:1px dashed var(--border)}
+.card .meta span{font-family:var(--mono); font-size:11.5px; color:var(--muted)}
+.card .meta b{color:var(--ink); font-size:13.5px; margin-right:3px}
+.soon{opacity:.62; border-style:dashed; cursor:default}
+.soon:hover{border-color:var(--border)}
+.pill{display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.05em; padding:2px 7px;
+  border-radius:20px; border:1px solid var(--border-strong); color:var(--muted); margin-left:8px; vertical-align:2px}
+.rubric{background:var(--surface); border:1px solid var(--border); border-radius:11px; padding:18px 22px}
+.rubric dl{display:grid; grid-template-columns:auto minmax(0,1fr); gap:9px 16px; margin:0; font-size:13.2px}
+.rubric dt{font-weight:600; color:var(--ink); white-space:nowrap}
+.rubric dd{margin:0; color:var(--ink-2)}
+.foot{margin-top:52px; padding-top:18px; border-top:1px solid var(--border); font-size:12.5px; color:var(--muted)}
+@media (max-width:620px){ .wrap{padding:36px 16px 70px} h1{font-size:25px} .rubric dl{grid-template-columns:minmax(0,1fr); gap:2px} .rubric dt{margin-top:9px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">Paper Reading</div>
+  <h1>论文合集与客观评价</h1>
+  <p class="lede">每篇论文配中文标题、中文摘要，以及一份<strong>只依据论文自身内容</strong>的评价：
+  它拿出了什么证据、新在哪里、结论在什么范围内成立、有什么局限。</p>
+  <p class="lede">这里的评分<em>不是</em>「值不值得读」——那取决于你在做什么。评分只描述论文本身。</p>
+
+  <h2>合集</h2>
+  <a class="card" href="collections/arxiv-se-2026-09/">
+    <h3>arXiv cs.SE · 2026 年 9 月</h3>
+    <p>软件工程方向当月全部论文，按证据强度、新颖性、贡献类型、主题可筛可排。</p>
+    <div class="meta" id="seMeta"><span>载入中…</span></div>
+  </a>
+  <div class="card soon">
+    <h3>AI 论文合集 <span class="pill">规划中</span></h3>
+    <p>同一套客观评价口径，之后接入。</p>
+  </div>
+
+  <h2>评价口径</h2>
+  <div class="rubric"><dl>
+    <dt>贡献类型</dt><dd>新方法 / 新工具 / 基准数据集 / 实证研究 / 综述 / 立场 / 理论 / 复现</dd>
+    <dt>证据强度 1–5</dt><dd>只看样本与数据规模、是否有 baseline 与对照、是否做统计检验、是否多设置复现</dd>
+    <dt>新颖性 1–5</dt><dd>相对已有工作：提出了此前没有的问题/方法/发现，还是已有方向上的改进</dd>
+    <dt>适用边界</dt><dd>结论在什么语言、数据集、模型、规模下成立</dd>
+    <dt>局限</dt><dd>作者自陈的，或从方法上明显可见的主要限制</dd>
+    <dt>Artifact</dt><dd>代码或数据是否公开</dd>
+  </dl></div>
+
+  <h2>阅读进度</h2>
+  <div class="rubric">
+    <p style="margin:0 0 8px; color:var(--ink-2); font-size:13.2px">
+    已读和收藏默认只存在你自己的浏览器里。想跨设备，可以在合集页点「同步」，
+    贴一个你自己的 GitHub fine-grained token（只需 Gists 读写权限），
+    进度就写进<strong>你自己账号下的一个 private gist</strong>。</p>
+    <p style="margin:0; color:var(--muted); font-size:12.5px">
+    本站是纯静态页面，没有后端、没有数据库、不做任何统计。你的 token 只存在本机，只会发往 api.github.com。</p>
+  </div>
+
+  <div class="foot">
+    数据来自 <a href="https://arxiv.org/list/cs.SE/recent" target="_blank" rel="noopener">arXiv cs.SE</a>，
+    翻译与评价由模型生成，可能有误，请以论文原文为准。
+    <span id="gen"></span>
+  </div>
+</div>
+<script>
+fetch("collections/arxiv-se-2026-09/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
+  var t = m.topics || {}, top = Object.keys(t).slice(0,1)[0];
+  document.getElementById("seMeta").innerHTML =
+    '<span><b>' + m.count + '</b>篇</span>' +
+    '<span><b>' + (m.days||[]).length + '</b>个公告日</span>' +
+    (top ? '<span>最多：' + top + ' ' + t[top] + ' 篇</span>' : '') +
+    '<span>更新于 ' + (m.generated||"").slice(0,10) + '</span>';
+  document.getElementById("gen").textContent = "最后更新 " + (m.generated||"").slice(0,10) + "。";
+}).catch(function(){
+  document.getElementById("seMeta").innerHTML = '<span>数据未载入</span>';
+});
+</script>
+</body>
+</html>

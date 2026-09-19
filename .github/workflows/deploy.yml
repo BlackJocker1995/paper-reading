@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+# 只负责部署。抓取和 AI 标注在本地跑（见 README），
+# 所以这里不需要任何 API key，仓库里也不放密钥。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sanity-check published data
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, sys
+          # 私人字段绝不允许出现在公开数据里
+          BLOCKED = {"relevance", "why", "headline", "overview_cn", "picks", "skip"}
+          bad = []
+          for f in pathlib.Path("collections").rglob("data/papers.json"):
+              papers = json.loads(f.read_text(encoding="utf-8"))
+              leaked = {k for p in papers for k in p} & BLOCKED
+              if leaked:
+                  bad.append(f"{f}: {sorted(leaked)}")
+              print(f"{f}: {len(papers)} papers, ok")
+          if bad:
+              sys.exit("私人字段泄漏到公开数据里了:\n" + "\n".join(bad))
+          PY
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deploy
+        uses: actions/deploy-pages@v4
