@@ -26,7 +26,12 @@ VAULT=/path/to/vault python3 tools/build_site.py --month 2026-09
 | 目录 | 内容 | 评价口径 |
 |---|---|---|
 | `collections/arxiv-se-2026-09/` | arXiv cs.SE 日榜，按公告日分榜 | 证据强度 / 新颖性 / 贡献类型 |
+| `collections/arxiv-cr-2026-09/` | arXiv cs.CR 日榜，同上结构 | 同上 |
 | `collections/ai-venues/` | ICLR·ICML·NeurIPS 九届 36,237 篇 | T1–T5 分级 / A1–A12 原型 |
+
+**cs.CR 的页面是生成的，不要手改。** `collections/arxiv-cr-2026-09/index.html` 由
+`python3 tools/make_cr_page.py` 从 cs.SE 页整份生成（16 处替换，每处必须恰好命中一次）。
+改页面只改 cs.SE 那份，然后跑一次生成器。两边分别手改一定会漂移——已经发生过一次。
 
 **两套口径不要强行统一。** cs.SE 那套在 `Scripts/arxiv_objective.py`（vault 里）；
 AI 合集的 T1–T5 定义内嵌在它自己的数据里，是独立构建的一套体系，合并会毁掉它。

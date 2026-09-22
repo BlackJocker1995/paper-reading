@@ -57,6 +57,9 @@ img{max-width:100%}
   backdrop-filter:blur(8px); border-bottom:1px solid var(--border)}
 .topbar-in{max-width:1180px; margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
 .brand{display:flex; align-items:baseline; gap:8px; min-width:0}
+.brand-home{display:flex; align-items:baseline; gap:8px; color:inherit}
+.brand-home:hover{text-decoration:none}
+.brand-home:hover .brand-name{color:var(--accent)}
 .brand-mark{font-family:var(--mono); font-weight:600; font-size:15px; color:var(--accent)}
 .brand-name{font-family:var(--serif); font-weight:600; font-size:17px}
 .brand-meta{font-family:var(--mono); font-size:11px; color:var(--muted); white-space:nowrap}
@@ -82,7 +85,23 @@ img{max-width:100%}
 .d-date{font-family:var(--mono); font-size:12.5px; color:var(--ink-2)}
 .d-wd{font-size:11px; color:var(--muted)}
 .d-n{margin-left:auto; font-family:var(--mono); font-size:11px; color:var(--muted); font-variant-numeric:tabular-nums}
-.d-new{width:4px; height:4px; border-radius:50%; background:var(--accent); display:inline-block; margin-left:4px}
+/* 阅读进度环：中间挖空成圆环，已读那段是实色弧，未读那段是同色浅底，整圈读完就是绿的。
+   篇数不占版面，挂在整行的 title 上悬停看。--p 是 0-100 的已读百分比，render 时写在行内。
+   不支持 color-mix 的引擎走下面这条：纯 accent 实心环，不至于留个空白。
+   （--c 失效是「计算值时无效」，会让整条 background 变成 unset，同规则里的前置声明救不回来，
+     所以降级只能靠 @supports 而不是声明顺序。） */
+.d-prog{--p:0; --w:2.5px;
+  width:11px; height:11px; border-radius:50%; display:inline-block; margin-left:5px; vertical-align:-1.5px;
+  background:var(--accent);
+  -webkit-mask:radial-gradient(farthest-side, transparent calc(100% - var(--w)), #000 calc(100% - var(--w)));
+  mask:radial-gradient(farthest-side, transparent calc(100% - var(--w)), #000 calc(100% - var(--w)))}
+/* 轨道色掺的是底色不是透明度：26% 透明时一篇没读的那天只有 1.5:1 对比度，
+   会变成整列里最不显眼的一行——正好和「提醒你还没读」反着来。75% 实混在明暗两套配色下都过 3:1。 */
+@supports (color: color-mix(in oklch, red, blue)){
+  .d-prog{--c:color-mix(in oklch, var(--good) calc(var(--p) * 1%), var(--accent));
+    --t:color-mix(in srgb, var(--c) 75%, var(--bg));
+    background:conic-gradient(var(--c) calc(var(--p) * 1%), var(--t) 0)}
+}
 .rank{position:absolute; left:-2px; top:14px; font-family:var(--mono); font-size:10px; font-weight:600;
   color:var(--bg); background:var(--accent); border-radius:3px; padding:1px 4px; letter-spacing:.02em}
 .paper.top{padding-left:24px}
@@ -143,15 +162,15 @@ img{max-width:100%}
 .p-title-cn{font-size:13px; color:var(--ink-2); margin-top:2px}
 .p-meta{display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:6px; font-size:11.5px; color:var(--muted)}
 .p-id{font-family:var(--mono); font-size:11px; color:var(--muted)}
-/* 一作机构：只作事实展示，不参与排序与筛选。长名字截断，悬停看全称 */
-.inst{color:var(--ink-2); max-width:20em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+/* 一作机构：比同行其他元信息显眼一档（正文色 + 半粗），但不做成 badge——
+   它是论文的事实属性，不是可点的筛选项，也不参与排序。长名字截断，悬停看全称。 */
+.inst{color:var(--ink); font-weight:600; max-width:20em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .inst::before{content:"· "; color:var(--muted)}
 .badge{font-family:var(--mono); font-size:10px; padding:1px 6px; border-radius:3px; border:1px solid var(--border);
   color:var(--ink-2); background:var(--surface-2); white-space:nowrap}
 .badge.type{border-color:var(--accent-line); color:var(--accent); background:var(--accent-soft)}
 .badge.venue{border-color:var(--border-strong)}
 .badge.star{border-color:var(--gold); color:var(--gold); background:var(--gold-soft)}
-.badge.art{border-color:var(--good); color:var(--good)}
 .p-sum{font-size:13.5px; line-height:1.75; color:var(--ink-2); margin-top:8px; max-width:46em}
 .scores{display:flex; flex-wrap:wrap; gap:16px; margin-top:9px}
 .score{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--muted)}
@@ -226,7 +245,8 @@ img{max-width:100%}
 <div class="topbar">
   <div class="topbar-in">
     <div class="brand">
-      <span class="brand-mark">arXiv</span><span class="brand-name">cs.SE</span>
+      <a class="brand-home" href="../../" title="返回合集总览"
+        ><span class="brand-mark">arXiv</span><span class="brand-name">cs.SE</span></a>
       <span class="brand-meta" id="brandMeta">2026-09</span>
     </div>
     <div class="grow"></div>
@@ -386,12 +406,14 @@ function paperRow(p, i, total){
   h += '<div class="p-meta"><span class="p-id">' + esc(p.id) + "</span>";
   h += '<span class="badge" data-act="topic" data-topic="' + esc(p.topic) + '">' + esc(p.topic) + "</span>";
   if(p.contribution_type) h += '<span class="badge type" data-act="type" data-type="' + esc(p.contribution_type) + '">' + esc(p.contribution_type) + "</span>";
-  if(p.artifact === "公开") h += '<span class="badge art">artifact 公开</span>';
   if(p.venue) h += '<span class="badge venue">' + esc(p.venue) + "</span>";
   if(state.stars[p.id]) h += '<span class="badge star">★</span>';
   if(p.day) h += '<span class="p-id">' + esc(p.day) + "</span>";
   var a = p.authors || [];
-  if(a.length) h += "<span>" + esc(a.slice(0,3).join(", ") + (a.length > 3 ? " 等 " + a.length + " 人" : "")) + "</span>";
+  // 末位作者通常是通讯/资深作者，值得和前几位一起露出，中间省略
+  if(a.length) h += "<span>" + esc(a.length > 4
+      ? a.slice(0,3).join(", ") + " … " + a[a.length-1] + "（共 " + a.length + " 人）"
+      : a.join(", ")) + "</span>";
   if(p.institution) h += '<span class="inst" title="一作机构：' + esc(p.institution) + '">' + esc(p.institution) + "</span>";
   h += "</div>";
   if(p.objective_summary) h += '<div class="p-sum">' + esc(p.objective_summary) + "</div>";
@@ -446,11 +468,16 @@ function render(){
   $("btnUnreadOnly").classList.toggle("on", state.unreadOnly);
   $("dayBox").hidden = state.view !== "day";
   $("dayList").innerHTML = DAYS.map(function(d){
+    var tot = dayCount[d] || 0;
     var un = PAPERS.filter(function(p){ return p.day === d && !state.read[p.id]; }).length;
+    var done = tot - un;
+    var pct = tot ? Math.round(done / tot * 100) : 0;
+    var tip = done + "/" + tot + " 已读" + (un ? "，还剩 " + un + " 篇" : "，这一榜读完了");
     return '<button class="daybtn' + (state.view === "day" && d === state.day ? " on" : "") +
-      '" data-act="goday" data-date="' + d + '"><span class="d-date">' + d.slice(5) +
-      '</span><span class="d-wd">' + wd(d) + '</span><span class="d-n">' + (dayCount[d]||0) +
-      (un ? '<span class="d-new" title="' + un + ' 篇未读"></span>' : "") + "</span></button>";
+      '" data-act="goday" data-date="' + d + '" title="' + esc(tip) + '"><span class="d-date">' + d.slice(5) +
+      '</span><span class="d-wd">' + wd(d) + '</span><span class="d-n">' + tot +
+      (tot ? '<span class="d-prog" style="--p:' + pct + '"></span>' : "") +
+      "</span></button>";
   }).join("");
   Array.prototype.forEach.call($("views").children, function(b){
     b.classList.toggle("on", b.dataset.view === state.view); });
