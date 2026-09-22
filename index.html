@@ -76,6 +76,12 @@ h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:
     密码协议、隐私。同样按<strong>证据强度 + 新颖性</strong>排序，配中文摘要与逐篇客观评价。</p>
     <div class="meta" id="crMeta"><span>载入中…</span></div>
   </a>
+  <a class="card" href="collections/se-venues/">
+    <h3>SE 四大会 · ICSE / FSE / ASE / ISSTA 2026<span class="pill">会议</span></h3>
+    <p>软工四大会 2026 研究轨道的<strong>全部录用论文</strong>，按 12 个主题 / 52 个子题组织；
+    每篇配中文标题、一句话概括与摘要中译，可按会议与主题筛选、全文检索。</p>
+    <div class="meta" id="seVenueMeta"><span>载入中…</span></div>
+  </a>
   <a class="card" href="collections/ai-venues/">
     <h3>AI Venue Ledger · ICLR / ICML / NeurIPS</h3>
     <p>九届主会 36,237 篇，按 16 个领域 / 84 个子领域组织；带 oral·spotlight 荣誉、
@@ -111,6 +117,14 @@ h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:
   </div>
 </div>
 <script>
+fetch("collections/se-venues/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
+  var bv = m.by_venue || {};
+  document.getElementById("seVenueMeta").innerHTML =
+    '<span><b>' + m.count.toLocaleString() + '</b>篇</span>' +
+    '<span><b>' + (m.venues||[]).length + '</b>个会议</span>' +
+    '<span>已中译 ' + (m.translated||0).toLocaleString() + '</span>' +
+    '<span>杰出论文 ' + (m.awards||0) + '</span>';
+}).catch(function(){ document.getElementById("seVenueMeta").innerHTML = '<span>数据未载入</span>'; });
 fetch("collections/ai-venues/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
   document.getElementById("aiMeta").innerHTML =
     '<span><b>' + m.count.toLocaleString() + '</b>篇</span>' +

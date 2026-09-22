@@ -1,0 +1,585 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>SE 四大会 · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+:root{
+  --ground:#f3f6f6;
+  --surface:#ffffff;
+  --surface-2:#eceff0;
+  --ink:#13181b;
+  --ink-2:#3d4850;
+  --muted:#68757d;
+  --line:#d9e0e2;
+  --line-soft:#e6ebec;
+  --se:#0f6e66;
+  --se-soft:#dceceb;
+  --ai:#9c2f52;
+  --ai-soft:#f6e2e7;
+  --gold:#8a6a12;
+  --focus:#0f6e66;
+  --shadow:0 1px 2px rgba(19,24,27,.06),0 8px 24px -16px rgba(19,24,27,.28);
+  --cjk:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0d1114;
+    --surface:#151a1e;
+    --surface-2:#1c2328;
+    --ink:#e4e9eb;
+    --ink-2:#b3bfc5;
+    --muted:#8697a0;
+    --line:#2a343a;
+    --line-soft:#222b30;
+    --se:#4cb5a9;
+    --se-soft:#12322f;
+    --ai:#e2778f;
+    --ai-soft:#361a23;
+    --gold:#c9a441;
+    --focus:#4cb5a9;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0d1114;
+  --surface:#151a1e;
+  --surface-2:#1c2328;
+  --ink:#e4e9eb;
+  --ink-2:#b3bfc5;
+  --muted:#8697a0;
+  --line:#2a343a;
+  --line-soft:#222b30;
+  --se:#4cb5a9;
+  --se-soft:#12322f;
+  --ai:#e2778f;
+  --ai-soft:#361a23;
+  --gold:#c9a441;
+  --focus:#4cb5a9;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--sans);font-size:14px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.zh{font-family:var(--cjk)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:3px}
+a{color:var(--se);text-underline-offset:2px}
+
+/* ---------- masthead ---------- */
+.topbar{position:sticky;top:0;z-index:30;background:var(--surface);
+  border-bottom:1px solid var(--line)}
+.mast{background:var(--surface)}
+.mast-in{
+  max-width:1560px;margin:0 auto;padding-block:14px;padding-left:20px;padding-right:20px;
+  display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 28px;
+}
+.brand-home{color:inherit;text-decoration:none}
+.brand-home:hover{color:var(--se)}
+.brand h1{
+  font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.1;margin:0;
+  letter-spacing:-.012em;text-wrap:balance;
+}
+.brand .sub{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin-top:5px;
+}
+.counts{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto;align-items:flex-end}
+.count{display:flex;flex-direction:column;gap:1px}
+.count b{font-family:var(--mono);font-size:17px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1}
+.count span{font-size:10.5px;color:var(--muted);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.count.se b{color:var(--se)}
+
+/* ---------- controls ---------- */
+.controls{border-top:1px solid var(--line-soft);background:var(--surface)}
+.controls-in{
+  max-width:1560px;margin:0 auto;padding-block:10px;padding-left:20px;padding-right:20px;
+  display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;
+}
+.search{
+  flex:1 1 260px;min-width:0;display:flex;align-items:center;gap:8px;
+  background:var(--ground);border:1px solid var(--line);border-radius:2px;padding:6px 10px;
+}
+.search input{border:0;background:transparent;outline:none;width:100%;font-size:13.5px}
+.search input::placeholder{color:var(--muted)}
+.search kbd{
+  font-family:var(--mono);font-size:10px;color:var(--muted);
+  border:1px solid var(--line);border-radius:2px;padding:1px 4px;flex:none;
+}
+.chips{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.chips .lbl{
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);margin-right:2px;
+}
+.chip{
+  font-family:var(--mono);font-size:11px;letter-spacing:.02em;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+  padding:3px 8px;border-radius:2px;cursor:pointer;white-space:nowrap;
+  transition:background .12s,border-color .12s,color .12s;
+}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.chip.se[aria-pressed="true"]{background:var(--se);border-color:var(--se);color:#fff}
+.chip.ai[aria-pressed="true"]{background:var(--ai);border-color:var(--ai);color:#fff}
+
+/* ---------- shell ---------- */
+.shell{
+  max-width:1560px;margin:0 auto;padding-block:20px;padding-left:20px;padding-right:20px;
+  display:grid;grid-template-columns:320px minmax(0,1fr);gap:26px;align-items:start;
+}
+
+/* ---------- rail ---------- */
+.rail{position:sticky;top:calc(var(--topbar,112px) + 12px);max-height:calc(100vh - var(--topbar,112px) - 30px);overflow-y:auto;padding-right:4px}
+.rail::-webkit-scrollbar{width:8px}
+.rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.rail-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+  padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:10px;
+}
+.rail-head h2{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin:0;font-weight:500;
+}
+.allbtn{
+  background:none;border:0;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--se);
+  padding:0;text-decoration:underline;text-underline-offset:2px;
+}
+.theme{margin-bottom:2px}
+.theme-btn{
+  width:100%;display:flex;align-items:center;gap:8px;text-align:left;
+  background:none;border:0;cursor:pointer;padding:7px 6px 7px 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.theme-btn:hover .theme-zh{color:var(--se)}
+.tw{
+  flex:none;width:4px;align-self:stretch;border-radius:1px;background:var(--line);
+}
+.theme[data-scope="SE"] .tw{background:var(--se)}
+.theme[data-scope="AI"] .tw{background:var(--ai)}
+.theme[data-scope="both"] .tw{background:linear-gradient(var(--se),var(--ai))}
+.theme-txt{flex:1;min-width:0}
+.theme-zh{font-family:var(--cjk);font-size:13.5px;font-weight:500;line-height:1.35}
+.theme-en{display:block;font-size:10.5px;color:var(--muted);font-family:var(--mono);letter-spacing:.01em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.theme-zh{display:block}
+.theme-n{
+  font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none;
+}
+.caret{flex:none;width:9px;color:var(--muted);font-size:9px;transition:transform .15s}
+.theme[data-open="1"] .caret{transform:rotate(90deg)}
+.topics{display:none;padding:4px 0 8px 12px}
+.theme[data-open="1"] .topics{display:block}
+.topic-btn{
+  width:100%;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center;
+  background:none;border:0;cursor:pointer;text-align:left;padding:4px 6px;border-radius:2px;
+}
+.topic-btn:hover{background:var(--surface-2)}
+.topic-btn[aria-current="true"]{background:var(--se-soft)}
+.topic-btn[aria-current="true"] .topic-zh{color:var(--se);font-weight:600}
+.topic-zh{font-family:var(--cjk);font-size:12.5px;line-height:1.4}
+.topic-n{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{grid-column:1/-1;height:2px;background:var(--line-soft);border-radius:1px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--se);opacity:.5}
+.topic-btn[aria-current="true"] .bar i{opacity:1}
+
+/* ---------- main ---------- */
+.head{
+  display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 16px;
+  padding-bottom:10px;border-bottom:2px solid var(--ink);margin-bottom:2px;
+}
+.head h2{font-family:var(--cjk);font-size:19px;font-weight:600;margin:0;line-height:1.3}
+.head .en{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.03em}
+.head .n{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.head-def{
+  font-family:var(--cjk);font-size:12.5px;color:var(--ink-2);line-height:1.65;
+  padding:9px 0 2px;max-width:78ch;
+}
+.head-kw{display:flex;gap:5px;flex-wrap:wrap;padding-bottom:12px}
+.kw{font-family:var(--mono);font-size:10px;color:var(--muted);border:1px solid var(--line-soft);
+  padding:1px 5px;border-radius:2px}
+
+.list{display:flex;flex-direction:column;gap:0}
+.row{border-bottom:1px solid var(--line-soft);background:transparent}
+.row-btn{
+  width:100%;background:none;border:0;cursor:pointer;text-align:left;
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 12px;padding:13px 4px;
+}
+.row-btn:hover .ti{color:var(--se)}
+.row-btn{-webkit-user-select:text;user-select:text}
+.ti,.ti-zh,.tldr,.au{cursor:text}
+.row-toggle{
+  grid-column:2;justify-self:start;margin-top:6px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line);background:var(--surface);
+  padding:2px 8px;border-radius:2px;cursor:pointer;
+}
+.row-toggle:hover{border-color:var(--se);color:var(--se)}
+.row[data-open="1"] .row-toggle{border-color:var(--se);color:var(--se)}
+.meta{
+  grid-column:1;grid-row:1/span 4;display:flex;flex-direction:column;gap:5px;align-items:flex-start;
+  width:104px;flex:none;padding-top:2px;
+}
+.ven{
+  font-family:var(--mono);font-size:10px;letter-spacing:.03em;padding:2px 6px;border-radius:2px;
+  border:1px solid;white-space:nowrap;
+}
+.ven.se{color:var(--se);border-color:var(--se);background:var(--se-soft)}
+.ven.ai{color:var(--ai);border-color:var(--ai);background:var(--ai-soft)}
+.kind{font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.kind-sub{opacity:.7}
+.award{font-family:var(--mono);font-size:9.5px;color:var(--gold);letter-spacing:.03em;line-height:1.3}
+.ti{
+  grid-column:2;font-family:var(--serif);font-size:16.5px;font-weight:500;line-height:1.32;
+  letter-spacing:-.005em;text-wrap:pretty;transition:color .12s;
+}
+.ti-zh{grid-column:2;font-family:var(--cjk);font-size:13px;color:var(--ink-2);line-height:1.45}
+.tldr{grid-column:2;font-family:var(--cjk);font-size:12px;color:var(--muted);line-height:1.5;padding-top:2px}
+.rowtags{grid-column:2;display:flex;gap:5px;flex-wrap:wrap;align-items:center;padding-top:5px}
+.tag{font-family:var(--mono);font-size:9.5px;color:var(--muted);border:1px solid var(--line);
+  padding:1px 5px;border-radius:2px;white-space:nowrap}
+.au{font-family:var(--sans);font-size:11.5px;color:var(--muted);line-height:1.4}
+
+.panel{padding:0 4px 20px 120px;display:grid;grid-template-columns:1fr 1fr;gap:0 28px;align-items:start}
+.panel h4{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 7px;font-weight:500;padding-bottom:5px;border-bottom:1px solid var(--line-soft);
+}
+.abs{font-size:13.5px;line-height:1.72;color:var(--ink-2);max-width:68ch}
+.authors-full{grid-column:1/-1;margin-bottom:14px}
+.au-list{font-size:12.5px;line-height:1.7;color:var(--ink-2);max-width:100ch}
+.abs.zh{font-family:var(--cjk);font-size:13.5px;line-height:1.85}
+.nope{font-family:var(--cjk);font-size:12.5px;color:var(--muted);font-style:normal;
+  border-left:2px solid var(--line);padding-left:10px}
+.foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;
+  padding-top:14px;margin-top:14px;border-top:1px solid var(--line-soft)}
+.foot a{font-family:var(--mono);font-size:11px}
+.foot .note{font-family:var(--cjk);font-size:11.5px;color:var(--muted)}
+.foot .pid{font-family:var(--mono);font-size:10px;color:var(--muted);margin-left:auto}
+
+.more{
+  display:block;width:100%;margin-top:16px;padding:11px;background:var(--surface);
+  border:1px solid var(--line);border-radius:2px;cursor:pointer;
+  font-family:var(--mono);font-size:12px;color:var(--ink-2);
+}
+.more:hover{border-color:var(--muted)}
+.empty{padding:44px 4px;font-family:var(--cjk);color:var(--muted);font-size:13.5px}
+
+/* ---------- overview ---------- */
+.ov{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:1px;background:var(--line-soft);
+  border:1px solid var(--line-soft)}
+.ov-card{background:var(--surface);padding:15px 16px 16px;display:flex;flex-direction:column;gap:9px;
+  text-align:left;border:0;cursor:pointer;font:inherit;color:inherit}
+.ov-card:hover{background:var(--surface-2)}
+.ov-top{display:flex;align-items:baseline;gap:8px}
+.ov-top .zh{font-family:var(--cjk);font-size:14.5px;font-weight:600;line-height:1.3}
+.ov-top .n{margin-left:auto;font-family:var(--mono);font-size:15px;font-variant-numeric:tabular-nums;flex:none}
+.ov-card[data-scope="SE"] .ov-top .n{color:var(--se)}
+.ov-card[data-scope="AI"] .ov-top .n{color:var(--ai)}
+.ov-en{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.02em;line-height:1.4}
+.ov-blurb{font-family:var(--cjk);font-size:12px;color:var(--ink-2);line-height:1.65;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.ov-split{display:flex;height:3px;border-radius:2px;overflow:hidden;background:var(--line-soft);margin-top:auto}
+.ov-split i{display:block;height:100%}
+.ov-split i:nth-child(1){background:var(--se)}
+.ov-split i:nth-child(2){background:color-mix(in srgb,var(--se) 72%,var(--ground))}
+.ov-split i:nth-child(3){background:color-mix(in srgb,var(--se) 48%,var(--ground))}
+.ov-split i:nth-child(4){background:color-mix(in srgb,var(--se) 26%,var(--ground))}
+.ov-legend{font-family:var(--mono);font-size:10px;color:var(--muted);display:flex;gap:10px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+@media (max-width:1080px){
+  .shell{grid-template-columns:1fr;gap:18px}
+  .rail{position:static;max-height:none}
+  .panel{padding-left:4px;grid-template-columns:1fr;gap:18px}
+  .meta{flex-direction:row;align-items:center;flex-wrap:wrap;width:auto;grid-row:auto;grid-column:2}
+  .row-btn{grid-template-columns:minmax(0,1fr)}
+  .ti,.ti-zh,.tldr,.rowtags{grid-column:1}
+  .meta{grid-column:1}
+}
+@media (max-width:520px){
+  .mast-in,.controls-in,.shell{padding-left:16px;padding-right:16px}
+  .counts{margin-left:0;gap:14px}
+  .brand h1{font-size:22px}
+}
+</style>
+
+<div class="topbar">
+<div class="mast">
+  <div class="mast-in">
+    <div class="brand">
+      <h1><a class="brand-home" href="../../" title="返回合集总览">SE 四大会 · 2026</a></h1>
+      <div class="sub" id="sub">ICSE · FSE · ASE · ISSTA 2026 research tracks · 全部录用论文</div>
+    </div>
+    <div class="counts" id="counts"></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="controls-in">
+    <label class="search" for="q">
+      <input id="q" type="search" placeholder="搜索标题、摘要、作者、关键词…（中英文均可）" autocomplete="off">
+      <kbd>/</kbd>
+    </label>
+    <div class="chips" id="venues"><span class="lbl">Venue</span></div>
+  </div>
+</div>
+</div>
+
+<div class="shell">
+  <nav class="rail" id="rail">
+    <div class="rail-head">
+      <h2>Topics</h2>
+      <button class="allbtn" id="resetBtn" type="button">全部主题</button>
+    </div>
+    <div id="tree"></div>
+  </nav>
+  <main id="main"></main>
+</div>
+
+<script src="data/ledger.js"></script>
+<script>
+;
+const DATA = window.__SE_ATLAS__;
+const P = DATA.papers, THEMES = DATA.themes, TAGS = DATA.tags;
+
+const VENUES = ["ICSE 2026","FSE 2026","ASE 2026","ISSTA 2026"];
+const topicOf = {}, themeOfTopic = {};
+THEMES.forEach(th => th.topics.forEach(t => { topicOf[t.id] = t; themeOfTopic[t.id] = th; }));
+const tagName = {}; TAGS.forEach(t => tagName[t.id] = t.zh);
+
+const state = { topic:null, theme:null, venues:new Set(), q:"", limit:60, open:new Set() };
+
+/* 保持源数据顺序（按会议、再按会议列表顺序） */
+P.forEach((p,i) => { p._i = i; });
+function ordered(xs){ return xs.slice().sort((a,b) => a._i-b._i); }
+
+/* ---------- search index ---------- */
+P.forEach(p => {
+  p._s = [p.t, p.tz, p.a, p.az, p.tl, (p.au||[]).join(" "), (p.kw||[]).join(" "), p.v]
+          .filter(Boolean).join(" ").toLowerCase();   // 86 篇还没有摘要，别把 undefined 拼进去
+});
+
+function matches(p){
+  if (state.venues.size && !state.venues.has(p.v)) return false;
+  if (state.q && !p._s.includes(state.q)) return false;
+  return true;
+}
+function pool(){ return ordered(P.filter(matches)); }
+
+function esc(s){ return String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function hl(s){
+  if(!state.q) return esc(s);
+  const i = String(s||"").toLowerCase().indexOf(state.q);
+  if(i<0) return esc(s);
+  return esc(s.slice(0,i)) + "<mark>" + esc(s.slice(i,i+state.q.length)) + "</mark>" + esc(s.slice(i+state.q.length));
+}
+
+/* ---------- header counts ---------- */
+function renderCounts(){
+  const cur = pool();
+  const n = {}; cur.forEach(p => n[p.v] = (n[p.v]||0)+1);
+  document.getElementById("counts").innerHTML =
+    `<div class="count"><b>${cur.length}</b><span>in view</span></div>` +
+    VENUES.map(v => `<div class="count se"><b>${n[v]||0}</b><span>${v.split(" ")[0]}</span></div>`).join("");
+}
+
+/* ---------- rail ---------- */
+function renderTree(){
+  const cur = pool();
+  const byTopic = {}, byTheme = {};
+  cur.forEach(p => { byTopic[p.top]=(byTopic[p.top]||0)+1; const th=themeOfTopic[p.top]; if(th) byTheme[th.id]=(byTheme[th.id]||0)+1; });
+  const max = Math.max(1, ...Object.values(byTopic));
+  document.getElementById("tree").innerHTML = THEMES.map(th => {
+    const n = byTheme[th.id]||0;
+    const open = state.open.has(th.id) || (state.topic && themeOfTopic[state.topic]?.id===th.id);
+    const topics = th.topics.map(t => {
+      const c = byTopic[t.id]||0;
+      return `<button class="topic-btn" type="button" data-topic="${t.id}" aria-current="${state.topic===t.id}"${c?"":' style="opacity:.42"'}>
+        <span class="topic-zh">${esc(t.zh)}</span><span class="topic-n">${c}</span>
+        <span class="bar"><i style="width:${Math.round(c/max*100)}%"></i></span></button>`;
+    }).join("");
+    return `<div class="theme" data-scope="${th.scope}" data-open="${open?1:0}">
+      <button class="theme-btn" type="button" data-theme="${th.id}">
+        <span class="tw"></span>
+        <span class="theme-txt"><span class="theme-zh">${esc(th.zh)}</span><span class="theme-en">${esc(th.en)}</span></span>
+        <span class="theme-n">${n}</span><span class="caret">▶</span>
+      </button><div class="topics">${topics}</div></div>`;
+  }).join("");
+}
+
+/* ---------- main ---------- */
+function paperRow(p){
+  const th = themeOfTopic[p.top], tp = topicOf[p.top];
+  const tags = (p.tg||[]).map(t=>`<span class="tag">${esc(tagName[t]||t)}</span>`).join("");
+  const topicTag = state.topic ? "" : `<span class="tag">${esc(tp?tp.zh:p.top)}</span>`;
+  return `<article class="row" data-pid="${p.id}">
+    <button class="row-btn" type="button" aria-expanded="false">
+      <span class="meta">
+        <span class="ven se">${esc(p.v)}</span>
+        <span class="kind">${esc(p.k)}</span>
+        ${p.aw?`<span class="award">★ Distinguished<br>Paper Award</span>`:""}
+      </span>
+      <span class="ti">${hl(p.t)}</span>
+      ${p.tz?`<span class="ti-zh">${hl(p.tz)}</span>`:""}
+      ${p.tl?`<span class="tldr">▸ ${hl(p.tl)}</span>`:""}
+      <span class="rowtags">
+        <span class="row-toggle" data-toggle>展开摘要 · 中英对照</span>
+        <span class="au">${esc(p.au.length>4 ? p.au[0] + " … " + p.au[p.au.length-1] : p.au.join(", "))}${p.au.length>4?` · ${p.au.length} 人`:""}</span>
+        ${topicTag}${tags}
+      </span>
+    </button>
+  </article>`;
+}
+
+function panelHTML(p){
+  const tp = topicOf[p.top], th = themeOfTopic[p.top];
+  const links = [];
+  if (p.pu) links.push(`<a href="${esc(p.pu)}" target="_blank" rel="noopener">arXiv / OpenReview ↗</a>`);
+  if (p.u)  links.push(`<a href="${esc(p.u)}" target="_blank" rel="noopener">会议页面 ↗</a>`);
+  const en = p.a ? `<p>${hl(p.a)}</p>` : `<p class="nope">该论文尚未公开摘要（部分新录用论文暂无预印本）。</p>`;
+  const zh = p.az ? `<p>${hl(p.az)}</p>` : `<p class="nope">无摘要可译。</p>`;
+  return `<div class="panel">
+    <div class="authors-full"><h4>Authors · ${p.au.length}</h4><div class="au-list">${esc(p.au.join(" · "))}</div></div>
+    <div><h4>Abstract</h4><div class="abs">${en}</div></div>
+    <div><h4>中文翻译</h4><div class="abs zh">${zh}</div></div>
+    <div class="foot">
+      <span class="note">主题：${esc(th?th.zh:"")} › ${esc(tp?tp.zh:p.top)}${p.alt&&topicOf[p.alt]?`（次选：${esc(topicOf[p.alt].zh)}）`:""}</span>
+      ${links.join("")}
+      <span class="pid">${esc(p.id)}</span>
+    </div>
+  </div>`;
+}
+
+function renderMain(){
+  const main = document.getElementById("main");
+  const cur = pool();
+
+  if (!state.topic && !state.theme && !state.q) {
+    const byTheme = {};
+    cur.forEach(p => { const th=themeOfTopic[p.top]; if(th){ (byTheme[th.id] ||= {}); byTheme[th.id][p.v]=(byTheme[th.id][p.v]||0)+1; } });
+    main.innerHTML =
+      `<div class="head"><h2 class="zh">全部主题</h2><span class="en">${THEMES.length} themes · ${THEMES.reduce((s,t)=>s+t.topics.length,0)} topics</span>
+        <span class="n">${cur.length} papers</span></div>
+       <p class="head-def zh">左侧按主题浏览，或点开下面任一主题。收录 ICSE / FSE / ASE / ISSTA 2026 研究轨道的全部录用论文，每篇配中文标题、一句话概括与摘要中译。色条显示每个主题里四个会议的构成。</p>
+       <div class="ov-legend">${VENUES.map((v,i)=>`<span style="opacity:${1-i*0.2}">▬ ${v}</span>`).join("")}</div>
+       <div style="height:12px"></div>
+       <div class="ov">${THEMES.map(th=>{
+         const d = byTheme[th.id]||{}; const sum=VENUES.reduce((s,v)=>s+(d[v]||0),0);
+         return `<button class="ov-card" type="button" data-theme-card="${th.id}" data-scope="${th.scope}">
+           <span class="ov-top"><span class="zh">${esc(th.zh)}</span><span class="n">${sum}</span></span>
+           <span class="ov-en">${esc(th.en)} · ${th.topics.length} topics</span>
+           <span class="ov-blurb">${esc(th.blurb)}</span>
+           <span class="ov-split">${VENUES.map(v=>`<i style="width:${(d[v]||0)/(sum||1)*100}%"></i>`).join("")}</span>
+         </button>`}).join("")}</div>`;
+    return;
+  }
+
+  let list, title, sub, def = "", kws = "";
+  if (state.topic) {
+    const tp = topicOf[state.topic], th = themeOfTopic[state.topic];
+    list = cur.filter(p => p.top === state.topic);
+    title = tp.zh; sub = tp.en; def = tp.def;
+    kws = tp.kw.map(k=>`<span class="kw">${esc(k)}</span>`).join("");
+  } else if (state.theme) {
+    const th = THEMES.find(t=>t.id===state.theme);
+    const ids = new Set(th.topics.map(t=>t.id));
+    list = cur.filter(p => ids.has(p.top));
+    title = th.zh; sub = th.en; def = th.blurb;
+  } else {
+    list = cur; title = "搜索结果"; sub = `“${state.q}”`;
+  }
+
+  const shown = list.slice(0, state.limit);
+  main.innerHTML =
+    `<div class="head"><h2 class="zh">${esc(title)}</h2><span class="en">${esc(sub)}</span>
+       <span class="n">${list.length} papers</span></div>
+     ${def?`<p class="head-def zh">${esc(def)}</p>`:""}
+     ${kws?`<div class="head-kw">${kws}</div>`:'<div style="height:8px"></div>'}
+     ${shown.length ? `<div class="list">${shown.map(paperRow).join("")}</div>` : `<p class="empty">没有符合当前筛选条件的论文。</p>`}
+     ${list.length>shown.length?`<button class="more" type="button" id="moreBtn">再显示 ${Math.min(60,list.length-shown.length)} 篇（共 ${list.length} 篇）</button>`:""}`;
+}
+
+function render(){ renderCounts(); renderTree(); renderMain(); }
+
+/* ---------- controls ---------- */
+const venWrap = document.getElementById("venues");
+VENUES.forEach(v => {
+  const b = document.createElement("button");
+  b.type="button"; b.className = "chip se";
+  b.textContent = v; b.setAttribute("aria-pressed","false"); b.dataset.venue = v;
+  venWrap.appendChild(b);
+});
+
+document.addEventListener("click", e => {
+  const ven = e.target.closest("[data-venue]");
+  if (ven){ const v=ven.dataset.venue;
+    if(state.venues.has(v)) state.venues.delete(v); else state.venues.add(v);
+    ven.setAttribute("aria-pressed", state.venues.has(v));
+    state.limit=60; render(); return; }
+
+  const tc = e.target.closest("[data-theme-card]");
+  if (tc){ state.theme=tc.dataset.themeCard; state.topic=null; state.open.add(state.theme);
+    state.limit=60; render(); window.scrollTo({top:0,behavior:"smooth"}); return; }
+
+  const th = e.target.closest("[data-theme]");
+  if (th){ const id=th.dataset.theme;
+    if(state.open.has(id)&&state.theme===id){ state.open.delete(id); state.theme=null; }
+    else { state.open.add(id); state.theme=id; state.topic=null; }
+    state.limit=60; render(); return; }
+
+  const tp = e.target.closest("[data-topic]");
+  if (tp){ state.topic = state.topic===tp.dataset.topic ? null : tp.dataset.topic;
+    state.theme=null; state.limit=60; render();
+    document.getElementById("main").scrollIntoView({block:"start",behavior:"smooth"}); return; }
+
+  if (e.target.closest("#resetBtn")){ state.topic=null; state.theme=null; state.limit=60; render(); return; }
+  if (e.target.closest("#moreBtn")){ state.limit+=60; renderMain(); return; }
+
+  const rb = e.target.closest(".row-btn");
+  if (rb){
+    const sel = window.getSelection && window.getSelection().toString();
+    if (sel && sel.length > 1 && !e.target.closest("[data-toggle]")) return;  // user was selecting text
+    const row = rb.closest(".row");
+    const open = rb.getAttribute("aria-expanded")==="true";
+    rb.setAttribute("aria-expanded", String(!open));
+    const ex = row.querySelector(".panel");
+    row.dataset.open = open ? "0" : "1";
+    const tg = row.querySelector("[data-toggle]");
+    if (tg) tg.textContent = open ? "展开摘要 · 中英对照" : "收起摘要";
+    if (open){ ex && ex.remove(); }
+    else { const p = P.find(x=>x.id===row.dataset.pid); row.insertAdjacentHTML("beforeend", panelHTML(p)); }
+  }
+});
+
+const qEl = document.getElementById("q");
+let qt;
+qEl.addEventListener("input", () => {
+  clearTimeout(qt);
+  qt = setTimeout(()=>{ state.q = qEl.value.trim().toLowerCase(); state.limit=60; render(); }, 160);
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement !== qEl){ e.preventDefault(); qEl.focus(); }
+  if (e.key === "Escape" && document.activeElement === qEl){ qEl.value=""; state.q=""; state.limit=60; render(); qEl.blur(); }
+});
+
+function syncTopbar(){
+  const h = document.querySelector(".topbar").offsetHeight;
+  document.documentElement.style.setProperty("--topbar", h + "px");
+}
+window.addEventListener("resize", syncTopbar);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncTopbar);
+
+render();
+syncTopbar();
+</script>
+
+</body></html>

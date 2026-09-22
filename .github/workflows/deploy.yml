@@ -28,16 +28,46 @@ jobs:
       - name: Sanity-check published data
         run: |
           python3 - <<'PY'
-          import json, pathlib, sys
+          import json, pathlib, re, sys
           # 私人字段绝不允许出现在公开数据里
           BLOCKED = {"relevance", "why", "headline", "overview_cn", "picks", "skip"}
+          # se-venues 另外不许带 rel / rn：那是 Atlas 源数据里的个人相关度字段，
+          # 在 SE 这半 rel 恒为 core（没有信息量），rn 与 tl 重复。
+          # ai-venues 的 rel / rn 不在此列——那是有意发布的「AI 论文对软工的相关度」标注。
+          EXTRA = {"se-venues": {"rel", "rn"}}
           bad = []
-          for f in pathlib.Path("collections").rglob("data/papers.json"):
-              papers = json.loads(f.read_text(encoding="utf-8"))
-              leaked = {k for p in papers for k in p} & BLOCKED
+
+          def blocked_for(path):
+              return BLOCKED | next((v for k, v in EXTRA.items() if k in str(path)), set())
+
+          def check(path, papers):
+              leaked = {k for p in papers for k in p} & blocked_for(path)
               if leaked:
-                  bad.append(f"{f}: {sorted(leaked)}")
-              print(f"{f}: {len(papers)} papers, ok")
+                  bad.append(f"{path}: {sorted(leaked)}")
+              print(f"{path}: {len(papers)} papers, ok")
+
+          for f in pathlib.Path("collections").rglob("data/papers.json"):
+              check(f, json.loads(f.read_text(encoding="utf-8")))
+
+          # 外置的 ledger.js 也要查：ai-venues 与 se-venues 的数据都在这里，
+          # 只扫 papers.json 会把它们整个漏掉
+          for f in pathlib.Path("collections").rglob("data/ledger.js"):
+              txt = f.read_text(encoding="utf-8")
+              m = re.match(r"\s*window\.__[A-Z_]+__\s*=\s*(.*?);?\s*$", txt, re.S)
+              if not m:
+                  bad.append(f"{f}: 不认识的格式，无法检查")
+                  continue
+              d = json.loads(m.group(1))
+              rows = d.get("papers")
+              if isinstance(rows, list) and rows and isinstance(rows[0], dict):
+                  check(f, rows)
+              else:
+                  # ai-venues 是按列存的行数组，字段名在 fields 里
+                  leaked = set(d.get("fields") or []) & blocked_for(f)
+                  if leaked:
+                      bad.append(f"{f}: {sorted(leaked)}")
+                  print(f"{f}: {len(rows or d.get('rows') or [])} rows, ok")
+
           if bad:
               sys.exit("私人字段泄漏到公开数据里了:\n" + "\n".join(bad))
           PY

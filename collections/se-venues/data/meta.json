@@ -1,0 +1,23 @@
+{
+ "slug": "se-venues",
+ "title": "SE 四大会 · 2026",
+ "venues": [
+  "ICSE 2026",
+  "FSE 2026",
+  "ASE 2026",
+  "ISSTA 2026"
+ ],
+ "count": 1005,
+ "by_venue": {
+  "ICSE 2026": 321,
+  "FSE 2026": 211,
+  "ASE 2026": 263,
+  "ISSTA 2026": 210
+ },
+ "with_abstract": 919,
+ "translated": 919,
+ "themes": 12,
+ "topics": 52,
+ "awards": 22,
+ "generated": "2026-09-22T08:45:13+00:00"
+}

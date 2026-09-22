@@ -16,6 +16,9 @@ collections/
     data/papers.json                    论文数据（脚本生成，勿手改）
     data/meta.json                      统计与筛选项
   arxiv-cr-2026-09/                     arXiv cs.CR（密码学与安全）日榜，结构同上
+  se-venues/                            ICSE/FSE/ASE/ISSTA 2026 研究轨道 1,005 篇
+    index.html                          页面（自 Conference Paper Atlas artifact 迁入）
+    data/ledger.js                      数据 3.4MB，外置
   ai-venues/                            ICLR/ICML/NeurIPS 九届主会 36,237 篇
     index.html                          页面（自 AI Venue Ledger artifact 迁入）
     data/ledger.js                      数据 14.8MB，外置以便浏览器单独缓存
@@ -28,6 +31,7 @@ tools/build_site.py                     从本地 Obsidian vault 导出公开数
 tools/fetch_arxiv.py                    从 arXiv 公开 API 抓某分类某月，并推导公告日
 tools/build_collection.py               原始抓取 + 标注源 → 公开数据（不依赖本地 vault）
 tools/make_cr_page.py                   从 cs.SE 页面模板生成 cs.CR 合集页
+tools/build_se_venues.py                从 Atlas 原始数据导出 SE 四大会公开数据（挡掉个人相关度字段）
 .github/workflows/deploy.yml            只负责部署
 ```
 
