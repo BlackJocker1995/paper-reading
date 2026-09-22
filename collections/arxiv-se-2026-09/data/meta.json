@@ -3,9 +3,11 @@
  "title": "arXiv cs.SE · 2026-09",
  "month": "2026-09",
  "category": "cs.SE",
- "count": 419,
- "with_objective": 419,
+ "count": 451,
+ "with_objective": 451,
+ "with_institution": 29,
  "days": [
+  "2026-09-22",
   "2026-09-21",
   "2026-09-18",
   "2026-09-17",
@@ -19,29 +21,29 @@
   "2026-09-04"
  ],
  "topics": {
-  "AI Coding Agent": 126,
-  "LLM4SE": 54,
+  "AI Coding Agent": 137,
+  "LLM4SE": 61,
   "Security & Vulnerability": 40,
   "Requirements & Architecture": 33,
-  "Human & Process": 29,
-  "Systems & Performance": 23,
-  "Software Testing": 22,
-  "MSR & Empirical": 21,
+  "Human & Process": 30,
+  "MSR & Empirical": 26,
+  "Software Testing": 24,
+  "Systems & Performance": 24,
+  "ML/AI Security & Quality": 20,
   "Code Analysis": 19,
-  "ML/AI Security & Quality": 18,
-  "Other": 13,
-  "Bug & Defect": 11,
+  "Other": 14,
+  "Bug & Defect": 13,
   "Maintenance & Evolution": 10
  },
  "contribution_types": {
-  "新方法/新技术": 138,
-  "实证研究": 116,
-  "新工具/系统": 53,
-  "立场/展望": 49,
-  "基准/数据集": 36,
-  "综述/系统性文献回顾": 12,
-  "理论/形式化": 8,
-  "复现/负面结果": 7
+  "新方法/新技术": 148,
+  "实证研究": 127,
+  "新工具/系统": 58,
+  "立场/展望": 50,
+  "基准/数据集": 39,
+  "综述/系统性文献回顾": 13,
+  "复现/负面结果": 8,
+  "理论/形式化": 8
  },
- "generated": "2026-09-22T02:12:04+00:00"
+ "generated": "2026-09-22T07:11:15+00:00"
 }

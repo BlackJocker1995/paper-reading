@@ -143,6 +143,9 @@ img{max-width:100%}
 .p-title-cn{font-size:13px; color:var(--ink-2); margin-top:2px}
 .p-meta{display:flex; flex-wrap:wrap; align-items:center; gap:7px; margin-top:6px; font-size:11.5px; color:var(--muted)}
 .p-id{font-family:var(--mono); font-size:11px; color:var(--muted)}
+/* 一作机构：只作事实展示，不参与排序与筛选。长名字截断，悬停看全称 */
+.inst{color:var(--ink-2); max-width:20em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.inst::before{content:"· "; color:var(--muted)}
 .badge{font-family:var(--mono); font-size:10px; padding:1px 6px; border-radius:3px; border:1px solid var(--border);
   color:var(--ink-2); background:var(--surface-2); white-space:nowrap}
 .badge.type{border-color:var(--accent-line); color:var(--accent); background:var(--accent-soft)}
@@ -389,6 +392,7 @@ function paperRow(p, i, total){
   if(p.day) h += '<span class="p-id">' + esc(p.day) + "</span>";
   var a = p.authors || [];
   if(a.length) h += "<span>" + esc(a.slice(0,3).join(", ") + (a.length > 3 ? " 等 " + a.length + " 人" : "")) + "</span>";
+  if(p.institution) h += '<span class="inst" title="一作机构：' + esc(p.institution) + '">' + esc(p.institution) + "</span>";
   h += "</div>";
   if(p.objective_summary) h += '<div class="p-sum">' + esc(p.objective_summary) + "</div>";
   h += '<div class="scores">' + scoreRow("证据", p.evidence_strength, p.evidence_note) +

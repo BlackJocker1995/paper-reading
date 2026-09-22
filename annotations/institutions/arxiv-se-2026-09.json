@@ -1,0 +1,258 @@
+{
+ "2609.22097": {
+  "first_author": "Junpeng Wang",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.22102": {
+  "first_author": "Anubhav Gupta",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.22114": {
+  "first_author": "Luzhuo Chen",
+  "institution": "Paritok",
+  "country": "",
+  "raw_affiliation": "Paritok",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.22153": {
+  "first_author": "Pratinav Seth",
+  "institution": "Lexsi Labs",
+  "country": "",
+  "raw_affiliation": "Lexsi Labs",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.22222": {
+  "first_author": "Sabina-Cristiana Necula",
+  "institution": "Alexandru Ioan Cuza University of Iași",
+  "country": "Romania",
+  "raw_affiliation": "Alexandru Ioan Cuza University of Iasi, Faculty of Economics and Business Administration, Iasi, Romania",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22404": {
+  "first_author": "Razan Ghzouli",
+  "institution": "Chalmers University of Technology",
+  "country": "Sweden",
+  "raw_affiliation": "Department of Computer Science and Engineering, Chalmers University of Technology and University of Gothenburg, Gothenburg, Sweden",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22475": {
+  "first_author": "Daniel Calegari",
+  "institution": "Universidad ORT Uruguay",
+  "country": "Uruguay",
+  "raw_affiliation": "Universidad ORT Uruguay, Montevideo, Uruguay",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22476": {
+  "first_author": "Costas Mylonas",
+  "institution": "UBITECH",
+  "country": "Greece",
+  "raw_affiliation": "Energy Digitalization Group, UBITECH, Athens, Greece",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.22511": {
+  "first_author": "Maksim E. Eren",
+  "institution": "Los Alamos National Laboratory",
+  "country": "United States",
+  "raw_affiliation": "Computational Intelligence & Modeling, LANL, Los Alamos, NM, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22610": {
+  "first_author": "Md Shamimur Rahman",
+  "institution": "University of Saskatchewan",
+  "country": "Canada",
+  "raw_affiliation": "University of Saskatchewan, Saskatoon, Saskatchewan, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22625": {
+  "first_author": "Md Shamimur Rahman",
+  "institution": "University of Saskatchewan",
+  "country": "Canada",
+  "raw_affiliation": "Department of Computer Science, University of Saskatchewan, Saskatoon, Saskatchewan, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22719": {
+  "first_author": "Garima Agrawal",
+  "institution": "Cognizant",
+  "country": "United States",
+  "raw_affiliation": "Cognizant, Plano, Texas, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.22844": {
+  "first_author": "Qingyuan Li",
+  "institution": "Nanjing University",
+  "country": "China",
+  "raw_affiliation": "State Key Laboratory for Novel Software Technology, Nanjing University, Jiangsu, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.22903": {
+  "first_author": "Arumoy Shome",
+  "institution": "Delft University of Technology",
+  "country": "Netherlands",
+  "raw_affiliation": "Delft University of Technology, Delft, The Netherlands",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22912": {
+  "first_author": "Arumoy Shome",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.22944": {
+  "first_author": "Oliver Aleksander Larsen",
+  "institution": "University of Southern Denmark",
+  "country": "Denmark",
+  "raw_affiliation": "University of Southern Denmark, Odense, Denmark",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23209": {
+  "first_author": "Lev Sorokin",
+  "institution": "Technical University of Munich",
+  "country": "Germany",
+  "raw_affiliation": "Technical University of Munich, Munich, Germany; BMW Group, Munich, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23218": {
+  "first_author": "Luyao Bai",
+  "institution": "University of Illinois Chicago",
+  "country": "United States",
+  "raw_affiliation": "1University of Illinois Chicago",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.23226": {
+  "first_author": "Ding Yang",
+  "institution": "Nanjing University",
+  "country": "China",
+  "raw_affiliation": "State Key Laboratory for Novel Software Technology, Nanjing University, Nanjing, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23270": {
+  "first_author": "Sandeep Dhuri",
+  "institution": "Independent Researcher",
+  "country": "United States",
+  "raw_affiliation": "Independent Researcher, Edison, NJ, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23377": {
+  "first_author": "Jie Zhao",
+  "institution": "Alibaba Group",
+  "country": "",
+  "raw_affiliation": "Alibaba Group",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23417": {
+  "first_author": "Minghao Han",
+  "institution": "Fudan University",
+  "country": "",
+  "raw_affiliation": "1 FDU (also 2 Alibaba Token Hub, Alibaba Group)",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.23517": {
+  "first_author": "Tianyu Jia",
+  "institution": "Renmin University of China",
+  "country": "China",
+  "raw_affiliation": "Renmin University of China, Beijing, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23570": {
+  "first_author": "Liyang Fan",
+  "institution": "Chinese Academy of Sciences",
+  "country": "China",
+  "raw_affiliation": "Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences; SUAT",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.23809": {
+  "first_author": "Tezan Sahu",
+  "institution": "Microsoft",
+  "country": "India",
+  "raw_affiliation": "Microsoft, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23925": {
+  "first_author": "Yingxuan Yang",
+  "institution": "Shanghai Jiao Tong University",
+  "country": "China",
+  "raw_affiliation": "Shanghai Jiao Tong UniversityShanghai, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23954": {
+  "first_author": "Simon Henniger",
+  "institution": "Harvard University",
+  "country": "United States",
+  "raw_affiliation": "Harvard University, Cambridge, Massachusetts, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24224": {
+  "first_author": "Muhammad Umar",
+  "institution": "LUT University",
+  "country": "Finland",
+  "raw_affiliation": "LUT University, Lappeenranta, Finland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24230": {
+  "first_author": "Furqan Nasir",
+  "institution": "City University of Science and Information Technology",
+  "country": "Pakistan",
+  "raw_affiliation": "City University of Science and Information Technology (CUSIT), Peshawar, Pakistan",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.24341": {
+  "first_author": "Bilal Al-Ahmad",
+  "institution": "American University of Sharjah",
+  "country": "United Arab Emirates",
+  "raw_affiliation": "Department of Computer Science and Engineering, American University of Sharjah, Sharjah, United Arab Emirates",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24348": {
+  "first_author": "Andreas Martin",
+  "institution": "FHNW University of Applied Sciences and Arts Northwestern Switzerland",
+  "country": "Switzerland",
+  "raw_affiliation": "FHNW University of Applied Sciences and Arts Northwestern Switzerland, School of Business, Riggenbachstrasse 16, 4600 Olten, Switzerland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24928": {
+  "first_author": "Mahmoud Ayyad",
+  "institution": "Queen's University",
+  "country": "Canada",
+  "raw_affiliation": "Queen’s University, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ }
+}

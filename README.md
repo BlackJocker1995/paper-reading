@@ -23,6 +23,7 @@ collections/
   <以后的合集>/                          同样结构
 annotations/
   arxiv-cr-2026-09/                     cs.CR 逐篇标注的源文件（进仓库，可复核、可增量）
+  institutions/<slug>.json              一作机构（另抓论文首页标的，不来自 vault）
 tools/build_site.py                     从本地 Obsidian vault 导出公开数据（cs.SE 用）
 tools/fetch_arxiv.py                    从 arXiv 公开 API 抓某分类某月，并推导公告日
 tools/build_collection.py               原始抓取 + 标注源 → 公开数据（不依赖本地 vault）
@@ -47,6 +48,20 @@ tools/make_cr_page.py                   从 cs.SE 页面模板生成 cs.CR 合�
 
 评分**不代表「值不值得读」**——那取决于读者在做什么。提示词里明确禁止使用
 「值得读」「必读」这类面向特定读者的措辞。
+
+## 一作机构
+
+arXiv 的元数据里**没有**机构字段（提交时可选，几乎没人填），OpenAlex / Semantic Scholar
+继承的也是空的——实测 50 篇里分别只有 1 篇、0 篇有一作机构。所以机构只能从论文首页取：
+
+优先抓 `arxiv.org/html/<id>` 的作者块，没有 HTML 版就退回 PDF 首页（`pdftotext -f 1 -l 1`），
+再由模型定位**第一作者**的那一条。纯正则做不了这件事——同一个作者会挂系/大学/邮编三个
+并列条目，实验室和大学之间可能没有分隔符，上标 `34` 是 3 和 4 不是 34，
+`N Corresponding author.` 长得和编号机构条目一模一样，邮箱域名还会指向别的作者。
+
+结果按篇存在 `annotations/institutions/<slug>.json`，含原始机构串与置信度，可复核。
+**只发 high / medium，低置信度留空**：机构挂错是对论文作者的错误归属，比空着严重。
+机构只在卡片上作事实展示，**不参与排序，也不做筛选项**——它是论文的属性，不是质量信号。
 
 ## 日常更新
 

@@ -4,6 +4,8 @@
 公开的只有：翻译（中文标题/摘要/一句话总结）、客观分类、以及 arxiv_objective.py 产出的
 客观评价（贡献类型 / 证据强度 / 新颖性 / 适用边界 / 局限 / artifact）。
 
+另有一作机构，不来自 vault：见本仓库 annotations/institutions/<slug>.json。
+
 **刻意不导出**：
   - relevance / why —— 那是按个人研究方向打的分，不适合公开
   - 每日/每周综述 headline & overview —— 同样是以个人视角写的
@@ -31,6 +33,11 @@ PUBLIC_OBJ_FIELDS = ["objective_summary", "contribution_type", "evidence_strengt
                      "evidence_note", "novelty", "novelty_note", "scope",
                      "limitations", "artifact"]
 BLOCKED = {"relevance", "why", "headline", "overview_cn", "picks", "skip"}
+
+# 一作机构不在 vault 流水线里（arXiv 元数据根本没有这个字段），是另抓论文首页标的，
+# 存在本仓库 annotations/institutions/<slug>.json。只发 high/medium，低置信度宁可留空：
+# 机构挂错是对论文作者的错误归属，比空着严重。
+INSTITUTION_CONF = {"high", "medium"}
 
 
 def collect(month: str) -> tuple[list[dict], dict[str, list[str]]]:
@@ -72,11 +79,17 @@ def main() -> None:
     if not raw:
         sys.exit(f"vault 里没找到 {a.month} 的数据：{CACHE}")
 
+    inst_f = REPO / "annotations" / "institutions" / f"{slug}.json"
+    inst = json.loads(inst_f.read_text(encoding="utf-8")) if inst_f.exists() else {}
+
     objdir = CACHE / "objective"
     papers, no_obj = [], []
     for p in raw:
         pid = p["id"].split("v")[0]
         rec = {k: p.get(k) for k in PUBLIC_PAPER_FIELDS if p.get(k) not in (None, "")}
+        i = inst.get(pid) or {}
+        if i.get("institution") and i.get("confidence") in INSTITUTION_CONF:
+            rec["institution"] = i["institution"]
         of = objdir / f"{pid}.json"
         if of.exists():
             o = json.loads(of.read_text(encoding="utf-8"))
@@ -113,6 +126,7 @@ def main() -> None:
         "category": "cs.SE",
         "count": len(papers),
         "with_objective": len(papers) - len(no_obj),
+        "with_institution": sum(1 for p in papers if p.get("institution")),
         "days": sorted(by_day, reverse=True),
         "topics": dict(sorted(topics.items(), key=lambda kv: -kv[1])),
         "contribution_types": dict(sorted(types.items(), key=lambda kv: -kv[1])),
