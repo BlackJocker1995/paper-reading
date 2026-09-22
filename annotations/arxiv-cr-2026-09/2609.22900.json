@@ -1,0 +1,22 @@
+{
+ "id": "2609.22900",
+ "title_cn": "Pixel 8 上经 SMS 触发的网络发起 SUPL：一项隐私评估",
+ "abstract_cn": "SUPL_INIT 消息是网络发起的触发器，可通过 SMS 发送到手机，单方面启动一次定位会话：收到后，手机被指示自行定位并把位置与 IMSI 等标识一起报告给消息指定的服务器，全程无需用户任何操作。促使本研究的问题是：这样的消息能否被用于把手机位置与用户身份静默外传到攻击者控制的服务器。我们在一台 Google Pixel 8（三星 Exynos 基带 + Broadcom GPS/GNSS 子系统）上进行了调查。结论是没有隐私问题：手机不会因未请求的 SMS SUPL_INIT 而向攻击者选择的服务器发送任何位置数据。",
+ "summary_cn": "针对「SMS 触发 SUPL 静默定位外传」的疑虑在 Pixel 8 上实测：设备不会向攻击者服务器回传位置，未发现隐私问题（单设备负面结果）。",
+ "topic": "Privacy",
+ "tags": [
+  "SUPL",
+  "位置隐私",
+  "负面结果",
+  "移动网络"
+ ],
+ "objective_summary": "在 Pixel 8 上对 SMS 触发的网络发起 SUPL 会话做实测隐私评估，结论为未发现可利用的位置外传路径。",
+ "contribution_type": "复现/负面结果",
+ "evidence_strength": 2,
+ "evidence_note": "单机型、单基带组合的动手实验，方法与观察具体；但覆盖面窄、无系统性厂商对比。",
+ "novelty": 2,
+ "novelty_note": "对该具体攻击疑虑的首次公开实测澄清，但威胁模型本身并非新提出。",
+ "scope": "结论仅适用于 Pixel 8 + Exynos/Broadcom 组合与该实现版本；其他机型与基带不外推。",
+ "limitations": "单设备单一固件版本；运营商配置差异可能改变行为；攻击面可能随基带更新变化。",
+ "artifact": "未提及"
+}

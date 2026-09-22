@@ -70,6 +70,12 @@ h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:
     按贡献类型、主题、artifact 是否公开任意筛。</p>
     <div class="meta" id="seMeta"><span>载入中…</span></div>
   </a>
+  <a class="card" href="collections/arxiv-cr-2026-09/">
+    <h3>arXiv cs.CR 日榜 · 2026 年 9 月<span class="pill">安全</span></h3>
+    <p>密码学与安全（cs.CR）的每日新论文：漏洞挖掘与利用、恶意代码、AI 安全、
+    密码协议、隐私。同样按<strong>证据强度 + 新颖性</strong>排序，配中文摘要与逐篇客观评价。</p>
+    <div class="meta" id="crMeta"><span>载入中…</span></div>
+  </a>
   <a class="card" href="collections/ai-venues/">
     <h3>AI Venue Ledger · ICLR / ICML / NeurIPS</h3>
     <p>九届主会 36,237 篇，按 16 个领域 / 84 个子领域组织；带 oral·spotlight 荣誉、
@@ -98,7 +104,8 @@ h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:
   </div>
 
   <div class="foot">
-    数据来自 <a href="https://arxiv.org/list/cs.SE/recent" target="_blank" rel="noopener">arXiv cs.SE</a>，
+    数据来自 <a href="https://arxiv.org/list/cs.SE/recent" target="_blank" rel="noopener">arXiv cs.SE</a>
+    与 <a href="https://arxiv.org/list/cs.CR/recent" target="_blank" rel="noopener">cs.CR</a>，
     翻译与评价由模型生成，可能有误，请以论文原文为准。
     <span id="gen"></span>
   </div>
@@ -111,6 +118,15 @@ fetch("collections/ai-venues/data/meta.json").then(function(r){ return r.json();
     '<span>已分级 ' + m.graded.toLocaleString() + '</span>' +
     '<span>已中译 ' + m.translated.toLocaleString() + '</span>';
 }).catch(function(){ document.getElementById("aiMeta").innerHTML = '<span>数据未载入</span>'; });
+fetch("collections/arxiv-cr-2026-09/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
+  document.getElementById("crMeta").innerHTML =
+    '<span><b>' + m.count + '</b>篇</span>' +
+    '<span><b>' + (m.days||[]).length + '</b>个公告日</span>' +
+    '<span>已精标 ' + (m.with_objective||0) + ' 篇</span>' +
+    '<span>更新于 ' + (m.generated||"").slice(0,10) + '</span>';
+}).catch(function(){
+  document.getElementById("crMeta").innerHTML = '<span>数据未载入</span>';
+});
 fetch("collections/arxiv-se-2026-09/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
   var t = m.topics || {}, top = Object.keys(t).slice(0,1)[0];
   document.getElementById("seMeta").innerHTML =

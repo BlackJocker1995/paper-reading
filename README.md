@@ -15,12 +15,18 @@ collections/
     index.html                          合集页面
     data/papers.json                    论文数据（脚本生成，勿手改）
     data/meta.json                      统计与筛选项
+  arxiv-cr-2026-09/                     arXiv cs.CR（密码学与安全）日榜，结构同上
   ai-venues/                            ICLR/ICML/NeurIPS 九届主会 36,237 篇
     index.html                          页面（自 AI Venue Ledger artifact 迁入）
     data/ledger.js                      数据 14.8MB，外置以便浏览器单独缓存
     data/meta.json                      统计
   <以后的合集>/                          同样结构
-tools/build_site.py                     从本地 Obsidian vault 导出公开数据
+annotations/
+  arxiv-cr-2026-09/                     cs.CR 逐篇标注的源文件（进仓库，可复核、可增量）
+tools/build_site.py                     从本地 Obsidian vault 导出公开数据（cs.SE 用）
+tools/fetch_arxiv.py                    从 arXiv 公开 API 抓某分类某月，并推导公告日
+tools/build_collection.py               原始抓取 + 标注源 → 公开数据（不依赖本地 vault）
+tools/make_cr_page.py                   从 cs.SE 页面模板生成 cs.CR 合集页
 .github/workflows/deploy.yml            只负责部署
 ```
 
@@ -60,6 +66,21 @@ python3 tools/build_site.py --month 2026-09
 git add -A && git commit -m "update 2026-09" && git push
 ```
 
+cs.CR（安全）合集的链路不依赖本地 vault，仓库内自足：
+
+```bash
+# 1. 抓当月数据并推导公告日（首次加 --check-recent，和 recent 页分日核对）
+python3 tools/fetch_arxiv.py --category cs.CR --month 2026-09 --check-recent
+
+# 2. 给新论文补中文翻译与客观评价：annotations/arxiv-cr-2026-09/<arXiv id>.json
+#    字段见已标注条目；某个公告日的论文全部标完，这个日榜才会出现
+
+# 3. 合成公开数据
+python3 tools/build_collection.py --category cs.CR --month 2026-09
+
+# 4. 推上去，Actions 自动部署
+```
+
 本地预览：
 
 ```bash
@@ -80,4 +101,4 @@ python3 -m http.server 8000
 ## 免责
 
 翻译和评价由模型生成，可能有误或过时，请以论文原文为准。
-数据来自 [arXiv cs.SE](https://arxiv.org/list/cs.SE/recent)，版权归原作者所有。
+数据来自 [arXiv cs.SE](https://arxiv.org/list/cs.SE/recent) 与 [arXiv cs.CR](https://arxiv.org/list/cs.CR/recent)，版权归原作者所有。
