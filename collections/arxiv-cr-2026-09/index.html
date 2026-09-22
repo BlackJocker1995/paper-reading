@@ -411,9 +411,10 @@ function paperRow(p, i, total){
   if(state.stars[p.id]) h += '<span class="badge star">★</span>';
   if(p.day) h += '<span class="p-id">' + esc(p.day) + "</span>";
   var a = p.authors || [];
-  // 末位作者通常是通讯/资深作者，值得和前几位一起露出，中间省略
-  if(a.length) h += "<span>" + esc(a.length > 4
-      ? a.slice(0,3).join(", ") + " … " + a[a.length-1] + "（共 " + a.length + " 人）"
+  // 一作和末位（通常是通讯/资深作者）都露出，中间省略。
+  // 前三位 + 末位会让这一行在 1440px 下 56% 的卡片换行，密度明显变差，实测过。
+  if(a.length) h += "<span>" + esc(a.length > 3
+      ? a[0] + " … " + a[a.length-1] + " · " + a.length + " 人"
       : a.join(", ")) + "</span>";
   if(p.institution) h += '<span class="inst" title="一作机构：' + esc(p.institution) + '">' + esc(p.institution) + "</span>";
   h += "</div>";
