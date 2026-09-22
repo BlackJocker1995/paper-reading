@@ -765,10 +765,13 @@ function openSync(){
 $("btnSync").addEventListener("click", openSync);
 
 /* ---------------- boot ---------------- */
-fetch("data/papers.json").then(function(r){ return r.json(); }).then(function(ps){
+/* Pages 给数据文件发的是 max-age=600，日榜每天变，缓存住就会看不到当天那一榜。
+   no-cache 不是不缓存，是每次都带 ETag 回源校验：没变就是个 304，变了立刻拿到新的。 */
+var DATA_FETCH = { cache: "no-cache" };
+fetch("data/papers.json", DATA_FETCH).then(function(r){ return r.json(); }).then(function(ps){
   PAPERS = ps;
   ps.forEach(function(p){ byId[p.id] = p; });
-  return fetch("data/meta.json").then(function(r){ return r.json(); });
+  return fetch("data/meta.json", DATA_FETCH).then(function(r){ return r.json(); });
 }).then(function(m){
   META = m;
   PAPERS.forEach(function(p){ if(p.day) dayCount[p.day] = (dayCount[p.day]||0) + 1; });
