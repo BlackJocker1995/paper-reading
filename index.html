@@ -70,10 +70,12 @@ h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:
     按贡献类型、主题、artifact 是否公开任意筛。</p>
     <div class="meta" id="seMeta"><span>载入中…</span></div>
   </a>
-  <div class="card soon">
-    <h3>AI 论文合集 <span class="pill">规划中</span></h3>
-    <p>同一套客观评价口径，之后接入。</p>
-  </div>
+  <a class="card" href="collections/ai-venues/">
+    <h3>AI Venue Ledger · ICLR / ICML / NeurIPS</h3>
+    <p>九届主会 36,237 篇，按 16 个领域 / 84 个子领域组织；带 oral·spotlight 荣誉、
+    T1–T5 分级与 A1–A12 论文原型，以及对软件工程的相关度标注。</p>
+    <div class="meta" id="aiMeta"><span>载入中…</span></div>
+  </a>
 
   <h2>评价口径</h2>
   <div class="rubric"><dl>
@@ -102,6 +104,13 @@ h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:
   </div>
 </div>
 <script>
+fetch("collections/ai-venues/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
+  document.getElementById("aiMeta").innerHTML =
+    '<span><b>' + m.count.toLocaleString() + '</b>篇</span>' +
+    '<span><b>' + m.venues.length + '</b>届主会</span>' +
+    '<span>已分级 ' + m.graded.toLocaleString() + '</span>' +
+    '<span>已中译 ' + m.translated.toLocaleString() + '</span>';
+}).catch(function(){ document.getElementById("aiMeta").innerHTML = '<span>数据未载入</span>'; });
 fetch("collections/arxiv-se-2026-09/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
   var t = m.topics || {}, top = Object.keys(t).slice(0,1)[0];
   document.getElementById("seMeta").innerHTML =

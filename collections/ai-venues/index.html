@@ -1,0 +1,526 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>AI Venue Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#f5f4f1;
+  --surface:#fffefc;
+  --surface-2:#eceae5;
+  --ink:#191713;
+  --ink-2:#45403a;
+  --muted:#736c63;
+  --line:#dedbd4;
+  --line-soft:#e9e6e0;
+  --oral:#8c2f16;
+  --oral-soft:#f6e5df;
+  --spot:#8a6a12;
+  --spot-soft:#f5ecd8;
+  --poster:#6d6a64;
+  --poster-soft:#eceae5;
+  --se:#1c5f52;
+  --se-soft:#dcebe7;
+  --accent:#8c2f16;
+  --cjk:"PingFang SC","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#14120f;
+    --surface:#1c1a16;
+    --surface-2:#24211c;
+    --ink:#eae6df;
+    --ink-2:#bdb6ac;
+    --muted:#8d857a;
+    --line:#332f29;
+    --line-soft:#282420;
+    --oral:#e08060;
+    --oral-soft:#3a1f16;
+    --spot:#d4a942;
+    --spot-soft:#332813;
+    --poster:#948d83;
+    --poster-soft:#24211c;
+    --se:#5bb3a0;
+    --se-soft:#12302a;
+    --accent:#e08060;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#14120f;
+  --surface:#1c1a16;
+  --surface-2:#24211c;
+  --ink:#eae6df;
+  --ink-2:#bdb6ac;
+  --muted:#8d857a;
+  --line:#332f29;
+  --line-soft:#282420;
+  --oral:#e08060;
+  --oral-soft:#3a1f16;
+  --spot:#d4a942;
+  --spot-soft:#332813;
+  --poster:#948d83;
+  --poster-soft:#24211c;
+  --se:#5bb3a0;
+  --se-soft:#12302a;
+  --accent:#e08060;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.zh{font-family:var(--cjk)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+a{color:var(--se);text-underline-offset:2px}
+
+/* ---------- topbar ---------- */
+.topbar{position:sticky;top:0;z-index:30;background:var(--surface);border-bottom:1px solid var(--line)}
+.mast{max-width:1600px;margin:0 auto;padding-block:13px;padding-left:20px;padding-right:20px;
+  display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 26px}
+.mast h1{font-family:var(--serif);font-weight:600;font-size:25px;line-height:1.1;margin:0;letter-spacing:-.015em}
+.mast .sub{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.tallies{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;align-items:flex-end}
+.tally{display:flex;flex-direction:column;gap:1px}
+.tally b{font-family:var(--mono);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.tally span{font-size:10px;color:var(--muted);font-family:var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.tally.o b{color:var(--oral)} .tally.s b{color:var(--spot)} .tally.se b{color:var(--se)}
+
+.bars{max-width:1600px;margin:0 auto;padding-block:9px;padding-left:20px;padding-right:20px;
+  display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;border-top:1px solid var(--line-soft)}
+.search{flex:1 1 240px;min-width:0;display:flex;align-items:center;gap:8px;background:var(--ground);
+  border:1px solid var(--line);border-radius:2px;padding:6px 10px}
+.search input{border:0;background:transparent;outline:none;width:100%;font-size:13.5px}
+.search kbd{font-family:var(--mono);font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:1px 4px;flex:none}
+.grp{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.grp .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.chip{font-family:var(--mono);font-size:10.5px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
+  padding:3px 7px;border-radius:2px;cursor:pointer;white-space:nowrap;transition:background .12s,border-color .12s,color .12s}
+.chip:hover{border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.chip.h-oral[aria-pressed="true"]{background:var(--oral);border-color:var(--oral);color:#fff}
+.chip.h-spot[aria-pressed="true"]{background:var(--spot);border-color:var(--spot);color:#fff}
+.chip.h-se[aria-pressed="true"]{background:var(--se);border-color:var(--se);color:#fff}
+
+/* ---------- shell ---------- */
+.shell{max-width:1600px;margin:0 auto;padding-block:18px;padding-left:20px;padding-right:20px;
+  display:grid;grid-template-columns:308px minmax(0,1fr);gap:24px;align-items:start}
+.rail{position:sticky;top:calc(var(--topbar,110px) + 12px);max-height:calc(100vh - var(--topbar,110px) - 28px);overflow-y:auto;padding-right:4px}
+.rail::-webkit-scrollbar{width:8px}
+.rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.rail-head{display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding-bottom:7px;border-bottom:1px solid var(--line);margin-bottom:9px}
+.rail-head h2{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:500}
+.allbtn{background:none;border:0;cursor:pointer;font-family:var(--mono);font-size:10.5px;color:var(--se);padding:0;text-decoration:underline;text-underline-offset:2px}
+.area{margin-bottom:1px}
+.area-btn{width:100%;display:flex;align-items:center;gap:7px;text-align:left;background:none;border:0;cursor:pointer;
+  padding:6px 5px 6px 0;border-bottom:1px solid var(--line-soft)}
+.area-btn:hover .area-zh{color:var(--accent)}
+.area-txt{flex:1;min-width:0}
+.area-zh{display:block;font-family:var(--cjk);font-size:13px;font-weight:500;line-height:1.35}
+.area-en{display:block;font-size:10px;color:var(--muted);font-family:var(--mono);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.area-n{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+.caret{flex:none;width:9px;color:var(--muted);font-size:8px;transition:transform .15s}
+.area[data-open="1"] .caret{transform:rotate(90deg)}
+.subs{display:none;padding:3px 0 7px 10px}
+.area[data-open="1"] .subs{display:block}
+.sub-btn{width:100%;display:grid;grid-template-columns:1fr auto;gap:2px 8px;align-items:center;background:none;border:0;
+  cursor:pointer;text-align:left;padding:3px 5px;border-radius:2px}
+.sub-btn:hover{background:var(--surface-2)}
+.sub-btn[aria-current="true"]{background:var(--se-soft)}
+.sub-btn[aria-current="true"] .sub-zh{color:var(--se);font-weight:600}
+.sub-zh{font-family:var(--cjk);font-size:12px;line-height:1.4}
+.sub-n{font-family:var(--mono);font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.spark{grid-column:1/-1;display:flex;gap:1px;height:8px;align-items:flex-end}
+.spark i{display:block;width:5px;background:var(--muted);opacity:.42;border-radius:.5px}
+.sub-btn[aria-current="true"] .spark i{background:var(--se);opacity:1}
+
+/* ---------- main ---------- */
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:5px 16px;padding-bottom:9px;border-bottom:2px solid var(--ink)}
+.head h2{font-family:var(--cjk);font-size:18px;font-weight:600;margin:0;line-height:1.3}
+.head .en{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+.head .n{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.head-def{font-family:var(--cjk);font-size:12.5px;color:var(--ink-2);line-height:1.65;padding:9px 0 4px;max-width:80ch}
+
+/* honor band */
+.band{margin-top:14px}
+.band-hd{display:flex;align-items:center;gap:9px;padding:5px 0 6px;border-bottom:1px solid var(--line)}
+.band-hd .dot{width:7px;height:7px;border-radius:50%;flex:none}
+.band-hd .nm{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.band-hd .ct{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:auto;font-variant-numeric:tabular-nums}
+.band.oral .dot{background:var(--oral)} .band.oral .nm{color:var(--oral)}
+.band.spotlight .dot{background:var(--spot)} .band.spotlight .nm{color:var(--spot)}
+.band.poster .dot{background:var(--poster)} .band.poster .nm{color:var(--poster)}
+
+.row{border-bottom:1px solid var(--line-soft)}
+.row-btn{width:100%;background:none;border:0;text-align:left;display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:2px 12px;padding:10px 3px;-webkit-user-select:text;user-select:text;cursor:default}
+.meta{grid-column:1;grid-row:1/span 4;display:flex;flex-direction:column;gap:4px;align-items:flex-start;width:96px;flex:none;padding-top:2px}
+.ven{font-family:var(--mono);font-size:9.5px;letter-spacing:.02em;padding:1px 5px;border-radius:2px;border:1px solid;white-space:nowrap}
+.ven.oral{color:var(--oral);border-color:var(--oral);background:var(--oral-soft)}
+.ven.spotlight{color:var(--spot);border-color:var(--spot);background:var(--spot-soft)}
+.ven.poster{color:var(--poster);border-color:var(--line);background:var(--poster-soft)}
+.ti{grid-column:2;font-family:var(--serif);font-size:15.5px;font-weight:500;line-height:1.34;text-wrap:pretty;cursor:text}
+.ti-zh{grid-column:2;font-family:var(--cjk);font-size:12.5px;color:var(--ink-2);line-height:1.45;cursor:text}
+.tldr{grid-column:2;font-family:var(--cjk);font-size:11.5px;color:var(--muted);line-height:1.5;padding-top:2px;cursor:text}
+.rowtags{grid-column:2;display:flex;gap:5px;flex-wrap:wrap;align-items:center;padding-top:4px}
+.au{font-size:11px;color:var(--muted);cursor:text}
+.tag{font-family:var(--mono);font-size:9px;color:var(--muted);border:1px solid var(--line);padding:1px 5px;border-radius:2px;white-space:nowrap}
+.tag.core{color:var(--se);border-color:var(--se);background:var(--se-soft)}
+.tag.q-T1{color:var(--oral);border-color:var(--oral);background:var(--oral-soft);font-weight:600}
+.tag.q-T2{color:var(--spot);border-color:var(--spot)}
+.tag.q-T4{color:var(--muted);border-color:var(--line);text-decoration:line-through;text-decoration-thickness:1px}
+.tag.q-T5{color:var(--muted);border-color:var(--line);font-style:italic}
+.chip.h-tier[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tag.adj{color:var(--spot);border-color:var(--spot)}
+.toggle{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+  border:1px solid var(--line);background:var(--surface);padding:2px 7px;border-radius:2px;cursor:pointer}
+.toggle:hover{border-color:var(--se);color:var(--se)}
+
+.panel{padding:2px 3px 16px 108px;display:grid;grid-template-columns:1fr 1fr;gap:0 26px;align-items:start}
+.panel h4{font-family:var(--mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 6px;font-weight:500;padding-bottom:4px;border-bottom:1px solid var(--line-soft)}
+.abs{font-size:13px;line-height:1.7;color:var(--ink-2);max-width:66ch}
+.abs.zh{font-family:var(--cjk);line-height:1.82}
+.authors-full{grid-column:1/-1;margin-bottom:12px}
+.au-list{font-size:12px;line-height:1.65;color:var(--ink-2)}
+.nope{font-family:var(--cjk);font-size:12px;color:var(--muted);border-left:2px solid var(--line);padding-left:10px}
+.foot{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:7px 14px;align-items:center;padding-top:12px;margin-top:12px;border-top:1px solid var(--line-soft)}
+.foot .note{font-family:var(--cjk);font-size:11px;color:var(--muted)}
+.foot a{font-family:var(--mono);font-size:10.5px}
+.foot .aid{font-family:var(--mono);font-size:9.5px;color:var(--muted);margin-left:auto}
+
+.more{display:block;width:100%;margin-top:14px;padding:10px;background:var(--surface);border:1px solid var(--line);
+  border-radius:2px;cursor:pointer;font-family:var(--mono);font-size:11.5px;color:var(--ink-2)}
+.more:hover{border-color:var(--muted)}
+.empty{padding:40px 3px;font-family:var(--cjk);color:var(--muted);font-size:13px}
+
+/* overview */
+.ov-note{font-family:var(--cjk);font-size:12.5px;color:var(--ink-2);line-height:1.7;max-width:82ch;padding:10px 0 14px}
+.trend{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:22px}
+.trend th,.trend td{padding:5px 8px;text-align:right;border-bottom:1px solid var(--line-soft)}
+.trend th{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.trend td:first-child,.trend th:first-child{text-align:left;font-family:var(--cjk);font-size:12.5px}
+.trend td{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.trend tr:hover td{background:var(--surface-2)}
+.delta.up{color:var(--oral)} .delta.dn{color:var(--muted)}
+.ovgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+.ovcard{background:var(--surface);padding:13px 14px 14px;display:flex;flex-direction:column;gap:7px;text-align:left;border:0;cursor:pointer;font:inherit;color:inherit}
+.ovcard:hover{background:var(--surface-2)}
+.ovtop{display:flex;align-items:baseline;gap:8px}
+.ovtop .zh{font-family:var(--cjk);font-size:14px;font-weight:600;line-height:1.3}
+.ovtop .n{margin-left:auto;font-family:var(--mono);font-size:14px;font-variant-numeric:tabular-nums;flex:none}
+.ovblurb{font-family:var(--cjk);font-size:11.5px;color:var(--ink-2);line-height:1.6;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.ovbar{display:flex;height:3px;border-radius:2px;overflow:hidden;background:var(--line-soft);margin-top:auto}
+.ovbar i{display:block;height:100%}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:1080px){
+  .shell{grid-template-columns:1fr;gap:16px}
+  .rail{position:static;max-height:none}
+  .panel{padding-left:3px;grid-template-columns:1fr;gap:16px}
+  .row-btn{grid-template-columns:minmax(0,1fr)}
+  .meta{grid-row:auto;grid-column:1;flex-direction:row;align-items:center;flex-wrap:wrap;width:auto}
+  .ti,.ti-zh,.tldr,.rowtags{grid-column:1}
+}
+@media (max-width:520px){
+  .mast,.bars,.shell{padding-left:16px;padding-right:16px}
+  .tallies{margin-left:0;gap:12px}
+  .mast h1{font-size:21px}
+}
+</style>
+
+<div class="topbar">
+  <div class="mast">
+    <div>
+      <h1>AI Venue Ledger</h1>
+      <div class="sub" style="margin-top:3px"><a href="../../" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em">← 全部合集</a></div>
+      <div class="sub" id="sub">ICLR · ICML · NeurIPS &nbsp;/&nbsp; nine main-conference editions, 2024–2026</div>
+    </div>
+    <div class="tallies" id="tallies"></div>
+  </div>
+  <div class="bars">
+    <label class="search" for="q"><input id="q" type="search" placeholder="搜索标题、作者、关键词…（中英文均可）" autocomplete="off"><kbd>/</kbd></label>
+    <div class="grp" id="honors"><span class="lbl">荣誉</span></div>
+    <div class="grp" id="cycles"><span class="lbl">届次</span></div>
+    <div class="grp" id="confs"><span class="lbl">会议</span></div>
+    <div class="grp" id="rels"><span class="lbl">对 SE</span></div>
+    <div class="grp" id="tiers"><span class="lbl">分级</span></div>
+  </div>
+</div>
+
+<div class="shell">
+  <nav class="rail" id="rail">
+    <div class="rail-head"><h2>Areas</h2><button class="allbtn" id="resetBtn" type="button">全部</button></div>
+    <div id="tree"></div>
+  </nav>
+  <main id="main"></main>
+</div>
+
+<script src="data/ledger.js"></script>
+<script>
+const DATA = window.__LEDGER__;
+const AREAS = DATA.areas, HELP = DATA.help_types, EV = DATA.evidence;
+/* rows arrive positionally (see DATA.fields) — key names repeated 36k times would blow the page budget */
+const P = DATA.rows.map(r => ({
+  a: "x" + r[0], v: DATA.venues[r[1]], h: DATA.honors[r[2]], sub: DATA.subs[r[3]], rel: DATA.rels[r[4]],
+  t: r[5], tz: r[6], au: r[7], na: r[8], ab: r[9], az: r[10], tl: r[11], rn: r[12], kw: r[13],
+  hp: r[14].map(i => DATA.help_ids[i]), oa: r[15], pu: r[16], sb: r[17], sk: r[18], si: r[19],
+  q: DATA.tier_list[r[20]], qa: r[21], qw: r[22],
+  cf: DATA.venues[r[1]].split(" ")[0], y: +DATA.venues[r[1]].split(" ")[1],
+}));
+const CYC_OF = {"ICLR 2024":"C1","ICML 2024":"C1","NeurIPS 2023":"C1",
+                "ICLR 2025":"C2","ICML 2025":"C2","NeurIPS 2024":"C2",
+                "ICLR 2026":"C3","ICML 2026":"C3","NeurIPS 2025":"C3"};
+P.forEach(p => { p.c = CYC_OF[p.v]; });
+const AREA_LIST = DATA.area_list, SITE_LIST = DATA.site_list;
+/* URLs are reconstructed from interned parts to keep 36k rows inside the page budget */
+const siteUrl = p => `${SITE_LIST[p.sb]}/${p.sk}/${p.si}`;
+const paperUrl = p => p.pu ? `https://openreview.net/forum?id=${p.pu}` : "";
+const officialArea = p => p.oa >= 0 ? AREA_LIST[p.oa] : "";
+
+const subOf = {}, areaOfSub = {};
+AREAS.forEach(a => a.subs.forEach(s => { subOf[s.id] = s; areaOfSub[s.id] = a; }));
+const helpName = {}; HELP.forEach(h => helpName[h.id] = h.zh);
+
+const CYCLES = [["C1","2023/24"],["C2","2024/25"],["C3","2025/26"]];
+const HONORS = [["Oral","Oral"],["Spotlight","Spotlight"],["Poster","Poster"]];
+const CONFS = ["ICLR","ICML","NeurIPS"];
+
+const state = { sub:null, area:null, honors:new Set(), cycles:new Set(), confs:new Set(), rel:null, tier:null, q:"", limit:80, open:new Set() };
+const TIER_INFO = {}; DATA.tiers.forEach(t => TIER_INFO[t.id] = t);
+
+P.forEach((p,i) => {
+  p._i = i;
+  p._s = (p.t + " " + (p.tz||"") + " " + (p.tl||"") + " " + p.au.join(" ") + " " + (p.kw||[]).join(" ") + " " + p.v).toLowerCase();
+});
+
+function matches(p){
+  if (state.honors.size && !state.honors.has(p.h)) return false;
+  if (state.cycles.size && !state.cycles.has(p.c)) return false;
+  if (state.confs.size && !state.confs.has(p.cf)) return false;
+  if (state.rel === "any" ? p.rel === "none" : (state.rel && p.rel !== state.rel)) return false;
+  if (state.tier && p.q !== state.tier) return false;
+  if (state.q && !p._s.includes(state.q)) return false;
+  return true;
+}
+function pool(){ return P.filter(matches); }
+function esc(s){ return String(s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+function hl(s){
+  if(!state.q) return esc(s);
+  const i = String(s||"").toLowerCase().indexOf(state.q);
+  if(i<0) return esc(s);
+  return esc(s.slice(0,i))+"<mark>"+esc(s.slice(i,i+state.q.length))+"</mark>"+esc(s.slice(i+state.q.length));
+}
+
+function renderTallies(){
+  const cur = pool();
+  const o = cur.filter(p=>p.h==="Oral").length, s = cur.filter(p=>p.h==="Spotlight").length;
+  const core = cur.filter(p=>p.rel==="core").length, adj = cur.filter(p=>p.rel==="adjacent").length;
+  document.getElementById("tallies").innerHTML =
+    `<div class="tally"><b>${cur.length.toLocaleString()}</b><span>in view</span></div>`+
+    `<div class="tally o"><b>${o}</b><span>Oral</span></div>`+
+    `<div class="tally s"><b>${s}</b><span>Spotlight</span></div>`+
+    `<div class="tally se"><b>${core}+${adj}</b><span>对 SE 有用</span></div>`+
+    `<div class="tally"><b>${cur.filter(p=>p.q==="T1"||p.q==="T2").length}</b><span>T1+T2 精读</span></div>`;
+}
+
+function renderTree(){
+  const cur = pool();
+  const bySub = {}, byArea = {};
+  cur.forEach(p => { bySub[p.sub]=(bySub[p.sub]||0)+1; const a=areaOfSub[p.sub]; if(a) byArea[a.id]=(byArea[a.id]||0)+1; });
+  // per-subarea cycle sparkline from the FULL corpus, so shape is stable under filtering
+  document.getElementById("tree").innerHTML = AREAS.map(a => {
+    const n = byArea[a.id]||0;
+    const open = state.open.has(a.id) || (state.sub && areaOfSub[state.sub]?.id===a.id);
+    const subs = a.subs.map(s => {
+      const c = bySub[s.id]||0;
+      const tr = s.trend||[0,0,0]; const mx = Math.max(1,...tr);
+      const bars = tr.map(v=>`<i style="height:${Math.max(1,Math.round(v/mx*8))}px"></i>`).join("");
+      return `<button class="sub-btn" type="button" data-sub="${s.id}" aria-current="${state.sub===s.id}"${c?"":' style="opacity:.4"'}>
+        <span class="sub-zh">${esc(s.zh)}</span><span class="sub-n">${c}</span><span class="spark">${bars}</span></button>`;
+    }).join("");
+    return `<div class="area" data-open="${open?1:0}">
+      <button class="area-btn" type="button" data-area="${a.id}">
+        <span class="area-txt"><span class="area-zh">${esc(a.zh)}</span><span class="area-en">${esc(a.en)}</span></span>
+        <span class="area-n">${n}</span><span class="caret">▶</span></button>
+      <div class="subs">${subs}</div></div>`;
+  }).join("");
+}
+
+function rowHTML(p){
+  const relTag = p.rel==="core" ? `<span class="tag core">软工直接相关</span>`
+              : p.rel==="adjacent" ? `<span class="tag adj">可迁移到 SE</span>` : "";
+  const help = (p.hp||[]).map(h=>`<span class="tag">${esc(helpName[h]||h)}</span>`).join("");
+  const subTag = state.sub ? "" : `<span class="tag">${esc(subOf[p.sub]?subOf[p.sub].zh:p.sub)}</span>`;
+  const qTag = p.q ? `<span class="tag q-${p.q}">${p.q} ${esc(TIER_INFO[p.q].short)}</span>` : "";
+  return `<article class="row" data-aid="${p.a}">
+    <div class="row-btn">
+      <span class="meta">
+        <span class="ven ${p.h.toLowerCase()}">${esc(p.v)}</span>
+        <span class="toggle" data-toggle>${p.ab||p.az?"展开摘要":"详情"}</span>
+      </span>
+      <span class="ti">${hl(p.t)}</span>
+      ${p.tz?`<span class="ti-zh">${hl(p.tz)}</span>`:""}
+      ${p.tl?`<span class="tldr">▸ ${hl(p.tl)}</span>`:""}
+      <span class="rowtags">
+        <span class="au">${esc(p.au.slice(0,3).join(", "))}${p.na>3?` 等 ${p.na} 人`:""}</span>
+        ${qTag}${relTag}${help}${subTag}
+      </span>
+    </div>
+  </article>`;
+}
+
+function panelHTML(p){
+  const s = subOf[p.sub], a = areaOfSub[p.sub];
+  const links = [];
+  const pu = paperUrl(p);
+  if (pu) links.push(`<a href="${esc(pu)}" target="_blank" rel="noopener">OpenReview ↗</a>`);
+  links.push(`<a href="${esc(siteUrl(p))}" target="_blank" rel="noopener">会议页面 ↗</a>`);
+  const en = p.ab ? `<p>${hl(p.ab)}</p>` : `<p class="nope">本页内嵌 Oral 与全部软工相关论文的摘要（共 ${DATA.stats.with_abstract.toLocaleString()} 篇）；其余论文受单页体积上限所限未内嵌，点上方“会议页面”即可看原文摘要。</p>`;
+  const zh = p.az ? `<p>${hl(p.az)}</p>` : `<p class="nope">未翻译（中文翻译只覆盖与软件工程相关的 ${DATA.stats.translated.toLocaleString()} 篇）。</p>`;
+  return `<div class="panel">
+    ${p.au.length?`<div class="authors-full"><h4>Authors · ${p.na}</h4><div class="au-list">${esc(p.au.join(" · "))}</div></div>`:""}
+    <div><h4>Abstract</h4><div class="abs">${en}</div></div>
+    <div><h4>中文翻译</h4><div class="abs zh">${zh}</div></div>
+    <div class="foot">
+      <span class="note">${esc(a?a.zh:"")} › ${esc(s?s.zh:p.sub)}</span>
+      ${p.q?`<span class="note">· ${p.q} ${esc(TIER_INFO[p.q].name)}${p.qa?`／${esc(DATA.archetypes[p.qa]||p.qa)}`:""}${p.qw?`：${esc(p.qw)}`:""}</span>`:""}
+      ${p.rn?`<span class="note">· ${esc(p.rn)}</span>`:""}
+      ${officialArea(p)?`<span class="note">· 会议自报领域：${esc(officialArea(p))}</span>`:""}
+      ${links.join("")}
+      <span class="aid">${esc(p.a)} · ${esc(p.h)}</span>
+    </div></div>`;
+}
+
+const HONOR_ORDER = {Oral:0, Spotlight:1, Poster:2};
+function renderMain(){
+  const main = document.getElementById("main");
+  const cur = pool();
+
+  if (!state.sub && !state.area && !state.q) {
+    const byArea = {};
+    cur.forEach(p => { const a=areaOfSub[p.sub]; if(a){ (byArea[a.id] ||= {o:0,s:0,p:0,se:0}); const b=byArea[a.id];
+      if(p.h==="Oral")b.o++; else if(p.h==="Spotlight")b.s++; else b.p++; if(p.rel!=="none")b.se++; } });
+    const rows = EV.area_trend.map(r =>
+      `<tr><td>${esc(r.zh)}</td><td>${r.c1.toFixed(2)}</td><td>${r.c2.toFixed(2)}</td><td>${r.c3.toFixed(2)}</td>
+       <td class="delta ${r.c3-r.c1>=0?"up":"dn"}">${(r.c3-r.c1>=0?"+":"")}${(r.c3-r.c1).toFixed(2)}</td></tr>`).join("");
+    main.innerHTML =
+      `<div class="head"><h2 class="zh">九届总览</h2><span class="en">${AREAS.length} areas · ${AREAS.reduce((n,a)=>n+a.subs.length,0)} subareas</span>
+        <span class="n">${cur.length.toLocaleString()} papers</span></div>
+       <p class="ov-note zh">收录 ICLR、ICML、NeurIPS <b>近三届主会</b>的全部录用论文（已排除 workshop、TMLR、Datasets&amp;Benchmarks、Position 等非主会轨道）。左侧按领域浏览；每个子领域的小柱状图是它在三个周期中的篇数变化。论文默认按 <b>Oral → Spotlight → Poster</b> 分层排列。中文翻译与摘要覆盖 Oral / Spotlight 全部，以及所有判定为与软件工程相关的论文。</p>
+       <p class="ov-note zh" style="border-left:2px solid var(--accent);padding-left:12px"><b>质量分级</b>覆盖全部 Oral、Spotlight 与软工相关论文（${DATA.stats.graded.toLocaleString()} 篇），只依据标题与摘要，荣誉等级不参与评判——所以能看到委员会与标准的分歧。${esc(DATA.high_quality_zh)}</p>
+       <h3 style="font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:4px 0 8px">各领域占比变化（% of cycle）</h3>
+       <div style="overflow-x:auto"><table class="trend"><thead><tr><th>领域</th><th>2023/24</th><th>2024/25</th><th>2025/26</th><th>Δ</th></tr></thead><tbody>${rows}</tbody></table></div>
+       <div class="ovgrid">${AREAS.map(a=>{
+         const d = byArea[a.id]||{o:0,s:0,p:0,se:0}; const t=d.o+d.s+d.p||1;
+         return `<button class="ovcard" type="button" data-areacard="${a.id}">
+           <span class="ovtop"><span class="zh">${esc(a.zh)}</span><span class="n">${(d.o+d.s+d.p).toLocaleString()}</span></span>
+           <span class="ovblurb">${esc(a.blurb)}</span>
+           <span class="ovbar"><i style="width:${d.o/t*100}%;background:var(--oral)"></i><i style="width:${d.s/t*100}%;background:var(--spot)"></i><i style="width:${d.p/t*100}%;background:var(--poster)"></i></span>
+         </button>`}).join("")}</div>`;
+    return;
+  }
+
+  let list, title, sub, def="";
+  if (state.sub){ const s=subOf[state.sub], a=areaOfSub[state.sub];
+    list = cur.filter(p=>p.sub===state.sub); title=s.zh; sub=`${a.zh} › ${s.en}`; def=s.def; }
+  else if (state.area){ const a=AREAS.find(x=>x.id===state.area); const ids=new Set(a.subs.map(s=>s.id));
+    list = cur.filter(p=>ids.has(p.sub)); title=a.zh; sub=a.en; def=a.blurb; }
+  else { list=cur; title="搜索结果"; sub=`“${state.q}”`; }
+
+  list = list.slice().sort((x,y)=> HONOR_ORDER[x.h]-HONOR_ORDER[y.h] || (y.rel!=="none")-(x.rel!=="none") || x._i-y._i);
+  const shown = list.slice(0, state.limit);
+
+  let html = `<div class="head"><h2 class="zh">${esc(title)}</h2><span class="en">${esc(sub)}</span>
+      <span class="n">${list.length.toLocaleString()} papers</span></div>
+    ${def?`<p class="head-def zh">${esc(def)}</p>`:'<div style="height:6px"></div>'}`;
+
+  if (!shown.length) html += `<p class="empty">没有符合当前筛选条件的论文。</p>`;
+  else {
+    ["Oral","Spotlight","Poster"].forEach(h => {
+      const g = shown.filter(p=>p.h===h);
+      if (!g.length) return;
+      const total = list.filter(p=>p.h===h).length;
+      html += `<section class="band ${h.toLowerCase()}"><div class="band-hd"><span class="dot"></span>
+        <span class="nm">${h}</span><span class="ct">${g.length} / ${total}</span></div>
+        ${g.map(rowHTML).join("")}</section>`;
+    });
+  }
+  if (list.length>shown.length)
+    html += `<button class="more" type="button" id="moreBtn">再显示 ${Math.min(80,list.length-shown.length)} 篇（共 ${list.length.toLocaleString()} 篇）</button>`;
+  main.innerHTML = html;
+}
+
+function render(){ renderTallies(); renderTree(); renderMain(); }
+
+function chip(wrap, key, val, label, cls){
+  const b=document.createElement("button");
+  b.type="button"; b.className="chip"+(cls?" "+cls:""); b.textContent=label;
+  b.setAttribute("aria-pressed","false"); b.dataset[key]=val;
+  document.getElementById(wrap).appendChild(b);
+}
+HONORS.forEach(([v,l]) => chip("honors","honor",v,l, v==="Oral"?"h-oral":v==="Spotlight"?"h-spot":""));
+CYCLES.forEach(([v,l]) => chip("cycles","cycle",v,l));
+CONFS.forEach(v => chip("confs","conf",v,v));
+[["core","直接相关"],["adjacent","可迁移"],["any","全部相关"]].forEach(([v,l]) => chip("rels","rel",v,l,"h-se"));
+DATA.tiers.forEach(t => chip("tiers","tier",t.id,`${t.id} ${t.short}`,"h-tier"));
+
+function toggleSet(set, v, el){ if(set.has(v)) set.delete(v); else set.add(v); el.setAttribute("aria-pressed", set.has(v)); }
+
+document.addEventListener("click", e => {
+  const h=e.target.closest("[data-honor]");
+  if(h){ toggleSet(state.honors,h.dataset.honor,h); state.limit=80; render(); return; }
+  const c=e.target.closest("[data-cycle]");
+  if(c){ toggleSet(state.cycles,c.dataset.cycle,c); state.limit=80; render(); return; }
+  const cf=e.target.closest("[data-conf]");
+  if(cf){ toggleSet(state.confs,cf.dataset.conf,cf); state.limit=80; render(); return; }
+  const tr=e.target.closest("[data-tier]");
+  if(tr){ state.tier = state.tier===tr.dataset.tier ? null : tr.dataset.tier;
+    document.querySelectorAll("[data-tier]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.tier===state.tier));
+    state.limit=80; render(); return; }
+  const r=e.target.closest("[data-rel]");
+  if(r){ state.rel = state.rel===r.dataset.rel ? null : r.dataset.rel;
+    document.querySelectorAll("[data-rel]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.rel===state.rel));
+    state.limit=80; render(); return; }
+
+  const ac=e.target.closest("[data-areacard]");
+  if(ac){ state.area=ac.dataset.areacard; state.sub=null; state.open.add(state.area); state.limit=80; render();
+    window.scrollTo({top:0,behavior:"smooth"}); return; }
+  const ab=e.target.closest("[data-area]");
+  if(ab){ const id=ab.dataset.area;
+    if(state.open.has(id)&&state.area===id){ state.open.delete(id); state.area=null; }
+    else { state.open.add(id); state.area=id; state.sub=null; }
+    state.limit=80; render(); return; }
+  const sb=e.target.closest("[data-sub]");
+  if(sb){ state.sub = state.sub===sb.dataset.sub ? null : sb.dataset.sub; state.area=null; state.limit=80; render();
+    document.getElementById("main").scrollIntoView({block:"start",behavior:"smooth"}); return; }
+
+  if(e.target.closest("#resetBtn")){ state.sub=null; state.area=null; state.limit=80; render(); return; }
+  if(e.target.closest("#moreBtn")){ state.limit+=80; renderMain(); return; }
+
+  const tg=e.target.closest("[data-toggle]");
+  if(tg){
+    const row=tg.closest(".row"); const ex=row.querySelector(".panel");
+    if(ex){ ex.remove(); tg.textContent="展开摘要"; }
+    else { const p=P.find(x=>x.a===row.dataset.aid); row.insertAdjacentHTML("beforeend", panelHTML(p)); tg.textContent="收起"; }
+  }
+});
+
+const qEl=document.getElementById("q"); let qt;
+qEl.addEventListener("input", ()=>{ clearTimeout(qt);
+  qt=setTimeout(()=>{ state.q=qEl.value.trim().toLowerCase(); state.limit=80; render(); },180); });
+document.addEventListener("keydown", e=>{
+  if(e.key==="/" && document.activeElement!==qEl){ e.preventDefault(); qEl.focus(); }
+  if(e.key==="Escape" && document.activeElement===qEl){ qEl.value=""; state.q=""; state.limit=80; render(); qEl.blur(); }
+});
+
+function syncTopbar(){ document.documentElement.style.setProperty("--topbar", document.querySelector(".topbar").offsetHeight+"px"); }
+window.addEventListener("resize", syncTopbar);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncTopbar);
+render(); syncTopbar();
+</script>
+
+</body></html>

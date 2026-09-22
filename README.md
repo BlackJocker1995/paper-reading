@@ -11,10 +11,14 @@
 ```
 index.html                              合集总入口
 collections/
-  arxiv-se-2026-09/
+  arxiv-se-2026-09/                     arXiv cs.SE 日榜
     index.html                          合集页面
     data/papers.json                    论文数据（脚本生成，勿手改）
     data/meta.json                      统计与筛选项
+  ai-venues/                            ICLR/ICML/NeurIPS 九届主会 36,237 篇
+    index.html                          页面（自 AI Venue Ledger artifact 迁入）
+    data/ledger.js                      数据 14.8MB，外置以便浏览器单独缓存
+    data/meta.json                      统计
   <以后的合集>/                          同样结构
 tools/build_site.py                     从本地 Obsidian vault 导出公开数据
 .github/workflows/deploy.yml            只负责部署
