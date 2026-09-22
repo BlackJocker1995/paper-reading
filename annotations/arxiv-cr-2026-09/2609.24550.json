@@ -1,0 +1,22 @@
+{
+ "id": "2609.24550",
+ "title_cn": "LLM 引导插桩的 JavaScript 引擎状态感知模糊测试",
+ "abstract_cn": "现代 Web 的安全取决于 JavaScript 引擎的正确性，而这些复杂系统仍屡现高危漏洞。最先进 fuzzer 的关键局限是覆盖平台期：一旦控制流图饱和，边覆盖便失去引导能力。因为 JIT 优化层级、隐藏类转换等复杂引擎行为常共享相同的边覆盖，标准覆盖指标对触发深层错误所需的内部状态视而不见。为此我们提出 StateLens：用 LLM 自动化发现深层内部状态的框架。在所有状态盲目布点不可行——状态空间巨大且运行时开销高。StateLens 引入模拟安全研究员直觉的智能体推理流水线：经迭代遍历代码与开发者注释，智能体选择高价值插桩目标，有效把驱动逻辑的状态变量与无关数据分开，产生可综合、高信号的反馈探针，映射引擎的隐藏配置；插桩再馈入双反馈机制，引导 fuzzer 探索未触及的引擎语义。评估确认 StateLens 显著超过 SOTA fuzzer，发现 68 个新 bug（SOSP'26）。",
+ "summary_cn": "用 LLM 智能体自动定位 JS 引擎的深层内部状态并合成插桩探针，突破边覆盖平台期：显著超越 SOTA fuzzer 并发现 68 个新 bug（SOSP'26）。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "模糊测试",
+  "JavaScript 引擎",
+  "LLM 插桩",
+  "状态感知"
+ ],
+ "objective_summary": "提出 LLM 引导的状态感知模糊测试框架，自动化深层状态探针合成，在真实引擎上验证增益并大量报洞。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "SOSP'26 录用、与 SOTA fuzzer 对比、68 个新 bug 的实证产出；消融覆盖 LLM 引导相对随机布点的增益。",
+ "novelty": 4,
+ "novelty_note": "把「语义状态」而非代码覆盖作为模糊反馈对象，并用 LLM 自动化探针发现，是对覆盖平台期问题的实质突破。",
+ "scope": "结论适用于 JIT 型 JS 引擎；对其他语言运行时需重建状态模型。",
+ "limitations": "LLM 推理成本高；状态模型可能遗漏；对非引擎类目标的通用性未测。",
+ "artifact": "未提及"
+}

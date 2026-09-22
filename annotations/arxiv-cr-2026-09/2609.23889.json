@@ -1,0 +1,22 @@
+{
+ "id": "2609.23889",
+ "title_cn": "SyzHarness：用 LLM 合成模糊测试 harness 的补丁式内核漏洞复现",
+ "abstract_cn": "自动化内核漏洞复现对漏洞分诊、补丁验证与回归测试至关重要，但缺乏有效且高效的方案。核心挑战有二：复现器必须先恢复到达漏洞状态的触发脚手架，并确定真正触发漏洞的精确具体值。现有定向模糊测试难以恢复触发脚手架；纯 LLM 生成则脆弱，难以应对具体值发现与运行时非确定性。我们设计 SyzHarness：结合 LLM 推理与覆盖引导模糊测试的补丁式 Linux 内核漏洞复现框架。给定补丁，SyzHarness 用以代码导航工具为根基的 LLM 智能体合成参数化 fuzzing harness——固化前置 setup 逻辑、只把不确定的漏洞关键输入参数暴露给 Syzkaller 变异——再将 harness 翻译为 Syzkaller 兼容接口，经分层可达性反馈迭代精化。在多个真实 Linux 内核漏洞数据集上：100 个 KernelCTF 案例复现率 78%；SyzDirect 基准上 73%，显著超过先前定向灰盒 fuzzing；对 2026 年 3 月后修复的 50 个已知可触发 syzbot 漏洞，仅以修复 commit 为输入复现 40/50（80%）。",
+ "summary_cn": "LLM 合成参数化 harness + Syzkaller 变异的内核漏洞复现框架：KernelCTF 100 例复现 78%、新近 syzbot 漏洞 40/50，显著超过定向灰盒 fuzzing 基线。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "内核漏洞",
+  "漏洞复现",
+  "LLM 智能体",
+  "模糊测试"
+ ],
+ "objective_summary": "提出补丁引导、LLM 合成 harness 配合覆盖率引导变异的内核漏洞复现框架，在三个基准上量化复现率并超过先前工作。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "三个数据集、与定向 fuzzing 基线对比、真实 syzbot 漏洞端到端验证；复现即触发 oracle 明确。",
+ "novelty": 3,
+ "novelty_note": "「LLM 固化脚手架 + fuzzer 管具体值」的分工设计有效解决两者各自的短板，工程组合有新意。",
+ "scope": "结论适用于有补丁可用、Syzkaller 可表达的内核接口漏洞；对无补丁 0-day 与非系统调用面未覆盖。",
+ "limitations": "依赖补丁质量与符号信息；LLM 合成的 harness 可能有偏差；运行成本高。",
+ "artifact": "未提及"
+}
