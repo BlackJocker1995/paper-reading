@@ -3,43 +3,43 @@
  "title": "arXiv cs.CR · 2026-09",
  "month": "2026-09",
  "category": "cs.CR",
- "count": 256,
- "with_objective": 256,
+ "count": 253,
+ "with_objective": 307,
  "annotated_days": [
+  "2026-09-24",
   "2026-09-23",
   "2026-09-22",
   "2026-09-21",
-  "2026-09-18",
-  "2026-09-17"
+  "2026-09-18"
  ],
  "days": [
+  "2026-09-24",
   "2026-09-23",
   "2026-09-22",
   "2026-09-21",
-  "2026-09-18",
-  "2026-09-17"
+  "2026-09-18"
  ],
  "topics": {
-  "Security of AI": 82,
+  "Security of AI": 78,
+  "Systems & Network Security": 30,
   "Crypto & Protocols": 29,
-  "Systems & Network Security": 29,
-  "AI for Security": 27,
-  "Privacy": 25,
+  "AI for Security": 29,
+  "Privacy": 28,
   "Malware & Attacks": 18,
-  "Vulnerability & Exploitation": 17,
-  "Other": 13,
-  "Measurement & Empirical": 11,
+  "Vulnerability & Exploitation": 14,
+  "Measurement & Empirical": 12,
+  "Other": 10,
   "Formal Methods & Theory": 5
  },
  "contribution_types": {
-  "新方法/新技术": 101,
-  "实证研究": 52,
-  "新工具/系统": 47,
-  "理论/形式化": 26,
-  "基准/数据集": 12,
-  "立场/展望": 9,
-  "综述/系统性文献回顾": 6,
-  "复现/负面结果": 3
+  "新方法/新技术": 106,
+  "实证研究": 48,
+  "新工具/系统": 43,
+  "理论/形式化": 22,
+  "基准/数据集": 13,
+  "立场/展望": 11,
+  "综述/系统性文献回顾": 8,
+  "复现/负面结果": 2
  },
- "generated": "2026-09-23T16:33:08+00:00"
+ "generated": "2026-09-24T16:38:59+00:00"
 }
