@@ -1,0 +1,23 @@
+{
+ "id": "2609.31004",
+ "title_cn": "用 GitHub 参与度信号做 CVE 优先级排序：GitHub 热度指标（GPM）",
+ "abstract_cn": "攻击者可以用一个漏洞攻陷多个系统，而防御者需要修复系统中的所有安全弱点。这种不对称使防御者处于劣势。安全漏洞被发现的速度惊人，而修补漏洞成本高且耗时，因此漏洞优先级排序是必须且时间紧迫的挑战。目前使用的许多优先级指标（如 CVSS、EPSS、KEV、SSVC）各有优缺点，如开放性、自动化程度、时间紧迫性、覆盖范围与专家投入需求。在这项工作中，我们提出 GitHub 热度指标（GPM）：一个完全开放、可公开计算的、基于漏洞利用在 GitHub 仓库中热度的优先级指标。我们使用 star 数、fork 数与相关独立用户数等 GitHub 特征构建指标，用以指示 CVE 在不同时间跨度上的热度，既相对当前时间也回溯历史。我们将该指标与多种现有漏洞优先级指标及已知被利用漏洞进行比较，并证明它为防御者提供了切实的洞见，识别出独特 CVE 与现有方法中的不一致。GPM 已被集成进 EPSS 第 5 版。注：基于本工作的演示已被 ACM CCS 2026 演示轨道接收。",
+ "summary_cn": "提出 GPM：用 GitHub star/fork/独立用户数构造开放的 CVE 热度指标，能识别现有指标遗漏的 CVE，已集成进 EPSS v5，配套演示获 CCS 2026 接收。",
+ "topic": "Measurement & Empirical",
+ "tags": [
+  "漏洞优先级",
+  "CVE",
+  "EPSS",
+  "GitHub 信号",
+  "风险量化"
+ ],
+ "objective_summary": "基于 GitHub 上漏洞利用相关仓库的 star、fork 与独立用户数构造可公开计算的 CVE 热度指标，与 CVSS/EPSS/KEV/SSVC 及 KEV 对比并集成进 EPSS v5。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "与多种现有指标及 KEV 的系统对比并报告独特发现，已实际集成进 EPSS v5、演示获 CCS 2026 接收；但摘要未给出量化增益、无统计检验，GitHub 信号存在偏差。",
+ "novelty": 3,
+ "novelty_note": "把公开可计算的 GitHub 热度信号引入 CVE 优先级排序并落地到 EPSS，是实用信号增量；利用热度作为被利用性的代理思想与既有工作相关。",
+ "scope": "结论适用于有 GitHub 开发/利用痕迹的 CVE；冷门或闭源生态漏洞、短期爆发型利用的覆盖未量化。",
+ "limitations": "GitHub 热度受曝光度与社区规模影响，可能与实际利用风险脱钩；对历史 CVE 的回溯计算存在幸存者偏差；摘要未报告与 EPSS 组合后的增量预测性能。",
+ "artifact": "公开"
+}

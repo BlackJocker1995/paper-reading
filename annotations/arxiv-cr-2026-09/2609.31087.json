@@ -1,0 +1,23 @@
+{
+ "id": "2609.31087",
+ "title_cn": "BenX：面向计算完整性的资源共享置换",
+ "abstract_cn": "素数模整数上的密码哈希函数在计算完整性证明系统的效率与安全中起决定性作用。早期设计聚焦于紧凑算术电路与高效软件执行，主要面向通用 CPU 而非硬件加速器。本工作聚焦在高效软件执行之外同时实现高效资源共享与硬件加速。我们提出 BenX：一个为硬件加速、快速 CPU 执行与证明系统低电路复杂度设计的基于置换的哈希函数。为构造底层置换，我们用 Dickson 多项式把 Benes 网络变成 F_p² 上的可逆函数。其结构产生一个特别适合硬件资源共享与加速的置换。在 FPGA 上全流水线实现后，BenX 与 Poseidon2 吞吐量相当，对 Goldilocks 与 BabyBear 分别有 1.36 倍与 2.15 倍的延迟优势。虽然作为独立核心更大，但它更有效地利用共享硬件：在 NTT 与哈希共享场乘法器的双模式架构中，BenX 使其中 100% 保持忙碌，而 Poseidon 与 Poseidon2 的部分轮次只有 6.25–20.3%。在软件中，BenX 在所有受测 31 与 64 比特配置上优于 Poseidon，但除 16 元素 BabyBear 实例外慢于 Poseidon2。在零知识证明中，BenX 证明 Goldilocks 置换的速度比 Monolith 快 6–10 倍；其紧凑算术化在 BabyBear 上比 Poseidon 与 Poseidon2 少用约 36% 的 trace 单元，而其快速变体需要 Poseidon2 的 1.3–2.6 倍证明时间。",
+ "summary_cn": "用 Dickson 多项式把 Benes 网络变为 F_p² 置换构造哈希 BenX：FPGA 吞吐持平 Poseidon2 且延迟低 1.36–2.15 倍，ZK 证明快 Monolith 6–10 倍、trace 单元省约 36%。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "密码哈希",
+  "零知识证明",
+  "FPGA 加速",
+  "Poseidon",
+  "证明系统"
+ ],
+ "objective_summary": "设计基于 Benes 网络与 Dickson 多项式的置换哈希 BenX，从硬件资源共享、CPU 执行与电路复杂度三方面与 Poseidon/Poseidon2/Monolith 系统对比。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "FPGA 全流水线实现与吞吐/延迟实测、多字段（Goldilocks/BabyBear）多配置软件基准、ZK 证明器与 trace 单元量化对比，指标具体可复算。",
+ "novelty": 3,
+ "novelty_note": "Benes 加 Dickson 多项式构造置换并瞄准「NTT/哈希共享乘法器」的架构协同是新的设计点；安全分析依赖置换随机性假设，密码分析深度有限。",
+ "scope": "结论适用于 SNARK/STARK 类证明系统中的哈希与 NTT 共享硬件场景；x86/ARM 之外的软件性能与抗代数攻击的具体安全界未充分论证。",
+ "limitations": "快速变体证明时间是 Poseidon2 的 1.3–2.6 倍，存在权衡；安全性论证以结构论证为主，缺乏针对性密码分析；独立核心面积更大。",
+ "artifact": "未提及"
+}
