@@ -1,0 +1,22 @@
+{
+ "id": "2609.30719",
+ "title_cn": "Werracle：面向 EVM 智能合约的亚美分级区块内 AI 反射预言机与闪电贷熔断器",
+ "abstract_cn": "当代链上人工智能（AI）面临难以逾越的冯·诺依曼内存与延迟之墙。把静态浮点神经网络权重矩阵存入以太坊虚拟机（EVM）存储需耗费数百万 gas，使直接的链上推理不可行。零知识机器学习（ZK-ML）虽然把矩阵张量乘法卸载给链下证明者，却引入致命约束：10 到 300 秒的 SNARK 证明延迟，以及每次证明验证 250,000 到 500,000 gas。由于去中心化金融（DeFi）攻击——如无抵押闪电贷攻击、掠夺性三明治 MEV 与有害的损失对再平衡（LVR）流——在单个区块内原子地发生，ZK-ML 预言机无法及时响应。为此，我们提出 Werracle，一个生产级、零存储的链上 AI 决策预言机，可装入单个 32 字节 EVM 存储槽（bytes32）。借助 Dagli 等人（arXiv:2609.25498）建立的基础性程序化 Mandelbrot 逃逸动力学（z_(n+1) = z_n^2 + c），Werracle 从 24 字节的坐标三元组 Theta = (c_x, c_y, zoom) 导出连续的非线性决策超平面。Werracle 以纯 Solidity 字节码、采用 Q16.16 定点算术（WerrMath.sol）实现，仅用 21,438 gas（在 Base 与 Arbitrum 等 Layer-2 rollup 上低于 0.0005 美元）即可评估一个 16 点 Pareto 微网格，执行延迟低于 1 毫秒。我们通过 WerracleFeeHook.sol 展示其在真实 DeFi 中的效用：这是一个 Uniswap v4 动态兑换费率调控器，可即时测量订单簿波动，并原子地在 0.05% 与 0.50% 之间调整流动性提供者费率。该协议经过一个包含 1,000 项测试、经密码学封存的确定性验证套件的形式化验证（通过率 100.0%），遥测永久禁用，并在专用 EVM 开发网沙箱（Chain ID 4242）上实时运行。",
+ "summary_cn": "基于 Mandelbrot 逃逸动力学把决策边界压进单个 bytes32 槽的链上 AI 预言机 Werracle，16 点网格评估仅 21,438 gas，并以 Uniswap v4 动态费率钩子演示。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "智能合约",
+  "DeFi",
+  "链上 AI",
+  "闪电贷"
+ ],
+ "objective_summary": "以 Mandelbrot 逃逸动力学在单个存储槽中编码非线性决策边界，实现链上决策预言机 Werracle，用 gas 测量、1,000 项确定性测试与 Uniswap v4 费率钩子演示加以验证。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 2,
+ "evidence_note": "仅报告 gas 开销、延迟与 1,000 项确定性测试通过率；摘要未报告对真实闪电贷/MEV 攻击的识别效果，也无基线对比。",
+ "novelty": 2,
+ "novelty_note": "决策编码沿用配套论文的 Mandelbrot 动力学，本文主要是 Solidity 实现与费率钩子应用。",
+ "scope": "结论限于 EVM 链上的 Q16.16 定点实现，在专用开发网沙箱中运行，不涉及主网真实攻击流量。",
+ "limitations": "所称形式化验证实为 1,000 项测试套件而非证明；决策超平面对攻击的判别能力摘要未给实证。",
+ "artifact": "公开"
+}

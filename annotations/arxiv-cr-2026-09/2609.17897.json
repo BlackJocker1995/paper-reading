@@ -1,0 +1,22 @@
+{
+ "id": "2609.17897",
+ "title_cn": "当 AI 智能体遭遇 MEV：智能体经济中的跨链套利",
+ "abstract_cn": "我们研究以自主 AI 智能体（而非人类或机器人）作为搜索者时的跨链套利问题。我们将智能体同时建模为套利提取者和最大可提取价值（Maximal Extractable Value，MEV）目标，在带有随机桥接延迟的均值-方差效用下推导出风险厌恶型智能体的最优交易规模，并将多链路径选择形式化为一个信念加权在线学习问题，其信念估计在 Robbins-Monro 调度下收敛。基于 Ethereum、Arbitrum 和 Base 上的 23,000 笔 Uniswap V3 交换事件，我们发现 Ethereum-Arbitrum 价差在 10 秒分辨率下平均为 0.044%，Arbitrum-Base 价差平均为 0.013%，因此通过 CCTP，1 万美元的交易在 63% 的 L2-L2 窗口内可以成交，而 L1-L2 路由需要 5 万美元或更多才能具有相当的可行性。我们的自适应路径选择算法平均比标准基线高出 11%，适度的随机化可将 MEV 风险敞口降低 50% 以上，而利润损失仅轻微。",
+ "summary_cn": "把跨链套利 AI agent 同时建模为 MEV 提取者与目标，推出风险规避的最优单笔规模与信念加权在线路径选择；用 23000 条 Uniswap V3 swap 事件量化 Ethereum-Arbitrum、Arbitrum-Base 价差，自适应路径超基线 11%,随机化削减 MEV 暴露过半(MARBLE 2026)。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "跨链套利",
+  "MEV",
+  "AI agent",
+  "区块链"
+ ],
+ "objective_summary": "建立 AI agent 作跨链套利者与 MEV 目标的均值-方差与在线学习模型并给出收敛性论证，在 Ethereum、Arbitrum、Base 上的 23000 条 Uniswap V3 swap 事件上评估自适应路径选择与随机化策略。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "使用 23000 条真实链上 swap 事件测算 10 秒粒度价差，与标准基线对照给出 11% 提升，统计检验未在摘要提及。",
+ "novelty": 3,
+ "novelty_note": "在既有跨链 MEV 研究上加入 AI agent 视角、最优规模推导与在线路径选择，属方向内的实质延展。",
+ "scope": "结论限于 Ethereum、Arbitrum、Base 与 Uniswap V3、CCTP 路由的 10 秒粒度窗口。",
+ "limitations": "未覆盖其他 bridge、非 Uniswap 协议与更复杂 MEV 策略，算法未做实盘部署验证。",
+ "artifact": "未提及"
+}

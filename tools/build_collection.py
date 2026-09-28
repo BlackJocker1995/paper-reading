@@ -32,6 +32,9 @@ PUBLIC_OBJ_FIELDS = ["objective_summary", "contribution_type", "evidence_strengt
                      "evidence_note", "novelty", "novelty_note", "scope",
                      "limitations", "artifact"]
 BLOCKED = {"relevance", "why", "headline", "overview_cn", "picks", "skip"}
+# 一作机构：annotations/institutions/<slug>.json（tools/fetch_institutions.py 标的）。
+# 只发 high / medium——机构挂错是对论文作者的错误归属，比空着严重。
+INSTITUTION_CONF = {"high", "medium"}
 REQUIRED_OBJ = ["topic", "tags", "contribution_type", "evidence_strength", "evidence_note",
                 "novelty", "novelty_note", "scope", "limitations"]
 
@@ -45,6 +48,11 @@ def main() -> None:
     slug = f"arxiv-{args.category.split('.')[-1].lower()}-{args.month}"
     raw_f = REPO / ".cache/fetch" / f"{slug}.raw.json"
     ann_dir = REPO / "annotations" / slug
+    inst_f = REPO / "annotations" / "institutions" / f"{slug}.json"
+    inst = json.loads(inst_f.read_text(encoding="utf-8")) if inst_f.exists() else {}
+    if not inst:
+        print(f"⚠ 没有一作机构数据（{inst_f.relative_to(REPO)}），先跑 tools/fetch_institutions.py --slug {slug}",
+              file=sys.stderr)
     out = REPO / "collections" / slug / "data"
     raw = json.loads(raw_f.read_text(encoding="utf-8"))
     if not raw:
@@ -73,6 +81,9 @@ def main() -> None:
                     continue
                 if a.get(k) not in (None, ""):
                     rec[k] = a[k]
+        i = inst.get(pid) or {}
+        if i.get("institution") and i.get("confidence") in INSTITUTION_CONF:
+            rec["institution"] = i["institution"]
         leaked = BLOCKED & set(rec)
         if leaked:
             sys.exit(f"内部错误：{pid} 带出了私人字段 {leaked}")
@@ -106,6 +117,7 @@ def main() -> None:
         "category": args.category,
         "count": len(papers),
         "with_objective": len(annotated_ids),
+        "with_institution": sum(1 for p in papers if p.get("institution")),
         "annotated_days": done_days,
         "days": done_days,
         "topics": dict(topics.most_common()),
@@ -116,7 +128,7 @@ def main() -> None:
 
     size = (out / "papers.json").stat().st_size
     print(f"✅ {slug}: {len(papers)} 篇 · papers.json {size/1024:.0f} KB · "
-          f"已标注 {len(annotated_ids)} 篇，覆盖公告日 {done_days}")
+          f"已标注 {len(annotated_ids)} 篇，一作机构 {meta['with_institution']} 篇，覆盖公告日 {done_days}")
 
 
 if __name__ == "__main__":

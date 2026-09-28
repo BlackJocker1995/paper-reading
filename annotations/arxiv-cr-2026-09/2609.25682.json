@@ -1,0 +1,22 @@
+{
+ "id": "2609.25682",
+ "title_cn": "C 到 Rust 的谬误：自动重构不等于内存安全性",
+ "abstract_cn": "Rust 已成为领先的系统编程语言，在不牺牲性能的前提下提供强内存安全与类型安全保证。这使它成为 C、C++ 等易受内存安全性（security）缺陷影响的传统语言的有力替代。然而，手动把 C 转换为 Rust 需要对 Rust 语言特性有深入的领域知识，开发者需为此投入大量精力。为此，自动 C 到 Rust 重构工具旨在借助静态分析与大语言模型（LLM）生成安全的 Rust 代码。这些工具声称通过减少 unsafe 的 Rust 代码来实现安全（safety），但其与提升安全性（security）之间的关联并不清楚。本文对各种 C 到 Rust 重构方法的可靠性、安全（safety）与正确性开展全面的实证研究。具体而言，我们使用来自 NIST Juliet 测试套件、含内存安全性缺陷的 116 个 C 程序数据集，评估 C2Rust-analyze、CROWN、C2SaferRust 与 FLOURINE。基于这些工具生成的 464 个 Rust 程序，我们的评估聚焦三个关键方面：重构程序的编译正确性、缓解原始 C 缺陷的有效性，以及引入额外 Rust 缺陷的倾向。结果表明，342 个 Rust 程序无法编译，177 个 Rust 程序继承了原始 C 程序的内存安全性缺陷，另有 77 个新的 Rust 缺陷被引入。我们考察了这些工具的设计原理，并分析了各类重构方法中错误的根本原因。我们的发现表明，当前自动重构工具交付的是它们所定义的内存安全（safety），而在采用时并不能带来更广义的内存安全性（security）。",
+ "summary_cn": "用 NIST Juliet 中 116 个含内存缺陷的 C 程序评测四种 C 到 Rust 自动重构工具：464 个 Rust 程序中 342 个无法编译、177 个继承原缺陷、新引入 77 个缺陷。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "C 到 Rust",
+  "内存安全",
+  "自动重构",
+  "LLM"
+ ],
+ "objective_summary": "用 NIST Juliet 中含内存安全漏洞的 116 个 C 程序，评测 C2Rust-analyze、CROWN、C2SaferRust 与 FLOURINE 四种 C 到 Rust 重构工具在编译正确性、缺陷缓解与引入新缺陷三方面的表现。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 4,
+ "evidence_note": "116 个含漏洞 C 程序、四种工具共 464 个输出，给出编译失败、继承与新增缺陷计数及根因分析；单一 Juliet 数据集，摘要未提统计检验。",
+ "novelty": 3,
+ "novelty_note": "系统检验自动重构所称的内存安全（safety）能否带来更广义的内存安全性（security），发现二者不等同。",
+ "scope": "结论限于 NIST Juliet 的 116 个 C 程序、所测四种重构工具与其生成的 Rust 代码。",
+ "limitations": "仅用 NIST Juliet 测试套件中的 116 个程序，未涉及真实项目代码；只覆盖四种重构工具。",
+ "artifact": "未提及"
+}

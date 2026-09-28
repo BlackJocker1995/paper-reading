@@ -1,0 +1,22 @@
+{
+ "id": "2609.19091",
+ "title_cn": "当智能体行为像信标时：Model Context Protocol 流量对网络入侵检测系统的规避",
+ "abstract_cn": "Model Context Protocol（MCP）通过 Streamable HTTP 标准化自主人工智能（AI）智能体与远程工具之间的通信。这一转变将一类机器生成的、经过身份验证的高频 JSON-RPC 流量直接引入企业网络。企业网络防御者历来将类机器节奏作为入侵指标（IoC）。在本研究中，我们表明，在没有显式网络层指示的情况下，MCP 流量在结构和时序上类似于命令与控制（C2）信标行为，特别是 Cobalt Strike 等高级持续性威胁所使用的轮询架构。与关于机器生成轮询的理论假设相反，我们的测量揭示了一个可见性缺口：在我们的测试床范围内，标准企业入侵检测系统（IDS）和行为信标评分框架未将 MCP 远程工具使用分类为异常。通过一个基于 Docker 的受控测试床，模拟三种 TLS 条件（不透明、TLS 检查和明文）下的十一种数学定义流量配置文件，我们针对 MCP JSON-RPC 模式评估了 Suricata 特征匹配和 RITA 行为评分。结果表明，MCP 流量无论时序模糊（抖动）或 TLS 检查可见性如何，在此配置下均能规避检测，在 Emerging Threats（ET）开放规则集下持续产生 0.0 的行为信标评分和接近零的 IDS 内容告警。虽然不透明 TLS 掩盖了 HTTP 内容，但它使智能体流量暴露于流级时序分析；然而，针对识别传统恶意软件调优的网络入侵检测系统（NIDS）启发式规则并未将生成式 AI 推理循环特有的对数正态到达间隔分布标记为异常。为解决这一缺口，我们提出了一种智能体原生网络指示标准，包括 Agent-Native ALPN 和标准化带外头部。",
+ "summary_cn": "在 Docker 测试床上比对 11 种流量模式与三种 TLS 条件，发现 MCP 流量在结构与时序上与 C2 信标高度相似，Suricata 与 RITA 行为分数均为 0、几乎零告警，作者提议 Agent-Native ALPN 与带外标识以区分（IEEE ICNP NIPA 2026）。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "MCP",
+  "AI agent",
+  "NIDS 绕过",
+  "信标检测"
+ ],
+ "objective_summary": "作者搭建 Docker 测试床，控制抖动与 TLS 检查条件生成 11 种流量档案，用 Suricata 与 RITA 评估 MCP JSON-RPC 是否被现有规则与行为评分识别为异常。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 3,
+ "evidence_note": "6 页会议短文，覆盖 11 种流量模式与 3 种 TLS 条件的对照，规则集限于 ET Open，Suricata 与 RITA 各一款工具。",
+ "novelty": 4,
+ "novelty_note": "指出 MCP 常态化 agent 流量令传统信标启发式失效，并把 agent-native 网络指示上升为待标准化的可见性缺口。",
+ "scope": "结论限于所测 Docker 测试床、ET Open 规则、Suricata 与 RITA 两款工具及 lognormal 到达分布。",
+ "limitations": "工具与规则集覆盖有限，未涵盖商用高级 NDR；实验环境为受控测试床而非企业实网。",
+ "artifact": "未提及"
+}

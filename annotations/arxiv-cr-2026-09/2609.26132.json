@@ -1,0 +1,22 @@
+{
+ "id": "2609.26132",
+ "title_cn": "面向高阶消失密钥恢复的 zeta 变换求值",
+ "abstract_cn": "Hemmert 针对 Classic McEliece 的密钥恢复算法基于高阶消失（higher-order vanishing）。它计算 ker(φ̃_A^(p)) 的一组基，其中 A = H''' 是攻击中使用的缩短校验矩阵。对于 Classic McEliece 参数，这一核计算是攻击的主要开销。我们证明，定义 φ̃_A^(p) 的求和可以逐列地作为布尔格上的加权上 zeta 变换来求值。由于 φ̃_A^(p) 只需要这些变换的部分层级，把求值限制在第 p 层与所需最低层之间的带状区域，即可得到 φ̃_A^(p) 及其转置的精确求值。把由此得到的截断 zeta 变换求值用于基于 Wiedemann 的核计算，可在不改变整体密钥恢复算法的前提下降低反复进行的矩阵-向量乘积的开销。确切开销取决于 H''' 非主元列的重量分布。因此我们考虑两种模型：全一模型，其中每个相关二进制坐标都处于激活状态；以及 Bernoulli(1/2) 模型，其中各坐标以 1/2 的概率独立激活。对五组 Classic McEliece 参数集，我们的方法在全一模型下把估计的密钥恢复开销降低 14.09–41.19 比特，在 Bernoulli(1/2) 模型下降低 7.25–22.48 比特。",
+ "summary_cn": "以截断加权上 zeta 变换加速 Hemmert 攻击的核计算，五组 Classic McEliece 参数估计开销在全一与 Bernoulli(1/2) 模型下分别降 14.09–41.19、7.25–22.48 比特。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "密码分析",
+  "Classic McEliece",
+  "后量子密码",
+  "zeta 变换"
+ ],
+ "objective_summary": "用布尔格上按层截断的加权上 zeta 变换加速 Hemmert 攻击中基于 Wiedemann 的核计算，并在两种列重量模型下估算五组 Classic McEliece 参数集的开销下降。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "给出精确求值论证与五组参数集在两种模型下的开销估算；摘要未提实际实现或运行计时验证。",
+ "novelty": 3,
+ "novelty_note": "zeta 变换是已知的快速求和工具，新意在于用于该攻击的核计算并按所需层级截断。",
+ "scope": "限于 Hemmert 高阶消失攻击与 Classic McEliece 五组参数集，开销为模型估计值。",
+ "limitations": "降幅依赖非主元列重量分布的假设模型，真实分布下的收益与实测性能未验证。",
+ "artifact": "未提及"
+}

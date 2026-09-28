@@ -1,0 +1,22 @@
+{
+ "id": "2609.31252",
+ "title_cn": "Peregrino：面向资源受限边缘设备的完整 Falcon 后量子数字签名方案全硬件加速器",
+ "abstract_cn": "量子计算机的到来威胁着经典密码学的安全保证，因为量子算法能够攻破那些对传统攻击仍然安全的方案。因此，美国国家标准与技术研究院（NIST）标准化了一组后量子密码算法，其中包括 Falcon——一种基于格的数字签名方案，在已标准化的候选方案中拥有最紧凑的签名与公钥尺寸。Falcon 对浮点运算的依赖使其难以用硬件实现，先前工作只提供了针对特定操作（如签名生成或验证）的部分加速器，或是一个通过高层次综合（HLS）生成的完整实现。本文提出 Peregrino，首个用 HDL 从零设计的完整 Falcon 数字签名方案硬件加速器，通过模拟浮点数据通路，面向没有原生浮点单元的资源受限边缘设备。Peregrino 在单片 Artix 7 XC7A200T FPGA 上实现，Falcon-1024 变体使用 85261 个 LUT、41382 个 FF、44 个 BRAM 和 142 个 DSP。与唯一已有的完整实现——基于 HLS 的 FalconTakesOff 相比，它使用的 LUT 少 1.9 倍、FF 少 3.4 倍、BRAM 少 2.7 倍、DSP 少 9.9 倍，可将整个方案放入一片 FPGA，而 HLS 设计至少需要两片。作为片上 MicroBlaze 软核的外设运行时，该加速器相比模拟浮点的参考软件，还将密钥对生成、签名生成与签名验证的时钟周期分别减少 92%、96% 和 85%。",
+ "summary_cn": "以 HDL 从零实现完整 Falcon 签名的 FPGA 加速器 Peregrino：较 HLS 方案 DSP 少 9.9 倍、单片即可容纳，三项操作时钟周期较参考软件降 85–96%。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子签名",
+  "Falcon",
+  "FPGA 加速器",
+  "边缘设备"
+ ],
+ "objective_summary": "以 HDL 从零设计完整 Falcon 签名方案的硬件加速器 Peregrino，在 Artix 7 FPGA 上实现，并与 HLS 方案 FalconTakesOff 及模拟浮点参考软件比较资源占用与时钟周期。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "单片 Artix 7 上的资源占用，与唯一完整实现及参考软件对比；摘要仅给出 Falcon-1024 数据。",
+ "novelty": 3,
+ "novelty_note": "首个以 HDL 手写的完整 Falcon 硬件实现，用模拟浮点替代 FPU，属工程上的实质改进。",
+ "scope": "结论限于 Artix 7 XC7A200T、Falcon-1024 与 MicroBlaze 外设架构下的资源和周期数。",
+ "limitations": "摘要未报告绝对时延、功耗或侧信道防护，完整实现的对比基线只有一个 HLS 设计。",
+ "artifact": "未提及"
+}

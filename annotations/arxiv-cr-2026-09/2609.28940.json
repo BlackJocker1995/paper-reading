@@ -1,0 +1,22 @@
+{
+ "id": "2609.28940",
+ "title_cn": "面向自主渗透测试 Harness 的校准决策模型：JEV 与 Laya 作为 LLM 驱动渗透测试智能体的 System One 决策层",
+ "abstract_cn": "自主渗透测试 harness 使用大语言模型（LLM）进行侦察、利用与报告，但常常依赖同样的模型来确认发现、评定严重性并选择智能体。这可能导致误报、严重性虚高与计算浪费。我们考察 System One 决策模型——返回类型化、校准判定的轻量级非生成式分类器——如何支撑这些决策。我们做出五项贡献。第一，定义四个决策点：发现裁决、严重性重校准、智能体剪枝与确认循环。第二，给出一个探索性的 NeuroSploit 案例研究，在一个含 13 个漏洞的 Web 目标上，比较一次使用 TypeSafe System One（Jev）的运行与一次不使用的运行。严重性分布、运行时间以及按暴露数据类型评级方面的差异为该架构提供了动机，但并不构成统计显著性。第三，我们回顾 Jev、Jev-Ultrafast 与开源 Laya 的已发布规格，且不假定其他基准上的结果可迁移到渗透测试。第四，我们讨论 RLHF、RLAIF、RLCD 与 RLHV 作为训练方法及其对安全决策可信度的影响。最后，我们提出 Rave——一个领域适配的 System One 模型，并概述其训练数据、评估协议及对 harness 保障的潜在作用。",
+ "summary_cn": "主张用轻量校准分类器（Jev、Laya）承担渗透测试 harness 的四类决策，仅以一次有/无 Jev 的 NeuroSploit 对比运行作动机，并提出领域模型 Rave。",
+ "topic": "AI for Security",
+ "tags": [
+  "渗透测试",
+  "LLM 智能体",
+  "校准分类器",
+  "误报控制"
+ ],
+ "objective_summary": "定义渗透测试 harness 中的四个决策点，以单次对比运行的探索性案例、已发布模型规格回顾与训练方法讨论论证轻量校准分类器的作用，并提出 Rave 设计。",
+ "contribution_type": "立场/展望",
+ "evidence_strength": 2,
+ "evidence_note": "实证仅为单一 Web 目标上各一次的有/无 Jev 运行，作者明言不具统计显著性；其余为规格回顾与讨论。",
+ "novelty": 2,
+ "novelty_note": "把现成分类器用于渗透测试决策点属应用构想，Rave 仅停留在提案层面。",
+ "scope": "针对 LLM 驱动的自主渗透测试 harness；案例仅 NeuroSploit 单一 Web 目标。",
+ "limitations": "案例仅单次运行对比且无统计显著性；所提 Rave 模型尚未训练与评估。",
+ "artifact": "未提及"
+}

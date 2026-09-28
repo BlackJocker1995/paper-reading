@@ -1,0 +1,22 @@
+{
+ "id": "2609.25520",
+ "title_cn": "通过规格驱动的变异对 WebGPU 做动态一致性测试",
+ "abstract_cn": "WebGPU 是一种底层图形与计算 API，把现代 GPU 功能暴露给 Web 应用。官方的 WebGPU 一致性测试套件（CTS）关注规格下的良构用法，但并非为用语义边界情形或对抗性输入去压测实现而设计。相比之下，通用模糊测试器因 WebGPU 复杂的图形栈与多进程架构而难以奏效。我们提出 LANTERN，一个规格引导的动态一致性测试框架，利用从 WebGPU 规格中提取的约束对 CTS 测试进行变异。LANTERN 从 WebIDL 定义中提取显式的语法层 API 规则，并从自然语言规格文本中恢复语义约束，如命令顺序与对象生命周期。选出的规则引导定位在 AST 上的文本变换，生成既有效又故意无效的 CTS 变体。我们在经 AddressSanitizer 插桩的 Chromium 上大规模执行生成的测试以发现缺陷。评测在研究当时的最新 Chromium 版本中发现了三个可复现缺陷，其中包括一处堆破坏。这些结果表明，以语法为种子、感知语义的一致性测试变异，为在 WebGPU 测试中发现浏览器缺陷提供了一条途径。",
+ "summary_cn": "LANTERN 从 WebIDL 与自然语言规格提取语法/语义约束来变异 WebGPU CTS 测试，在 AddressSanitizer 插桩的 Chromium 上大规模执行，发现三个可复现缺陷（含一处堆破坏）。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "模糊测试",
+  "WebGPU",
+  "一致性测试",
+  "浏览器安全"
+ ],
+ "objective_summary": "提出规格引导的动态一致性测试框架 LANTERN，从 WebIDL 与规格文本提取约束变异 CTS 测试，在插桩 Chromium 上大规模执行以发现缺陷。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "在插桩 Chromium 上大规模执行并发现三个可复现缺陷（含一处堆破坏）；缺陷数少，摘要未报告与通用模糊器或原始 CTS 的定量对照。",
+ "novelty": 3,
+ "novelty_note": "将规格驱动、语义感知的一致性测试变异应用于此前通用模糊器难以覆盖的 WebGPU，属已有思路的新领域落地。",
+ "scope": "结论限于 WebGPU CTS 与研究当时的 Chromium 实现，缺陷发现依赖 AddressSanitizer 插桩。",
+ "limitations": "仅报告三个缺陷、样本有限；摘要未量化从自然语言规格恢复语义约束的完整性与准确性。",
+ "artifact": "未提及"
+}

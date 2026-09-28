@@ -1,0 +1,22 @@
+{
+ "id": "2609.25364",
+ "title_cn": "Quantum ROP：用量子算法在漏洞利用构造中做 ROP 链选择",
+ "abstract_cn": "当下人们谈论量子计算对网络安全的威胁，多半聚焦于 Shor 算法及其最终破解非对称密码的能力。然而除密码分析之外，量子计算在进攻性安全中或许还能带来其他能力。本文探索其中一个方向：将量子组合优化应用于面向返回编程（ROP）的 gadget 选择，用于漏洞利用构造。我们将 gadget 选择建模为二次无约束二值优化（QUBO）问题，刻画单个 gadget 的代价以及 gadget 之间寄存器覆写的相互作用，并在真实的 IBM Heron r2 硬件上用 QAOA 求解。在一个 Linux 内核利用场景中，QAOA 选出的链在 SMEP 与 SMAP 均开启的情况下实现了提权至 uid=0。在 8 个 Linux 二进制、共 16 个基准实例上，QAOA 在 11 个实例中找到了代价最低的有效链；其余 5 个未能得到最优解，失败与当前受限硬件上过大的电路深度有关。",
+ "summary_cn": "把 ROP gadget 选择建模为 QUBO 并在真实 IBM Heron r2 硬件上用 QAOA 求解：内核场景下在 SMEP/SMAP 开启时提权至 uid=0，16 个基准中 11 个找到最低代价链。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "ROP",
+  "漏洞利用",
+  "量子计算",
+  "QAOA"
+ ],
+ "objective_summary": "将漏洞利用中的 ROP gadget 选择建模为 QUBO 问题，用 QAOA 在真实 IBM 量子硬件上求解，并在内核提权场景与多个二进制基准上验证。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "真实 IBM Heron r2 硬件上 8 个二进制共 16 个实例，11 例得最低代价链，另有一个内核提权案例；摘要未报告与经典求解的效率对照。",
+ "novelty": 4,
+ "novelty_note": "把量子组合优化（QUBO/QAOA）用于 ROP gadget 选择，将量子计算的进攻性安全应用从密码分析拓展到漏洞利用构造。",
+ "scope": "结论限于所测 8 个 Linux 二进制、单一内核提权场景与当前受限量子硬件的电路深度。",
+ "limitations": "16 例中 5 例未得最优，失败与当前受限硬件上电路深度过大有关；可求解实例规模受现有量子硬件限制。",
+ "artifact": "未提及"
+}

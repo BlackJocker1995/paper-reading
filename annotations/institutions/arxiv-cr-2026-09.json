@@ -1,0 +1,4006 @@
+{
+ "2412.07151": {
+  "first_author": "Jiahe Yan",
+  "institution": "University of California, Los Angeles",
+  "country": "",
+  "raw_affiliation": "Department of Computer Science; University of California, Los Angeles; Los Angeles, CA 90024",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.20884": {
+  "first_author": "Jonah Bellemans",
+  "institution": "KU Leuven",
+  "country": "Belgium",
+  "raw_affiliation": "DistriNet, KU Leuven, Heverlee, Belgium",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.20909": {
+  "first_author": "Anudeep Gedela",
+  "institution": "GITAM (Deemed to be University)",
+  "country": "India",
+  "raw_affiliation": "GITAM School of Technology, GITAM (Deemed to be University), Visakhapatnam, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.20982": {
+  "first_author": "Mohsen Salehi",
+  "institution": "The University of British Columbia",
+  "country": "Canada",
+  "raw_affiliation": "The University of British Columbia; Vancouver, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21020": {
+  "first_author": "Hamza Khalid",
+  "institution": "Tufts University",
+  "country": "",
+  "raw_affiliation": "^{1}Tufts University",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.21081": {
+  "first_author": "Adithyan Arun Kumar",
+  "institution": "Independent Security Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Security Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21088": {
+  "first_author": "Yuxuan Zhang",
+  "institution": "Texas A&M University",
+  "country": "",
+  "raw_affiliation": "Texas A&M University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21103": {
+  "first_author": "Yuxuan Zhang",
+  "institution": "Texas A&M University",
+  "country": "",
+  "raw_affiliation": "Texas A&M University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21147": {
+  "first_author": "Francis Hahn",
+  "institution": "University of South Florida",
+  "country": "",
+  "raw_affiliation": "University of South Florida",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21217": {
+  "first_author": "Jisoo Kim",
+  "institution": "Sookmyung Women's University",
+  "country": "Republic of Korea",
+  "raw_affiliation": "Department of Data Science, Sookmyung Women's University, Seoul 04310, Republic of Korea",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.21222": {
+  "first_author": "Ahmed Shah",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.21273": {
+  "first_author": "Bhanwar Gupta",
+  "institution": "Maharishi Markandeshwar (Deemed to be University)",
+  "country": "India",
+  "raw_affiliation": "Department of Computer and Software Engineering, Maharishi Markandeshwar (Deemed to be University), Mullana, Ambala, 133207, Haryana, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21284": {
+  "first_author": "Genliang Zhu",
+  "institution": "Accentrust",
+  "country": "Canada",
+  "raw_affiliation": "Accentrust, Vancouver, Canada; Georgia Institute of Technology, Atlanta, Georgia, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21303": {
+  "first_author": "Shaefer Drew",
+  "institution": "CrowdStrike",
+  "country": "USA",
+  "raw_affiliation": "CrowdStrike; ^{1}USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.21340": {
+  "first_author": "Shuo Huang",
+  "institution": "Monash University",
+  "country": "",
+  "raw_affiliation": "Monash University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21344": {
+  "first_author": "Wenquan Zhou",
+  "institution": "Beijing Institute of Technology",
+  "country": "China",
+  "raw_affiliation": "School of Cyberspace Science and Technology, Beijing Institute of Technology, Beijing 100081, China; State Key Laboratory of Cryptography and Digital Economy Security, Shandong University, Qingdao 266237, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.21364": {
+  "first_author": "Yavor Litchev",
+  "institution": "Stanford University",
+  "country": "",
+  "raw_affiliation": "ylitchev@stanford.edu",
+  "evidence": "explicit_affiliation",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 2
+ },
+ "2609.21419": {
+  "first_author": "Van Thang Nguyen",
+  "institution": "Technische Universität Berlin",
+  "country": "Germany",
+  "raw_affiliation": "Technische Universität Berlin, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21426": {
+  "first_author": "Muhammad Ejaz Ahmed",
+  "institution": "CSIRO",
+  "country": "Australia",
+  "raw_affiliation": "CSIRO Technology, Sydney, Australia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21484": {
+  "first_author": "Byeongseo Min",
+  "institution": "Pohang University of Science and Technology",
+  "country": "",
+  "raw_affiliation": "Pohang University of Science and Technology (POSTECH)",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.21515": {
+  "first_author": "Dominik Dahlem",
+  "institution": "Red Hat",
+  "country": "",
+  "raw_affiliation": "Red Hat AI",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21532": {
+  "first_author": "Manuel González-Regadera",
+  "institution": "Universidad de Sevilla",
+  "country": "Spain",
+  "raw_affiliation": "Department of Applied Mathematics I, Universidad de Sevilla, Spain",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.21569": {
+  "first_author": "Jiaji He",
+  "institution": "Tianjin University",
+  "country": "",
+  "raw_affiliation": "Tianjin University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21573": {
+  "first_author": "Pedro Pereira",
+  "institution": "Polytechnic of Porto",
+  "country": "Portugal",
+  "raw_affiliation": "GECAD, ISEP, Polytechnic of Porto, Rua Dr. António Bernardino de Almeida, 4249-015 Porto, Portugal",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21686": {
+  "first_author": "Tao Huang",
+  "institution": "Minjiang University",
+  "country": "China",
+  "raw_affiliation": "Minjiang University, Fuzhou, Fujian 350108, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21713": {
+  "first_author": "Arish Sateesan",
+  "institution": "Aalborg University",
+  "country": "Denmark",
+  "raw_affiliation": "Aalborg University, Copenhagen, Denmark",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21717": {
+  "first_author": "Siem Peters",
+  "institution": "Mnemonic",
+  "country": "Norway",
+  "raw_affiliation": "Mnemonic, Oslo, Norway",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21728": {
+  "first_author": "Bingle Stegmann Kruger",
+  "institution": "Frankfurt School of Finance & Management",
+  "country": "Germany",
+  "raw_affiliation": "Frankfurt School of Finance & Management, 60322 Frankfurt am Main, Germany; University of Cape Town, Cape Town, South Africa",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21793": {
+  "first_author": "Jiale Luo",
+  "institution": "National University of Singapore",
+  "country": "",
+  "raw_affiliation": "School of Computing, National University of Singapore",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21858": {
+  "first_author": "Yanxiao Liu",
+  "institution": "Imperial College London",
+  "country": "",
+  "raw_affiliation": "Imperial College London",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21873": {
+  "first_author": "Xiaoxuan Huang",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.21941": {
+  "first_author": "Akira Ito",
+  "institution": "Tohoku University",
+  "country": "Japan",
+  "raw_affiliation": "Tohoku University, 2–1–1 Katahira, Aoba-ku, Sendai-shi, 980-8577, Japan",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.21957": {
+  "first_author": "Yoshiaki Takashita",
+  "institution": "Waseda University",
+  "country": "",
+  "raw_affiliation": "School of Law, Waseda University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22018": {
+  "first_author": "José Luis Delgado",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22076": {
+  "first_author": "Uchi Uchibeke",
+  "institution": "APort Technologies Inc.",
+  "country": "Canada",
+  "raw_affiliation": "APort Technologies Inc.; Toronto, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22157": {
+  "first_author": "Pankaj Kumar",
+  "institution": "National Institute of Science Education and Research",
+  "country": "India",
+  "raw_affiliation": "School of Computer Sciences, National Institute of Science Education and Research, An OCC of Homi Bhabha National Institute, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22284": {
+  "first_author": "Othmane Harraq",
+  "institution": "Temple University",
+  "country": "USA",
+  "raw_affiliation": "Temple University, Philadelphia, PA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22392": {
+  "first_author": "Qi Li",
+  "institution": "Qilu University of Technology",
+  "country": "China",
+  "raw_affiliation": "Key Laboratory of Computing Power Network and Information Security, Ministry of Education, Shandong Computer Science Center, and Shandong Provincial Key Laboratory of Industrial Network and Information System Security, Shandong Fundamental Research Center for Computer Science, Qilu University of Technology (Shandong Academy of Sciences), Jinan 250353, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22401": {
+  "first_author": "Taimoor Ahmed",
+  "institution": "Superior University Lahore",
+  "country": "Pakistan",
+  "raw_affiliation": "Superior University Lahore, Pakistan",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.22510": {
+  "first_author": "Justin Szczepaniak",
+  "institution": "Tel Aviv University",
+  "country": "",
+  "raw_affiliation": "Tel Aviv University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22525": {
+  "first_author": "Yiwei Zhang",
+  "institution": "Purdue University",
+  "country": "USA",
+  "raw_affiliation": "Purdue University, West Lafayette, Indiana, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22573": {
+  "first_author": "Huan Li",
+  "institution": "PayPal",
+  "country": "USA",
+  "raw_affiliation": "PayPal Inc., USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22590": {
+  "first_author": "Amna Hassan",
+  "institution": "University of Amsterdam",
+  "country": "The Netherlands",
+  "raw_affiliation": "University of Amsterdam, Amsterdam, The Netherlands",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22601": {
+  "first_author": "Yixiang Yao",
+  "institution": "University of Southern California",
+  "country": "",
+  "raw_affiliation": "University of Southern California",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22664": {
+  "first_author": "Joas Antonio dos Santos",
+  "institution": "Independent Researcher",
+  "country": "Brazil",
+  "raw_affiliation": "Independent Researcher — AI and Offensive Security, São Paulo, SP, Brazil",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22711": {
+  "first_author": "Fengyi Wang",
+  "institution": "Huazhong University of Science and Technology",
+  "country": "China",
+  "raw_affiliation": "Huazhong University of Science and Technology, Wuhan, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.22724": {
+  "first_author": "Changyue Jiang",
+  "institution": "Fudan University",
+  "country": "",
+  "raw_affiliation": "Fudan University; Shanghai Innovation Institute",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22792": {
+  "first_author": "Saad Ullah",
+  "institution": "Boston University",
+  "country": "",
+  "raw_affiliation": "ECE Department, Boston University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22818": {
+  "first_author": "Pritom Bhowmik",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.22835": {
+  "first_author": "Haolan Zhang",
+  "institution": "Huazhong University of Science and Technology",
+  "country": "China",
+  "raw_affiliation": "School of Electronic Information and Communications, Huazhong University of Science and Technology, Wuhan 430074, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22900": {
+  "first_author": "Douglas Leith",
+  "institution": "Trinity College Dublin",
+  "country": "Ireland",
+  "raw_affiliation": "Trinity College Dublin, Ireland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22949": {
+  "first_author": "Rudrendu Kumar Paul",
+  "institution": "Boston University",
+  "country": "United States",
+  "raw_affiliation": "Boston University, Boston, MA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22961": {
+  "first_author": "Huafu Li",
+  "institution": "China Mobile Jiutian Artificial Intelligence Technology (Beijing) Co., Ltd.",
+  "country": "",
+  "raw_affiliation": "China Mobile Jiutian Artificial Intelligence Technology (Beijing) Co., Ltd.",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.22968": {
+  "first_author": "Marcel Crasmaru",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.22981": {
+  "first_author": "Iva Vasic",
+  "institution": "University of Fribourg",
+  "country": "Switzerland",
+  "raw_affiliation": "Faculty of Science and Medicine, University of Fribourg, 1700 Fribourg, Switzerland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23042": {
+  "first_author": "Hemanth Gorijala",
+  "institution": "Independent Security Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Security Researcher, ORCID 0009-0006-9810-4001",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.23097": {
+  "first_author": "Li Yang",
+  "institution": "Ontario Tech University",
+  "country": "Canada",
+  "raw_affiliation": "Faculty of Business and Information Technology, Ontario Tech University, Oshawa, ON L1G 0C5, Canada; Department of Electrical and Computer Engineering, Western University, London, ON N6A 3K7, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23173": {
+  "first_author": "Athanasios Moschos",
+  "institution": "Georgia Institute of Technology",
+  "country": "USA",
+  "raw_affiliation": "Georgia Institute of Technology, Atlanta, Georgia, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23186": {
+  "first_author": "Athanasios Moschos",
+  "institution": "Georgia Institute of Technology",
+  "country": "USA",
+  "raw_affiliation": "Georgia Institute of Technology, School of Electrical and Computer Engineering, USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.23193": {
+  "first_author": "Yuzhu Mao",
+  "institution": "Emory University",
+  "country": "",
+  "raw_affiliation": "Emory University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23218": {
+  "first_author": "Luyao Bai",
+  "institution": "University of Illinois Chicago",
+  "country": "",
+  "raw_affiliation": "University of Illinois Chicago",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.23226": {
+  "first_author": "Ding Yang",
+  "institution": "Nanjing University",
+  "country": "China",
+  "raw_affiliation": "State Key Laboratory for Novel Software Technology, Nanjing University, Nanjing, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23270": {
+  "first_author": "Sandeep Dhuri",
+  "institution": "Independent Researcher",
+  "country": "USA",
+  "raw_affiliation": "Independent Researcher, Edison, NJ, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23396": {
+  "first_author": "Nhat-Anh Huynh",
+  "institution": "VinSOC",
+  "country": "Vietnam",
+  "raw_affiliation": "Product Security, VinSOC, Ha Noi, Vietnam",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23405": {
+  "first_author": "Son Hoang Dau",
+  "institution": "RMIT University",
+  "country": "",
+  "raw_affiliation": "RMIT University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23498": {
+  "first_author": "Aiyao Zhang",
+  "institution": "Institute of Computing Technology, Chinese Academy of Sciences",
+  "country": "",
+  "raw_affiliation": "Institute of Computing Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.23514": {
+  "first_author": "Antonio Nappa",
+  "institution": "ACM",
+  "country": "",
+  "raw_affiliation": "ACM",
+  "evidence": "explicit_affiliation",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 2
+ },
+ "2609.23583": {
+  "first_author": "Pouya Narimani",
+  "institution": "CISPA Helmholtz Center for Information Security",
+  "country": "",
+  "raw_affiliation": "CISPA Helmholtz Center for Information Security",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.23596": {
+  "first_author": "Ben Shapira",
+  "institution": "Tel Aviv University",
+  "country": "Israel",
+  "raw_affiliation": "Tel Aviv University, Tel Aviv, Israel",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.23700": {
+  "first_author": "Li Zhang",
+  "institution": "Huawei",
+  "country": "",
+  "raw_affiliation": "Huawei",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23766": {
+  "first_author": "Rohit Patel",
+  "institution": "Indian Institute of Technology Jodhpur",
+  "country": "India",
+  "raw_affiliation": "Department of Computer Science and Engineering, Indian Institute of Technology Jodhpur, Jodhpur, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23827": {
+  "first_author": "He Gu",
+  "institution": "University of Oslo",
+  "country": "Norway",
+  "raw_affiliation": "Department of Informatics, University of Oslo, Oslo, 0316 Norway",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.23889": {
+  "first_author": "Xingyu Li",
+  "institution": "University of California, Riverside",
+  "country": "",
+  "raw_affiliation": "University of California, Riverside",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23894": {
+  "first_author": "Heewon Baek",
+  "institution": "Sungkyunkwan University",
+  "country": "Republic of Korea",
+  "raw_affiliation": "Heewon Baek and Hyoungshick Kim are with Sungkyunkwan University, Republic of Korea. The work was conducted during Heewon's internship at CSIRO, Australia",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.23902": {
+  "first_author": "Nikolai Puch",
+  "institution": "Technical University of Munich",
+  "country": "Germany",
+  "raw_affiliation": "Technical University of Munich, Munich, Germany; Fraunhofer AISEC, Garching, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23953": {
+  "first_author": "Simiao Ren",
+  "institution": "Scam.ai (Reality Inc.)",
+  "country": "",
+  "raw_affiliation": "Scam.ai (Reality Inc.)",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.23980": {
+  "first_author": "Andy K. Zhang",
+  "institution": "Stanford University",
+  "country": "",
+  "raw_affiliation": "^{1}Stanford University   ^{2}UC Berkeley",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.24036": {
+  "first_author": "Vatsal Gupta",
+  "institution": "Apple Inc.",
+  "country": "USA",
+  "raw_affiliation": "Apple Inc., Cupertino, CA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24077": {
+  "first_author": "Junru Zhu",
+  "institution": "Independent Researcher",
+  "country": "USA",
+  "raw_affiliation": "Independent Researcher, Seattle, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24084": {
+  "first_author": "Jiaxin Hong",
+  "institution": "Harbin Institute of Technology, Shenzhen",
+  "country": "",
+  "raw_affiliation": "Harbin Institute of Technology, Shenzhen",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.24134": {
+  "first_author": "Zihao Wang",
+  "institution": "University of Missouri-Kansas City",
+  "country": "",
+  "raw_affiliation": "University of Missouri-Kansas City",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24164": {
+  "first_author": "Daniel Okumu Omondi",
+  "institution": "Brown University",
+  "country": "",
+  "raw_affiliation": "daniel_omondi@alumni.brown.edu",
+  "evidence": "footnote_or_thanks",
+  "confidence": "low",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.24200": {
+  "first_author": "Akihisa Fujiyama",
+  "institution": "OmiCore Inc.",
+  "country": "Japan",
+  "raw_affiliation": "OmiCore Inc., Fukuoka, Japan; Graduate School of Engineering, Kyushu University, Fukuoka, Japan",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.24249": {
+  "first_author": "Florian Krone",
+  "institution": "German Aerospace Center (DLR)",
+  "country": "Germany",
+  "raw_affiliation": "Institute for AI Safety Security, German Aerospace Center (DLR), Sankt Augustin, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24280": {
+  "first_author": "Md. Asif Sajeed",
+  "institution": "Rajshahi University of Engineering & Technology",
+  "country": "Bangladesh",
+  "raw_affiliation": "Department of Computer Science and Engineering, Rajshahi University of Engineering & Technology, Rajshahi, 6204, Bangladesh",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24291": {
+  "first_author": "Atsuya Hasegawa",
+  "institution": "Nagoya University",
+  "country": "Japan",
+  "raw_affiliation": "Graduate School of Mathematics, Nagoya University, Japan",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24296": {
+  "first_author": "Hamed Alimohammadi",
+  "institution": "University of Surrey",
+  "country": "United Kingdom",
+  "raw_affiliation": "6GIC, Institute for Communication Systems (ICS), University of Surrey, Guildford, UK",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.24359": {
+  "first_author": "Xianlong Li",
+  "institution": "IMT School for Advanced Studies Lucca",
+  "country": "Italy",
+  "raw_affiliation": "IMT School for Advanced Studies Lucca, Italy",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24389": {
+  "first_author": "Changyeop Sung",
+  "institution": "Korea University",
+  "country": "Republic of Korea",
+  "raw_affiliation": "School of Cybersecurity, Korea University, Seoul, Republic of Korea",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24393": {
+  "first_author": "Quoc-Cuong Tang",
+  "institution": "Ho Chi Minh City College of Transport",
+  "country": "Vietnam",
+  "raw_affiliation": "Ho Chi Minh City College of Transport, Ho Chi Minh City, Vietnam; Academy of Cryptography Techniques, Ho Chi Minh City Campus, Vietnam",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.24404": {
+  "first_author": "Sipeng Xie",
+  "institution": "Beihang University",
+  "country": "",
+  "raw_affiliation": "Beihang University",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.24446": {
+  "first_author": "Kaiyuan Zhang",
+  "institution": "Southern University of Science and Technology",
+  "country": "",
+  "raw_affiliation": "Southern University of Science and Technology",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.24503": {
+  "first_author": "Masayuki Tezuka",
+  "institution": "Nagoya City University",
+  "country": "Japan",
+  "raw_affiliation": "Nagoya City University, Nagoya, Japan; Institute of Science Tokyo, Tokyo, Japan",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24515": {
+  "first_author": "Anastasia Pustozerova",
+  "institution": "SBA Research",
+  "country": "Austria",
+  "raw_affiliation": "SBA Research, Austria",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.24537": {
+  "first_author": "Muhammad Umair",
+  "institution": "Lahore University of Management Sciences",
+  "country": "Pakistan",
+  "raw_affiliation": "Lahore University of Management Sciences (LUMS), Pakistan",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24550": {
+  "first_author": "Wai Kin Wong",
+  "institution": "Hong Kong University of Science and Technology",
+  "country": "China",
+  "raw_affiliation": "Hong Kong University of Science and Technology, Hong Kong, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24656": {
+  "first_author": "Oscar Lasierra",
+  "institution": "i2CAT Foundation",
+  "country": "",
+  "raw_affiliation": "i2CAT Foundation",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24669": {
+  "first_author": "Esin Ece Aydın",
+  "institution": "Istanbul Technical University",
+  "country": "Türkiye",
+  "raw_affiliation": "Cyber Security and Privacy Research Lab., SPFLab, Department of Computer Engineering, Istanbul Technical University, Istanbul, Türkiye",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24689": {
+  "first_author": "Maja Lie",
+  "institution": "Sei Labs",
+  "country": "",
+  "raw_affiliation": "Sei Labs",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24710": {
+  "first_author": "Jiling Zhou",
+  "institution": "University of Turku",
+  "country": "Finland",
+  "raw_affiliation": "Department of Computing, University of Turku, Turku, Finland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24801": {
+  "first_author": "Fernando Outeda",
+  "institution": "Pedeciba Informática",
+  "country": "Uruguay",
+  "raw_affiliation": "Pedeciba Informática, Uruguay",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24826": {
+  "first_author": "Eric Xue",
+  "institution": "UC San Diego",
+  "country": "",
+  "raw_affiliation": "UC San Diego",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24980": {
+  "first_author": "Junru Zhu",
+  "institution": "Independent Researcher",
+  "country": "USA",
+  "raw_affiliation": "Independent Researcher, Seattle, WA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.24994": {
+  "first_author": "Sidong Guo",
+  "institution": "Georgia Institute of Technology",
+  "country": "",
+  "raw_affiliation": "Georgia Institute of Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25014": {
+  "first_author": "Cristhian Kapelinski",
+  "institution": "Federal University of Pampa",
+  "country": "Brazil",
+  "raw_affiliation": "AI Horizon Labs, Federal University of Pampa (UNIPAMPA), Alegrete, Brazil",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.25043": {
+  "first_author": "Gabriele Gianini",
+  "institution": "University of Milano-Bicocca",
+  "country": "Italy",
+  "raw_affiliation": "University of Milano-Bicocca; Milan, Italy",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25083": {
+  "first_author": "Baihong Chen",
+  "institution": "Utah State University",
+  "country": "USA",
+  "raw_affiliation": "Utah State University, Logan, Utah, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25121": {
+  "first_author": "Hamed Okhravi",
+  "institution": "Massachusetts Institute of Technology",
+  "country": "",
+  "raw_affiliation": "Massachusetts Institute of Technology; Lincoln Laboratory",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.25154": {
+  "first_author": "Sivashankar Selvarajan",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.25173": {
+  "first_author": "Chetan Pathade",
+  "institution": "Independent Researcher",
+  "country": "USA",
+  "raw_affiliation": "Independent Researcher, Washington, DC, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25256": {
+  "first_author": "Junru Zhu",
+  "institution": "Independent Researcher",
+  "country": "USA",
+  "raw_affiliation": "Independent Researcher, Seattle, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25294": {
+  "first_author": "Rajendra Upadhyay",
+  "institution": "George Mason University",
+  "country": "USA",
+  "raw_affiliation": "Mason Innovation Labs, George Mason University, 3434 Washington Blvd, Arlington, VA 22201, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25299": {
+  "first_author": "Travis Weber",
+  "institution": "Pheo Inc",
+  "country": "",
+  "raw_affiliation": "Pheo Inc",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25352": {
+  "first_author": "Fatih Deniz",
+  "institution": "Qatar Computing Research Institute",
+  "country": "Qatar",
+  "raw_affiliation": "Qatar Computing Research Institute (QCRI), HBKU, Doha, Qatar",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25364": {
+  "first_author": "Carlos Benitez",
+  "institution": "Platinum Ciber",
+  "country": "Argentina",
+  "raw_affiliation": "PLATINUM CIBER, Argentina",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25443": {
+  "first_author": "Zexun Wang",
+  "institution": "Ond Holdings Inc.",
+  "country": "",
+  "raw_affiliation": "Ond Holdings Inc.",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25487": {
+  "first_author": "Deborah Dobles Montalvan",
+  "institution": "University of Groningen",
+  "country": "",
+  "raw_affiliation": "University of Groningen",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25520": {
+  "first_author": "Mahya Samdaliri",
+  "institution": "New Jersey Institute of Technology",
+  "country": "",
+  "raw_affiliation": "New Jersey Institute of Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25535": {
+  "first_author": "Tengkai Gong",
+  "institution": "Northeastern University",
+  "country": "USA",
+  "raw_affiliation": "Northeastern University, Boston, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25579": {
+  "first_author": "Baogang Song",
+  "institution": "Wuhan University of Technology",
+  "country": "",
+  "raw_affiliation": "School of Artificial Intelligence, Wuhan University of Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25591": {
+  "first_author": "Junyoung Jang",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25637": {
+  "first_author": "Liangtao Dai",
+  "institution": "University of Virginia",
+  "country": "USA",
+  "raw_affiliation": "University of Virginia, Charlottesville, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25682": {
+  "first_author": "Hung-Mao Chen",
+  "institution": "George Mason University",
+  "country": "",
+  "raw_affiliation": "George Mason University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25734": {
+  "first_author": "Fei Yuan",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.25787": {
+  "first_author": "Daniel Adu Worae",
+  "institution": "University of Notre Dame",
+  "country": "USA",
+  "raw_affiliation": "University of Notre Dame, Notre Dame, IN, USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.25819": {
+  "first_author": "Charles Lim",
+  "institution": "National University of Singapore",
+  "country": "Singapore",
+  "raw_affiliation": "Department of Electrical & Computer Engineering, National University of Singapore, Singapore",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25882": {
+  "first_author": "Alexandros Fourtounis",
+  "institution": "Foundation for Research and Technology - Hellas",
+  "country": "Greece",
+  "raw_affiliation": "Foundation for Research and Technology - Hellas (FORTH), Heraklion, Greece; University of Crete, Heraklion, Greece",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.25884": {
+  "first_author": "Jin Wei",
+  "institution": "Fudan University",
+  "country": "China",
+  "raw_affiliation": "School of Computer Science, Fudan University, Shanghai, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.25901": {
+  "first_author": "Koen T. W. Teuwen",
+  "institution": "Eindhoven University of Technology",
+  "country": "The Netherlands",
+  "raw_affiliation": "Eindhoven University of Technology, Eindhoven, The Netherlands",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.25918": {
+  "first_author": "Qianyu Yu",
+  "institution": "The Hong Kong University of Science and Technology (Guangzhou)",
+  "country": "",
+  "raw_affiliation": "^{1}The Hong Kong University of Science and Technology (Guangzhou)",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.25921": {
+  "first_author": "Mustafa S. Aljumaily",
+  "institution": "Daw Alfada Company",
+  "country": "Iraq",
+  "raw_affiliation": "Research and Development (R&D) Department, Daw Alfada Company, Baghdad, Iraq",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26072": {
+  "first_author": "Jinghan Xu",
+  "institution": "Nankai University",
+  "country": "China",
+  "raw_affiliation": "Nankai University, China",
+  "evidence": "superscript_mapping",
+  "confidence": "medium",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26076": {
+  "first_author": "Jinghan Xu",
+  "institution": "Nankai University",
+  "country": "China",
+  "raw_affiliation": "Nankai University, China",
+  "evidence": "superscript_mapping",
+  "confidence": "medium",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26079": {
+  "first_author": "Reem Abdulrhman Alghamdi",
+  "institution": "King Abdullah University of Science and Technology",
+  "country": "Saudi Arabia",
+  "raw_affiliation": "King Abdullah University of Science and Technology (KAUST), Thuwal, Saudi Arabia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26091": {
+  "first_author": "Lele Zheng",
+  "institution": "Xidian University",
+  "country": "China",
+  "raw_affiliation": "School of Computer Science and Technology, Xidian University, Xi'an, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26096": {
+  "first_author": "Javeriah Saleem",
+  "institution": "Charles Sturt University",
+  "country": "Australia",
+  "raw_affiliation": "School of Computing, Mathematics and Engineering, Charles Sturt University, Australia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26115": {
+  "first_author": "Md. Meheraj Hossain",
+  "institution": "BRAC University",
+  "country": "Bangladesh",
+  "raw_affiliation": "Department of CSE, BRAC University, Dhaka, Bangladesh",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26131": {
+  "first_author": "Jiageng Zhang",
+  "institution": "Michigan Technological University",
+  "country": "USA",
+  "raw_affiliation": "Michigan Technological University, Houghton, MI, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26132": {
+  "first_author": "Sunyeop Kim",
+  "institution": "Korea University",
+  "country": "Republic of Korea",
+  "raw_affiliation": "Korea University, Republic of Korea; Nanyang Technological University, Singapore",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26174": {
+  "first_author": "Haoyu Zhang",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26176": {
+  "first_author": "Haoyu Zhang",
+  "institution": "Northeastern University",
+  "country": "",
+  "raw_affiliation": "Northeastern University",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26178": {
+  "first_author": "Haoyu Zhang",
+  "institution": "Northeastern University",
+  "country": "",
+  "raw_affiliation": "Northeastern University",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26184": {
+  "first_author": "Doniyorkhon Obidov",
+  "institution": "Michigan Technological University",
+  "country": "United States",
+  "raw_affiliation": "Electrical and Computer Engineering Department, Michigan Technological University, Houghton, MI 49931, USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26185": {
+  "first_author": "Doniyorkhon Obidov",
+  "institution": "Michigan Technological University",
+  "country": "",
+  "raw_affiliation": "Michigan Technological University",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.26220": {
+  "first_author": "Anton Sokolov",
+  "institution": "Tyche Institute",
+  "country": "",
+  "raw_affiliation": "Tyche Institute",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26225": {
+  "first_author": "Saeed Alam",
+  "institution": "University of Southern Mississippi",
+  "country": "",
+  "raw_affiliation": "The university of Southern Mississippi",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26234": {
+  "first_author": "Bin Duan",
+  "institution": "The University of Queensland",
+  "country": "Australia",
+  "raw_affiliation": "The University of Queensland, Brisbane, Australia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26254": {
+  "first_author": "Baihong Chen",
+  "institution": "Utah State University",
+  "country": "USA",
+  "raw_affiliation": "Utah State University, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26258": {
+  "first_author": "I. Dey",
+  "institution": "South East Technological University",
+  "country": "Ireland",
+  "raw_affiliation": "South East Technological University, Waterford, Ireland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26281": {
+  "first_author": "Sushant Rakesh Lokhande",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.26282": {
+  "first_author": "Manasa Deshagouni",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.26284": {
+  "first_author": "Ignazio Pedone",
+  "institution": "nodeQ Limited",
+  "country": "United Kingdom",
+  "raw_affiliation": "nodeQ Limited, 71-75 Shelton Street, Covent Garden, London WC2H 9JQ, United Kingdom",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26295": {
+  "first_author": "Mauro Conti",
+  "institution": "University of Padova",
+  "country": "Italy",
+  "raw_affiliation": "University of Padova, Italy; Örebro University, Örebro, Sweden",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26305": {
+  "first_author": "Shuyang Tang",
+  "institution": "Shanghai Jiao Tong University",
+  "country": "China",
+  "raw_affiliation": "Shanghai Jiao Tong University, Shanghai, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26316": {
+  "first_author": "Hoang-Lam Huynh",
+  "institution": "Ho Chi Minh City College of Transport",
+  "country": "Vietnam",
+  "raw_affiliation": "Ho Chi Minh City College of Transport, Ho Chi Minh City, Vietnam; Academy of Cryptography Techniques, Ho Chi Minh City Campus, Vietnam",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.26352": {
+  "first_author": "Han Chen",
+  "institution": "University of Technology Sydney",
+  "country": "Australia",
+  "raw_affiliation": "University of Technology Sydney, Sydney, New South Wales, Australia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26358": {
+  "first_author": "Jörg Schwenk",
+  "institution": "Ruhr University Bochum",
+  "country": "Germany",
+  "raw_affiliation": "Ruhr University Bochum, Bochum, Germany",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.26448": {
+  "first_author": "Ziqing Guo",
+  "institution": "The Chinese University of Hong Kong",
+  "country": "",
+  "raw_affiliation": "The Chinese University of Hong Kong, Hong Kong",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26555": {
+  "first_author": "Arthur Cordeiro",
+  "institution": "Technical University of Denmark",
+  "country": "Denmark",
+  "raw_affiliation": "Technical University of Denmark",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26637": {
+  "first_author": "Xiaoyu Luo",
+  "institution": "Aalborg University",
+  "country": "Denmark",
+  "raw_affiliation": "Department of Computer Science",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.26680": {
+  "first_author": "Jiaming Tang",
+  "institution": "University of Michigan",
+  "country": "USA",
+  "raw_affiliation": "University of Michigan, Ann Arbor, MI, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26682": {
+  "first_author": "Nathalie Baracaldo",
+  "institution": "IBM Research",
+  "country": "",
+  "raw_affiliation": "IBM Research",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26749": {
+  "first_author": "Om Nepal",
+  "institution": "The University of Southern Mississippi",
+  "country": "USA",
+  "raw_affiliation": "School of Computing Sciences and Computer Engineering, The University of Southern Mississippi, Hattiesburg, MS 39406, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26761": {
+  "first_author": "Laizhen Li",
+  "institution": "Chinese Academy of Sciences",
+  "country": "",
+  "raw_affiliation": "Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26814": {
+  "first_author": "Rui Lu",
+  "institution": "The Hong Kong Polytechnic University",
+  "country": "Hong Kong",
+  "raw_affiliation": "Department of Computing, The Hong Kong Polytechnic University, Hung Hom, Hong Kong",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.26860": {
+  "first_author": "Amanda Riverol",
+  "institution": "Tilsor SA",
+  "country": "",
+  "raw_affiliation": "Tilsor SA, ariverol@tilsor.com.uy",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26893": {
+  "first_author": "Youssef Hamdi Zafan Ibrahim",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26900": {
+  "first_author": "Reshabh K Sharma",
+  "institution": "University of Washington",
+  "country": "USA",
+  "raw_affiliation": "University of Washington, Seattle, Washington, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.26990": {
+  "first_author": "Ali Melih Kanca",
+  "institution": "Karabuk University",
+  "country": "Türkiye",
+  "raw_affiliation": "Department of Computer Engineering, Faculty of Computing and Informatics Sciences, Karabuk University, Karabuk, Türkiye",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27052": {
+  "first_author": "Harrol Ndjeudji Kuibou",
+  "institution": "Laval University",
+  "country": "Canada",
+  "raw_affiliation": "Laval University, Quebec City, Quebec, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27090": {
+  "first_author": "Tianhao Chen",
+  "institution": "Duke University",
+  "country": "",
+  "raw_affiliation": "Duke University",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 2
+ },
+ "2609.27091": {
+  "first_author": "GHORAB Djamel Eddine Hakim",
+  "institution": "University of Oum El Bouaghi",
+  "country": "Algeria",
+  "raw_affiliation": "Research Laboratory on Computer Science's Complex Systems (RELA(CS)2); University of Oum El Bouaghi, Oum El Bouaghi, Algeria",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27100": {
+  "first_author": "Prerna Arote",
+  "institution": "IMDEA Networks Institute",
+  "country": "",
+  "raw_affiliation": "IMDEA Networks Institute",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.27124": {
+  "first_author": "Mohamed Shaaban",
+  "institution": "Washington State University",
+  "country": "USA",
+  "raw_affiliation": "School of Engineering and Applied Sciences, Washington State University, Richland, WA 99354, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27155": {
+  "first_author": "Yue Xing",
+  "institution": "Michigan State University",
+  "country": "",
+  "raw_affiliation": "Michigan State University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27202": {
+  "first_author": "Younsoo Park",
+  "institution": "The Pennsylvania State University",
+  "country": "USA",
+  "raw_affiliation": "The Pennsylvania State University, University Park, Pennsylvania, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27258": {
+  "first_author": "Ranran Sun",
+  "institution": "Xidian University",
+  "country": "China",
+  "raw_affiliation": "Hangzhou Institute of Technology, Xidian University, Hangzhou 311231, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.27287": {
+  "first_author": "Xuwei Tan",
+  "institution": "The Ohio State University",
+  "country": "",
+  "raw_affiliation": "Coinbase, Inc.; The Ohio State University",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.27300": {
+  "first_author": "G Abarajithan",
+  "institution": "UC San Diego",
+  "country": "",
+  "raw_affiliation": "UC San Diego",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27311": {
+  "first_author": "Hoang-Huy Nguyen-Huu",
+  "institution": "Academy of Cryptography Techniques",
+  "country": "Vietnam",
+  "raw_affiliation": "Academy of Cryptography Techniques, Ho Chi Minh City Campus, Vietnam",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.27357": {
+  "first_author": "Thesath Wijayasiri",
+  "institution": "Singapore Technologies Engineering",
+  "country": "Singapore",
+  "raw_affiliation": "Cybersecurity Strategic Technology Center, Singapore Technologies Engineering, Singapore",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.27359": {
+  "first_author": "To Duy Hinh",
+  "institution": "Academy of Cryptography Techniques",
+  "country": "Vietnam",
+  "raw_affiliation": "Academy of Cryptography Techniques, Ho Chi Minh City Campus, Government Cipher Committee, Vietnam",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.27367": {
+  "first_author": "Youki Lim",
+  "institution": "TrueOpen",
+  "country": "",
+  "raw_affiliation": "TrueOpen",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27402": {
+  "first_author": "Matheus V. X. Ferreira",
+  "institution": "University of Virginia",
+  "country": "USA",
+  "raw_affiliation": "University of Virginia, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27406": {
+  "first_author": "Zhonghao Sun",
+  "institution": "National University of Defense Technology",
+  "country": "",
+  "raw_affiliation": "College of Computer Science and Technology, National University of Defense Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27422": {
+  "first_author": "Jinwen Xin",
+  "institution": "Wuhan University",
+  "country": "China",
+  "raw_affiliation": "School of Cyber Science and Engineering, Wuhan University, Wuhan 430072, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27424": {
+  "first_author": "Yan Wen",
+  "institution": "City University of Hong Kong",
+  "country": "",
+  "raw_affiliation": "City University of Hong Kong",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27427": {
+  "first_author": "Jiashuo Liu",
+  "institution": "Information Engineering University",
+  "country": "China",
+  "raw_affiliation": "Information Engineering University, Zhengzhou, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27428": {
+  "first_author": "Roy Ricaldi",
+  "institution": "Eindhoven University of Technology",
+  "country": "The Netherlands",
+  "raw_affiliation": "Eindhoven University of Technology, Eindhoven, The Netherlands",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27452": {
+  "first_author": "Rajneesh Kaushal",
+  "institution": "Thales Group",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "footnote_or_thanks",
+  "confidence": "low",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.27528": {
+  "first_author": "Mingyuan Li",
+  "institution": "University of Turku",
+  "country": "Finland",
+  "raw_affiliation": "ELLIS Institute Finland, University of Turku, Turku, Finland",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.27542": {
+  "first_author": "Muhammad Usama",
+  "institution": "Braindeck Inc",
+  "country": "Republic of Korea",
+  "raw_affiliation": "Braindeck Inc, Seoul, Republic of Korea",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27567": {
+  "first_author": "Mateusz Zych",
+  "institution": "Cyentific AS",
+  "country": "Norway",
+  "raw_affiliation": "Cyentific AS, Oslo, Norway; Department of Informatics, University of Oslo, Oslo, Norway",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27624": {
+  "first_author": "Adithyan Arun Kumar",
+  "institution": "Independent Security Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Security Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27802": {
+  "first_author": "Larry Hernandez",
+  "institution": "Dartmouth College",
+  "country": "USA",
+  "raw_affiliation": "Dartmouth College, Hanover, New Hampshire, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27803": {
+  "first_author": "Larry Hernandez",
+  "institution": "Dartmouth College",
+  "country": "USA",
+  "raw_affiliation": "Dartmouth College, Hanover, New Hampshire, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27807": {
+  "first_author": "Qishuang Fu",
+  "institution": "Monash University",
+  "country": "Australia",
+  "raw_affiliation": "Monash University, Australia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27828": {
+  "first_author": "Mahedee Zaman Moon",
+  "institution": "Islamic University of Technology",
+  "country": "Bangladesh",
+  "raw_affiliation": "Islamic University of Technology, Gazipur, Bangladesh",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.27847": {
+  "first_author": "Lele Zheng",
+  "institution": "Xidian University",
+  "country": "China",
+  "raw_affiliation": "Xidian University, Xi’an, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27856": {
+  "first_author": "Victor Kebande",
+  "institution": "University of Colorado Denver",
+  "country": "USA",
+  "raw_affiliation": "University of Colorado Denver, CO USA; ATLAS Institute, University of Colorado Boulder, Colorado, USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.27857": {
+  "first_author": "Arash Vashagh",
+  "institution": "University of New Brunswick",
+  "country": "Canada",
+  "raw_affiliation": "Faculty of Computer Science, University of New Brunswick, Fredericton, New Brunswick E3B 5A3, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27933": {
+  "first_author": "Nikolay Larionov",
+  "institution": "Moscow Institute of Physics and Technology",
+  "country": "Russia",
+  "raw_affiliation": "Moscow Institute of Physics and Technology, Moscow, Russia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27950": {
+  "first_author": "Abdul Khalek Alve",
+  "institution": "BRAC University",
+  "country": "Bangladesh",
+  "raw_affiliation": "Department of Computer Science and Engineering, BRAC University, Dhaka, Bangladesh",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.27996": {
+  "first_author": "Mingyuan Li",
+  "institution": "ELLIS Institute Finland",
+  "country": "",
+  "raw_affiliation": "ELLIS Institute Finland and University of Turku",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.28115": {
+  "first_author": "Lioba Heimbach",
+  "institution": "Category Labs",
+  "country": "",
+  "raw_affiliation": "Category Labs",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28170": {
+  "first_author": "Alessandro Lotto",
+  "institution": "University of Padua",
+  "country": "",
+  "raw_affiliation": "University of Padua / Department of Mathematics, Padua, IT",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28205": {
+  "first_author": "Junlin Liu",
+  "institution": "Peking University",
+  "country": "China",
+  "raw_affiliation": "Peking University, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28209": {
+  "first_author": "Lucas Brito",
+  "institution": "Federal University of Technology – Paraná",
+  "country": "Brazil",
+  "raw_affiliation": "Federal University of Technology – Paraná (UTFPR), Ponta Grossa – PR – Brazil",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.28226": {
+  "first_author": "Carsten Schubert",
+  "institution": "Technische Universität Berlin",
+  "country": "Germany",
+  "raw_affiliation": "Technische Universität Berlin, Electrical Engineering and Computer Science, Berlin, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28228": {
+  "first_author": "Nisha Vinayaga-Sureshkanth",
+  "institution": "The University of Texas at San Antonio",
+  "country": "USA",
+  "raw_affiliation": "The University of Texas at San Antonio, San Antonio, Texas, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.28239": {
+  "first_author": "Li Zeng",
+  "institution": "Changsha University of Science & Technology",
+  "country": "China",
+  "raw_affiliation": "School of Computer and Communication Engineering, Changsha University of Science & Technology, Changsha 410114, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.28277": {
+  "first_author": "Giacomo Giuliari",
+  "institution": "Mysten Labs",
+  "country": "",
+  "raw_affiliation": "Mysten Labs",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.28297": {
+  "first_author": "Leonhard Grosse",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.28305": {
+  "first_author": "Francis Gideon Oghie",
+  "institution": "Federal University of Technology, Minna",
+  "country": "Nigeria",
+  "raw_affiliation": "Department of Cyber Security Science, School of Information and Communication Technology, Federal University of Technology, Minna, Nigeria",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.28378": {
+  "first_author": "Xukun Luan",
+  "institution": "Beijing Institute of Technology",
+  "country": "",
+  "raw_affiliation": "Beijing Institute of Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28482": {
+  "first_author": "Vinay K. Chaudhri",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high"
+ },
+ "2609.28517": {
+  "first_author": "Junru Zhu",
+  "institution": "Independent Researcher",
+  "country": "United States",
+  "raw_affiliation": "Independent Researcher, Seattle, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28528": {
+  "first_author": "Jalaj Upadhyay",
+  "institution": "Rutgers University",
+  "country": "",
+  "raw_affiliation": "Rutgers University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28537": {
+  "first_author": "Sarah Radway",
+  "institution": "Harvard University",
+  "country": "",
+  "raw_affiliation": "Harvard University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28559": {
+  "first_author": "Chuyi Wang",
+  "institution": "Tsinghua University",
+  "country": "",
+  "raw_affiliation": "Department of Computer Science and Technology, Tsinghua University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28564": {
+  "first_author": "Jian Xu",
+  "institution": "RIKEN",
+  "country": "",
+  "raw_affiliation": "RIKEN",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28572": {
+  "first_author": "Saeedeh Lohrasbi",
+  "institution": "National Research Council Canada",
+  "country": "Canada",
+  "raw_affiliation": "Cybersecurity, DTRC, National Research Council, Ottawa, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28585": {
+  "first_author": "Jinqian Zhang",
+  "institution": "Chinese Academy of Sciences",
+  "country": "China",
+  "raw_affiliation": "Institute of Information Engineering, Chinese Academy of Sciences; School of Cyber Security, University of Chinese Academy of Sciences",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28586": {
+  "first_author": "Jinqian Zhang",
+  "institution": "Chinese Academy of Sciences",
+  "country": "China",
+  "raw_affiliation": "^{1}Institute of Information Engineering, Chinese Academy of Sciences; ^{2}School of Cyber Security, University of Chinese Academy of Sciences",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.28599": {
+  "first_author": "Asmah Muallem",
+  "institution": "Meharry Medical College",
+  "country": "USA",
+  "raw_affiliation": "Computer Science and Data Science, Meharry Medical College, Nashville, TN, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28608": {
+  "first_author": "Baihong Chen",
+  "institution": "Utah State University",
+  "country": "",
+  "raw_affiliation": "Utah State University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28613": {
+  "first_author": "Tiantong Wu",
+  "institution": "Nanyang Technological University",
+  "country": "Singapore",
+  "raw_affiliation": "Nanyang Technological University; Singapore",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28659": {
+  "first_author": "Magdalena Pasternak",
+  "institution": "University of Florida",
+  "country": "",
+  "raw_affiliation": "^{1}University of Florida",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.28693": {
+  "first_author": "Michael Stettler",
+  "institution": "Skilder",
+  "country": "",
+  "raw_affiliation": "Skilder ⋅ https://www.skilder.ai",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28699": {
+  "first_author": "Nishat F. Purbasha",
+  "institution": "University of Kentucky",
+  "country": "USA",
+  "raw_affiliation": "^{1}University of Kentucky, Lexington, KY, USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.28725": {
+  "first_author": "Uday Shankar Roy",
+  "institution": "Khulna University of Engineering & Technology",
+  "country": "Bangladesh",
+  "raw_affiliation": "Computer Science and Engineering, Khulna University of Engineering & Technology, Khulna, Bangladesh",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28843": {
+  "first_author": "Harsh Verma",
+  "institution": "Palo Alto Networks",
+  "country": "United States",
+  "raw_affiliation": "Palo Alto Networks, Artificial Intelligence, United States",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28899": {
+  "first_author": "Andrew Campbell",
+  "institution": "Cornell University",
+  "country": "USA",
+  "raw_affiliation": "Department of Electrical and Computer Engineering, Cornell University, Cornell Tech, New York, NY 10044 USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.28900": {
+  "first_author": "Qi Pang",
+  "institution": "Carnegie Mellon University",
+  "country": "",
+  "raw_affiliation": "Carnegie Mellon University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28915": {
+  "first_author": "Spencer King",
+  "institution": "University of Georgia",
+  "country": "",
+  "raw_affiliation": "University of Georgia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28916": {
+  "first_author": "Alyson Isaluski",
+  "institution": "Federal University of Technology – Paraná",
+  "country": "Brazil",
+  "raw_affiliation": "Federal University of Technology – Paraná (UTFPR), Ponta Grossa – PR – Brazil",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.28919": {
+  "first_author": "Arian Abbasi",
+  "institution": "Accenture",
+  "country": "",
+  "raw_affiliation": "Accenture Responsible AI",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28940": {
+  "first_author": "Joas Antonio dos Santos",
+  "institution": "Independent Researcher",
+  "country": "Brazil",
+  "raw_affiliation": "Independent Researcher — AI and Offensive Security, São Paulo, SP, Brazil",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.28996": {
+  "first_author": "Siyuan Pang",
+  "institution": "Chinese Academy of Sciences",
+  "country": "China",
+  "raw_affiliation": "Institute of Information Engineering, Chinese Academy of Sciences, Beijing, China; School of Cyber Security, University of Chinese Academy of Sciences, Beijing, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.29040": {
+  "first_author": "Xincong Zhong",
+  "institution": "Waseda University",
+  "country": "Japan",
+  "raw_affiliation": "Waseda University, Japan",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.29045": {
+  "first_author": "Manit Baser",
+  "institution": "National University of Singapore",
+  "country": "Singapore",
+  "raw_affiliation": "National University of Singapore",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.29099": {
+  "first_author": "Haoyang Li",
+  "institution": "The Hong Kong Polytechnic University",
+  "country": "",
+  "raw_affiliation": "The Hong Kong Polytechnic University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29126": {
+  "first_author": "Theodoros Moutesidis",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29130": {
+  "first_author": "Daiki Chiba",
+  "institution": "Tokyo Metropolitan University",
+  "country": "Japan",
+  "raw_affiliation": "Tokyo Metropolitan University, Tokyo, Japan",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.29173": {
+  "first_author": "Yanming Xiu",
+  "institution": "Duke University",
+  "country": "USA",
+  "raw_affiliation": "Department of Electrical and Computer Engineering, Duke University, Durham, NC, 27707, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29178": {
+  "first_author": "Sheng Liu",
+  "institution": "KTH Royal Institute of Technology",
+  "country": "Sweden",
+  "raw_affiliation": "Networked Systems Security Group (NSS), KTH Royal Institute of Technology, Stockholm, Sweden",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29222": {
+  "first_author": "Yifan Zhou",
+  "institution": "Huazhong University of Science and Technology",
+  "country": "",
+  "raw_affiliation": "Huazhong University of Science and Technology; University of Warwick",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29264": {
+  "first_author": "Teruki Sano",
+  "institution": "Tohoku University",
+  "country": "Japan",
+  "raw_affiliation": "Graduate School of Information Sciences, Tohoku University, Japan",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.29287": {
+  "first_author": "Yu-Ling Liao",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.29308": {
+  "first_author": "Aleena Nazir",
+  "institution": "University of Limerick",
+  "country": "Ireland",
+  "raw_affiliation": "Bernal Institute, University of Limerick, Ireland",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.29429": {
+  "first_author": "Ruoqi Guo",
+  "institution": "Griffith University",
+  "country": "",
+  "raw_affiliation": "Griffith University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29500": {
+  "first_author": "Lav R. Varshney",
+  "institution": "Stony Brook University",
+  "country": "United States",
+  "raw_affiliation": "AI Innovation Institute, Stony Brook University, Stony Brook, NY 11794 USA",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.29528": {
+  "first_author": "Ethan Traister",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.29571": {
+  "first_author": "Navaneetha Krishnan K",
+  "institution": "Saveetha Institute of Medical and Technical Sciences",
+  "country": "India",
+  "raw_affiliation": "Department of Electronics and Communication Engineering, SIMATS Engineering, Saveetha Institute of Medical and Technical Sciences, Chennai, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29578": {
+  "first_author": "Hongye Yang",
+  "institution": "Georgia Institute of Technology",
+  "country": "",
+  "raw_affiliation": "Georgia Institute of Technology, College of Computing",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29603": {
+  "first_author": "Xujun Che",
+  "institution": "University of North Carolina at Charlotte",
+  "country": "",
+  "raw_affiliation": "University of North Carolina at Charlotte",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29645": {
+  "first_author": "Jonas Becker-Kupczok",
+  "institution": "University of Münster",
+  "country": "Germany",
+  "raw_affiliation": "University of Münster, Computer Science Department, Münster, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29647": {
+  "first_author": "Zhenhua Zou",
+  "institution": "DeepKernel Lab",
+  "country": "",
+  "raw_affiliation": "A Paper from the DeepKernel Lab",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.29697": {
+  "first_author": "Chuanchao Zang",
+  "institution": "Shandong University",
+  "country": "",
+  "raw_affiliation": "School of Cyber Science and Technology, Shandong University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29704": {
+  "first_author": "Konstantinos E. Kampourakis",
+  "institution": "Norwegian University of Science and Technology",
+  "country": "Norway",
+  "raw_affiliation": "Department of Information Security and Communication Technology, Norwegian University of Science and Technology (NTNU), Gjovik, 2802, Norway",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.29745": {
+  "first_author": "Song Son Ha",
+  "institution": "Helmut-Schmidt-University",
+  "country": "Germany",
+  "raw_affiliation": "Electrical Measurement Engineering; Helmut-Schmidt-University; Hamburg, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29757": {
+  "first_author": "Karina Elzer",
+  "institution": "Technical University of Denmark",
+  "country": "Denmark",
+  "raw_affiliation": "Technical University of Denmark",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29775": {
+  "first_author": "Lukáš Brůna",
+  "institution": "Uppsala University",
+  "country": "",
+  "raw_affiliation": "Uppsala University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29808": {
+  "first_author": "José Luis Pino",
+  "institution": "Independent Researcher",
+  "country": "United States",
+  "raw_affiliation": "Independent Researcher; Westlake Village, CA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29851": {
+  "first_author": "Simon Parkinson",
+  "institution": "University of Huddersfield",
+  "country": "United Kingdom",
+  "raw_affiliation": "Department of Computer Science, University of Huddersfield, HD1 3DH Huddersfield, U.K.",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29917": {
+  "first_author": "Ilia Ryzov",
+  "institution": "Okinawa Institute of Science and Technology Graduate University",
+  "country": "Japan",
+  "raw_affiliation": "Okinawa Institute of Science and Technology Graduate University, Japan",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29937": {
+  "first_author": "Qingyu Wu",
+  "institution": "Academy of Military Science",
+  "country": "China",
+  "raw_affiliation": "Defense Innovation Institute, Academy of Military Science, Beijing, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.29948": {
+  "first_author": "Qingyu Wu",
+  "institution": "Academy of Military Science",
+  "country": "China",
+  "raw_affiliation": "Defense Innovation Institute, Academy of Military Science, Beijing, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.29975": {
+  "first_author": "Yueqi Wu",
+  "institution": "Peking University",
+  "country": "China",
+  "raw_affiliation": "School of Software & Microelectronics, Peking University, Beijing, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.29981": {
+  "first_author": "Edwin Clatus",
+  "institution": "The Pennsylvania State University",
+  "country": "United States",
+  "raw_affiliation": "The Pennsylvania State University, University Park, PA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30032": {
+  "first_author": "Vasisht Duddu",
+  "institution": "Vector Institute",
+  "country": "",
+  "raw_affiliation": "Vector Institute and University of Waterloo",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30037": {
+  "first_author": "Saim Rehman",
+  "institution": "New York University Abu Dhabi",
+  "country": "United Arab Emirates",
+  "raw_affiliation": "eBRAIN Lab, Division of Engineering, New York University Abu Dhabi (NYUAD), Abu Dhabi, UAE",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.30070": {
+  "first_author": "Arttu Paju",
+  "institution": "Tampere University",
+  "country": "Finland",
+  "raw_affiliation": "Tampere University, Tampere, Finland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30094": {
+  "first_author": "Luciano Rolando Maldonado Romero",
+  "institution": "West Virginia University",
+  "country": "USA",
+  "raw_affiliation": "West Virginia University, Morgantown, WV, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30119": {
+  "first_author": "Abdullah Arafat Miah",
+  "institution": "University of Rhode Island",
+  "country": "USA",
+  "raw_affiliation": "Department of Electrical, Computer, and Biomedical Engineering, University of Rhode Island, Kingston, RI, USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.30163": {
+  "first_author": "George Danezis",
+  "institution": "Mysten Labs",
+  "country": "",
+  "raw_affiliation": "Mysten Labs; University College London (UCL)",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30217": {
+  "first_author": "David Schmotz",
+  "institution": "ELLIS Institute Tübingen",
+  "country": "",
+  "raw_affiliation": "ELLIS Institute Tübingen; Max Planck Institute for Intelligent Systems; Tübingen AI Center",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30266": {
+  "first_author": "Jeremy Qin",
+  "institution": "ELLIS Institute Tübingen",
+  "country": "",
+  "raw_affiliation": "ELLIS Institute Tübingen; Max Planck Institute for Intelligent Systems; Tübingen AI Center",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30325": {
+  "first_author": "Shane Caldwell",
+  "institution": "dreadnode",
+  "country": "USA",
+  "raw_affiliation": "dreadnode, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30345": {
+  "first_author": "Leon Goldberg",
+  "institution": "Sola Security",
+  "country": "Israel",
+  "raw_affiliation": "Sola Security, Tel Aviv, Israel",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30509": {
+  "first_author": "Hao Chung",
+  "institution": "LayerZero Labs",
+  "country": "",
+  "raw_affiliation": "Layerzero Labs",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30581": {
+  "first_author": "Marcel Mordarski",
+  "institution": "Imperial College London",
+  "country": "United Kingdom",
+  "raw_affiliation": "Department of Computing, Imperial College London; London SW7 2AZ, United Kingdom",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30614": {
+  "first_author": "Seungho Lee",
+  "institution": "Korea Trade Network",
+  "country": "Republic of Korea",
+  "raw_affiliation": "Korea Trade Network (KTNET), Seoul, Republic of Korea",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30657": {
+  "first_author": "Ahmad Hashmi",
+  "institution": "Eastern Michigan University",
+  "country": "USA",
+  "raw_affiliation": "Department of Computer Science, Eastern Michigan University, Ypsilanti, MI, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30683": {
+  "first_author": "Jaehwan Park",
+  "institution": "University of Tennessee, Knoxville",
+  "country": "",
+  "raw_affiliation": "University of Tennessee, Knoxville",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.30719": {
+  "first_author": "Volkan Dağlı",
+  "institution": "ITOUCH Bilişim Sistemleri",
+  "country": "Türkiye",
+  "raw_affiliation": "ITOUCH Bilişim Sistemleri Ltd. Şti., Çukurova Teknokent, Adana, Türkiye; Anadolu University, Eskişehir, Türkiye",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30729": {
+  "first_author": "Md Anas Biswas",
+  "institution": "University of Portsmouth",
+  "country": "United Kingdom",
+  "raw_affiliation": "School of Computing, University of Portsmouth, Portsmouth, United Kingdom",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30805": {
+  "first_author": "Sangshin Park",
+  "institution": "University of Utah",
+  "country": "USA",
+  "raw_affiliation": "University of Utah, Salt Lake City, Utah, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30824": {
+  "first_author": "Srikumar K. Subramanian",
+  "institution": "Accenture Labs",
+  "country": "",
+  "raw_affiliation": "Accenture Labs",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.30830": {
+  "first_author": "Xiaorui Zhang",
+  "institution": "Huazhong University of Science and Technology",
+  "country": "China",
+  "raw_affiliation": "Huazhong University of Science and Technology, Wuhan, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.30909": {
+  "first_author": "Xiaoyu Xu",
+  "institution": "The Hong Kong Polytechnic University",
+  "country": "China",
+  "raw_affiliation": "The Hong Kong Polytechnic University, Hong Kong, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.30925": {
+  "first_author": "Adrien Vinçotte",
+  "institution": "Université de Rennes",
+  "country": "France",
+  "raw_affiliation": "IRMAR, Université de Rennes, France",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30980": {
+  "first_author": "Haoyang Li",
+  "institution": "The Hong Kong Polytechnic University",
+  "country": "",
+  "raw_affiliation": "The Hong Kong Polytechnic University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30982": {
+  "first_author": "Kai Yao",
+  "institution": "University of Edinburgh",
+  "country": "",
+  "raw_affiliation": "School of Informatics, The University of Edinburgh",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.30997": {
+  "first_author": "Kai Yao",
+  "institution": "University of Edinburgh",
+  "country": "",
+  "raw_affiliation": "School of Informatics, University of Edinburgh",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31003": {
+  "first_author": "Jieshuai Yang",
+  "institution": "Nankai University",
+  "country": "China",
+  "raw_affiliation": "College of Cryptology and Cyber Science, Nankai University, Tianjin 300350, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.31004": {
+  "first_author": "Jafar Akhoundali",
+  "institution": "Leiden University",
+  "country": "Netherlands",
+  "raw_affiliation": "LIACS, Leiden University, Leiden, Netherlands",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31012": {
+  "first_author": "Jieshuai Yang",
+  "institution": "Nankai University",
+  "country": "China",
+  "raw_affiliation": "College of Cryptology and Cyber Science, Nankai University, Tianjin 300350, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.31032": {
+  "first_author": "Tianmeng Fang",
+  "institution": "Singapore Management University",
+  "country": "Singapore",
+  "raw_affiliation": "School of Computing and Information Systems, Master of IT in Business (MITB), Singapore Management University, Singapore 178903, Singapore",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31039": {
+  "first_author": "Hanzhang Ma",
+  "institution": "Paderborn University",
+  "country": "",
+  "raw_affiliation": "Paderborn University; Huawei Hilbert Research Center (Dresden)",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.31087": {
+  "first_author": "Luca Campa",
+  "institution": "Fhenix",
+  "country": "Israel",
+  "raw_affiliation": "Fhenix, Tel Aviv, Israel",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.31110": {
+  "first_author": "Saidattu Chepuri",
+  "institution": "National Institute of Technology Warangal",
+  "country": "India",
+  "raw_affiliation": "Department of Computer Science and Engineering, National Institute of Technology Warangal, Warangal, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31119": {
+  "first_author": "Hamed Rasifard",
+  "institution": "Saarland University",
+  "country": "",
+  "raw_affiliation": "Saarland University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31142": {
+  "first_author": "Jianyi Hu",
+  "institution": "Chinese Academy of Sciences",
+  "country": "",
+  "raw_affiliation": "Institute of Information Engineering, Chinese Academy of Sciences; School of Cyber Security, University of Chinese Academy of Sciences",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31154": {
+  "first_author": "Yi Sun",
+  "institution": "Harbin Institute of Technology, Shenzhen",
+  "country": "",
+  "raw_affiliation": "Harbin Institute of Technology, Shenzhen",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31247": {
+  "first_author": "Xander Staelens",
+  "institution": "Ghent University",
+  "country": "Belgium",
+  "raw_affiliation": "IDLab, Ghent University - imec, Ghent, Belgium",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31252": {
+  "first_author": "Antonio Carreño",
+  "institution": "Universidad Politécnica de Madrid",
+  "country": "Spain",
+  "raw_affiliation": "Centro de Electrónica Industrial y Sistemas Multimodales, Universidad Politécnica de Madrid, 28006 Madrid, Spain",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.31256": {
+  "first_author": "Yuxuan Liu",
+  "institution": "Chinese Academy of Sciences",
+  "country": "China",
+  "raw_affiliation": "State Key Lab of Processors, Institute of Computing Technology, Chinese Academy of Sciences, Beijing 100190, China; School of Computer Science and Technology, University of Chinese Academy of Sciences, Beijing 100049, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high"
+ },
+ "2609.31262": {
+  "first_author": "Rongxi Wang",
+  "institution": "Nankai University",
+  "country": "China",
+  "raw_affiliation": "College of Cryptology and Cyber Science, Nankai University, Tianjin, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31282": {
+  "first_author": "Toqeer Ali Syed",
+  "institution": "Islamic University in Madinah",
+  "country": "Saudi Arabia",
+  "raw_affiliation": "Faculty of Computer and Information System, Islamic University in Madinah, Kingdom of Saudi Arabia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31310": {
+  "first_author": "Jun Yan",
+  "institution": "SHOU",
+  "country": "",
+  "raw_affiliation": "SHOU",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.31318": {
+  "first_author": "Weida Liang",
+  "institution": "National University of Singapore",
+  "country": "",
+  "raw_affiliation": "National University of Singapore",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31371": {
+  "first_author": "Bin Li",
+  "institution": "Beijing Jiaotong University",
+  "country": "China",
+  "raw_affiliation": "School of Cyberspace Science and Technology, Beijing Jiaotong University, Beijing, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.31379": {
+  "first_author": "Tingyi Lin",
+  "institution": "Adrasteia Labs",
+  "country": "",
+  "raw_affiliation": "Adrasteia Labs",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.31398": {
+  "first_author": "Wasif Faisal",
+  "institution": "BRAC University",
+  "country": "",
+  "raw_affiliation": "BRAC University",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium"
+ },
+ "2609.31409": {
+  "first_author": "Dihao Fan",
+  "institution": "Beihang University",
+  "country": "China",
+  "raw_affiliation": "Beihang University, Beijing, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high"
+ },
+ "2609.31485": {
+  "first_author": "Gonçalo Ferreira",
+  "institution": "University of Aveiro",
+  "country": "Portugal",
+  "raw_affiliation": "Univ. of Aveiro, Campus Univ. de Santiago, 3810-189 Aveiro, Portugal; IEETA / LASI, Univ. of Aveiro, Campus Univ. de Santiago, 3810-189 Aveiro, Portugal",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31494": {
+  "first_author": "Katharine Daly",
+  "institution": "Google",
+  "country": "",
+  "raw_affiliation": "Google",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 2
+ },
+ "2609.31519": {
+  "first_author": "João Ferreira",
+  "institution": "University of Aveiro",
+  "country": "Portugal",
+  "raw_affiliation": "IEETA / LASI, University of Aveiro, Aveiro, Portugal",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31552": {
+  "first_author": "Zihan Wang",
+  "institution": "University of Electronic Science and Technology of China",
+  "country": "",
+  "raw_affiliation": "University of Electronic Science and Technology of China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31558": {
+  "first_author": "Ahmed Abdelnaby",
+  "institution": "Washington State University",
+  "country": "United States",
+  "raw_affiliation": "Washington State University, Richland, WA 99354, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31575": {
+  "first_author": "Constantinos Patsakis",
+  "institution": "University of Piraeus",
+  "country": "Greece",
+  "raw_affiliation": "Department of Informatics, University of Piraeus, Piraeus, Greece; Athena Research Centre, Greece",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.31594": {
+  "first_author": "Alessandro Lotto",
+  "institution": "University of Padua",
+  "country": "",
+  "raw_affiliation": "University of Padua, Padua, IT",
+  "evidence": "explicit_affiliation",
+  "confidence": "high"
+ },
+ "2609.16694": {
+  "first_author": "Rahul Dev T Y",
+  "institution": "National Institute of Technology Calicut",
+  "country": "India",
+  "raw_affiliation": "National Institute of Technology Calicut, Department of Computer Science and Engineering, Kerala, 673601, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16732": {
+  "first_author": "Heng Li",
+  "institution": "The Hong Kong Polytechnic University",
+  "country": "",
+  "raw_affiliation": "The Hong Kong Polytechnic University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16818": {
+  "first_author": "Jiachang Zhang",
+  "institution": "Zhejiang University",
+  "country": "China",
+  "raw_affiliation": "Zhejiang University, Hangzhou, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16832": {
+  "first_author": "Kai Yao",
+  "institution": "University of Edinburgh",
+  "country": "UK",
+  "raw_affiliation": "University of Edinburgh, Edinburgh, UK",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16898": {
+  "first_author": "Jiangrui Yu",
+  "institution": "Peking University",
+  "country": "China",
+  "raw_affiliation": "^{1}Peking University, Beijing, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16915": {
+  "first_author": "Jiangrui Yu",
+  "institution": "Peking University",
+  "country": "China",
+  "raw_affiliation": "Peking University, Beijing, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16928": {
+  "first_author": "Ferran Bohigas-Daranas",
+  "institution": "Universitat Politècnica de Catalunya",
+  "country": "Spain",
+  "raw_affiliation": "^{1}CITCEA, Universitat Politècnica de Catalunya, Barcelona, Spain",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16987": {
+  "first_author": "Yixuan Liu",
+  "institution": "Nanyang Technological University",
+  "country": "Singapore",
+  "raw_affiliation": "Nanyang Technological University, Singapore, Singapore",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16423": {
+  "first_author": "Tianjiao Huang",
+  "institution": "University of California, Irvine",
+  "country": "USA",
+  "raw_affiliation": "University of California, Irvine, Irvine, California, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16433": {
+  "first_author": "Md Nazmul Hoque",
+  "institution": "The University of Alabama",
+  "country": "USA",
+  "raw_affiliation": "The University of Alabama, Tuscaloosa, Alabama, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16462": {
+  "first_author": "Lijie Zheng",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16541": {
+  "first_author": "Jakob Nyberg",
+  "institution": "KTH Royal Institute of Technology",
+  "country": "Sweden",
+  "raw_affiliation": "Department of Network and Systems Engineering at KTH Royal Institute of Technology in Stockholm, Sweden",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16546": {
+  "first_author": "Chris S. Lin",
+  "institution": "University of Toronto",
+  "country": "Canada",
+  "raw_affiliation": "University of Toronto, Toronto, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16563": {
+  "first_author": "Jakob Nyberg",
+  "institution": "KTH Royal Institute of Technology",
+  "country": "",
+  "raw_affiliation": "KTH Royal Institute of Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16675": {
+  "first_author": "Swapnil Vishwas Baviskar",
+  "institution": "National Institute of Technology Calicut",
+  "country": "India",
+  "raw_affiliation": "National Institute of Technology Calicut, Computer Science and Engineering Department, Kozhikode, 673601, Kerala, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16681": {
+  "first_author": "Kairong Li",
+  "institution": "Zhejiang University",
+  "country": "",
+  "raw_affiliation": "kairong.li@zju.edu.cn",
+  "evidence": "footnote_or_thanks",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 1
+ },
+ "1906.07927": {
+  "first_author": "Haonan Qiu",
+  "institution": "The Chinese University of Hong Kong, Shenzhen",
+  "country": "",
+  "raw_affiliation": "The Chinese University of Hong Kong, Shenzhen",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.15842": {
+  "first_author": "Jose Carrasco",
+  "institution": "Freie Universität Berlin",
+  "country": "Germany",
+  "raw_affiliation": "Dahlem Center for Complex Quantum Systems, Freie Universität Berlin, 14195 Berlin, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16000": {
+  "first_author": "Shufan Chai",
+  "institution": "Northeastern University",
+  "country": "USA",
+  "raw_affiliation": "Northeastern University, Oakland, CA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16095": {
+  "first_author": "Xingyu Lyu",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16098": {
+  "first_author": "Xiaoyan Li",
+  "institution": "University of Toronto",
+  "country": "Canada",
+  "raw_affiliation": "Department of Computer Science, University of Toronto, Toronto, Ontario, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16099": {
+  "first_author": "Saranraj S",
+  "institution": "Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology",
+  "country": "India",
+  "raw_affiliation": "Department of AIML, Vel Tech Rangarajan Dr. Sagunthala R&D Institute of Science and Technology, Chennai, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16193": {
+  "first_author": "Danny Wood",
+  "institution": "Fuzzy Labs",
+  "country": "",
+  "raw_affiliation": "Fuzzy Labs",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16204": {
+  "first_author": "Aashiq Muhamed",
+  "institution": "Carnegie Mellon University",
+  "country": "",
+  "raw_affiliation": "Carnegie Mellon University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17150": {
+  "first_author": "Roberto Fernández-Barrios",
+  "institution": "University of Deusto",
+  "country": "Spain",
+  "raw_affiliation": "Faculty of Engineering, University of Deusto, Avda. de las Universidades 24, 48007 Bilbao, Spain",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17164": {
+  "first_author": "Sebastian Neef",
+  "institution": "Technische Universität Berlin",
+  "country": "Germany",
+  "raw_affiliation": "Technische Universität Berlin, Berlin, Germany",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17204": {
+  "first_author": "Ariel Duschanek-Myers",
+  "institution": "University of Iceland",
+  "country": "Iceland",
+  "raw_affiliation": "Department of Computer Science, University of Iceland, Reykjavík, Iceland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17254": {
+  "first_author": "Halil Ibrahim Dursunoglu",
+  "institution": "Western Michigan University",
+  "country": "USA",
+  "raw_affiliation": "Department of Computer Science, Western Michigan University, 1908 W Michigan Ave, Kalamazoo, 49008, MI, USA; Department of Computer Information Systems, Western Michigan University, 1908 W Michigan Ave, Kalamazoo, 49008, MI, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17281": {
+  "first_author": "Bhanwar Gupta",
+  "institution": "Maharishi Markandeshwar Engineering College",
+  "country": "India",
+  "raw_affiliation": "Department of Computer Science and Engineering, Maharishi Markandeshwar Engineering College, Mullana, Ambala, Haryana 133207, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17316": {
+  "first_author": "Shuhao Zhang",
+  "institution": "Hong Kong University of Science and Technology (Guangzhou)",
+  "country": "",
+  "raw_affiliation": "email: szhang515@connect.hkust-gz.edu.cn",
+  "evidence": "superscript_mapping",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17349": {
+  "first_author": "Gysella Imrell",
+  "institution": "Örebro University",
+  "country": "Sweden",
+  "raw_affiliation": "Örebro University, Örebro, Sweden",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17397": {
+  "first_author": "Baigang Chen",
+  "institution": "University of Minnesota",
+  "country": "",
+  "raw_affiliation": "University of Minnesota",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17399": {
+  "first_author": "Shixin Song",
+  "institution": "Massachusetts Institute of Technology",
+  "country": "United States",
+  "raw_affiliation": "Massachusetts Institute of Technology, Cambridge, United States",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17525": {
+  "first_author": "Santosh Gokul Narayanan",
+  "institution": "Nokia of America Corporation",
+  "country": "USA",
+  "raw_affiliation": "Nokia of America Corporation, Sunnyvale, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17624": {
+  "first_author": "Yiyun He",
+  "institution": "University of California, San Diego",
+  "country": "",
+  "raw_affiliation": "Department of Mathematics, University of California, San Diego",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17631": {
+  "first_author": "Torsten Olivi Tiltack",
+  "institution": "University of Technology Sydney",
+  "country": "Australia",
+  "raw_affiliation": "Data Science Institute, University of Technology Sydney, Ultimo, NSW, Australia",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17635": {
+  "first_author": "Oscar Mogollon Gutierrez",
+  "institution": "Universidad de Extremadura",
+  "country": "Spain",
+  "raw_affiliation": "Department of Computer Systems and Telematics Engineering, Media Engineering Group (GIM), Universidad de Extremadura, Escuela Politécnica, Avda. de la Universidad s/n, Cáceres, 10003, Spain",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17645": {
+  "first_author": "Luca Maraschi",
+  "institution": "Platformatic Inc.",
+  "country": "",
+  "raw_affiliation": "Platformatic Inc.",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.17648": {
+  "first_author": "Tanzim Hossain Safin",
+  "institution": "BRAC University",
+  "country": "Bangladesh",
+  "raw_affiliation": "Department of Computer Science and Engineering, BRAC University, Dhaka, Bangladesh",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17650": {
+  "first_author": "Charlie Harrison",
+  "institution": "Google",
+  "country": "",
+  "raw_affiliation": "Google",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17817": {
+  "first_author": "Franziska Roesner",
+  "institution": "University of Washington",
+  "country": "",
+  "raw_affiliation": "University of Washington",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17839": {
+  "first_author": "Lea Duesterwald",
+  "institution": "Carnegie Mellon University",
+  "country": "",
+  "raw_affiliation": "Carnegie Mellon University; Home institution: Cornell University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17856": {
+  "first_author": "Chenyi Wang",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17897": {
+  "first_author": "Wei Ye",
+  "institution": "Fordham University",
+  "country": "USA",
+  "raw_affiliation": "Department of Economics, Fordham University, New York, NY, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17902": {
+  "first_author": "Zhiyang Chen",
+  "institution": "University of Toronto",
+  "country": "",
+  "raw_affiliation": "University of Toronto & ETH Zurich",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17922": {
+  "first_author": "Navid Nader Tehrani",
+  "institution": "University of Wisconsin-Madison",
+  "country": "USA",
+  "raw_affiliation": "University of Wisconsin-Madison, Madison, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.17995": {
+  "first_author": "Shuaiqi Wang",
+  "institution": "Carnegie Mellon University",
+  "country": "",
+  "raw_affiliation": "Carnegie Mellon University",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18020": {
+  "first_author": "Justin Holmgren",
+  "institution": "NTT Research",
+  "country": "",
+  "raw_affiliation": "Research conducted in part while employed at NTT Research",
+  "evidence": "footnote_or_thanks",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18107": {
+  "first_author": "Suprim Nakarmi",
+  "institution": "University of Nevada Las Vegas",
+  "country": "USA",
+  "raw_affiliation": "Department of Computer Science, University of Nevada Las Vegas, Las Vegas, USA",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18120": {
+  "first_author": "Rushabh Vipulkumar Patel",
+  "institution": "University of Wales Trinity Saint David",
+  "country": "United Kingdom",
+  "raw_affiliation": "Computer Security Laboratory, University of Wales Trinity Saint David, London, United Kingdom",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.18122": {
+  "first_author": "Gengyang Xu",
+  "institution": "Hong Kong University of Science and Technology",
+  "country": "",
+  "raw_affiliation": "Hong Kong University of Science and Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18158": {
+  "first_author": "Dan Lin",
+  "institution": "Sun Yat-sen University",
+  "country": "",
+  "raw_affiliation": "Sun Yat-sen University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18196": {
+  "first_author": "Stefan Manfred Haratzmüller",
+  "institution": "Salzburg University of Applied Sciences",
+  "country": "Austria",
+  "raw_affiliation": "Josef Ressel Centre for Intelligent and Secure Industrial Automation, Salzburg University of Applied Sciences, 5412 Puch/Salzburg, Austria",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18217": {
+  "first_author": "Murali Ediga",
+  "institution": "University of Missouri-Kansas City",
+  "country": "",
+  "raw_affiliation": "Division of Computing, Analytics and Mathematics (CAM) at the University of Missouri-Kansas City (UMKC)",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18272": {
+  "first_author": "Mohamed Chahine Ghanem",
+  "institution": "Keele University",
+  "country": "United Kingdom",
+  "raw_affiliation": "Keele University, School of Computer Science and Mathematics, Keele, United Kingdom; University of Liverpool, Cybersecurity Institute, Liverpool, United Kingdom",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18275": {
+  "first_author": "Isaac M Hair",
+  "institution": "UCSB",
+  "country": "",
+  "raw_affiliation": "UCSB, UCLA",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16211": {
+  "first_author": "Christos Galanopoulos",
+  "institution": "The University of Texas at Austin",
+  "country": "United States",
+  "raw_affiliation": "The University of Texas at Austin, Austin, TX, USA",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16214": {
+  "first_author": "Ryan Tipping",
+  "institution": "Montclair State University",
+  "country": "",
+  "raw_affiliation": "School of Computing, Montclair State University, Montclair, New Jersey",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.16231": {
+  "first_author": "Mughees Ur Rehman",
+  "institution": "Purdue University",
+  "country": "",
+  "raw_affiliation": "Purdue University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16253": {
+  "first_author": "Henry Kabuye",
+  "institution": "",
+  "country": "United Kingdom",
+  "raw_affiliation": "School of Computing, Engineering and Digital Technologies, United Kingdom",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.16323": {
+  "first_author": "Tarikul Islam",
+  "institution": "Samsung R&D Institute Bangladesh",
+  "country": "Bangladesh",
+  "raw_affiliation": "Samsung R&D Institute Bangladesh",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16336": {
+  "first_author": "Sri Hrushikesh Varma Bhupathiraju",
+  "institution": "University of Florida",
+  "country": "United States",
+  "raw_affiliation": "University of Florida, Gainesville, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.16375": {
+  "first_author": "Jose A. Sanchez Viloria",
+  "institution": "Florida Atlantic University",
+  "country": "United States",
+  "raw_affiliation": "Center for Connected Autonomy and AI (CA-AI.fau.edu), Florida Atlantic University, Boca Raton, FL, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.16403": {
+  "first_author": "Michael Collins",
+  "institution": "Laboratory for Advanced Cybersecurity Research",
+  "country": "",
+  "raw_affiliation": "Laboratory for Advanced Cybersecurity Research; Laurel, MD 20707",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18281": {
+  "first_author": "Makram Chehayeb",
+  "institution": "Islamic University of Lebanon",
+  "country": "Lebanon",
+  "raw_affiliation": "Islamic University of Lebanon, Faculty of Engineering, Lebanon",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18338": {
+  "first_author": "Ijaz Ahmad",
+  "institution": "University of Oulu",
+  "country": "Finland",
+  "raw_affiliation": "Centre for Wireless Communications, University of Oulu, Oulu, Finland",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18344": {
+  "first_author": "Minfeng Qi",
+  "institution": "City University of Macau",
+  "country": "China",
+  "raw_affiliation": "Faculty of Data Science, City University of Macau, Macau, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18411": {
+  "first_author": "Hasnain Irshad",
+  "institution": "Sir Syed CASE Institute of Technology",
+  "country": "Pakistan",
+  "raw_affiliation": "Department of Computer Science, Sir Syed CASE Institute of Technology, Islamabad, Pakistan",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18457": {
+  "first_author": "Jayakrishna Menon Vadayath",
+  "institution": "Arizona State University",
+  "country": "",
+  "raw_affiliation": "^{*}Arizona State University",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18459": {
+  "first_author": "Soumyadyuti Ghosh",
+  "institution": "New York University Abu Dhabi",
+  "country": "United Arab Emirates",
+  "raw_affiliation": "Center for Cyber Security, New York University Abu Dhabi, Abu Dhabi, United Arab Emirates",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18460": {
+  "first_author": "Xiangfan Wu",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18477": {
+  "first_author": "Mohamed Aly Bouke",
+  "institution": "Multimedia University",
+  "country": "Malaysia",
+  "raw_affiliation": "Centre for Intelligent Cloud Computing, CoE for Advanced Cloud, Faculty of Information Science and Technology, Multimedia University, Jalan Ayer Keroh Lama, Bukit Beruang, 75450, Melaka, Malaysia",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.18496": {
+  "first_author": "Oded Ovadia",
+  "institution": "Dream",
+  "country": "",
+  "raw_affiliation": "Dream",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18518": {
+  "first_author": "Suphannee Sivakorn",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researchers",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18526": {
+  "first_author": "Youssef Hamdi Zafan Ibrahim",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18658": {
+  "first_author": "Salem AlJanah",
+  "institution": "Imam Mohammad Ibn Saud Islamic University",
+  "country": "Saudi Arabia",
+  "raw_affiliation": "College of Computer and Information Sciences, Imam Mohammad Ibn Saud Islamic University (IMSIU), Saudi Arabia",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18674": {
+  "first_author": "Elia Nikolaou",
+  "institution": "University of Edinburgh",
+  "country": "United Kingdom",
+  "raw_affiliation": "University of Edinburgh, UK",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18706": {
+  "first_author": "Jun Bi",
+  "institution": "Chinese Academy of Sciences",
+  "country": "",
+  "raw_affiliation": "State Key Lab of Processors; Institute of Computing Technology; Chinese Academy of Sciences",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18751": {
+  "first_author": "Shi Tang",
+  "institution": "Shandong University",
+  "country": "China",
+  "raw_affiliation": "Shandong University, Jinan, P. R. China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18783": {
+  "first_author": "Niloufar Sayadi",
+  "institution": "Centrum Wiskunde & Informatica",
+  "country": "The Netherlands",
+  "raw_affiliation": "Centrum Wiskunde & Informatica, Vrije Universiteit Amsterdam, Amsterdam, The Netherlands",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18965": {
+  "first_author": "Justin Woodring",
+  "institution": "Louisiana State University",
+  "country": "USA",
+  "raw_affiliation": "Louisiana State University, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19021": {
+  "first_author": "Burak Tufekci",
+  "institution": "University of North Texas",
+  "country": "USA",
+  "raw_affiliation": "University of North Texas, Department of Computer Science and Engineering, Denton, Texas, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19036": {
+  "first_author": "Guangjie Liu",
+  "institution": "Southeast University",
+  "country": "China",
+  "raw_affiliation": "School of Cyber Science and Engineering, Southeast University, Nanjing 210096, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19090": {
+  "first_author": "A. Barış Özgüler",
+  "institution": "University of California, Berkeley",
+  "country": "USA",
+  "raw_affiliation": "Haas School of Business, University of California, Berkeley, California 94720, USA; GeeQChiQ Technologies LLC, Berkeley, California, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19091": {
+  "first_author": "Muhammad Abdullah Sohail",
+  "institution": "University of Calgary",
+  "country": "Canada",
+  "raw_affiliation": "University of Calgary, Calgary, AB, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19100": {
+  "first_author": "Muhammad Abdullah Sohail",
+  "institution": "University of Calgary",
+  "country": "Canada",
+  "raw_affiliation": "University of Calgary, Calgary, AB, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19111": {
+  "first_author": "Ramana Ranganatham",
+  "institution": "Rochester Institute of Technology",
+  "country": "",
+  "raw_affiliation": "RAMLab, the Department of Electrical and Microelectronic Engineering, Rochester Institute of Technology",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19140": {
+  "first_author": "Matteo Golinelli",
+  "institution": "University of Trento",
+  "country": "Italy",
+  "raw_affiliation": "University of Trento, Trento, Italy",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18811": {
+  "first_author": "Chen Li",
+  "institution": "Tianjin University",
+  "country": "",
+  "raw_affiliation": "Tianjin University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18829": {
+  "first_author": "Brandon Gary Kaplowitz",
+  "institution": "University of Oxford",
+  "country": "",
+  "raw_affiliation": "Department of Engineering Science, University of Oxford",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18846": {
+  "first_author": "Gaurav Kuwar",
+  "institution": "New York University",
+  "country": "USA",
+  "raw_affiliation": "New York University Tandon School of Engineering, Brooklyn, NY, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18862": {
+  "first_author": "Jean-Charles Noirot Ferrand",
+  "institution": "University of Wisconsin–Madison",
+  "country": "",
+  "raw_affiliation": "University of Wisconsin–Madison; Socket Inc.",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18864": {
+  "first_author": "Guosen Wu",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18866": {
+  "first_author": "Roberto La Scala",
+  "institution": "Università degli Studi di Bari",
+  "country": "Italy",
+  "raw_affiliation": "Dipartimento di Fisica, Università degli Studi di Bari \"Aldo Moro\", Via Orabona 4, 70125 Bari, Italy",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18876": {
+  "first_author": "Alejandro Cohen",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.18886": {
+  "first_author": "Amos Brocco",
+  "institution": "University of Applied Sciences and Arts of Southern Switzerland",
+  "country": "Switzerland",
+  "raw_affiliation": "Institute of Information Systems and Networking (ISIN), Department of Innovative Technologies (DTI), University of Applied Sciences and Arts of Southern Switzerland (SUPSI), Lugano, Switzerland",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19472": {
+  "first_author": "Alizishaan Khatri",
+  "institution": "Wrynx Inc.",
+  "country": "",
+  "raw_affiliation": "Wrynx Inc.",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19556": {
+  "first_author": "Nadia Mehjabin",
+  "institution": "",
+  "country": "",
+  "raw_affiliation": "",
+  "evidence": "absent",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19587": {
+  "first_author": "Alex Remedios",
+  "institution": "Anthropic",
+  "country": "",
+  "raw_affiliation": "Anthropic Fellows Program",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19640": {
+  "first_author": "Alexander Chernov",
+  "institution": "Independent Researcher",
+  "country": "Canada",
+  "raw_affiliation": "Independent Researcher; Toronto, Ontario, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19705": {
+  "first_author": "Mengxiao Wang",
+  "institution": "Texas A&M University",
+  "country": "",
+  "raw_affiliation": "Texas A&M University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.19720": {
+  "first_author": "Yoshiaki Takashita",
+  "institution": "Waseda University",
+  "country": "",
+  "raw_affiliation": "School of Law, Waseda University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19722": {
+  "first_author": "Hyeongjun Choi",
+  "institution": "78ResearchLab",
+  "country": "South Korea",
+  "raw_affiliation": "78ResearchLab, Seoul, South Korea",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19791": {
+  "first_author": "Qian Xu",
+  "institution": "University of Macau",
+  "country": "China",
+  "raw_affiliation": "State Key Laboratory of Internet of Things for Smart City, University of Macau, Macau SAR, China",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20069": {
+  "first_author": "Iliya Mirzaei",
+  "institution": "Stony Brook University",
+  "country": "",
+  "raw_affiliation": "Stony Brook University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20095": {
+  "first_author": "Song Zhang",
+  "institution": "China Internet Network Information Center",
+  "country": "China",
+  "raw_affiliation": "China Internet Network Information Center, Beijing 100070, China; National Engineering Laboratory of Internet Domain Name Management Technology, Beijing 100070, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.20188": {
+  "first_author": "Jay Barach",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.20211": {
+  "first_author": "Yibo Hu",
+  "institution": "Illinois Institute of Technology",
+  "country": "USA",
+  "raw_affiliation": "Illinois Institute of Technology, Chicago, IL, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20314": {
+  "first_author": "Jannatul Ferdous",
+  "institution": "Charles Sturt University",
+  "country": "",
+  "raw_affiliation": "jferdous@csu.edu.au",
+  "evidence": "footnote_or_thanks",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20370": {
+  "first_author": "Leilei Chen",
+  "institution": "University of Science and Technology of China",
+  "country": "",
+  "raw_affiliation": "University of Science and Technology of China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20386": {
+  "first_author": "Athanasios Angelakis",
+  "institution": "Universität der Bundeswehr München",
+  "country": "Germany",
+  "raw_affiliation": "BioML Lab, RI CODE, UniBw, Munich, Germany; EDS, Amsterdam UMC, University of Amsterdam, Amsterdam, Netherlands",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20457": {
+  "first_author": "Chao Huang",
+  "institution": "University of Science and Technology of China",
+  "country": "China",
+  "raw_affiliation": "University of Science and Technology of China, Anhui Province Key Laboratory of Digital Security, Hefei, Anhui, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19844": {
+  "first_author": "Hang Xiao",
+  "institution": "Fortinet, Inc.",
+  "country": "United States",
+  "raw_affiliation": "Fortinet, Inc., Sunnyvale, CA, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19892": {
+  "first_author": "Yuejin Xie",
+  "institution": "Tsinghua University",
+  "country": "",
+  "raw_affiliation": "Tsinghua University; Shanghai AI Lab; Fudan University; HKUST; KAUST",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19893": {
+  "first_author": "Augusta Mukam",
+  "institution": "Université de Bordeaux",
+  "country": "France",
+  "raw_affiliation": "Univ. Bordeaux, CNRS, Bordeaux INP, LaBRI, UMR 5800, F-33400 Talence, France",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.19900": {
+  "first_author": "Bijied Brahimi",
+  "institution": "Université Paris Cité",
+  "country": "France",
+  "raw_affiliation": "Université Paris Cité, Paris, France",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19920": {
+  "first_author": "Alan Prado",
+  "institution": "Université de Rennes",
+  "country": "France",
+  "raw_affiliation": "Univ. Rennes, Inria, CNRS, IRISA, Rennes, France",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ },
+ "2609.19929": {
+  "first_author": "Nadja Aoutouf",
+  "institution": "INRIA",
+  "country": "",
+  "raw_affiliation": "INRIA; École Polytechnique; LIX, CNRS UMR 7161",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19977": {
+  "first_author": "Yuval Aviv",
+  "institution": "Ben-Gurion University of the Negev",
+  "country": "Israel",
+  "raw_affiliation": "Stein Faculty of Computer and Information Science, Ben-Gurion University of the Negev, Israel",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20010": {
+  "first_author": "Yushen Li",
+  "institution": "Institute of Computing Technology, Chinese Academy of Sciences",
+  "country": "China",
+  "raw_affiliation": "Institute of Computing Technology, Chinese Academy of Sciences, Beijing, 100190, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19201": {
+  "first_author": "Zixin Fan",
+  "institution": "Soochow University",
+  "country": "",
+  "raw_affiliation": "email: 20255227111@stu.suda.edu.cn",
+  "evidence": "explicit_affiliation",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19226": {
+  "first_author": "Tao Huang",
+  "institution": "Minjiang University",
+  "country": "",
+  "raw_affiliation": "E-mail huang-tao@mju.edu.cn",
+  "evidence": "explicit_affiliation",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19241": {
+  "first_author": "Zhenpeng Li",
+  "institution": "Guangzhou Health Science College",
+  "country": "China",
+  "raw_affiliation": "Guangzhou Health Science College, No. 248 Guangyuan Middle Road, Guangzhou, Guangdong 510405, China",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19325": {
+  "first_author": "Sai Sri Pushpa Jampani",
+  "institution": "Indian Institute of Technology Patna",
+  "country": "India",
+  "raw_affiliation": "Indian Institute of Technology Patna, Bihar, India",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19353": {
+  "first_author": "Ashwin Karthikeyan",
+  "institution": "University of Toronto",
+  "country": "Canada",
+  "raw_affiliation": "University of Toronto, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19391": {
+  "first_author": "Albert Wu",
+  "institution": "University of Wisconsin-Madison",
+  "country": "",
+  "raw_affiliation": "University of Wisconsin-Madison",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19425": {
+  "first_author": "Laxmipriya Ganesh Iyer",
+  "institution": "Independent Researcher",
+  "country": "",
+  "raw_affiliation": "Independent Researcher",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.19456": {
+  "first_author": "Sean Culatana",
+  "institution": "Atlassian",
+  "country": "",
+  "raw_affiliation": "Atlassian; Mountain View, CA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20480": {
+  "first_author": "Ruichen Tan",
+  "institution": "Purdue University",
+  "country": "United States",
+  "raw_affiliation": "Lyles School of Civil and Construction Engineering, Purdue University, West Lafayette, IN 47907, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20532": {
+  "first_author": "Li Ge",
+  "institution": "Nanyang Technological University",
+  "country": "",
+  "raw_affiliation": "Nanyang Technological University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20561": {
+  "first_author": "Cesare Gerolimetto Fabrello",
+  "institution": "Università degli Studi dell'Insubria",
+  "country": "",
+  "raw_affiliation": "Università degli Studi dell'Insubria; Random Power Srl",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20601": {
+  "first_author": "Rasheed Bello",
+  "institution": "South Carolina State University",
+  "country": "United States",
+  "raw_affiliation": "Department of Engineering, South Carolina State University, Orangeburg, SC USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20614": {
+  "first_author": "Sarah Radway",
+  "institution": "Harvard University",
+  "country": "",
+  "raw_affiliation": "Harvard University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.20650": {
+  "first_author": "Simon Süwer",
+  "institution": "University of Hamburg",
+  "country": "Germany",
+  "raw_affiliation": "Institute for Computational Systems Biomedicine, University of Hamburg, Hamburg, Germany",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ }
+}

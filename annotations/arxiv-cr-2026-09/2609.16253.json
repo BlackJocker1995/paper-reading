@@ -1,0 +1,22 @@
+{
+ "id": "2609.16253",
+ "title_cn": "利用与防护 Docker 容器和 Kubernetes Pod 免受中间人攻击",
+ "abstract_cn": "目的——容器中的工作负载（如 Docker 容器和 Kubernetes Pod）与非容器环境中的工作负载面临许多相同的攻击威胁，包括网络钓鱼、应用程序漏洞利用和网络入侵。本系统综述与设计创建研究探讨了保护基于容器的操作系统免受中间人（MitM）攻击的技术。所提出的框架使用概念模型来表示通信和密码原语，结合 AnBxJ Java 安全库以及在 OSI 模型第 7 层运行的容器防火墙。本研究探讨以下问题：如何有效保护基于容器的操作系统免受中间人攻击？旨在通过系统化安全实践并应用零信任架构，帮助从业者保护 Docker 和 Kubernetes 部署。方法——本研究采用基于系统综述与元分析首选报告项目（PRISMA）的系统综述（SR），汇集了针对同一研究主题的多项研究的证据。发现——识别了成功因素，并在基于容器的操作系统场景中成功实现了安全机制。价值——研究结果有助于从业者通过系统化容器安全实践并为基于容器的操作系统提供零信任架构，从而保护 Kubernetes 和 Docker 部署。",
+ "summary_cn": "面向容器化操作系统的 MitM 防护实践研究：以 PRISMA 做系统综述，并用 AnBxJ 与 OSI 第 7 层容器防火墙搭一个基于零信任架构的示范框架，落在 Docker/Kubernetes 场景。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "容器安全",
+  "MitM",
+  "零信任",
+  "Docker/K8s"
+ ],
+ "objective_summary": "作者用 PRISMA 系统综述整理容器 MitM 防护证据，并按 design-and-creation 方法实现了一个基于 AnBxJ 与七层容器防火墙的原型，验证在容器化操作系统场景可实施。",
+ "contribution_type": "综述/系统性文献回顾",
+ "evidence_strength": 2,
+ "evidence_note": "PRISMA 综述结合单一场景的原型实现，摘要未给样本数、对照或统计",
+ "novelty": 2,
+ "novelty_note": "在容器安全实践上把已有加密库与七层防火墙按零信任架构组合，未自述新构造",
+ "scope": "Docker/Kubernetes 部署的容器化操作系统，MitM 威胁场景",
+ "limitations": "属于 MSc 学位论文形式的原型研究，规模与外部对照有限；摘要没有量化结果",
+ "artifact": "未提及"
+}

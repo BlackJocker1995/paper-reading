@@ -1,0 +1,22 @@
+{
+ "id": "2609.16433",
+ "title_cn": "评估 NIST Bugs Framework 相对于 CWE 作为自动化漏洞分类接替方案的表现",
+ "abstract_cn": "基于根因弱点的漏洞分类对众多网络安全活动至关重要，Common Weakness Enumeration（CWE）充当此类缺陷的公共知识库。然而，其重叠的条目造成了非正交的结构，导致同一漏洞被映射到多个弱点，使根因分析（RCA）和分诊复杂化。为解决此问题，NIST Special Publication 800-231 引入了 Bugs Framework（BF），将漏洞组织成「原因、操作、后果」三元组，并将此类三元组链接成因果链，使漏洞同时携带其根因和汇聚点，而非单一的终端标签。然而迄今为止，BF 已有规范说明，但尚未针对其应对自动化分类挑战的表现进行评估，采用所需的证据也未经过实证研究。我们使用与 CWE 研究相关联的系统性筛选自动化 Common Vulnerabilities and Exposures（CVE）语料库，将 BF 作为分类目标及 CWE 的补充进行评估，并通过两项评估来评价 CVE 到 BF 分类的可重复性。第一项是定性评估：一项匿名评分者间研究，其中 2 位领域专家（SME）独立地将 13 个 CVE 映射到 BF 的四个轴上，标注者在原因轴和操作轴上表现出强一致性，而属性轴显示出一般一致性。我们还在不同预算下的两种大语言模型（LLM）部署中测试了自动化框架以进行可重复性分析。尽管存在局限性，例如证据可用性不足和闭源软件无法检索修复提交，我们的发现支持了 BF 比 CWE 更结构化且对自动化更友好的论断。我们的探索还揭示了 BF 中的具体不足，包括属性指导规范不足。",
+ "summary_cn": "用 13 个 CVE 让 2 位专家在 NIST Bugs Framework 四轴上独立映射，并用两种 LLM 部署测试自动化复现性；结果显示 BF 在 cause 与 operation 轴上一致性强、attribute 轴仅达 fair，作者认为 BF 比 CWE 更结构化、更利于自动化。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "漏洞分类",
+  "CWE",
+  "Bugs Framework",
+  "CVE"
+ ],
+ "objective_summary": "用 13 个 CVE 让 2 位专家独立标注到 NIST BF 四轴，并在两种 LLM 部署下评估自动化复现性，以判断 BF 相对 CWE 作为分类目标的适用性。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 2,
+ "evidence_note": "仅 13 个 CVE 由 2 位专家标注，另跑两种 LLM 部署做复现性对照，样本规模小、无统计假设检验。",
+ "novelty": 3,
+ "novelty_note": "作者定位为对 NIST BF 作为分类目标的首次经验性评估，贡献在评估角度而非新提出方法。",
+ "scope": "结论限于筛选出的 13 个 CVE、两位专家标注及两种 LLM 部署配置。",
+ "limitations": "作者提到闭源软件缺乏可检索修复提交等证据可用性问题，且 BF attribute 轴指南尚欠明确。",
+ "artifact": "公开"
+}

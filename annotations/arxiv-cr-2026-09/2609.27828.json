@@ -1,0 +1,22 @@
+{
+ "id": "2609.27828",
+ "title_cn": "面向智能 HVAC 系统后量子网络安全的非侵入式云端迁移策略：架构、实现与实证评估",
+ "abstract_cn": "传统智能 HVAC 控制器依赖由 ECDH 与 RSA 保护的厂商云 TLS，而二者均可被 Shor 算法攻破；典型的 10-15 年使用寿命意味着当今的设备在量子威胁时代仍将服役。直接在设备上运行后量子密码并不可行：代表较强 HVAC 硬件的 ESP32-S3 仅有 339 KB 空闲堆，而 ML-KEM-768 需要 900 KB；即使是经典 ECDH-P256 的密钥生成（111.93 ms）也远超硬件 AES-128（0.032 ms）。我们提出一种非侵入式 PQC 代理，无需改动设备、固件或厂商云，执行 ML-KEM-768 封装与 ML-DSA-65 认证（NIST FIPS 203/204），并通过 HKDF 派生 AES-256-GCM 会话密钥，在 Raspberry Pi 4B 网关上基于 Open Quantum Safe liboqs 实现。在 500 次运行中，后量子握手（步骤 1-6）在 2.48 ms 内完成，比经典基线慢 0.38 ms；在 20 ms 模拟往返网络时延下，PQC 计算约占握手时间的 8%。该网关可维持每秒 443 个会话，在 32 个并发连接下成功率为 100%，外推到 32 核云实例可达每秒 3546 个会话。五项侧信道测试（包括经验证的原地会话密钥清零，以及固定对随机的 TVLA 时序分析）未发现可利用的时序泄露，也未发现易受中间人攻击的问题。该架构与厂商无关，一旦厂商原生采用 NIST PQC 便不再需要。",
+ "summary_cn": "在 Raspberry Pi 4B 网关上实现 ML-KEM-768/ML-DSA-65 非侵入式 PQC 代理，无需改动 HVAC 设备与厂商云；握手 2.48 ms，比经典慢 0.38 ms。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子密码",
+  "智能 HVAC",
+  "IoT 安全",
+  "安全网关"
+ ],
+ "objective_summary": "在 ESP32-S3 上测量设备端运行 PQC 的可行性，并在 Raspberry Pi 4B 网关上实现无需改动设备、固件与厂商云的后量子代理，测量握手时延、吞吐、并发成功率与侧信道表现。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "500 次运行并对比经典基线，含并发、吞吐与 TVLA 时序测试；仅单一网关硬件，网络时延为模拟，云端吞吐为外推。",
+ "novelty": 2,
+ "novelty_note": "用 ML-KEM、ML-DSA 与 liboqs 等标准组件搭代理网关，贡献主要在 HVAC 场景的集成与实测。",
+ "scope": "适用于经厂商云 TLS 通信的智能 HVAC 控制器与 Raspberry Pi 4B 级网关部署。",
+ "limitations": "设备与厂商云均不改动，摘要未说明代理之外各段链路如何获得量子安全；云端吞吐为外推。",
+ "artifact": "未提及"
+}

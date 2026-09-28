@@ -1,0 +1,22 @@
+{
+ "id": "2609.31318",
+ "title_cn": "AgentXploit：面向 AI 智能体的从仓库到运行时的自主红队测试",
+ "abstract_cn": "AI 智能体将语言模型与外部数据和工具相结合，这些工具可以修改文件、调用 API 或执行代码。当对抗性内容改变智能体的工具使用，或周边软件存在路径遍历、命令注入等漏洞时，就可能产生安全失效。我们研究经授权的白盒部署前审计：审计者可以访问目标代码仓库和受控运行时，但成功的攻击仍必须通过任务定义的攻击者接口实施，并由外部验证器确认。我们提出 AgentXploit，一个将仓库级攻击路径发现与运行时利用分离开来的双角色审计系统。Analyzer Agent 追踪攻击者可控输入到敏感操作的路径，并记录有代码支撑的候选攻击路径；Exploiter Agent 将这些路径转化为具体攻击，并利用运行时反馈对其进行修正。我们还提出 AgentXploit-Bench，包含 12 个开源 AI 智能体系统与框架中的 72 个可复现漏洞。在三次运行中，AgentXploit 达到 59.3% 的端到端成功率，而 Codex 为 38.4%。在 token 预算匹配的比较下，Codex 达到 46.3%。在已给定注入点的 AgentDojo 上，Exploiter Agent 达到 79.2% 的攻击成功率，而 AgentVigil 为 52.7%。这些结果表明，仓库发现与运行时利用是端到端智能体安全审计中两个不同的挑战。",
+ "summary_cn": "双角色审计系统 AgentXploit 在 72 个漏洞的基准上端到端成功率 59.3%（Codex 38.4%，等预算 46.3%），AgentDojo 上 79.2%（AgentVigil 52.7%）。",
+ "topic": "Security of AI",
+ "tags": [
+  "智能体安全",
+  "红队测试",
+  "白盒审计",
+  "漏洞基准"
+ ],
+ "objective_summary": "构建含 12 个系统 72 个可复现漏洞的 AgentXploit-Bench，以三次运行、token 预算匹配的 Codex 对照及 AgentDojo 上的 AgentVigil 对比评估双角色审计系统 AgentXploit。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "72 个漏洞、12 个系统、三次运行，含预算匹配的 Codex 对照与 AgentDojo 基准；未报告统计检验。",
+ "novelty": 4,
+ "novelty_note": "把仓库级攻击路径发现与运行时利用拆成两个角色，并提供面向智能体系统的可复现漏洞基准。",
+ "scope": "适用于可访问源码与受控运行时的授权白盒部署前审计，以及所选 12 个开源智能体系统。",
+ "limitations": "依赖白盒仓库访问，不覆盖黑盒线上场景；基准规模为 72 个漏洞，端到端成功率仍约六成。",
+ "artifact": "未提及"
+}

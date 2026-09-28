@@ -1,0 +1,22 @@
+{
+ "id": "2609.26761",
+ "title_cn": "A2M：MCP 生态中基于执行轨迹优化的智能体劫持",
+ "abstract_cn": "使用模型上下文协议（MCP）的智能体依赖语义匹配从第三方服务器中选择工具，这使其暴露于通过攻击者可控的元数据和输出实施的语义供应链风险。我们提出 A2M（Attraction-to-Manipulation），一个用于劫持 MCP 智能体的两阶段黑盒框架。吸引（Attraction）阶段优化工具元数据以提高被调用的概率；操纵（Manipulation）阶段利用执行轨迹精炼对抗性工具返回，引导智能体走向攻击者期望的结果。在 LiveMCPBench 上，在 GLM-4.6 上优化并评估的直接攻击在四种场景下实现了 93.6% 的宏平均恶意工具调用率，在认知拒绝服务（Cognitive Denial of Service）下将加权 token 成本提升至良性基线的 32.4 倍，并在信息窃取（Information Exfiltration）、环境完整性破坏（Environment Integrity Compromise）和推理偏离（Reasoning Derailment）上取得 74.4% 的平均攻击成功率。在不重新优化的情况下迁移到另外四个模型，相应的宏平均值为 63.6%、2.7 倍和 24.5%。这些发现表明 MCP 生态需要更强的工具审查与运行时隔离。代码已公开于 https://github.com/Lilaizhen/A2M。",
+ "summary_cn": "两阶段黑盒 MCP 智能体劫持框架 A2M：在 LiveMCPBench/GLM-4.6 上恶意调用率 93.6%、攻击成功率 74.4%，迁移到另 4 个模型为 63.6%/24.5%（AACL-IJCNLP'26）。",
+ "topic": "Security of AI",
+ "tags": [
+  "MCP",
+  "智能体劫持",
+  "工具元数据投毒",
+  "黑盒攻击"
+ ],
+ "objective_summary": "提出吸引与操纵两阶段黑盒攻击框架，优化工具元数据与对抗性工具返回，在 LiveMCPBench 上以 GLM-4.6 为目标评估多类攻击场景，并测试向另外四个模型的迁移。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "单一基准 LiveMCPBench，在 GLM-4.6 上优化并迁移到四个模型；摘要未见防御对照与统计检验。",
+ "novelty": 3,
+ "novelty_note": "将工具元数据优化与基于执行轨迹的返回精炼串成两阶段攻击，是 MCP 工具攻击方向上的实质改进。",
+ "scope": "结论适用于 LiveMCPBench 场景、以 GLM-4.6 为优化目标的黑盒设定及所测四个迁移模型。",
+ "limitations": "迁移后攻击成功率明显下降（74.4% 降至 24.5%）；摘要未报告现有防御下的攻击效果。",
+ "artifact": "公开"
+}

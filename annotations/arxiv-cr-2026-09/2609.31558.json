@@ -1,0 +1,22 @@
+{
+ "id": "2609.31558",
+ "title_cn": "针对 CLIP 中隐蔽嵌入空间后门的区域级黑盒防御",
+ "abstract_cn": "对比语言-图像预训练（CLIP）凭借强大的可迁移性和零样本能力，已成为主导性的视觉骨干网络。然而，近期研究揭示了一个关键漏洞：嵌入空间后门攻击。攻击者只需对极小比例的图像-文本对投毒，即可植入隐蔽触发器，在 CLIP 的联合嵌入空间中诱导定向偏移。与操纵分类器 logits 的传统后门不同，这类攻击直接破坏表示，因而在极低投毒比例下依然高效且难以检测。现有防御需要访问模型参数、梯度、logits 或干净验证数据，而这些假设在现实的黑盒部署中很少成立。此外，现有黑盒方法难以准确定位小尺寸或分布外的触发器。我们提出 CLIPGuard，一种专为缓解 CLIP 编码器中嵌入空间后门而设计的轻量级、完全黑盒防御。CLIPGuard 通过测量分段级嵌入扰动识别恶意区域，并通过语义修复（inpainting）只对可疑分段进行选择性净化，从而保留良性视觉内容与对齐质量。在 STL-10、ImageNet 以及多种触发器家族（包括 BadCLIP、BadNets、混合（blended）、基于补丁和排版（typographic）攻击）上的大量实验表明，CLIPGuard 可将攻击成功率降至低至 1.05%，同时保持最高 86.34% 的干净准确率，并始终优于现有黑盒防御，包括 CleanCLIP 和 CleanerCLIP。代码已公开：https://github.com/wsu-cyber-security-lab-ai/CLIPGuard.git",
+ "summary_cn": "黑盒防御 CLIPGuard 以分段嵌入扰动定位 CLIP 嵌入空间后门触发区域并语义修复净化，攻击成功率低至 1.05%、干净准确率最高 86.34%，优于 CleanCLIP 等。",
+ "topic": "Security of AI",
+ "tags": [
+  "后门防御",
+  "CLIP",
+  "黑盒防御",
+  "多模态安全"
+ ],
+ "objective_summary": "提出基于分段嵌入扰动定位与语义修复净化的黑盒 CLIP 后门防御 CLIPGuard，在两个数据集与多类触发器上与 CleanCLIP、CleanerCLIP 等防御对比验证。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "两个数据集、含 BadCLIP 等五类在内的多种触发器、对比 CleanCLIP 与 CleanerCLIP；未提及自适应攻击评估。",
+ "novelty": 3,
+ "novelty_note": "在黑盒设定下以区域级嵌入扰动定位小型或分布外触发器，属输入净化思路的改进。",
+ "scope": "适用于 CLIP 图像编码器、所测数据集与触发器家族，限于只能查询嵌入的黑盒部署。",
+ "limitations": "未见针对该防御的自适应攻击评估；需额外调用修复模型，其开销摘要中未量化。",
+ "artifact": "公开"
+}

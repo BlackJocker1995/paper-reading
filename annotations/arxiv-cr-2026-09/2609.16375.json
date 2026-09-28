@@ -1,0 +1,22 @@
+{
+ "id": "2609.16375",
+ "title_cn": "gr-PHYSEC：面向物理层安全无线通信的实时信道密钥生成",
+ "abstract_cn": "保护无线通信免受窃听至关重要，在动态和去中心化的环境中尤为如此。我们提出 gr-PHYSEC，一个用于实时物理层密钥生成的新型 GNU Radio 树外（OOT）模块。与依赖预共享密钥或计算复杂性的传统密钥生成不同，我们的方法从无线信道固有的随机性中派生对称密钥。我们在 GNU Radio 中嵌入一个经过训练的神经网络，以在探测交换期间提取可信方（Alice 和 Bob）之间的信道特征。这些特征被量化为二进制密钥，通过 Reed-Solomon 编码进行协调，并通过 SHA-512 哈希进一步加固。生成的密钥随后直接用于加密数据。在 FAU CAAI 连接机器人测试平台上使用 ADALM Pluto 软件定义无线电和 NVIDIA Jetson Orin 进行的真实世界实验，通过地面机器人平台验证了该方法。结果证明了低密钥不一致率和强随机性，经密码学应用随机数和伪随机数生成器 NIST 测试套件验证。该集成展示了 GNU Radio 如何支持实时 AI 驱动的安全解决方案，推动了软件定义安全通信的边界。本项目的源代码可在 https://github.com/C2A2-at-Florida-Atlantic-University/gr-PHYSEC 获取。",
+ "summary_cn": "gr-PHYSEC 是把神经网络嵌入 GNU Radio 的实时物理层密钥生成 OOT 模块：从信道随机性提取特征、量化成位串，用 Reed-Solomon 协调并 SHA-512 处理；在 ADALM Pluto SDR 与 Jetson Orin 上跑地面机器人平台，密钥失配率低、NIST 随机性测试通过，代码已开源（GRCon 2025）。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "物理层安全",
+  "密钥生成",
+  "GNU Radio",
+  "SDR"
+ ],
+ "objective_summary": "作者实现一个 GNU Radio 树外模块，把训练好的神经网络放进探测交换中提取信道特征、量化协调后生成对称密钥直接用于加密，在 FAU CAAI 机器人平台的 Pluto SDR + Jetson Orin 上做实机验证并跑 NIST 随机性测试。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "单一测试床、地面机器人平台的实机实验，NIST 随机性测试通过，摘要未给密钥失配的具体数值与与其他方法的对照",
+ "novelty": 3,
+ "novelty_note": "把物理层密钥生成的神经特征提取、协调与哈希组装成 GNU Radio 内可用的实时模块",
+ "scope": "两台 Pluto SDR 加 Jetson Orin 的地面机器人链路，在 FAU CAAI 测试床上运行",
+ "limitations": "只在一种收发平台与场景下验证，未与传统 PHY 密钥生成方案在密钥率、失配率、抗窃听等维度做量化对照",
+ "artifact": "公开"
+}

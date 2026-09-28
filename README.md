@@ -28,7 +28,9 @@ annotations/
   arxiv-cr-2026-09/                     cs.CR 逐篇标注的源文件（进仓库，可复核、可增量）
   institutions/<slug>.json              一作机构（另抓论文首页标的，不来自 vault）
 tools/build_site.py                     从本地 Obsidian vault 导出公开数据（cs.SE 用）
-tools/fetch_arxiv.py                    从 arXiv 公开 API 抓某分类某月，并推导公告日
+tools/fetch_arxiv.py                    抓 arXiv 某分类 recent 列表 + abs 页（增量），标公告日
+tools/annotate_collection.py            新论文的中文翻译（sonnet）+ 客观评价（opus），写 annotations/
+tools/fetch_institutions.py             抓论文首页作者块，模型抽一作机构，写 annotations/institutions/
 tools/build_collection.py               原始抓取 + 标注源 → 公开数据（不依赖本地 vault）
 tools/make_cr_page.py                   从 cs.SE 页面模板生成 cs.CR 合集页
 tools/build_se_venues.py                从 Atlas 原始数据导出 SE 四大会公开数据（挡掉个人相关度字段）
@@ -78,7 +80,9 @@ python3 "Scripts/arxiv_se_web.py" --weekly
 # 2. 给新论文补客观评价（只跑还没评过的）
 python3 "Scripts/arxiv_objective.py" --month 2026-09
 
-# 3. 在本仓库导出公开数据
+# 3. 在本仓库导出公开数据，给新的日榜标一作机构，再导出一次把机构并进去
+python3 tools/build_site.py --month 2026-09
+python3 tools/fetch_institutions.py --slug arxiv-se-2026-09 --since 2026-09-22
 python3 tools/build_site.py --month 2026-09
 
 # 4. 推上去，Actions 自动部署
@@ -88,17 +92,21 @@ git add -A && git commit -m "update 2026-09" && git push
 cs.CR（安全）合集的链路不依赖本地 vault，仓库内自足：
 
 ```bash
-# 1. 抓当月数据并推导公告日（首次加 --check-recent，和 recent 页分日核对）
-python3 tools/fetch_arxiv.py --category cs.CR --month 2026-09 --check-recent
+# 1. 增量抓 recent 窗口里的新论文（已抓的不重抓；本机没有原始缓存时从已发布数据还原）
+python3 tools/fetch_arxiv.py --category cs.CR --month 2026-09
 
-# 2. 给新论文补中文翻译与客观评价：annotations/arxiv-cr-2026-09/<arXiv id>.json
-#    字段见已标注条目；某个公告日的论文全部标完，这个日榜才会出现
+# 2. 新论文的翻译（sonnet）+ 分类评级（opus），只做日榜上还没标的；断了重跑只补缺的
+python3 tools/annotate_collection.py --category cs.CR --month 2026-09
 
-# 3. 合成公开数据
+# 3. 一作机构
+python3 tools/fetch_institutions.py --slug arxiv-cr-2026-09
+
+# 4. 合成公开数据（某个公告日全部标完，这个日榜才会出现），推上去
 python3 tools/build_collection.py --category cs.CR --month 2026-09
-
-# 4. 推上去，Actions 自动部署
+git add -A && git commit -m "update cs.CR" && git push
 ```
+
+两条链路都会打 arxiv.org，**不要同时跑**（各自限速 3.5s/请求，并发就翻倍了）。
 
 本地预览：
 

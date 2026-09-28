@@ -1,0 +1,22 @@
+{
+ "id": "2609.17817",
+ "title_cn": "「信任的反思」再访：以投毒基准污染自修改 AI 编程智能体",
+ "abstract_cn": "Thompson 的「信任的反思」表明，编译器可被投毒以重新插入其自身的后门，从而即使重新编译干净的源代码也会复现特洛伊木马。如今，大量编程工作由 AI 编程智能体完成——而且这些智能体越来越多地生成自身的新版本。我们将 Thompson 的攻击迁移到「编译器」是自修改编程智能体的场景中重新审视：对手能否向智能体的自评估和自我改进过程提供投毒基准，从而诱使智能体的未来版本在干净的保留任务上编写存在漏洞的代码？我们在三种近期提出的自修改编程智能体上实例化了该攻击：Darwin Gödel Machine（含我们的实验性修改）、Self-Improving Coding Agent 以及 Hyperagents（二者均未作实质性修改）。我们展示了成功的概念验证：例如，以 Sonnet 4.5 驱动的 Hyperagents，我们的投毒基准导致智能体自我演化出在中性 URL 获取任务中禁用 HTTPS 证书验证的指令。从我们的实验中，我们提炼出足以触发基准投毒攻击的漏洞、基准、模型和智能体脚手架的特征。此外，我们表明，即使被投毒的智能体随后在干净基准上继续演化，污染往往也会持续存在。我们讨论了防御方向，并论证自修改编程智能体必须被设计为对此类攻击具有更强的抵御能力。",
+ "summary_cn": "用中毒基准攻击自我修改型 AI 编码 agent：在 Darwin Gödel Machine、SICA、Hyperagents 三套 agent 上做概念验证，中毒的自评估流程可让 Sonnet 4.5 驱动的 Hyperagents 在干净任务上自改出禁用 HTTPS 证书校验等漏洞，且用干净基准再演化时污染常仍残留。",
+ "topic": "Security of AI",
+ "tags": [
+  "AI agent 安全",
+  "基准投毒",
+  "自演化 agent",
+  "后门"
+ ],
+ "objective_summary": "在三个自我修改型编码 agent 上做概念验证攻击，向其自评估与自改进流程投喂中毒基准，观察后续版本是否在干净任务上生成漏洞代码，并测试用干净基准继续演化能否清除污染。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "在三种已有自演化 agent 上做 PoC，给出禁用 HTTPS 校验等具体后果，摘要未提供成功率、样本量与统计检验。",
+ "novelty": 4,
+ "novelty_note": "把 Thompson「信任信任」攻击迁移到自我修改型编码 agent 与基准投毒场景，是新的攻击面。",
+ "scope": "覆盖 Darwin Gödel Machine、SICA、Hyperagents 三种 agent 脚手架与含 Sonnet 4.5 的模型设定。",
+ "limitations": "主要为概念验证性质，未定量刻画攻击的成功条件与充要属性，防御仅在讨论层展开。",
+ "artifact": "未提及"
+}

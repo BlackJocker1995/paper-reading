@@ -77,24 +77,36 @@ python3 Scripts/arxiv_objective.py --month 2026-09  # 只给新论文补客观�
 
 cd ~/Desktop/paper-reading
 python3 tools/build_site.py --month 2026-09
+python3 tools/fetch_institutions.py --slug arxiv-se-2026-09 --since 2026-09-22
+python3 tools/build_site.py --month 2026-09          # 再导一次，把机构并进去
 git add -A && git commit -m "update" && git push
 ```
 
 顺序不能反：客观评分依赖翻译分类已完成。
 
+cs.CR 全在本仓库（README「日常更新」）：`fetch_arxiv.py` → `annotate_collection.py` →
+`fetch_institutions.py` → `build_collection.py`。
+
+- `fetch_arxiv.py` 是**增量**的：本机没有 `.cache/fetch/<slug>.raw.json` 时从已发布的 `papers.json` 还原，
+  不要删了 raw 重抓——recent 只有最近 5 个公告日，覆盖写会把更早的论文整批丢掉。只收 `--month` 当月的公告日。
+- `annotate_collection.py`：翻译用 sonnet、分类评级用 opus（用户定的分工）。评级提示里带着
+  从已发布标注现算的分数分布与每个主题的样例，新标注自动对齐同一把尺子。
+  topic 的边界口径写在脚本的 `TAXONOMY` 里，是对照已发布 323 篇归纳的，改之前先看已发布的怎么归。
+- cs.SE 与 cs.CR 的抓取都打 arxiv.org，别同时跑。
+
 本地预览：`python3 -m http.server 8000`
 
 ## 一作机构（2026-09-22 起）
 
-`annotations/institutions/<slug>.json`，`build_site.py` 合并进公开数据，只发 high/medium。
+`annotations/institutions/<slug>.json`，由 `tools/fetch_institutions.py` 标，
+`build_site.py`（cs.SE）与 `build_collection.py`（cs.CR）合并进公开数据，只发 high/medium。
 
 - **不要去 arXiv API / OpenAlex / Semantic Scholar 找机构**，那三家都是空的（实测 50 篇：1 / 0 / 0）。
   机构只在论文首页上：HTML 版作者块优先，没有就 PDF 首页 `pdftotext -f 1 -l 1`。
 - 抽取要用模型。正则在这批样本上只对 9/22，而且错得很安静（输出 `Affiliation:`、把作者名当机构）。
-- **目前只有 2026-09-22 这批标了，且抓取脚本是一次性的（在 scratchpad，没进仓库）。**
-  要常态化得先把脚本提进 `tools/`。
-- 复用 vault 的 `arxiv_se_web.http()` 抓，它是全局唯一出口带跨进程限速；但它**会把 404 也重试**
-  （10s/20s/40s），探测有没有 HTML 版时必须传 `tries=1`，否则每篇没 HTML 的论文白等三分钟。
+- 覆盖：cs.SE 从 09-22 起（更早的日榜没标，要补就去掉 `--since`，约 460 篇），cs.CR 全部日榜。
+- 脚本自己限速 3.5s/请求，404（没有 HTML 版）立刻退到 PDF，不重试。
+- 模型认的一作和 arXiv 元数据第一作者对不上时，自动降为 low（不发布）。
 
 ## 已知坑
 

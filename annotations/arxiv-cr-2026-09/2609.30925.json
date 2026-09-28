@@ -1,0 +1,22 @@
+{
+ "id": "2609.30925",
+ "title_cn": "如何攻破基于矩阵 Gabidulin 码的 Miranda 签名方案",
+ "abstract_cn": "Miranda 签名方案依赖于对一个矩阵码进行掩蔽；该矩阵码具有被掩蔽的底层结构，知晓该结构即可高效进行纠错译码。我们考虑一个被展开为矩阵码的 Gabidulin 码，该矩阵码仅是 Fq-线性的。随后再对其施加额外的掩蔽。本文提出的攻击与 [Le26, https://arxiv.org/abs/2608.03328] 针对 EGMC 加密方案的攻击有相似之处，后者同样遵循上述范式。它通过归约到一个需在扩域 Fqm 上求解、但矩阵系数位于 Fq 中的 MinRank 实例，来恢复被掩蔽矩阵 Gabidulin 码的 Fqm-线性结构。这样的实例可以被高效求解。然而，与先前的攻击不同，在 Miranda 签名方案的情形下，可以在多项式时间内归约到这样的 MinRank 实例。这得到了一种针对 Miranda 所提参数的特别高效的密钥恢复攻击。例如，对于 m=79 的所提参数集，该攻击使复杂度从 146 比特降至 46 比特。",
+ "summary_cn": "把被掩蔽矩阵 Gabidulin 码的结构恢复多项式时间归约为易解的 MinRank 实例，得到 Miranda 签名密钥恢复攻击：m=79 参数集复杂度由 146 比特降至 46 比特。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "密码分析",
+  "秩度量码",
+  "基于编码的签名",
+  "MinRank"
+ ],
+ "objective_summary": "提出通过恢复 Fqm-线性结构并归约到 MinRank 实例的密钥恢复攻击，以复杂度分析评估其对 Miranda 所提参数集的影响。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "给出攻击算法与针对所提参数集的复杂度分析；摘要未说明是否实际运行攻击恢复出密钥。",
+ "novelty": 3,
+ "novelty_note": "沿用 Le26 对 EGMC 的 MinRank 攻击思路，新在对 Miranda 可多项式时间完成归约。",
+ "scope": "针对 Miranda 签名方案（基于矩阵 Gabidulin 码的掩蔽构造）及其所提参数集。",
+ "limitations": "攻击依赖该方案的特定掩蔽结构，对其他秩度量码方案的适用性需逐一分析。",
+ "artifact": "未提及"
+}

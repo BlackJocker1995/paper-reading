@@ -1,0 +1,22 @@
+{
+ "id": "2609.16098",
+ "title_cn": "针对工具集成 LLM 智能体对抗攻击的通用防御方法",
+ "abstract_cn": "大型语言模型（LLM）智能体在各类领域中展现出令人印象深刻的能力，尤其是在与外部工具集成以完成多步骤任务时。然而，它们日益容易受到对抗攻击的威胁，包括直接提示注入、间接提示注入、记忆投毒和后门攻击，这些攻击利用了模型对提示注入和工具操控的开放性。在本文中，我们在一个统一框架内针对上述四种攻击类型探索了实用且可推广的防御策略。我们引入了两种基于工具的通用防御方法：攻击者工具过滤（Attacker Tool Filtering），使用异常检测（如 Isolation Forest）来识别并移除可疑工具；以及正常工具召回（Normal Tool Recalling），这是一种白盒方法，用于在规划前恢复智能体的原始工具集。此外，我们还引入了基于提示的防御方法：思维链（Chain-of-Thought）提示和自我反思技术以增强推理能力，以及任务改写以缓解攻击。在四个开源 LLM（Gemma2-9B、Qwen2-7B、LLaMA3-8B 和 LLaMA3.1-8B）和三个专有 LLM（GPT-3.5、GPT-4 和 GPT-5）上的实验结果表明，我们的方法显著降低了攻击成功率（ASR），在许多设置中实现了 0% ASR，同时保持甚至提升了原始任务成功率。这些发现彰显了简单、模块化、多层次防御在增强工具集成 LLM 智能体安全性与鲁棒性方面的前景。代码可在 https://github.com/Xiaoyan-Lisa/Defenses-for-Tool-Integrated-LLM-Agents-Against-Adversarial-Attacks 获取。",
+ "summary_cn": "面向工具集成 LLM agent 的直接/间接提示注入、记忆投毒与后门 4 类攻击，提出攻击者工具过滤+正常工具召回+思维链/自反思提示等多层防御，在 4 个开源与 3 个专有 LLM 上多数配置将 ASR 压到 0。",
+ "topic": "Security of AI",
+ "tags": [
+  "LLM agent",
+  "提示注入",
+  "后门防御",
+  "工具治理"
+ ],
+ "objective_summary": "在统一框架下组合基于工具的异常检测过滤与白盒工具集恢复，以及 CoT/自反思/任务复述等提示防御，在 Gemma2/Qwen2/LLaMA3/GPT-3.5/4/5 上对 4 类攻击做评估。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "覆盖 4 类攻击与 7 个 LLM 的 ASR 与任务成功率对照，但摘要未提数据规模与统计检验，自适应攻击者情境也未强调。",
+ "novelty": 3,
+ "novelty_note": "把工具级异常检测与工具集回滚组合为跨 4 类攻击的通用防御框架，并附代码。",
+ "scope": "工具集成 LLM agent 的多步任务场景,4 类已知攻击面，已覆盖 7 个模型。",
+ "limitations": "异常检测依赖对「可疑工具」特征的先验，面对协同或语义级混淆工具时效果未验证。",
+ "artifact": "公开"
+}
