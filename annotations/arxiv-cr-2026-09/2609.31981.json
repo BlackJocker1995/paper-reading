@@ -1,0 +1,23 @@
+{
+ "id": "2609.31981",
+ "title_cn": "IoT 网络在线 AutoML 中代价—效用对抗训练的规避攻击评估",
+ "abstract_cn": "随着物联网（IoT）网络日益依赖机器学习进行异常、恶意软件、入侵检测与网络监控，此类系统已成为规避攻击的诱人目标。规避攻击构成重大安全风险：对手有意修改输入数据，误导已训练模型产生错误预测同时不被发现。本研究评估黑盒规避攻击对 IoT 网络在线 AutoML 场景中代价—效用对抗训练防御策略的影响。具体而言，规避攻击作用于在线学习器，包括 Hoeffding Tree（HT）、Leveraging Bagging（LB）、Streaming Random Patches（SRP）、Hoeffding Adaptive Tree（HAT）与 Adaptive Random Forest（ARF）。通过构建这些在线学习器的朴素版与对抗训练（AT）版，我们为每个模型生成干净与对抗准确率。结果显示 LB 与 SRP 的 AT 版本表现最佳：在最高代价预算 1.00 下取得最高对抗准确率 0.985 与高干净准确率 0.993，最大精度下降仅 0.8%。最后使用 Early Drift Detection Method（EDDM）进行漂移检测。",
+ "summary_cn": "评估黑盒规避攻击对 IoT 在线 AutoML 对抗训练的影响：LB/SRP 的对抗训练版在代价预算 1.00 下达对抗准确率 0.985、干净准确率 0.993，最大降幅 0.8%。",
+ "topic": "Security of AI",
+ "tags": [
+  "规避攻击",
+  "对抗训练",
+  "在线学习",
+  "IoT 安全",
+  "数据流"
+ ],
+ "objective_summary": "在 IoT 在线 AutoML 场景下量化黑盒规避攻击对五种流式学习器的效果，并对比代价—效用对抗训练版本的干净与对抗准确率。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 2,
+ "evidence_note": "五种在线学习器的对比实验与 EDDM 漂移检测，MECOM 2026 录用；场景与数据有限、无统计检验，属单一场景的可行性级评估。",
+ "novelty": 2,
+ "novelty_note": "把已知的黑盒规避攻击与对抗训练组合到在线 AutoML 设定，属成熟技术的场景化评估，方法本身无实质新机制。",
+ "scope": "结论限于流式 IoT 流量检测与所测五种在线学习器；仅黑盒攻击，白盒/自适应对手未覆盖。",
+ "limitations": "仅评估黑盒规避攻击；数据集与攻击配置细节有限；对抗训练的代价预算与效用权衡未做敏感性分析。",
+ "artifact": "公开"
+}

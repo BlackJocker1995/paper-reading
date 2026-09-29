@@ -1,0 +1,23 @@
+{
+ "id": "2609.35053",
+ "title_cn": "高效的 TCitH 型 SLH-DSA 替代：Mirath 的跨层 ASIC 设计",
+ "abstract_cn": "为应对量子计算机带来的安全风险，美国国家标准与技术研究院（NIST）已标准化后量子签名方案 ML-DSA、FN-DSA 与 SLH-DSA。ML-DSA 与 FN-DSA 基于格，SLH-DSA 依赖哈希假设。为支持对抗未来脆弱性的密码敏捷性，NIST 正评估非格候选作为 SLH-DSA 替代。其中基于 TCitH 的方案因紧凑密钥与小签名而尤具前景，但其高计算复杂度与内存占用给资源受限嵌入式平台的高效实现带来重大挑战；该方向在此语境下基本未被探索，尤其是 ASIC 实现。为填补缺口，我们用结合算法层与硬件层的跨层方法，给出据我们所知 Mirath——一个基于 TCitH 的签名方案——在基于 RISC-V 系统中的首个 ASIC 实现。设计以 22nm FD-SOI 工艺节点实现。与同工艺节点的 SLH-DSA ASIC 相比，所提架构签名时延低 17.8 倍、总单元面积省 58%，从实现视角展示 TCitH 型签名作为高效非格替代的潜力。NorCAS 2026 录用。7 页、4 图。",
+ "summary_cn": "TCitH 签名 Mirath 的首个 ASIC 实现（22nm FD-SOI、RISC-V 系统）：较同节点 SLH-DSA ASIC 签名时延低 17.8 倍、单元面积省 58%。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子签名",
+  "ASIC",
+  "TCitH",
+  "哈希签名",
+  "硬件实现"
+ ],
+ "objective_summary": "以跨层方法实现 Mirath 的首个 ASIC，并与同工艺 SLH-DSA ASIC 对比签名时延与面积。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "22nm FD-SOI 具体工艺节点实现、与同节点 SLH-DSA ASIC 直接对比（17.8×/58%）；单方案单节点实现，无硅片实测信息。",
+ "novelty": 3,
+ "novelty_note": "Mirath/TCitH 方向的首个 ASIC 数据点，对 NIST 补充评估有参考价值；属实现层面的贡献。",
+ "scope": "结论适用于资源受限嵌入式平台的非格签名选型；对其他 TCitH 参数集与工艺节点的推广需重设计。",
+ "limitations": "签名时延与面积为综合/布局结果而非硅测；验证与密钥生成的开销未详报；与格方案（ML-DSA）的全面对比缺失。",
+ "artifact": "未提及"
+}
