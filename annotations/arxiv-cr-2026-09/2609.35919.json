@@ -1,0 +1,22 @@
+{
+ "id": "2609.35919",
+ "title_cn": "TEE Anchor：用跨 TEE 的组织背书缓解 TEE 物理攻击",
+ "abstract_cn": "2025 年，针对 TEE 的实用物理访问攻击（如 TEE.fail 与 Battering RAM）被披露，对现有 TEE 构成严重威胁。目标机器守卫越严格，这类攻击越难实施。因此「处于可信管理之下」成为一个新的安全要求。然而现有远程证明无法证明机器的组织归属，这给攻击者留出了把一台其物理可控的机器冒充为在合法环境中运营的机器的空间。我们提出 TEE Anchor，通过证明机器由哪个组织管理来缓解物理攻击。TEE Anchor 是一个轻量的基于 X.509 的设计，不需要（v）TPM 等额外信任根。组织对 Chip ID——每个 CPU 的唯一标识符——签发证书，形成自己的 PKI。验证者通过匹配远程证明证据中的 Chip ID 与该证书来证明归属。它在运维成本与可部署性上优于基于（v）TPM 的先行工作，跨主要 TEE 适用且不受厂商锁定，并让任何组织独立于 TEE 厂商声明归属。我们实现了原型，确认包括供应与验证在内的所有操作都在几毫秒内完成。",
+ "summary_cn": "TEE Anchor 用组织对 Chip ID 签发的 X.509 证书证明机器归属，缓解 TEE.fail 类物理攻击，无需额外信任根，原型所有操作毫秒级完成。",
+ "objective_summary": "设计基于 X.509 与 Chip ID 的跨 TEE 组织归属证明机制，并实现原型测量供应与验证的延迟开销。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "TEE",
+  "物理攻击",
+  "远程证明",
+  "X.509"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 2,
+ "evidence_note": "原型实现与毫秒级操作延迟测量，无在野部署或攻击复现实验。",
+ "novelty": 3,
+ "novelty_note": "把「组织归属证明」确立为物理攻击防御要求，用现有 PKI 与 Chip ID 组成轻量机制，跨 TEE 通用、免厂商锁定。",
+ "scope": "结论适用于 CPU 提供 Chip ID 且组织可运行自身 PKI 的场景；不改变 TEE 自身对物理攻击的脆弱性。",
+ "limitations": "依赖 Chip ID 不可伪造与证书体系安全；与（v）TPM 方案的定量对比有限；未评估攻击者绕过归属证明的策略。",
+ "artifact": "未提及"
+}

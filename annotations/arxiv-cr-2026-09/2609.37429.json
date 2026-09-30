@@ -1,0 +1,22 @@
+{
+ "id": "2609.37429",
+ "title_cn": "量子随机预言机模型中 QMA 的简洁论证",
+ "abstract_cn": "简洁论证（succinct arguments）是用小通信量验证计算声明的基本密码原语。经典情形下，NP 的简洁论证可以仅由非结构化困难性（如哈希函数）构造：把 NP 的 PCP 或 IOP 经 commit-and-open 范式编译。相比之下，已知的 QMA 简洁论证依赖「结构化」密码原语或量子 PCP 猜想。我们在量子随机预言机模型（QROM）中构造了首个不依赖额外密码假设或未证猜想的 QMA 简洁论证。这表明理想哈希函数不仅足以给出 NP 的简洁论证，也足以给出 QMA 的简洁论证。作为结果的基础是一个保持效率的变换：把量子交互式 oracle 证明（QIOP，量子 PCP 的交互式推广）经自然的量子 commit-and-open 范式编译为同一语言的量子论证。该变换适用于所有具有 public-query 可靠性的 QIOP——我们形式化该概念以刻画 commit-and-open 范式的自然要求，而已知的 QMA QIOP 满足之。作为变换的关键部件，我们在 QROM 中形式化并构造了对量子态的可提取向量承诺（带本地打开），其本身可能具有独立价值。",
+ "summary_cn": "首个 QROM 中仅凭非结构化困难性（理想哈希）构造的 QMA 简洁论证：经量子 commit-and-open 编译 public-query 可靠的 QIOP，并给出可提取量子向量承诺这一独立部件。",
+ "objective_summary": "在 QROM 中构造免结构化假设的 QMA 简洁论证，形式化 public-query 可靠性并构造可提取向量承诺作为编译部件。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "简洁论证",
+  "QMA",
+  "量子随机预言机",
+  "向量承诺"
+ ],
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 4,
+ "evidence_note": "完整证明的首个结果（66 页），变换的适用条件形式化明确，附带可提取向量承诺的新构造。",
+ "novelty": 4,
+ "novelty_note": "把 QMA 简洁论证从结构化假设或 QPCP 猜想解放到纯理想哈希，是该方向的首个构造。",
+ "scope": "结论限于 QROM 与 public-query 可靠性的 QIOP；经典 ROM 或标准模型需另行研究。",
+ "limitations": "依赖随机预言机启发；效率常数与具体 QIOP 的实现细节影响实用性；可提取承诺的进一步应用待开发。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,22 @@
+{
+ "id": "2609.38012",
+ "title_cn": "一个 JavaScript 与 TypeScript 漏洞及修复源码的函数级数据集",
+ "abstract_cn": "JavaScript 与 TypeScript 在现代 web 开发中广泛使用，其安全性至关重要；然而自动化漏洞检测常受制于高质量训练数据的可得性。我们提出 JsVul，一个从七个主要来源精选的数据集。与可能保留压缩代码与修饰性编辑等噪声的通用多语言数据集不同，JsVul 利用语言专属流水线。我们收集安全修复前后的文件版本，通过过滤无关工件与应用自动语法规范化隔离安全相关改动。我们通过多阶段去重与启发式标注确保数据完整性。数据以按时间排序的 JSONL 格式提供，支持在 JavaScript 与 TypeScript 生态中进行鲁棒的模型训练，并证明语言感知预处理在构建漏洞数据集中的重要性。",
+ "summary_cn": "JsVul：从 7 个来源构建的 JS/TS 函数级漏洞数据集，用语言专属流水线过滤压缩代码与修饰性改动，按时间排序 JSONL 交付。",
+ "objective_summary": "构建经过语法规范化、去重与启发式标注的 JavaScript 与 TypeScript 函数级漏洞-修复数据集，并论证语言感知预处理的必要性。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "漏洞数据集",
+  "JavaScript",
+  "TypeScript",
+  "漏洞检测"
+ ],
+ "contribution_type": "基准/数据集",
+ "evidence_strength": 3,
+ "evidence_note": "七源采集、多阶段去重与语法规范化的系统构建；未在摘要中给出规模数字与下游基准结果。",
+ "novelty": 3,
+ "novelty_note": "针对 JS/TS 生态的函数级、语言感知清洗漏洞数据集，填补该语言对的专门数据空白。",
+ "scope": "结论适用于 JS/TS 生态的漏洞检测与修复模型训练；其他语言需复用其清洗思想而非数据。",
+ "limitations": "启发式标注可能残留噪声或漏标；修复提交并非全部为安全修复；缺少下游任务上的效果数字。",
+ "artifact": "未提及"
+}

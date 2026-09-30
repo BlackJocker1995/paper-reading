@@ -1,0 +1,23 @@
+{
+ "id": "2609.36795",
+ "title_cn": "作为 PostgreSQL 表访问方法的认识论类型化：置信伪造与女巫协同下的对抗性冲突消解",
+ "abstract_cn": "我们描述 KNDB，一个 PostgreSQL 18 表访问方法（TAM），它为每行赋予引擎指派的认识论类型（MEASURED、INFERRED 或 DERIVED）并在每次写入时在 heapam 回调内解析每槽冲突。行以普通堆元组落盘；44 个 TAM 回调中覆盖 7 个（tuple_insert、multi_insert、tuple_update、tuple_delete、tuple_insert_speculative、tuple_complete_speculative、relation_toast_am），其余 37 个委托给 heap；我们以论文工件形式提供对该接口的完备性论证。本文报告该决策背后的工程实现以及促成它的对抗性评估。在一个置信伪造负载中，攻击者以 [0.95,1.0] 的置信度断言 INFERRED 写入对抗以 [0.5,0.9] 置信度的诚实 MEASURED 写入，KNDB 在 Book-Author 融合数据集上领先仅置信度基线 63 个百分点，在 Zheng 众包数据集上领先 92.7 分。两场胜利都通过关闭类型格并重源重建的禁用实验证明依赖类型轴：格被中和后优势消失。与四个按原公式重实现并验证到与发表数字差距 0.3 个百分点内的真值发现基线（TruthFinder、CRH、CATD、ACCU）相比，KNDB 在每数据集密度饱和格之下具有竞争力、在其之上占优。我们把该格形式化为 k* ~ ρ_alg · h_top（h_top 为每槽顶部诚实表层形式支持），并在 Book-Author 上 ±20%、Zheng 上 ±30% 内验证预测。由于类型轴由引擎从独立元数据指派、写入时不可伪造，KNDB 的 k* 无上界。论文诚实说明 KNDB 输在哪里：在 Zheng 的饱和点之下 CRH 与 ACCU 胜过 KNDB，且在真值为最后写入者胜的三个时序知识编辑基准上 KNDB 得零分。",
+ "summary_cn": "KNDB 把认识论类型（MEASURED/INFERRED/DERIVED）做进 PostgreSQL 表访问方法：置信伪造负载上领先基线 63–92.7 分，禁用类型格后优势消失，并诚实报告低密度与时序基准上的败绩。",
+ "objective_summary": "在 PostgreSQL 引擎内实现按认识论类型的写入时冲突消解，用置信伪造与女巫协同负载、重实现基线与禁用实验评估类型轴的因果作用。",
+ "topic": "Other",
+ "tags": [
+  "数据库安全",
+  "真值发现",
+  "PostgreSQL",
+  "对抗写入",
+  "冲突消解"
+ ],
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "基线重实现并验证到发表数字 0.3pp 内、禁用-重源的因果检验、k* 形式化预测的定量验证、公开代码与基准。",
+ "novelty": 3,
+ "novelty_note": "把真值发现的类型轴下沉到存储引擎指派（写入时不可伪造）是新的系统组合，算法思想承袭真值发现文献。",
+ "scope": "结论适用于 PostgreSQL 18 与行级多源融合场景；对时序型「最后写入者胜」负载不适用。",
+ "limitations": "在低密度与时间敏感负载上不敌 CRH 与 ACCU；类型轴依赖可靠的外部元数据；仅在两个融合数据集上验证。",
+ "artifact": "公开"
+}
