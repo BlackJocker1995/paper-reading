@@ -1,0 +1,22 @@
+{
+ "id": "2609.36795",
+ "title_cn": "认知类型化作为 PostgreSQL 表访问方法：置信度伪造与 Sybil 协同下的对抗性冲突消解",
+ "abstract_cn": "我们描述 KNDB，一种 PostgreSQL 18 表访问方法（TAM），它为每一行打上引擎指定的认知类别（MEASURED、INFERRED 或 DERIVED），并在每次写入时的 heapam 回调内部消解每个槽的冲突。行以普通堆元组方式落盘；44 个 TAM 回调中有 7 个被覆写（tuple_insert、multi_insert、tuple_update、tuple_delete、tuple_insert_speculative、tuple_complete_speculative、relation_toast_am），其余 37 个委托给堆处理；我们作为论文工件提供了接口完整性论证。本文报告了该决策背后的工程实现，以及推动该决策的对抗性评估。在一个置信度伪造工作负载中，攻击者以置信度区间 [0.95,1.0] 的 INFERRED 写入对抗置信度区间 [0.5,0.9] 的诚实 MEASURED 写入，KNDB 在 Book-Author 融合数据集上比纯置信度基线高 63 个百分点，在 Zheng 众包数据集上高 92.7 个百分点。这两项优势均通过重新编译禁用类别轴的测试得到验证：格被中和后，优势随之消失。针对四个真值发现基线（TruthFinder、CRH、CATD、ACCU）——均按原始方程重新实现并验证在公开数值 0.3 个百分点以内——KNDB 在各数据集密度饱和临界值以下具有竞争力，在临界值及以上则占主导地位。我们将该临界值形式化为 k* ~ rho_alg * h_top，其中 h_top 是每槽顶层诚实表层形式支持度，并在 Book-Author 上验证预测误差在 ±20% 以内，在 Zheng 上在 ±30% 以内。由于类别轴由引擎依据独立元数据赋值，无法在写入时被伪造，KNDB 的 k* 不存在上界。本文对 KNDB 的失利之处坦诚以告：CRH 和 ACCU 在 Zheng 数据集饱和点以下优于 KNDB，而 KNDB 在三个以「最后写入者获胜」为真值的时序知识编辑基准上得分为零。",
+ "summary_cn": "把 PostgreSQL 18 的 TAM 扩成按行标注 MEASURED/INFERRED/DERIVED 的 KNDB，仅重写 44 个回调中的 7 个；在置信伪造工作负载上比纯置信基线在 Book-Author 高 63 个百分点、Zheng 高 92.7 个点，并与四种复现的真相发现基线对比并给出饱和度公式。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "PostgreSQL",
+  "对抗性写入",
+  "真相发现",
+  "数据库完整性"
+ ],
+ "objective_summary": "实现 KNDB 作为 PostgreSQL 18 表访问方法，由引擎分配知识种类并在写入时裁决冲突，在两类数据集上与置信基线及四种复现的真相发现算法对比，并给出饱和度预测与消融。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "在 Book-Author 与 Zheng 两数据集上与四种复现基线对比，含源码级禁用消融及饱和度公式的 ±20%/±30% 验证。",
+ "novelty": 4,
+ "novelty_note": "把「知识种类」作为引擎级不可伪造轴嵌入 TAM 层，与置信/真相发现方法在同一引擎内对比。",
+ "scope": "PostgreSQL 18 的 TAM 实现，评测集中在 Book-Author 融合与 Zheng 众包两类数据集。",
+ "limitations": "作者承认 Zheng 饱和度以下 CRH 与 ACCU 更优，且在三类时间知识编辑基准上得零分。",
+ "artifact": "公开"
+}

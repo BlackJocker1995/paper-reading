@@ -15,7 +15,7 @@
  "evidence_strength": 3,
  "evidence_note": "覆盖 6 个生产 DAG-BFT 协议、每次仅隔离一个维度做实验，摘要未给统计检验细节。",
  "novelty": 3,
- "novelty_note": "首次把 DAG-BFT 上分散报道的 MEV 攻击组织成统一四维空间并配对照实验。",
+ "novelty_note": "把 DAG-BFT 上分散报道的 MEV 攻击组织成按四个维度族划分的统一攻击空间，并逐维度做隔离实验。",
  "scope": "结论限于 DAG 型 BFT 共识协议下的 MEV 攻击，且只覆盖摘要枚举的四类维度。",
  "limitations": "实验只在协议允许的维度上隔离，部分维度可能无法单独控制。",
  "artifact": "未提及"

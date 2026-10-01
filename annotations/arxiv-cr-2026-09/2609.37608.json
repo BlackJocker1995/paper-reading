@@ -1,0 +1,22 @@
+{
+ "id": "2609.37608",
+ "title_cn": "SLUB 的丰收季：从 io_uring 漏洞到新型基于 sheaf 的利用技术",
+ "abstract_cn": "Linux 内核对更高 I/O 性能和更高效内存管理的追求引入了新的机制，这些机制在提升性能的同时也开辟了新的攻击面。本研究同时审视其中两种机制：io_uring 子系统，以及 Linux 6.18 中新增至 SLUB 分配器的 sheaf/barn 缓存机制。本研究披露了 io_uring 中两个此前未知的漏洞，并在加固内核配置下将其中一个开发成完整的本地权限提升利用链。构建该利用链的过程揭示了 sheaf/barn 机制改变了跨缓存攻击等成熟利用技术背后长期成立的假设，而且其设计还削弱了现有的 SLUB 空闲链表保护。对两项观察均进行了分析，并将其转化为可用的利用原语。在此分析基础上，提出了三种新型基于 sheaf 的利用技术。其中，RCU-sheaf 跨缓存技术消除了在缓存间移动对象时对伙伴系统（buddy system）的传统依赖，使对象在缓存池间迁移的控制更加灵活和可靠。综合来看，这些结果表明 sheaf/barn 层是 Linux 内核利用中一个全新且尚待深入探索的攻击面。",
+ "summary_cn": "披露 io_uring 两个未公开漏洞并把其一打造成加固内核下的本地提权链；分析 Linux 6.18 新增的 SLUB sheaf/barn 机制如何改变 cross-cache 攻击假设并弱化 freelist 保护，提出含 RCU-sheaf 跨缓存在内的三种新利用技术。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "Linux 内核",
+  "io_uring",
+  "SLUB",
+  "本地提权"
+ ],
+ "objective_summary": "分析 io_uring 子系统与 SLUB sheaf/barn 层新引入的攻击面，构造加固内核下的完整提权链，并把观察转化为三种基于 sheaf 的利用原语。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "在加固配置下实现完整本地提权链并给出三种可工作的原语，但摘要未说明多环境或多内核版本上的复现规模。",
+ "novelty": 4,
+ "novelty_note": "把 Linux 6.18 新增的 sheaf/barn 层识别为新的攻击面，RCU-sheaf 跨缓存技术摆脱了对伙伴系统的传统依赖。",
+ "scope": "面向 Linux 6.18 及其 SLUB sheaf/barn 机制下的 io_uring 子系统与内核堆利用。",
+ "limitations": "结果与具体内核版本及 io_uring 实现强耦合，针对后续缓解或配置改动的持久性未评估。",
+ "artifact": "未提及"
+}

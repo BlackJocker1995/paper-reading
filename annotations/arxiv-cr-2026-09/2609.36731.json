@@ -1,0 +1,22 @@
+{
+ "id": "2609.36731",
+ "title_cn": "CHERI 上基于链接的高效隔离化",
+ "abstract_cn": "我们提出一种构建于 CHERI 内存安全之上的高效基于链接的进程内隔离化模型，该模型能够对整个 UNIX 用户空间进行细粒度隔离化，在桌面系统上可扩展至 10K+ 个隔离域。该模型沿现有库边界实现「一键式」隔离化，对于 Chromium 等大型应用，每个进程通常承载 500+ 个隔离域，远超其他机制所支持的并发可用保护域数量（例如 Intel MPK 最多支持 16 个）。自定义策略可进一步细分各库。在测试的数千个 C/C++ 程序中，只有 V8 JavaScript 引擎需要源码级适配（涉及垃圾回收与 JIT 编译的不足 300 行代码变更）。我们通过编译器工具链与操作系统的支持，在 CHERI 扩展版 Armv8-A 和 RISC-V 上实现了该模型。案例研究展示了隔离域之间内存的平滑委托、感知隔离域的调试与可视化，以及向复杂托管语言运行时的可扩展性，证明了我们单地址空间模型的优势。我们使用多款处理器进行评估，包括 Arm 的超标量 Morello，以及尤为值得关注的首款商用 CHERI 使能 RISC-V 应用核心——Codasip 的顺序双发射 X730。",
+ "summary_cn": "在 CHERI 内存安全上实现按链接边界的进程内分区，桌面系统可容纳万级分区，Chromium 等大型应用常达 500+ 分区，上千 C/C++ 程序中仅 V8 需约 300 行源码改动，并在 Morello 与首款商用 CHERI RISC-V 核 X730 上落地。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "CHERI",
+  "进程内分区",
+  "内存安全",
+  "编译器工具链"
+ ],
+ "objective_summary": "在 Armv8-A 与 RISC-V 的 CHERI 扩展上实现按库边界的进程内分区编译器与操作系统支持，并在 Morello 与 Codasip X730 上通过案例与多处理器评估。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "覆盖上千 C/C++ 程序移植，Chromium 等达 500+ 分区，并在两类 CHERI 硬件上实测，仅 V8 需约 300 行改动。",
+ "novelty": 4,
+ "novelty_note": "把 CHERI 分区粒度从十几个保护域扩到万级，并给出贯穿工具链与 OS 的落地路径。",
+ "scope": "单地址空间 CHERI 架构下的 UNIX 用户空间，面向 C/C++ 程序，覆盖 Morello 与 X730。",
+ "limitations": "托管语言需适配（V8 改约 300 行），且方法依赖 CHERI 硬件与单地址空间假设。",
+ "artifact": "未提及"
+}

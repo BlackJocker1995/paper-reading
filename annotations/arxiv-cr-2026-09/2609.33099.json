@@ -1,0 +1,22 @@
+{
+ "id": "2609.33099",
+ "title_cn": "从未输出：GitHub 机器可读漏洞记录中的报告者归因",
+ "abstract_cn": "CVE 记录格式定义了一个 credits 容器，用于记录漏洞发现者或报告者的姓名及每条条目的类型化角色。OSV 模式定义了一个等效字段。GitHub 为其生态系统中的安全公告分配 CVE 标识符，从报告者处收集此信息，要求其确认，并在公告页面上展示，同时通过其 REST API 提供访问。然而，GitHub 在两种标准化格式中均未输出这一信息。在 238 条 GitHub 分配的 CVE 记录中（其关联公告至少公开致谢一方），没有一条包含 credits 容器，而 238 条全部包含 metrics 与 problemTypes——这两个字段与 credits 一样，在 CVE 模式中均为可选字段。在同一池中的 302 条公告中，我们检索了 GitHub 自身的 OSV 导出文件，没有一条包含 credits 字段。这一遗漏并非两种格式本身的特性：Erlang Ecosystem Foundation 使用一个免费可用的 CVE Services 客户端，在同一池的 18 条记录中全部填充了 CVE credits 字段。在对两周窗口内 4,889 条已发布 CVE 记录的普查中，46.9% 包含 credits，GitHub 的比率为 570 条中 0 条（不加任何公告过滤），分配者行为集中在两个极端但不止于此：16 家分配者在任何记录中均未输出该字段，13 家几乎在每条记录中均输出，而覆盖 23% 记录的 8 家分配者介于两者之间。弥合这一差距的请求自 2023 年 1 月起悬而未决；GitHub 所述的推迟原因已被逐字引用。我们进一步表明，NVD API 模式未定义 credits 字段，因此 CNA 确实输出的归因信息无法到达大多数工具所使用的数据库：在从公告追溯到 CVE 记录再到 NVD 的 43 条含 credits 记录中，没有一条保留了该信息。我们公开了数据收集脚本及每个 API 响应的冻结快照。",
+ "summary_cn": "测量 GitHub 分配 CVE 时报告者归属字段的缺失情况，238 条含公开致谢的 CVE 零条带 credits、302 条 OSV 导出同样零条带 credits，两周 4889 条 CVE 总体 46.9% 带 credits、GitHub 的 570 条为 0，附复现脚本与数据快照。",
+ "topic": "Measurement & Empirical",
+ "tags": [
+  "CVE",
+  "漏洞披露",
+  "报告者归属",
+  "测量"
+ ],
+ "objective_summary": "大规模统计 GitHub 分配的 CVE 记录与 OSV 导出中 credits 字段填充率，与其他 CNA 行为分布对比，并追踪字段在 NVD 下游是否保留。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 4,
+ "evidence_note": "两周窗口 4889 条 CVE 全量普查、238 与 302 条 GitHub 相关样本、43 条追踪到 NVD，附脚本与快照数据。",
+ "novelty": 3,
+ "novelty_note": "首次量化 GitHub 系统性缺失 credits 字段及其对下游 NVD 的影响，并对比其他 CNA 行为分布。",
+ "scope": "GitHub 作为 CNA 的 CVE/OSV 记录及其 NVD 下游映射，样本窗口为两周。",
+ "limitations": "观察窗口仅两周，归因机制与 GitHub 内部决策流程未深入，仅引述已有工单。",
+ "artifact": "公开"
+}

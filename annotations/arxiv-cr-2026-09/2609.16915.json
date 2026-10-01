@@ -15,8 +15,8 @@
  "evidence_strength": 3,
  "evidence_note": "与 SOTA CacheMir 对比 Softmax 最高 4.8×、端到端 1.5–2.1×；具体模型规模与精度损失摘要未给。",
  "novelty": 3,
- "novelty_note": "把 CKKS 与 TFHE 按算子异构性自动分派，并配合分段查找表精度优化，是既有混合思路的实质细化。",
+ "novelty_note": "依据解码阶段非线性算子的异构负载在 CKKS 与 TFHE 间自动分派，并以自适应分段查找表兼顾效率与精度。",
  "scope": "面向 FHE 下 LLM 自回归解码阶段的非线性算子，端到端结果依赖所选骨干模型。",
- "limitations": "端到端仅对比单一 SOTA 基线，摘要未提精度是否有损。",
+ "limitations": "摘要只报告相对 CacheMir 一个基线的加速，未提精度是否有损。",
  "artifact": "未提及"
 }

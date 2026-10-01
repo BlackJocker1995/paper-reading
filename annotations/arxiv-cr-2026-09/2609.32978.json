@@ -1,0 +1,22 @@
+{
+ "id": "2609.32978",
+ "title_cn": "使用加速关联（令牌）数组分析 10 Petabit/s 网络数据",
+ "abstract_cn": "随着网络规模的扩大并成为现代社会日益关键的基础设施，以最高隐私标准分析这些网络对确保其正常运行至关重要。根据所分析的网络层级，源端和目的端可以是物理、逻辑或人格/智能体端点的任意组合，这要求具备处理多样化数据的能力。对这些分析而言，能够简洁表达复杂数学算法同时实现可扩展的纵向（单计算节点内）、横向（跨计算节点）和时序（跨不同代硬件）性能的数学工具至关重要。关联（令牌）数组数学及其对应的库是能够满足这些要求的一种方案。利用 GPU 加速这些库可以实现对最大规模网络的分析。MIT/IEEE/Amazon 匿名化网络感知图挑战赛（Anonymized Network Sensing Graph Challenge）为展示加速关联数组在此类问题上的适用性提供了平台。D4M 关联库已在多种语言中实现。本工作对 D4M GPU 加速 Matlab 原型实现在匿名化网络感知挑战上的性能进行了基准测试，覆盖多种 CPU 和 GPU 硬件。在 CPU 核心内、跨 CPU 核心、跨 CPU 节点以及跨 GPU 节点均展示了可扩展性能。跨多节点的横向扩展呈线性。在数百个 GPU 节点上同时运行，实现了可能足以分析 10 Petabit/s 网络的持续处理速率。",
+ "summary_cn": "用 D4M 关联数组库加 GPU 加速实现匿名化网络感知 Graph Challenge，跨 CPU 核、CPU 节点与 GPU 节点基准测试，节点间线性水平扩展，数百 GPU 节点持续速率可支撑 10 Pbit/s 网络分析（IEEE HPEC 2026）。",
+ "topic": "Other",
+ "tags": [
+  "GPU 加速",
+  "关联数组",
+  "图挑战赛",
+  "大规模网络分析"
+ ],
+ "objective_summary": "在 Matlab D4M GPU 加速原型上实现 Anonymized Network Sensing Graph Challenge，并在多代 CPU 与 GPU 硬件上基准测试垂直与水平扩展。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "跨多代硬件 CPU 核、CPU 节点与 GPU 节点基准测试，报告线性水平扩展与持续处理速率，具体输入规模摘要未给。",
+ "novelty": 2,
+ "novelty_note": "将现有 D4M 关联数组库移植到 GPU 并应用于标准挑战赛任务，方法与问题皆已存在。",
+ "scope": "Graph Challenge 匿名化网络感知任务，Matlab D4M 实现于 CPU/GPU 节点集群。",
+ "limitations": "为原型实现，隐私保护机制细节与真实流量部署摘要未展开。",
+ "artifact": "未提及"
+}

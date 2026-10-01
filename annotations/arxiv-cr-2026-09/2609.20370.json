@@ -15,7 +15,7 @@
  "evidence_strength": 4,
  "evidence_note": "覆盖 4 个开源模型与 15 个商用 API、含消融与假阳性对照，规模在 LLM 审计工作里偏大。",
  "novelty": 4,
- "novelty_note": "首次把 provider 端 token 膨胀形式化为具名攻击族，并用 EOS 概率饱和现象构造无需参考模型的审计。",
+ "novelty_note": "把 provider 端 token 膨胀形式化为具名攻击族，并用 EOS 概率饱和现象构造无需参考模型的审计。",
  "scope": "适用 pay-per-token 的 LLM 服务、依赖单探针能触发长度差异的模型行为。",
  "limitations": "审计信号依赖 EOS 概率饱和，若 provider 主动规避该行为可能失效。",
  "artifact": "未提及"

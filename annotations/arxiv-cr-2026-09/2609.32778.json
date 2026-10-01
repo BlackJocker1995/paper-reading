@@ -1,0 +1,22 @@
+{
+ "id": "2609.32778",
+ "title_cn": "智能体网络流量监控",
+ "abstract_cn": "随着智能体人工智能在几乎每个行业的应用不断增加，攻击面也在持续扩大。有必要对智能体进行监控，以确保其行为与用户意图保持一致。审计智能体的网络流量可提供其交互的清晰记录。本工作提出了一种新颖的方法，通过将 DBOS（DataBase OS）、OneSparse PostgreSQL 数据库以及 GraphBLAS 数学库相结合，使用复值超稀疏流量矩阵对智能体系统的网络流量进行监控。为发展上述概念，我们构建了一个智能体模拟器，允许数量不等的 AI 智能体使用不同策略协同勘察虚拟环境。由此产生的网络流量矩阵能够方便地对 AI 智能体进行监控。",
+ "summary_cn": "提出用复值超稀疏流量矩阵监控多智能体系统网络流量的方案，组合 DBOS、OneSparse PostgreSQL 与 GraphBLAS，并以可变数量 AI 智能体协同勘察虚拟环境的模拟器演示（IEEE URTC 2026）。",
+ "topic": "Security of AI",
+ "tags": [
+  "agent 监控",
+  "流量矩阵",
+  "GraphBLAS",
+  "DBOS"
+ ],
+ "objective_summary": "搭建一个可变规模的多智能体模拟器，并用复值超稀疏矩阵以 DBOS、OneSparse 与 GraphBLAS 存储与查询其网络交互轨迹。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 2,
+ "evidence_note": "仅在自建模拟器上做概念验证，5 页会议论文，摘要未给与基线对比或性能量化。",
+ "novelty": 3,
+ "novelty_note": "把超稀疏矩阵与数据库 OS 的组合用于 agent 流量监控，技术栈拼接而非新算法。",
+ "scope": "结论限于自建 agent 模拟器与所用数据库与矩阵库组合。",
+ "limitations": "尚未对真实 agent 部署与规模化流量验证，监控的检测力与开销摘要未给。",
+ "artifact": "未提及"
+}

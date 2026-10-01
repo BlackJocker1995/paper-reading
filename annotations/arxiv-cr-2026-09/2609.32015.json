@@ -1,0 +1,22 @@
+{
+ "id": "2609.32015",
+ "title_cn": "Compact Shielded CSV：后量子、隐私保护、轻量级客户端验证区块链",
+ "abstract_cn": "我们提出 Compact Shielded CSV，一种面向后量子时代、用于点对点支付的隐私客户端验证区块链。将现有区块链升级为抗量子密码学会显著增加链上开销。通过将所有大型密码学构件保留在链下，Compact Shielded CSV 保持最小化的链上占用，与底层密码学证明和签名的大小无关。对于单输入交易，链上占用仅为 3 个哈希（3×32 字节）：一个 nullifier、一个 degriefer 以及一个交易承诺。我们引入 degriefer——一种仅使用哈希承诺来强制所有权、防止双花的新机制，从而完全消除了对链上签名的需求。这些特性使 Compact Shielded CSV 成为实现隐私、可扩展、后量子数字支付的有前景的基础。",
+ "summary_cn": "设计后量子、隐私、轻量的客户端验证区块链 Compact Shielded CSV，单输入交易链上仅三个 32 字节哈希（nullifier、degriefer、交易承诺），用新引入的 degriefer 以哈希承诺实现所有权与双花防护，免除链上签名。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子",
+  "客户端验证",
+  "隐私支付",
+  "区块链"
+ ],
+ "objective_summary": "构造一种把大型密码学证据全部置于链下的客户端验证区块链协议，引入 degriefer 机制用哈希承诺替代链上签名以阻断双花，目标是最小化后量子升级带来的链上开销。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 2,
+ "evidence_note": "摘要只给出 3x32 字节的尺寸估计，未提及实现、吞吐测量或与其他 PQC 方案的对照实验。",
+ "novelty": 4,
+ "novelty_note": "用 degriefer 配合客户端验证把 PQC 支付的链上数据压到仅三个哈希，是机制层面的新设计。",
+ "scope": "针对点对点支付场景下希望迁移到后量子且隐私受保护的客户端验证型区块链。",
+ "limitations": "摘要未给安全性证明细节与性能数据，线下大额证据的存储与传递成本未讨论。",
+ "artifact": "未提及"
+}

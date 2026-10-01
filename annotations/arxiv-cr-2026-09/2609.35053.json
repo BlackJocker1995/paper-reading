@@ -1,0 +1,22 @@
+{
+ "id": "2609.35053",
+ "title_cn": "高效的基于 TCitH 的 SLH-DSA 替代方案：Mirath 的跨层 ASIC 设计",
+ "abstract_cn": "为应对量子计算机带来的安全风险，美国国家标准与技术研究院（NIST）已将后量子签名方案 ML-DSA、FN-DSA 与 SLH-DSA 标准化。ML-DSA 与 FN-DSA 基于格，而 SLH-DSA 依赖基于哈希的假设。为支持针对未来漏洞的密码敏捷性，NIST 正在评估非格候选方案作为 SLH-DSA 的替代。其中，基于 TCitH 的方案因密钥紧凑、签名小而尤为前景可期。然而，其较高的计算复杂度与内存占用对资源受限嵌入式平台上的高效实现构成重大挑战，在这一背景下尤其是 ASIC 实现方面，相关研究仍十分有限。为填补这一空白，我们采用结合算法层与硬件层的跨层方法，据我们所知首次在基于 RISC-V 的系统中实现了 Mirath（一种基于 TCitH 的签名方案）的 ASIC。该设计采用 22nm FD-SOI 工艺节点实现。与同一工艺节点下实现的 SLH-DSA ASIC 相比，所提架构签名延迟降至其 1/17.8，同时所需总单元面积减少 58%，从实现角度展示了基于 TCitH 签名方案作为高效非格替代方案的潜力。",
+ "summary_cn": "在 22nm FD-SOI 工艺上给出基于 TCitH 的后量子签名方案 Mirath 的 ASIC 原型，相比同工艺 SLH-DSA 实现签名延迟降至其 1/17.8、总面积减少 58%（NorCAS 2026）。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子签名",
+  "ASIC",
+  "TCitH",
+  "Mirath"
+ ],
+ "objective_summary": "跨算法与硬件联合设计 Mirath 签名方案的 RISC-V 系统 ASIC 原型，并与同一 22nm FD-SOI 工艺的 SLH-DSA 实现对比延迟与面积。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "22nm FD-SOI 工艺上的原型并与同工艺 SLH-DSA 做签名延迟与面积对比，无多方案横评。",
+ "novelty": 3,
+ "novelty_note": "作者自称首个 Mirath ASIC 实现，核心贡献是方案在 RISC-V ASIC 上的协同设计与优化。",
+ "scope": "22nm FD-SOI 工艺、RISC-V 嵌入式平台上的 Mirath 签名与验签场景。",
+ "limitations": "单一工艺与单一基线对比，未覆盖其他 TCitH 候选或其他后量子方案。",
+ "artifact": "未提及"
+}

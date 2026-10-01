@@ -1,0 +1,22 @@
+{
+ "id": "2609.34963",
+ "title_cn": "JevVibe：高效的分类引导安全代码生成",
+ "abstract_cn": "大型语言模型可以生成功能正确但仍包含安全弱点的代码，这促使修复流水线在决定如何修复之前先诊断弱点类型。通用缺陷枚举（CWE）为此类诊断提供了标准化词汇表，但要求自回归语言模型生成 CWE 标签并从响应中提取它，会引发关于输出有效性、速度、成本和准确性的问题。我们在 1,916 个 CyberSecEval 基准样本上的受控 50 类 CWE 分类任务中，将 Jev（一种直接从声明的候选集中选择并为每个候选返回概率的决策模型）与六个开放权重自回归模型及一个前沿专有模型 GPT-5.6-Sol 进行比较。Jev 在所有分类和排名指标上均优于全部六个开放权重基线；与 GPT-5.6-Sol 的比较则因指标而异：GPT-5.6-Sol 在 Top-1 准确率和 Macro-F1 上更高，而 Jev 在 Top-3 和 Top-5 准确率上更高，MRR 几乎相同，且中位 API 延迟低至其 1/6.27，估计 API 成本低至其 1/55.9。我们进一步构建了 JevVibe，一个诊断引导的修复智能体，使用预测的 CWE 标签来修复由 Qwen2.5-Coder-32B-Instruct 生成的代码。在 Jev 提供诊断的情况下，该智能体将检测器测量的安全通过率从修复前的 63.5% 提升至 70.7%，而 LLM 引导修复为 66.1%。这些结果表明 JevVibe 能够有效提升生成代码的安全性，而 Jev 则提供了可靠且高效的 CWE 分类。",
+ "summary_cn": "用决策模型 Jev 从 50 个 CWE 候选中直接选类并给概率，在 1916 个 CyberSecEval 样本上胜过六个开放权重基线，Top-1 和 Macro-F1 低于 GPT-5.6-Sol 但 Top-3、Top-5 更高且中位延迟与估计成本分别低至其 1/6.27 与 1/55.9；接入修复 agent JevVibe 后 Qwen2.5-Coder-32B 的安全通过率从 63.5 升到 70.7。",
+ "topic": "AI for Security",
+ "tags": [
+  "CWE 分类",
+  "安全代码生成",
+  "LLM 修复",
+  "决策模型"
+ ],
+ "objective_summary": "在 1916 个样本的 50 路 CWE 分类任务上比较 Jev 与六个开放权重模型和 GPT-5.6-Sol，并构建 JevVibe 修复 agent 测量 Qwen2.5-Coder-32B 的安全通过率变化。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "1916 个样本、50 类分类、八个模型对比，Top-k、MRR、延迟和成本都有数字，但只测一个修复目标模型。",
+ "novelty": 3,
+ "novelty_note": "把分类选项式决策模型用于 CWE 诊断并驱动修复流水线，在已有 LLM 修复路线上做了诊断先行的改进。",
+ "scope": "适用于 CyberSecEval 50 类 CWE 场景与 Qwen2.5-Coder-32B 生成代码的修复，Jev 分类范围闭合于声明候选集。",
+ "limitations": "Top-1 和 Macro-F1 仍低于 GPT-5.6-Sol，修复评估依赖检测器度量而非功能正确性，样本局限于单一基准。",
+ "artifact": "未提及"
+}

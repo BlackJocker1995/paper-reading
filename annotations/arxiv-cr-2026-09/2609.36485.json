@@ -1,0 +1,22 @@
+{
+ "id": "2609.36485",
+ "title_cn": "从侦察到响应：现代企业攻击中的定量风险参数化与博弈论隔离",
+ "abstract_cn": "现代安全运营中心（SOC）面临人工事件响应延迟的困境，使得攻击者能够在早期侦察阶段持续推进网络杀伤链（Cyber Kill Chain）。尽管经典的博弈论防御模型能够优化战略资源配置，但它们依赖无法适应动态遥测数据的静态效用矩阵。本文提出一个集成的、以指标驱动的决策引擎，将定量风险参数化与持续自动化响应时间融合贯通。通用漏洞评分系统（CVSS）的可利用性参数被映射为攻击者成功概率，并通过信息风险因子分析（FAIR）蒙特卡洛模拟评估防御者日志分布。实时 SIEM 日志流被建模为泊松过程到达率，通过序贯贝叶斯滤波动态更新防御者的后验威胁置信度。通过将该交互建模为动态贝叶斯 Stackelberg 博弈，推导出一个闭合形式的阈值，其中预期未缓解风险超过主动隔离成本。以 2023 年 MGM Resorts 和 Caesars Entertainment 网络安全事件的实证数据进行参数化，仿真结果表明，该引擎在抑制瞬态背景噪声的同时，能在检测到对抗性探测后数秒内触发自动化 SOAR 网络隔离。多参数敏感性分析证实，决策边界能够根据实时边界漏洞动态调整，为分钟级以下的自动化威胁隔离提供了控制理论基础。",
+ "summary_cn": "把 CVSS 可利用性映射为攻击成功概率，经 FAIR Monte Carlo 与动态 Bayesian Stackelberg 博弈推导自动响应阈值；以 2023 MGM 与 Caesars 事件为参数，仿真显示 SOAR 可在侦察出现后数秒内触发网络隔离。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "SOC 自动化",
+  "SOAR",
+  "Bayesian 博弈",
+  "风险量化"
+ ],
+ "objective_summary": "构建把 CVSS 风险量化、Poisson 日志建模与动态 Bayesian Stackelberg 博弈串起来的闭式阈值决策引擎，以 2023 年 MGM 与 Caesars 事件为参数做仿真评估。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 2,
+ "evidence_note": "以 2023 MGM 与 Caesars 事件做参数拟合，仿真评估响应时间与多参数敏感性；未在真实 SOC 部署或与现有 SOAR 平台对比。",
+ "novelty": 3,
+ "novelty_note": "把静态博弈效用矩阵换成遥测驱动的动态贝叶斯更新，并导出闭式触发阈值。",
+ "scope": "面向有结构化 SIEM 日志与 CVSS 评分的企业 SOC，威胁模型集中在侦察阶段。",
+ "limitations": "结果来自仿真而非真实 SOC 部署；对不可用 CVSS 量化的攻击面覆盖不明。",
+ "artifact": "未提及"
+}

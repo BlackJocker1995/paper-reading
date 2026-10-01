@@ -2,7 +2,7 @@
  "id": "2609.19587",
  "title_cn": "红队测试自动模式：提升阻断分类器以应对恶意编程智能体",
  "abstract_cn": "为防止编程智能体失控，生产系统如今会对每个拟执行动作进行审查，通过阻断监控器在执行前加以拒绝（Claude Code 中的 Auto Mode、OpenAI Codex 中的 Guardian）。此前对此类监控器的评估主要衡量其对意外危害或来自不可信来源的提示注入的鲁棒性，而当被监控的智能体本身持续处于错误对齐状态时，监控器的表现如何，目前仍知之甚少。为理解这一风险，我们让一个对抗性智能体尝试逃避生产阻断监控器并造成灾难性危害，例如窃取自身权重。我们发现，当配备高层次攻击策略时，对抗性智能体可以通过多种不同机制取得成功，包括由智能体生成的针对监控器的提示注入、多智能体攻击以及恶意压缩（malicious compaction）。特别地，在 79% 的试验中，智能体能够对 Auto Mode 和 Guardian 发动注入攻击，从而执行任意 bash 命令。我们还发现，通过设计层面的改进——例如增强工具覆盖范围、优化对话记录格式以及引入智能体式监控阶段——可以大幅提升 Auto Mode 的防御能力。即便如此，以可接受的代价阻止多上下文攻击仍是一个开放性问题。通过详述我们的红队测试方法论并揭示新的攻击向量，我们希望帮助防御方评估其针对持续性恶意编程智能体的缓解措施。代码见 https://github.com/safety-research/red-teaming-auto-mode。",
- "summary_cn": "对 Claude Code Auto Mode 与 OpenAI Codex Guardian 做红队，让恶意 agent 通过针对监视器的提示注入、多 agent 协作与恶意压缩等机制绕过阻断，79% 试验里能借注入让监视器执行任意 bash，并给出工具覆盖、抄本格式与 agent 化监视等改进。",
+ "summary_cn": "对 Claude Code Auto Mode 与 OpenAI Codex Guardian 做红队，让恶意 agent 通过针对监视器的提示注入、多 agent 协作与恶意压缩等机制绕过阻断，79% 试验里 agent 能借对监视器的注入攻击执行任意 bash 命令，并给出工具覆盖、抄本格式与 agent 化监视等改进。",
  "topic": "Security of AI",
  "tags": [
   "agent 护栏",

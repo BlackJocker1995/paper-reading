@@ -1,0 +1,22 @@
+{
+ "id": "2609.32204",
+ "title_cn": "DegreeSpar：用于高效安全 Transformer 推理的结构化次数稀疏性",
+ "abstract_cn": "安全 Transformer 推理保护了敏感输入，但会引入大量密码学开销，其中 Softmax 和 GeLU 等非线性操作成为主要瓶颈。现有压缩方法通过各自独立定义的压缩变量来降低非线性复杂度、序列相关计算量或模型规模。然而，在激进压缩场景下，这些独立优化的扰动会相互叠加：在相同压缩级别下，将典型的近似方法、token 剪枝和模型剪枝方法叠加使用，会使 ViT-S 的准确率从 80.20% 降至 76.41%。我们提出 DegreeSpar，将安全 Transformer 压缩表述为针对非线性多项式次数的结构化稀疏化问题。多项式次数直接控制安全非线性求值的开销，而与计算对齐的零次结构则在同一优化空间内将 token 级和模型维度级的计算暴露为可移除项。DegreeSpar 进一步引入低次 Softmax 和 GeLU 的近似感知训练，实现激进的次数压缩，并为结构化计算移除创造优化余量。在视觉和语言 Transformer 上，DegreeSpar 在不同模型规模、任务和序列长度下持续改善准确率-延迟权衡，相比对应基线实现 2.29 倍至 6.63 倍的加速。在相同网络设置下，DegreeSpar 在 BERT/SST-2 上以 110.55 秒达到 92.68% 的准确率，而最接近的先前混合安全推理方案 CipherPrune 以 167.26 秒达到 92.66%。这些结果确立了结构化多项式次数作为安全 Transformer 压缩的有效共享优化空间。",
+ "summary_cn": "将安全 Transformer 压缩表述为对非线性多项式次数的结构化稀疏化，统一近似、剪枝与模型瘦身，并引入近似感知训练；相较基线取得 2.29 至 6.63 倍加速，在 BERT／SST-2 同网络设置下以 110.55 秒达 92.68% 准确率，优于 CipherPrune 的 167.26 秒。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "安全推理",
+  "多项式近似",
+  "结构化稀疏",
+  "Transformer"
+ ],
+ "objective_summary": "提出以多项式次数为统一优化空间的 DegreeSpar 框架，在视觉与语言 Transformer 上对比表示近似、令牌剪枝、模型剪枝的叠加基线及 CipherPrune。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "跨 ViT 与 BERT 多模型多任务、多序列长度实验，带独立基线与叠加对照并给出具体时延与精度，未提多次重复或统计检验。",
+ "novelty": 3,
+ "novelty_note": "将多项式次数作为跨机制共享的结构化稀疏变量，统一此前独立优化的近似与剪枝维度。",
+ "scope": "在视觉与语言 Transformer 的安全推理场景下成立，涵盖多种模型规模与序列长度。",
+ "limitations": "需要近似感知训练，低次 Softmax 与 GeLU 的激进降次对未覆盖架构或任务的泛化尚未检验。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,22 @@
+{
+ "id": "2609.33066",
+ "title_cn": "基于边界动态的零存储过程化神经合成：Lean 4 中的形式化验证与裸机严苛验证",
+ "abstract_cn": "当代神经推理架构依赖存储于高带宽内存（VRAM）中的密集浮点权重矩阵，由此产生严重的内存墙瓶颈，并阻碍在以太坊虚拟机（EVM）等确定性虚拟机内的原生执行。在 Blum-Shub-Smale 模型中，对连续域上递归动力系统的终止性与算术不变量的验证通常是不可判定的。在此，我们呈现对 WERR（Waves & Errors）与 Phase III Orbital Error Dynamics（OED）的形式化验证与裸机实证验证——这是一种非张量决策范式，可按需从 24 字节坐标种子 Θ = (c_x, c_y, zoom) 沿 Mandelbrot 集边界（∂M）过程化合成非线性决策边界。通过将递推关系 z_{n+1} = z_n^2 + c 投影到模余环 Z/9Z 与定点域 Q_{16.16} 上，我们在 Lean 4（v4.34.1）配合 Mathlib4 中建立了十条机器验证定理，且无任何未证猜想（sorry）：证明了 I_3 = {0,3,6} ⊂ Z/9Z 的理想闭包、通用燃料有界停机（≤9 步与 ≤12 步）、Q_{16.16} 平方运算在 2^63-1 以下无溢出、非常数边界逃逸敏感性，以及参数化 EVM gas 上界（≤22,557 ≤ 24,000 gas）。在 40 核双路 Intel Xeon 服务器上评估，向量化 36 次迭代 CPU 内核在 6.49 秒内处理 100,000 次决策（15,397 次决策/秒，VRAM 占用 0 字节，加速比 15.15 倍），同时 sigmoid 异常值门控在保留 89.60% 干净基线信号的同时，抑制了 100.00% 的对抗性尖峰。",
+ "summary_cn": "提出 WERR 与 Phase III OED 非张量决策范式，从 24 字节坐标种子沿 Mandelbrot 边界合成决策边界，在 Lean 4（v4.34.1）加 Mathlib4 中证明 10 条含 EVM gas ≤ 22557 上界的定理（零 sorry），40 核 Xeon 服务器上 10 万次决策耗时 6.49 秒。",
+ "topic": "Other",
+ "tags": [
+  "形式化验证",
+  "Lean 4",
+  "EVM",
+  "神经推理"
+ ],
+ "objective_summary": "构建非张量程序式决策范式 WERR/OED，在 Lean 4 加 Mathlib4 中给出 10 条机器可验证定理（零 sorry），并在 40 核 Xeon 服务器上做 CPU 核函数吞吐基准。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "Lean 4 完成 10 条定理证明（零 sorry）并在 40 核服务器上做 10 万次决策性能基准，无与现有系统的功能对比。",
+ "novelty": 4,
+ "novelty_note": "提出以 Mandelbrot 边界动力学合成决策边界的无权重神经推理范式，并给形式化验证与 EVM gas 上界。",
+ "scope": "智能合约内推理场景，决策基于 Mandelbrot 集边界与 Q16.16 定点，EVM gas 不超过约 24000 的参数化上界下。",
+ "limitations": "表达能力受程序式边界动力学限制，与通用神经网络在复杂任务上的能力差距未评估。",
+ "artifact": "公开"
+}

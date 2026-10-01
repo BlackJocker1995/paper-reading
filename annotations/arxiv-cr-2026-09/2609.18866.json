@@ -6,8 +6,8 @@
  "topic": "Crypto & Protocols",
  "tags": [
   "后量子密码",
-  "综合译码",
-  "Grobner 基",
+  "综合征译码",
+  "Gröbner 基",
   "McEliece"
  ],
  "objective_summary": "给出汉明簇的有界次数方程重构和一种 ISD 式代数-组合混合译码算法，在 NIST 1 级参数的随机二元线性码上评估可行性。",

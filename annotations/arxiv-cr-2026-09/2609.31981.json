@@ -1,0 +1,22 @@
+{
+ "id": "2609.31981",
+ "title_cn": "基于代价-效用对抗训练在物联网网络在线 AutoML 中的规避攻击",
+ "abstract_cn": "随着物联网（IoT）网络在异常检测、恶意软件检测、入侵检测和网络监控中对机器学习的依赖日益加深，这类系统已成为规避攻击的重要目标。规避攻击构成重大安全风险：攻击者故意修改输入数据，使已训练的模型产生错误预测，同时躲避检测。本研究评估黑盒规避攻击对一种基于代价-效用的对抗训练防御策略的影响，该策略用于物联网网络的在线 AutoML 场景。具体而言，规避攻击被施加于多种在线学习器，包括 Hoeffding Tree（HT）、Leveraging Bagging（LB）、Streaming Random Patches（SRP）、Hoeffding Adaptive Tree（HAT）和 Adaptive Random Forest（ARF）。通过构建这些在线学习器的朴素版本和对抗训练（AT）版本，我们分别获得了每个模型的干净准确率和对抗准确率。结果显示，LB 和 SRP 的 AT 版本表现最佳，在最高代价预算 1.00 下，达到了最高对抗准确率（0.985）和较高干净准确率（0.993），最大准确率下降仅为 0.8%。最后，使用 Early Drift Detection Method（EDDM）进行了漂移检测。",
+ "summary_cn": "评估黑盒躲避攻击对 IoT 异常检测在线 AutoML 的影响，对比 HT、LB、SRP、HAT、ARF 的朴素与对抗训练版本，成本预算 1.00 时 LB 与 SRP 对抗训练版对抗准确率 0.985、干净准确率 0.993，干净精度下降不超过 0.8%（MECOM 2026）。",
+ "topic": "Security of AI",
+ "tags": [
+  "躲避攻击",
+  "在线学习",
+  "对抗训练",
+  "IoT"
+ ],
+ "objective_summary": "对五种在线学习器构建朴素与对抗训练版本，在 IoT 入侵检测任务上施加黑盒躲避攻击，并用 EDDM 做概念漂移检测，报告不同成本预算下的干净与对抗准确率。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 3,
+ "evidence_note": "覆盖五种在线学习器与多成本预算，给出具体准确率，但缺统计检验且限于单一 IoT 数据场景。",
+ "novelty": 2,
+ "novelty_note": "把成本效用对抗训练套到在线 AutoML 上评估，是已有防御与攻击的组合复用。",
+ "scope": "限于 IoT 网络异常/入侵检测任务上的流式学习器与黑盒躲避攻击设置。",
+ "limitations": "未讨论白盒或自适应攻击者，也未验证多数据集下的可迁移性。",
+ "artifact": "公开"
+}
