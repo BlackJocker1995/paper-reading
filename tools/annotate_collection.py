@@ -6,8 +6,10 @@
   评级 opus  ：summary_cn / topic / tags / objective_summary / contribution_type /
               evidence_strength / evidence_note / novelty / novelty_note / scope /
               limitations / artifact
-两段各自按篇缓存在 .cache/annotate/<slug>/（gitignore），断了重跑只补缺的；
-一篇两段都齐、并通过字段检查，才写进 annotations/。
+  复核 opus  ：拿英文原文逐篇挑错（漏译误译、编造原文没有的事实、数字、topic 口径），只改有问题的字段。
+              2026-10-01 抽查发现不复核时 45 篇里 42 篇有问题（编造事实 34 处、误译 34 处），所以默认开。
+各段按篇缓存在 .cache/annotate/<slug>/（gitignore），断了重跑只补缺的；
+一篇三段都齐、并通过字段检查，才写进 annotations/。
 
 默认只做有公告日、还没有标注文件的论文（日榜要整日标齐才出现）；--all 连没有公告日的也做。
 
@@ -15,6 +17,8 @@
     python3 tools/annotate_collection.py --category cs.CR --month 2026-09
     python3 tools/annotate_collection.py --category cs.CR --ids 2609.25014,2609.25043 --out /tmp/try
         # 试跑：结果写到 /tmp/try，不碰仓库
+    python3 tools/annotate_collection.py --category cs.CR --review-existing --days 2026-09-16,2026-09-17
+        # 只对已有标注再做一遍复核（改口径、或补复核时用）
 """
 from __future__ import annotations
 
@@ -24,7 +28,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 CLAUDE_CLI = os.environ.get("CLAUDE_CLI") or shutil.which("claude") or "claude"
-TR_BATCH, EV_BATCH, WORKERS, ROUNDS = 5, 8, 4, 3
+TR_BATCH, EV_BATCH, RV_BATCH, WORKERS, ROUNDS = 5, 8, 3, 4, 3
 
 KEYS = ["id", "title_cn", "abstract_cn", "summary_cn", "topic", "tags", "objective_summary",
         "contribution_type", "evidence_strength", "evidence_note", "novelty", "novelty_note",
@@ -67,7 +71,10 @@ TAXONOMY = {
                      "一般法规落地/频谱/成本治理",
         },
         "terms": "side channel=侧信道、prompt injection=提示注入、jailbreak=越狱、backdoor=后门、poisoning=投毒、"
-                 "membership inference=成员推断、fuzzing=模糊测试、TEE=可信执行环境、zero-knowledge=零知识",
+                 "membership inference=成员推断、fuzzing=模糊测试、TEE=可信执行环境、zero-knowledge=零知识、"
+                 "agent=智能体、harness=harness（保留英文，不是「测试框架」）、containment=隔离、"
+                 "open-weight=开放权重（不是「开源」）、power-of-two=2 的幂、blinded=盲评、"
+                 "N× / N-fold increase=增至原来的 N 倍（不是「增加了 N 倍」）",
     },
 }
 
@@ -182,15 +189,23 @@ def tr_ok(p: dict, x: dict) -> str | None:
 
 # ---------------------------------------------------------------- 评级（opus）
 
-def calibration(slug: str, titles: dict[str, str], per_topic: int = 2) -> str:
-    """从已发布的标注里现算分数分布 + 每个主题挑几篇样例，让新标注和已有的用同一把尺子。"""
+def calibration(cat: str, per_topic: int = 2) -> str:
+    """从同一分类**所有月份**已有的标注里现算分数分布 + 每个主题挑几篇样例，让新标注和已有的用同一把尺子。
+    跨月取，是为了月初新合集还一篇没标时也有参照。"""
     from collections import Counter
-    anns = []
-    for f in sorted((REPO / "annotations" / slug).glob("*.json")):
-        try:
-            anns.append(json.loads(f.read_text(encoding="utf-8")))
-        except json.JSONDecodeError:
-            continue
+    short = cat.split(".")[-1].lower()
+    anns, titles = [], {}
+    for d in sorted((REPO / "annotations").glob(f"arxiv-{short}-*")):
+        src = REPO / ".cache/fetch" / f"{d.name}.raw.json"
+        src = src if src.exists() else REPO / "collections" / d.name / "data/papers.json"
+        if src.exists():
+            titles.update({p["id"].split("v")[0]: p["title"]
+                           for p in json.loads(src.read_text(encoding="utf-8"))})
+        for f in sorted(d.glob("*.json")):
+            try:
+                anns.append(json.loads(f.read_text(encoding="utf-8")))
+            except json.JSONDecodeError:
+                continue
     if not anns:
         return ""
     dist = lambda k: "、".join(f"{s} 分 {n} 篇" for s, n in sorted(Counter(x.get(k) for x in anns).items()))
@@ -200,9 +215,21 @@ def calibration(slug: str, titles: dict[str, str], per_topic: int = 2) -> str:
             seen[x.get("topic")] += 1
             lines.append(f"  {x['topic']} | {x['contribution_type']} | 证据 {x['evidence_strength']} 新颖 "
                          f"{x['novelty']} | {titles[x['id']]}")
-    return (f"已发布的 {len(anns)} 篇同合集标注，打分和归类请与它们保持**同一尺度**：\n"
+    return (f"已发布的 {len(anns)} 篇同分类标注，打分和归类请与它们保持**同一尺度**：\n"
             f"- 证据强度分布：{dist('evidence_strength')}\n- 新颖性分布：{dist('novelty')}\n"
             f"- 样例（topic | 贡献类型 | 分数 | 标题）：\n" + "\n".join(lines) + "\n")
+
+
+FACT_RULES = """硬规则（抽查里最常见的错，逐条遵守）：
+- 每条事实——数字、实验设置、对照组、数据集、被测的防御或攻击、统计检验、代码是否公开、「首个/首次」——
+  都必须能在摘要或 comment 里找到。找不到就不写，或写「摘要未给」。不要替作者补全实验细节。
+- 原文的限定（「在成功运行中」「在所测的 5 个 harness 上」「可能」）要保留，不许丢掉或说重。
+- 原文没报告统计显著性就不要用「显著」；原文没说「主流」「首次」就不要写。
+- 时态与情态照原文：will / plan to 是「计划」，不是已完成；may / can 是「可能」，不是一定。
+- 不同实验的数字不要合并成一句（A 实验的样本量配 B 实验的结果），各说各的。
+- scope 只用摘要里出现过的系统 / 数据集 / 模型 / 规模名词，不要添加原文没有的限定（如「模拟环境」「非量子」）。
+- limitations 优先写作者自陈的局限；作者没写时，只写摘要里直接可见的范围限制（如「只在 X 上评估」），
+  或写「摘要未讨论局限」——**不要推测方法缺陷**。作者的免责声明不是局限。"""
 
 
 def ev_prompt(cat: str, batch: list[dict], calib: str = "") -> str:
@@ -222,6 +249,8 @@ topic 严格取其一（英文原样），按论文的**主要贡献**归类：
 {topics}
 
 {calib}
+{FACT_RULES}
+
 为每一篇输出一个对象，字段：
 - "id": 原样抄 arxiv_id
 - "summary_cn": 一句中文要点（约 40-90 字）：做了什么 + 关键结果，有数字带数字；comment 里有录用会议可在末尾括注（如「（IEEE S&P'27）」）
@@ -236,7 +265,7 @@ topic 严格取其一（英文原样），按论文的**主要贡献**归类：
 - "novelty": 1-5 整数：5=此前没有的问题/方法/发现；3=已有方向上的实质改进；1=常规组合或复述已知结论。大多数论文是 2-4。
 - "novelty_note": 一句话说新在哪里或为何不新，20-50 字；原文没自称「首个」就不要写「首个」
 - "scope": 一句话写结论的适用边界（在什么系统/数据集/模型/规模/威胁模型下成立），20-50 字
-- "limitations": 一句话写最主要的局限（作者自陈的或从方法设计明显可见的），20-50 字；不要编造看不出来的具体缺陷
+- "limitations": 一句话写最主要的局限，20-50 字；规则见上面的硬规则，宁可写「摘要未讨论局限；仅在 X 上评估」也不要猜
 - "artifact": 严格取其一：公开（摘要或 comment 给了代码/数据链接——arXiv 会把链接显示成 this https URL——或明确说已公开）/
   承诺公开（will be released、upon acceptance 之类）/ 未提及。指向别的论文或 DOI 的链接不算。
 
@@ -284,6 +313,60 @@ def ev_ok(cat: str, x: dict) -> str | None:
     return None
 
 
+# ---------------------------------------------------------------- 复核（opus）
+
+def rv_prompt(cat: str, batch: list[dict]) -> str:
+    tax = TAXONOMY[cat]
+    topics = "\n".join(f'- "{k}"：{v}' for k, v in tax["topics"].items())
+    items = [{"arxiv_id": p["id"], "title": p["title"], "abstract": p["abstract"],
+              "comment": p.get("comment") or "", "annotation": {k: p["_rec"][k] for k in KEYS if k != "id"}}
+             for p in batch]
+    return f"""你在复核一个**公开的** arXiv {cat}（{tax['name']}）论文合集网页的中文标注。默认怀疑：逐篇对照英文原文找错。
+
+{json.dumps(items, ensure_ascii=False)}
+
+逐篇逐字段检查：
+1. title_cn、abstract_cn：漏句、添加原文没有的内容、误译术语、数字/百分比/倍数/样本量/模型名/数据集名/会议名与原文不一致。
+   领域译法：{tax['terms']}。
+2. summary_cn、objective_summary、evidence_note、novelty_note、scope、limitations：
+{FACT_RULES}
+3. topic 严格按下面的定义与边界（英文原样）；contribution_type 取其一：{" / ".join(CONTRIBUTION)}。
+{topics}
+4. evidence_strength / novelty 只在明显违背锚点时改（证据：5=大规模且有对照与统计检验，3=有实验但规模或对照有限，1=无实证；
+   新颖：5=此前没有，3=已有方向的实质改进，1=常规组合）。3/4 之间的边界不要动。
+5. artifact：给了链接（arXiv 显示成 this https URL）或明确已公开=公开；will be released=承诺公开；否则未提及。
+6. 不许有「值得读」「必读」等面向读者的话；中文用全角标点；不要英文双引号、反斜杠、LaTeX。
+
+为每一篇输出 {{"id": "<arxiv_id>", "fix": {{字段: 改正后的完整新值, ...}}}}。只放**需要改**的字段；完全没问题就给空对象 {{}}。
+改 abstract_cn 时给整段新摘要，不要只给片段。只输出一个 JSON 数组，长度 {len(batch)}，顺序与输入一致，不要任何解释文字。"""
+
+
+def normalize_fix(fix) -> dict | None:
+    if not isinstance(fix, dict):
+        return None
+    out = {}
+    for k, v in fix.items():
+        if k not in KEYS or k == "id":
+            continue
+        if k in ("evidence_strength", "novelty"):
+            v = as_score(v)
+        elif k == "tags" and isinstance(v, str):
+            v = [x.strip() for x in re.split(r"[,，、]", v) if x.strip()]
+        elif isinstance(v, str):
+            v = v.strip()
+        out[k] = v
+    return out
+
+
+def apply_fix(rec: dict, fix: dict) -> dict:
+    return {k: fix.get(k, rec[k]) for k in KEYS}
+
+
+def rv_ok(cat: str, p: dict, x: dict) -> str | None:
+    new = apply_fix(p["_rec"], x["fix"])
+    return tr_ok(p, new) or ev_ok(cat, {k: new[k] for k in EV_KEYS})
+
+
 # ---------------------------------------------------------------- 调度
 
 def atomic_write(f: Path, text: str) -> None:
@@ -309,7 +392,7 @@ def read_cached(f: Path, check) -> dict | None:
 def run_stage(kind: str, cat: str, papers: list[dict], cache: Path, model: str, calib: str = "") -> None:
     """对 papers 里 cache 还没有的，按批调模型；每轮只重问没过检查的那几篇，最多 ROUNDS 轮。"""
     cache.mkdir(parents=True, exist_ok=True)
-    size = TR_BATCH if kind == "tr" else EV_BATCH
+    size = {"tr": TR_BATCH, "ev": EV_BATCH, "rv": RV_BATCH}[kind]
     for rnd in range(ROUNDS):
         todo = [p for p in papers if not (cache / f"{p['id']}.json").exists()]
         if not todo:
@@ -323,16 +406,24 @@ def run_stage(kind: str, cat: str, papers: list[dict], cache: Path, model: str, 
                 out = call_claude(tr_prompt(cat, batch), model)
                 got = parse_tr(out or "")
             else:
-                out = call_claude(ev_prompt(cat, batch, calib), model)
+                prompt = ev_prompt(cat, batch, calib) if kind == "ev" else rv_prompt(cat, batch)
+                out = call_claude(prompt, model)
                 arr = [x for x in parse_json_array(out or "") if isinstance(x, dict)]
                 ids = [str(x.get("id", "")).split("v")[0] for x in arr]
                 # 同一个 id 回了两次：分不清哪条是哪篇的，都不要
-                got = {pid: normalize_ev(cat, x) for pid, x in zip(ids, arr) if ids.count(pid) == 1}
+                if kind == "ev":
+                    got = {pid: normalize_ev(cat, x) for pid, x in zip(ids, arr) if ids.count(pid) == 1}
+                else:
+                    got = {pid: {"fix": normalize_fix(x.get("fix", {}))} for pid, x in zip(ids, arr)
+                           if ids.count(pid) == 1 and normalize_fix(x.get("fix", {})) is not None}
+            if not got:  # 整批一篇都没解析出来：把输出开头打出来，限流/报错一眼能看到
+                print(f"    {kind} 批无可解析输出：{(out or '')[:160]!r}", file=sys.stderr)
             ok, bad = 0, []
             for pid, x in got.items():
                 if pid not in by_id or x is None:
                     continue
-                why = tr_ok(by_id[pid], x) if kind == "tr" else ev_ok(cat, x)
+                why = (tr_ok(by_id[pid], x) if kind == "tr" else ev_ok(cat, x) if kind == "ev"
+                       else rv_ok(cat, by_id[pid], x))
                 if why:
                     bad.append(f"{pid}: {why}")
                     continue
@@ -363,6 +454,11 @@ def main() -> None:
     ap.add_argument("--out", help="结果写到这个目录而不是 annotations/<slug>/（试跑用，缓存也放那里）")
     ap.add_argument("--tr-model", default="sonnet", help="翻译用的模型，默认 sonnet")
     ap.add_argument("--ev-model", default="opus", help="分类评级用的模型，默认 opus")
+    ap.add_argument("--rv-model", default="opus", help="复核用的模型，默认 opus")
+    ap.add_argument("--no-review", action="store_true", help="跳过复核（不建议：不复核时错误率很高）")
+    ap.add_argument("--review-existing", action="store_true",
+                    help="不新标，只把已有标注再复核一遍；用 --ids 或 --days 选范围")
+    ap.add_argument("--days", help="配合 --review-existing：只复核这些公告日（逗号分隔）")
     a = ap.parse_args()
 
     slug = f"arxiv-{a.category.split('.')[-1].lower()}-{a.month}"
@@ -375,6 +471,9 @@ def main() -> None:
     ann_dir.mkdir(parents=True, exist_ok=True)
 
     papers = [dict(p, id=p["id"].split("v")[0]) for p in raw]
+    if a.review_existing:
+        review_existing(a, papers, ann_dir, cache)
+        return
     if a.ids:
         want = {x.strip().split("v")[0] for x in a.ids.split(",") if x.strip()}
         todo = [p for p in papers if p["id"] in want]
@@ -390,29 +489,79 @@ def main() -> None:
 
     if a.ids:  # 重做就是重做：清掉这些 id 的分段缓存
         for p in todo:
-            for part in ("tr", "ev"):
+            for part in ("tr", "ev", "rv"):
                 (cache / part / f"{p['id']}.json").unlink(missing_ok=True)
-    calib = calibration(slug, {p["id"]: p["title"] for p in papers})
+    calib = calibration(a.category)
     # 翻译与评级互不依赖，两段并行跑
     with ThreadPoolExecutor(max_workers=2) as ex:
         for f in [ex.submit(run_stage, "tr", a.category, todo, cache / "tr", a.tr_model),
                   ex.submit(run_stage, "ev", a.category, todo, cache / "ev", a.ev_model, calib)]:
             f.result()
 
-    written, missing = 0, []
+    ready, missing = [], []
     for p in todo:
         tr = read_cached(cache / "tr" / f"{p['id']}.json", lambda x, p=p: tr_ok(p, x))
         ev = read_cached(cache / "ev" / f"{p['id']}.json", lambda x: ev_ok(a.category, x))
         if not (tr and ev):
             missing.append(p["id"])
             continue
-        rec = {"id": p["id"], **{k: tr[k] for k in TR_KEYS}, **{k: ev[k] for k in EV_KEYS}}
+        p["_rec"] = {"id": p["id"], **{k: tr[k] for k in TR_KEYS}, **{k: ev[k] for k in EV_KEYS}}
+        ready.append(p)
+
+    if not a.no_review and ready:
+        run_stage("rv", a.category, ready, cache / "rv", a.rv_model)
+    written, changed = 0, 0
+    for p in ready:
+        rec = p["_rec"]
+        if not a.no_review:
+            rv = read_cached(cache / "rv" / f"{p['id']}.json", lambda x, p=p: rv_ok(a.category, p, x))
+            if rv is None:
+                missing.append(p["id"])
+                continue
+            changed += bool(rv["fix"])
+            rec = apply_fix(rec, rv["fix"])
         atomic_write(ann_dir / f"{p['id']}.json", json.dumps(rec, ensure_ascii=False, indent=1))
         written += 1
+    if not a.no_review:
+        print(f"  复核改动了 {changed}/{written} 篇", file=sys.stderr)
 
     days = sorted({p.get("day") for p in todo if p["id"] in missing and p.get("day")})
     print(f"✅ 写入 {written} 篇 → {ann_dir}" + (f"；还缺 {len(missing)} 篇 {missing[:5]}，"
           f"涉及公告日 {days} 暂不进日榜，重跑本脚本会只补这几篇" if missing else ""))
+    if missing:
+        sys.exit(1)
+
+
+def review_existing(a, papers: list[dict], ann_dir: Path, cache: Path) -> None:
+    if not (a.ids or a.days):
+        sys.exit("--review-existing 要配 --ids 或 --days 选范围")
+    want_ids = {x.strip().split("v")[0] for x in (a.ids or "").split(",") if x.strip()}
+    want_days = {x.strip() for x in (a.days or "").split(",") if x.strip()}
+    todo = []
+    for p in papers:
+        f = ann_dir / f"{p['id']}.json"
+        if (p["id"] in want_ids or p.get("day") in want_days) and f.exists():
+            p["_rec"] = json.loads(f.read_text(encoding="utf-8"))
+            (cache / "rv" / f"{p['id']}.json").unlink(missing_ok=True)   # 重新复核
+            todo.append(p)
+    print(f"复核已有标注 {len(todo)} 篇（{a.rv_model}）", file=sys.stderr)
+    run_stage("rv", a.category, todo, cache / "rv", a.rv_model)
+    done, changed, fields, missing = 0, 0, {}, []
+    for p in todo:
+        rv = read_cached(cache / "rv" / f"{p['id']}.json", lambda x, p=p: rv_ok(a.category, p, x))
+        if rv is None:
+            missing.append(p["id"])
+            continue
+        done += 1
+        if rv["fix"]:
+            changed += 1
+            for k in rv["fix"]:
+                fields[k] = fields.get(k, 0) + 1
+            atomic_write(ann_dir / f"{p['id']}.json",
+                         json.dumps(apply_fix(p["_rec"], rv["fix"]), ensure_ascii=False, indent=1))
+    top = sorted(fields.items(), key=lambda kv: -kv[1])
+    print(f"✅ 复核 {done} 篇，改动 {changed} 篇（按字段：{top}）"
+          + (f"；{len(missing)} 篇没复核成，重跑会补：{missing[:5]}" if missing else ""))
     if missing:
         sys.exit(1)
 

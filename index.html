@@ -64,18 +64,7 @@ h2{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:
   这里的评分<em>不是</em>「值不值得读」——那取决于你在做什么。评分只描述论文本身。</p>
 
   <h2>合集</h2>
-  <a class="card" href="collections/arxiv-se-2026-09/">
-    <h3>arXiv cs.SE 日榜 · 2026 年 9 月</h3>
-    <p>每个公告日一张榜，当天论文按<strong>证据强度 + 新颖性</strong>排序；也可以切到全月看，
-    按贡献类型、主题、artifact 是否公开任意筛。</p>
-    <div class="meta" id="seMeta"><span>载入中…</span></div>
-  </a>
-  <a class="card" href="collections/arxiv-cr-2026-09/">
-    <h3>arXiv cs.CR 日榜 · 2026 年 9 月<span class="pill">安全</span></h3>
-    <p>密码学与安全（cs.CR）的每日新论文：漏洞挖掘与利用、恶意代码、AI 安全、
-    密码协议、隐私。同样按<strong>证据强度 + 新颖性</strong>排序，配中文摘要与逐篇客观评价。</p>
-    <div class="meta" id="crMeta"><span>载入中…</span></div>
-  </a>
+  <div id="arxivCards"></div>
   <a class="card" href="collections/se-venues/">
     <h3>SE 四大会 · ICSE / FSE / ASE / ISSTA 2026<span class="pill">会议</span></h3>
     <p>软工四大会 2026 研究轨道的<strong>全部录用论文</strong>，按 12 个主题 / 52 个子题组织；
@@ -132,26 +121,48 @@ fetch("collections/ai-venues/data/meta.json").then(function(r){ return r.json();
     '<span>已分级 ' + m.graded.toLocaleString() + '</span>' +
     '<span>已中译 ' + m.translated.toLocaleString() + '</span>';
 }).catch(function(){ document.getElementById("aiMeta").innerHTML = '<span>数据未载入</span>'; });
-fetch("collections/arxiv-cr-2026-09/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
-  document.getElementById("crMeta").innerHTML =
-    '<span><b>' + m.count + '</b>篇</span>' +
-    '<span><b>' + (m.days||[]).length + '</b>个公告日</span>' +
-    '<span>已精标 ' + (m.with_objective||0) + ' 篇</span>' +
-    '<span>更新于 ' + (m.generated||"").slice(0,10) + '</span>';
-}).catch(function(){
-  document.getElementById("crMeta").innerHTML = '<span>数据未载入</span>';
-});
-fetch("collections/arxiv-se-2026-09/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
-  var t = m.topics || {}, top = Object.keys(t).slice(0,1)[0];
-  document.getElementById("seMeta").innerHTML =
-    '<span><b>' + m.count + '</b>篇</span>' +
-    '<span><b>' + (m.days||[]).length + '</b>个公告日</span>' +
-    (top ? '<span>最多：' + top + ' ' + t[top] + ' 篇</span>' : '') +
-    '<span>更新于 ' + (m.generated||"").slice(0,10) + '</span>';
-  document.getElementById("gen").textContent = "最后更新 " + (m.generated||"").slice(0,10) + "。";
-}).catch(function(){
-  document.getElementById("seMeta").innerHTML = '<span>数据未载入</span>';
-});
+// arXiv 日榜每月一个合集；新月份加在最前面（README「换月」）
+var ARXIV_MONTHS = ["2026-09"];
+var ARXIV_CATS = [
+  { key: "se", name: "cs.SE", pill: "",
+    desc: "每个公告日一张榜，当天论文按<strong>证据强度 + 新颖性</strong>排序；也可以切到全月看，" +
+          "按贡献类型、主题、artifact 是否公开任意筛。",
+    meta: function(m){
+      var t = m.topics || {}, top = Object.keys(t).slice(0,1)[0];
+      return (top ? '<span>最多：' + top + ' ' + t[top] + ' 篇</span>' : '');
+    } },
+  { key: "cr", name: "cs.CR", pill: "安全",
+    desc: "密码学与安全（cs.CR）的每日新论文：漏洞挖掘与利用、恶意代码、AI 安全、" +
+          "密码协议、隐私。同样按<strong>证据强度 + 新颖性</strong>排序，配中文摘要与逐篇客观评价。",
+    meta: function(m){ return '<span>已精标 ' + (m.with_objective||0) + ' 篇</span>'; } }
+];
+(function(){
+  var box = document.getElementById("arxivCards"), html = "";
+  ARXIV_MONTHS.forEach(function(month){
+    var mm = parseInt(month.slice(5), 10);
+    ARXIV_CATS.forEach(function(c){
+      var slug = "arxiv-" + c.key + "-" + month;
+      html += '<a class="card" href="collections/' + slug + '/">' +
+        '<h3>arXiv ' + c.name + ' 日榜 · ' + month.slice(0,4) + ' 年 ' + mm + ' 月' +
+        (c.pill ? '<span class="pill">' + c.pill + '</span>' : '') + '</h3>' +
+        '<p>' + c.desc + '</p>' +
+        '<div class="meta" id="meta-' + slug + '"><span>载入中…</span></div></a>';
+    });
+  });
+  box.innerHTML = html;
+  ARXIV_MONTHS.forEach(function(month, mi){
+    ARXIV_CATS.forEach(function(c){
+      var slug = "arxiv-" + c.key + "-" + month, el = document.getElementById("meta-" + slug);
+      fetch("collections/" + slug + "/data/meta.json").then(function(r){ return r.json(); }).then(function(m){
+        el.innerHTML = '<span><b>' + m.count + '</b>篇</span>' +
+          '<span><b>' + (m.days||[]).length + '</b>个公告日</span>' + c.meta(m) +
+          '<span>更新于 ' + (m.generated||"").slice(0,10) + '</span>';
+        if(mi === 0 && c.key === "se")
+          document.getElementById("gen").textContent = "最后更新 " + (m.generated||"").slice(0,10) + "。";
+      }).catch(function(){ el.innerHTML = '<span>数据未载入</span>'; });
+    });
+  });
+})();
 </script>
 </body>
 </html>

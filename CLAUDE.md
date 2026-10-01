@@ -25,14 +25,18 @@ VAULT=/path/to/vault python3 tools/build_site.py --month 2026-09
 
 | 目录 | 内容 | 评价口径 |
 |---|---|---|
-| `collections/arxiv-se-2026-09/` | arXiv cs.SE 日榜，按公告日分榜 | 证据强度 / 新颖性 / 贡献类型 |
-| `collections/arxiv-cr-2026-09/` | arXiv cs.CR 日榜，同上结构 | 同上 |
+| `collections/arxiv-se-<YYYY-MM>/` | arXiv cs.SE 日榜，按公告日分榜，每月一个合集（2026-09 起） | 证据强度 / 新颖性 / 贡献类型 |
+| `collections/arxiv-cr-<YYYY-MM>/` | arXiv cs.CR 日榜，同上结构 | 同上 |
 | `collections/se-venues/` | ICSE·FSE·ASE·ISSTA 2026 研究轨道 1,005 篇 | 无评分，只有主题体系与中译 |
 | `collections/ai-venues/` | ICLR·ICML·NeurIPS 九届 36,237 篇 | T1–T5 分级 / A1–A12 原型 |
 
-**cs.CR 的页面是生成的，不要手改。** `collections/arxiv-cr-2026-09/index.html` 由
-`python3 tools/make_cr_page.py` 从 cs.SE 页整份生成（16 处替换，每处必须恰好命中一次）。
-改页面只改 cs.SE 那份，然后跑一次生成器。两边分别手改一定会漂移——已经发生过一次。
+**除 `arxiv-se-2026-09` 外的 arXiv 合集页都是生成的，不要手改。** 模板是
+`collections/arxiv-se-2026-09/index.html`：cs.CR 9 月页由 `tools/make_cr_page.py` 生成（16 处替换，
+每处必须恰好命中一次），其他月份的两个页由 `tools/make_month_page.py --month YYYY-MM` 生成。
+改页面只改模板，然后重跑生成器（每个已有月份都跑一次）。分别手改一定会漂移——已经发生过一次。
+
+**按月发布（2026-10-01 用户定的）**：arXiv 日榜从 2026-09 起每月一个合集，更早的月份不发。
+换月步骤见 README「换月」。上个月最后几天要先按上个月跑完再切。
 
 **se-venues 的源数据带个人相关度字段。** 它来自 Conference Paper Atlas（SE 四大会 + AI 三会合在一起
 的那个 artifact），每篇有 `rel` / `rn`——按个人研究方向打的相关度与理由。`tools/build_se_venues.py`
@@ -89,8 +93,12 @@ cs.CR 全在本仓库（README「日常更新」）：`fetch_arxiv.py` → `anno
 
 - `fetch_arxiv.py` 是**增量**的：本机没有 `.cache/fetch/<slug>.raw.json` 时从已发布的 `papers.json` 还原，
   不要删了 raw 重抓——recent 只有最近 5 个公告日，覆盖写会把更早的论文整批丢掉。只收 `--month` 当月的公告日。
-- `annotate_collection.py`：翻译用 sonnet、分类评级用 opus（用户定的分工）。评级提示里带着
-  从已发布标注现算的分数分布与每个主题的样例，新标注自动对齐同一把尺子。
+- `annotate_collection.py`：翻译用 sonnet、分类评级用 opus（用户定的分工），之后再过一道 opus **复核**
+  （对照英文原文挑错，只改有问题的字段）。**复核别关**：2026-10-01 抽查不复核的 45 篇，42 篇有问题——
+  评语里编造原文没有的事实（「首次」、没测过的防御）、术语误译（harness→测试框架、open-weight→开源）、
+  倍数说错（1.32x increase→增加了 1.32 倍）。术语表在 `TAXONOMY[...]["terms"]`，硬规则在 `FACT_RULES`。
+  评级提示里带着从已发布标注（同分类所有月份）现算的分数分布与样例，新标注对齐同一把尺子。
+  改了口径要回头补：`--review-existing --days ...` 只对已有标注重新复核。
   topic 的边界口径写在脚本的 `TAXONOMY` 里，是对照已发布 323 篇归纳的，改之前先看已发布的怎么归。
 - cs.SE 与 cs.CR 的抓取都打 arxiv.org，别同时跑。
 

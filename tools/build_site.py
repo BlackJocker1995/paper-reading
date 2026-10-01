@@ -9,7 +9,7 @@
 **刻意不导出**：
   - relevance / why —— 那是按个人研究方向打的分，不适合公开
   - 每日/每周综述 headline & overview —— 同样是以个人视角写的
-  - 九月以外的任何月份，以及 vault 里其他一切内容
+  - --month 之外的任何月份（公开站从 2026-09 起按月发布，更早的不发），以及 vault 里其他一切内容
 
 用法：
     python3 tools/build_site.py           # 默认导出 2026-09

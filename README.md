@@ -11,11 +11,11 @@
 ```
 index.html                              合集总入口
 collections/
-  arxiv-se-2026-09/                     arXiv cs.SE 日榜
-    index.html                          合集页面
+  arxiv-se-<YYYY-MM>/                   arXiv cs.SE 日榜，每月一个合集（2026-09 起）
+    index.html                          合集页面（2026-09 这份是所有 arXiv 合集页的模板）
     data/papers.json                    论文数据（脚本生成，勿手改）
     data/meta.json                      统计与筛选项
-  arxiv-cr-2026-09/                     arXiv cs.CR（密码学与安全）日榜，结构同上
+  arxiv-cr-<YYYY-MM>/                   arXiv cs.CR（密码学与安全）日榜，结构同上
   se-venues/                            ICSE/FSE/ASE/ISSTA 2026 研究轨道 1,005 篇
     index.html                          页面（自 Conference Paper Atlas artifact 迁入）
     data/ledger.js                      数据 3.4MB，外置
@@ -25,14 +25,16 @@ collections/
     data/meta.json                      统计
   <以后的合集>/                          同样结构
 annotations/
-  arxiv-cr-2026-09/                     cs.CR 逐篇标注的源文件（进仓库，可复核、可增量）
+  arxiv-cr-<YYYY-MM>/                   cs.CR 逐篇标注的源文件（进仓库，可复核、可增量）
+  days/<slug>.json                      每个公告日的完整成员名单（换机器也能还原日榜归属）
   institutions/<slug>.json              一作机构（另抓论文首页标的，不来自 vault）
 tools/build_site.py                     从本地 Obsidian vault 导出公开数据（cs.SE 用）
 tools/fetch_arxiv.py                    抓 arXiv 某分类 recent 列表 + abs 页（增量），标公告日
-tools/annotate_collection.py            新论文的中文翻译（sonnet）+ 客观评价（opus），写 annotations/
+tools/annotate_collection.py            新论文的中文翻译（sonnet）+ 客观评价（opus）+ 对照原文复核（opus），写 annotations/
 tools/fetch_institutions.py             抓论文首页作者块，模型抽一作机构，写 annotations/institutions/
 tools/build_collection.py               原始抓取 + 标注源 → 公开数据（不依赖本地 vault）
-tools/make_cr_page.py                   从 cs.SE 页面模板生成 cs.CR 合集页
+tools/make_cr_page.py                   从 cs.SE 页面模板生成 cs.CR 合集页（2026-09）
+tools/make_month_page.py                生成新月份的 cs.SE / cs.CR 合集页（同一份模板）
 tools/build_se_venues.py                从 Atlas 原始数据导出 SE 四大会公开数据（挡掉个人相关度字段）
 .github/workflows/deploy.yml            只负责部署
 ```
@@ -95,7 +97,7 @@ cs.CR（安全）合集的链路不依赖本地 vault，仓库内自足：
 # 1. 增量抓 recent 窗口里的新论文（已抓的不重抓；本机没有原始缓存时从已发布数据还原）
 python3 tools/fetch_arxiv.py --category cs.CR --month 2026-09
 
-# 2. 新论文的翻译（sonnet）+ 分类评级（opus），只做日榜上还没标的；断了重跑只补缺的
+# 2. 新论文的翻译（sonnet）+ 分类评级（opus）+ 复核（opus），只做日榜上还没标的；断了重跑只补缺的
 python3 tools/annotate_collection.py --category cs.CR --month 2026-09
 
 # 3. 一作机构
@@ -107,6 +109,17 @@ git add -A && git commit -m "update cs.CR" && git push
 ```
 
 两条链路都会打 arxiv.org，**不要同时跑**（各自限速 3.5s/请求，并发就翻倍了）。
+
+### 换月
+
+每个月第一个公告日出来时（如 10-01）：
+
+```bash
+python3 tools/make_month_page.py --month 2026-10     # 生成两个合集页，并把月份加进首页 ARXIV_MONTHS
+```
+
+之后日常命令里的 `--month` / `--slug` 换成新月份。recent 窗口会同时含上个月最后几天和本月头几天：
+**上个月的先按上个月跑完**（`fetch_arxiv.py` 发现窗口里别的月份没收齐会报错提醒；已滚出窗口的用 `--catchup` 补）。
 
 本地预览：
 
@@ -121,7 +134,7 @@ python3 -m http.server 8000
 - 想跨设备的读者可以在合集页点「同步」，贴一个自己的 GitHub fine-grained token
   （只需 `Gists: Read and write`），进度写进**读者自己账号下的一个 private gist**。
   token 只存在读者本机，只发往 `api.github.com`，随时可在 GitHub 吊销。
-- 这个仓库**只包含 2026-09 的公开数据**。导出脚本用字段白名单，
+- arXiv 日榜从 **2026-09 起按月发布**（每月一个合集），更早的月份不发。导出脚本用字段白名单，
   并且显式拦截 `relevance` / `why` / 每日每周综述等带个人视角的字段；
   部署流程里还有一道同样的检查，泄漏就直接让构建失败。
 

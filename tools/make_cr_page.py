@@ -59,20 +59,11 @@ REPLACEMENTS = [
     ('a.download = "arxiv-cs-se-"', 'a.download = "arxiv-cs-cr-"'),
 ]
 
-h = SRC.read_text(encoding="utf-8")
-for old, new in REPLACEMENTS:
-    n = h.count(old)
-    if n != 1:
-        sys.exit(f"替换源文命中 {n} 次（应为 1）：{old[:70]}…")
-    h = h.replace(old, new)
-
 # 日榜导语里补一句标注覆盖提示：未标注的公告日先给原文
 OLD_STAT = """'<span class="stat"><b>' + DAYS.length + '</b>个公告日可切换</span>' +"""
 NEW_STAT = """'<span class="stat"><b>' + DAYS.length + '</b>个公告日可切换</span>' +
       ((META.annotated_days||[]).indexOf(state.day) < 0 &&
         '<span class="stat">这一天的中文摘要与评价还没做，先按原文阅读</span>' || "") +"""
-assert h.count(OLD_STAT) == 1
-h = h.replace(OLD_STAT, NEW_STAT)
 
 # 未标注论文没有 topic 字段：计数、筛选、徽章三处都归一到「未标注」，
 # 否则主题筛选里会出现 "undefined" 这一栏
@@ -88,12 +79,20 @@ PAIRS = [
      """  var tp = p.topic || "未标注";
   h += '<span class="badge" data-act="topic" data-topic="' + esc(tp) + '">' + esc(tp) + "</span>";"""),
 ]
-for old, new in PAIRS:
-    n = h.count(old)
-    if n != 1:
-        sys.exit(f"替换源文命中 {n} 次（应为 1）：{old[:70]}…")
-    h = h.replace(old, new)
 
-DST.parent.mkdir(parents=True, exist_ok=True)
-DST.write_text(h, encoding="utf-8")
-print(f"✅ 生成 {DST.relative_to(REPO)}（{len(REPLACEMENTS)+1+len(PAIRS)} 处替换）")
+
+def transform(h: str) -> str:
+    """cs.SE 页 → cs.CR 页。tools/make_month_page.py 生成别的月份时也用它。"""
+    for old, new in REPLACEMENTS + [(OLD_STAT, NEW_STAT)] + PAIRS:
+        n = h.count(old)
+        if n != 1:
+            sys.exit(f"替换源文命中 {n} 次（应为 1）：{old[:70]}…")
+        h = h.replace(old, new)
+    return h
+
+
+if __name__ == "__main__":
+    h = transform(SRC.read_text(encoding="utf-8"))
+    DST.parent.mkdir(parents=True, exist_ok=True)
+    DST.write_text(h, encoding="utf-8")
+    print(f"✅ 生成 {DST.relative_to(REPO)}（{len(REPLACEMENTS)+1+len(PAIRS)} 处替换）")
