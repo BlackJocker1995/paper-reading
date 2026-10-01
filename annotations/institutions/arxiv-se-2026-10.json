@@ -1,0 +1,242 @@
+{
+ "2609.38201": {
+  "first_author": "Jiangnan Yu",
+  "institution": "HKUST",
+  "country": "Hong Kong",
+  "raw_affiliation": "HKUST, Hong Kong, Hong Kong",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38257": {
+  "first_author": "Xijia Tao",
+  "institution": "The University of Hong Kong",
+  "country": "",
+  "raw_affiliation": "The University of Hong Kong",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38269": {
+  "first_author": "Pei Yang",
+  "institution": "Gradient Data",
+  "country": "",
+  "raw_affiliation": "Gradient Data",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38335": {
+  "first_author": "Hantian Ding",
+  "institution": "Meta Superintelligence Labs",
+  "country": "",
+  "raw_affiliation": "Meta Superintelligence Labs",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38345": {
+  "first_author": "Chun-Wah Hsu",
+  "institution": "Shanghai Jiao Tong University",
+  "country": "",
+  "raw_affiliation": "Shanghai Jiao Tong University",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38402": {
+  "first_author": "Ankur Garg",
+  "institution": "University of Calgary",
+  "country": "Canada",
+  "raw_affiliation": "University of Calgary, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38499": {
+  "first_author": "Adel Belkhiri",
+  "institution": "Polytechnique Montreal",
+  "country": "Canada",
+  "raw_affiliation": "Polytechnique Montreal, Montreal, Quebec, Canada",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38504": {
+  "first_author": "Hadiza Umar Yusuf",
+  "institution": "University of Michigan-Dearborn",
+  "country": "USA",
+  "raw_affiliation": "University of Michigan-Dearborn, Dearborn, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39568": {
+  "first_author": "Jiaru Qian",
+  "institution": "Peking University",
+  "country": "",
+  "raw_affiliation": "School of Computer Science, Peking University; Beijing Key Laboratory of Trustworthy Code Large Language Models; Key Laboratory of High Confidence Software Technologies, Peking University, Ministry of Education; aiXcoder",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39678": {
+  "first_author": "Jieke Shi",
+  "institution": "Singapore Management University",
+  "country": "Singapore",
+  "raw_affiliation": "Singapore Management University, Singapore, Singapore",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39717": {
+  "first_author": "Serhii Zabolotnii",
+  "institution": "Cherkasy State Business College",
+  "country": "Ukraine",
+  "raw_affiliation": "Cherkasy State Business College, Cherkasy, Ukraine; State Scientific Research Institute of Armament and Military Equipment Testing and Certification, Cherkasy, Ukraine; healthPrecision, New York, NY, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39783": {
+  "first_author": "Yi Song",
+  "institution": "Wuhan University",
+  "country": "China",
+  "raw_affiliation": "School of Cyber Science and Engineering, Wuhan University, Wuhan, China",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39909": {
+  "first_author": "Frances Liu",
+  "institution": "Promptless",
+  "country": "",
+  "raw_affiliation": "Promptless",
+  "evidence": "explicit_affiliation",
+  "confidence": "medium",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39957": {
+  "first_author": "Jiangrui Zhao",
+  "institution": "Beijing University of Posts and Telecommunications",
+  "country": "",
+  "raw_affiliation": "Beijing University of Posts and Telecommunications",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.40086": {
+  "first_author": "Eman Abdullah AlOmar",
+  "institution": "Stevens Institute of Technology",
+  "country": "USA",
+  "raw_affiliation": "Stevens Institute of Technology, Hoboken, New Jersey, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.40119": {
+  "first_author": "Haokun Li",
+  "institution": "Zhejiang University",
+  "country": "China",
+  "raw_affiliation": "Zhejiang University, Hangzhou, China, College of Computer Science and Technology",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38762": {
+  "first_author": "Tianyu Chen",
+  "institution": "University of Texas at Austin",
+  "country": "",
+  "raw_affiliation": "University of Texas at Austin",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38807": {
+  "first_author": "Guanqun Yang",
+  "institution": "Stevens Institute of Technology",
+  "country": "USA",
+  "raw_affiliation": "Stevens Institute of Technology, Hoboken, NJ, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38883": {
+  "first_author": "Lily Jiaxin Wan",
+  "institution": "University of Illinois Urbana-Champaign",
+  "country": "USA",
+  "raw_affiliation": "University of Illinois Urbana-Champaign, Urbana, Illinois, USA",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38885": {
+  "first_author": "Haobin Li",
+  "institution": "Sichuan University",
+  "country": "",
+  "raw_affiliation": "Sichuan University",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.38983": {
+  "first_author": "Yang Wang",
+  "institution": "Fudan University",
+  "country": "",
+  "raw_affiliation": "Yang Wang is a postdoctoral researcher with Fudan University. E-mail: fdwy@fudan.edu.cn",
+  "evidence": "footnote_or_thanks",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39022": {
+  "first_author": "Xiaohong Chen",
+  "institution": "University of Illinois Urbana-Champaign",
+  "country": "",
+  "raw_affiliation": "University of Illinois Urbana-Champaign",
+  "evidence": "explicit_affiliation",
+  "confidence": "low",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39086": {
+  "first_author": "Gou Tan",
+  "institution": "Sun Yat-sen University",
+  "country": "",
+  "raw_affiliation": "{tang29,liangsh76}@mail2.sysu.edu.cn; Sun Yat-sen University",
+  "evidence": "explicit_affiliation",
+  "confidence": "high",
+  "source": "html",
+  "attempts": 1
+ },
+ "2609.39284": {
+  "first_author": "Zhixuan Tan",
+  "institution": "The Chinese University of Hong Kong, Shenzhen",
+  "country": "",
+  "raw_affiliation": "The Chinese University of Hong Kong, Shenzhen",
+  "evidence": "superscript_mapping",
+  "confidence": "high",
+  "source": "pdf",
+  "attempts": 1
+ }
+}

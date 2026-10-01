@@ -1,0 +1,22 @@
+{
+ "id": "2609.40062",
+ "title_cn": "二面体陪集算法的 Fourier 标签信息损失障碍",
+ "abstract_cn": "我们为一大类针对二面体陪集问题（DCP）的量子算法建立了一个不可行定理。我们考虑 Regev（SIAM Journal on Computing，2004）提出的 Fourier 采样与子集和测量框架，这是求解 DCP 的主要方法之一。假设在测量子集和的低 n-1 位之后，算法从每个 Fourier 标签中丢弃任意 ω(log n) 位，则我们证明该算法不能成功求解 DCP。这表明任何遵循此框架的算法都必须充分利用 Fourier 标签，从而为开发 DCP 算法提供了有益的指导。作为主要应用，我们证明 Simon（IACR ePrint:2026/1591，2026 年 8 月 11 日）的近期算法不能求解 DCP。我们证明，在子集和测量之后，该算法仅使用 Fourier 标签中最高有效的三分之一部分即可实现（误差至多为指数级小量），因此受我们一般不可行定理的约束。为便于验证，我们公开了我们结果的 Lean 4 代码。",
+ "summary_cn": "对 Regev 2004 式二面体陪集问题算法建立不可行结果：若子和测量后从每个傅里叶标签丢弃 ω(log n) 比特，就无法求解 DCP；并由此证明 Simon（IACR ePrint 2026/1591）的最新算法可约化为仅用最高位三分之一的傅里叶标签，因此落入该不可行定理，不能解决 DCP；配套发布 Lean 4 证明代码。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "二面体陪集",
+  "后量子",
+  "不可行结果",
+  "Lean 4"
+ ],
+ "objective_summary": "论文在 Regev 模板下证明丢弃 ω(log n) 比特傅里叶标签即无法解决 DCP，并把 Simon 的新算法归约到该框架以证伪其求解主张，附 Lean 4 代码。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 4,
+ "evidence_note": "摘要给出一般不可行定理与对 Simon 算法的具体归约（指数小误差内），并附 Lean 4 形式化代码。",
+ "novelty": 4,
+ "novelty_note": "针对 Regev 式 DCP 算法家族给出傅里叶标签信息损失屏障，并用它反驳 Simon 2026 的求解声明。",
+ "scope": "结论限于 Regev 2004 提出的傅里叶采样与子和测量模板下的 DCP 算法。",
+ "limitations": "摘要未讨论局限；只对符合 Regev 模板的算法成立，未排除其它算法路线。",
+ "artifact": "公开"
+}

@@ -16,6 +16,6 @@
  "novelty": 4,
  "novelty_note": "针对 agent 交互轨迹设计行为式水印，用符号检验做黑盒审计，区别于文本或参数水印。",
  "scope": "基于轨迹收集的 agent 蒸馏场景，教师与学生皆为 LLM agent。",
- "limitations": "辅助动作需安全且不损效用，面对能针对性过滤辅助动作的攻击者仍存风险。",
+ "limitations": "摘要未自陈局限；评测限于 3 个 agent 基准、2 个教师与 4 个学生架构。",
  "artifact": "承诺公开"
 }

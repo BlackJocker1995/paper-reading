@@ -1,0 +1,22 @@
+{
+ "id": "2609.38983",
+ "title_cn": "审批洗白：系统化分析 AI 编程智能体 harness 中的审批-执行绑定失效",
+ "abstract_cn": "现代 AI 编程智能体 harness（Claude Code、Codex CLI、Cursor）将其安全边界建立在一个鲜少受到检验的假设之上：人类批准的行动 A 与 harness 执行的行动 A' 是同一个行动，其中 A 由关于范围授权或会话级审批所授权内容的明确策略所固定。我们证明该假设会系统性地、可复现地失效。我们提出「审批洗白」，一个包含六种失效模式的分类体系，描述 harness 的执行机制在审批后悄然以 A' 替换 A 的方式：范围洗白、参数洗白、时序洗白、工具洗白、委托洗白和语义洗白。与评估静态语料库上的风险分类器或推断隐式授权边界的先前工作不同，我们研究凭证绑定完整性：在给定已批准行动的情况下，harness 是否精确调度该行动？通过插桩 Claude Code 的预执行调解点（PreToolUse），我们对六类情形各自开展受控、无交互、重复测量研究（每类 N=19–20 次运行），报告带 Wilson 置信区间的绑定差距率（BGR）与评分者间一致性（kappa=1.0）。我们原型化实现了 Approval Token，一种由调解器签发、从不将密钥返还给智能体的带密钥能力凭证 Hk(principal, agent_id, session_id, tool, arguments, scope, expiry)，通过 118 次运行的配对前后对比重放（McNemar 精确检验）进行评估。该令牌完全消除了委托洗白，以及针对我们预设会话身份不匹配构造的时序洗白（p<10^(-5)），但按设计未影响范围洗白，且对参数洗白无显著削减（p=1）：这是一个诚实的负向结果，因为这两类情形使每个已记录的调度字段保持不变，其分歧发生在仅凭字段的验证器可观测范围以下一个进程层级处。我们讨论了仅在工具调用边界处绑定的防御方案的影响。",
+ "summary_cn": "提出 Approval Laundering 分类法（Scope、Argument、Temporal、Tool、Delegation、Semantic 六类）刻画 AI 编程智能体 harness 批准与执行解绑；在 Claude Code 的 PreToolUse 做受控无交互重复测量（每类 19-20 次，kappa 为 1.0），并以 118 次配对回放评估 Approval Token 原型：完全消除 Delegation 类、在预设会话身份不匹配构造下消除 Temporal 类（p<10^(-5)），对 Scope、Argument 按设计无显著削减。",
+ "topic": "Security of AI",
+ "tags": [
+  "coding agent",
+  "授权绑定",
+  "Claude Code",
+  "分类法"
+ ],
+ "objective_summary": "作者在 Claude Code 的 PreToolUse 介入点开展受控重复测量，比较六类批准-执行解绑并以 118 次配对回放评估带密钥的 Approval Token 原型。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "六类各 19-20 次重复、118 次配对回放、Wilson 置信区间、McNemar 精确检验、kappa 为 1.0。",
+ "novelty": 4,
+ "novelty_note": "将批准与执行绑定作为凭证完整性问题系统化，并给出可验证的分类与键控能力原型。",
+ "scope": "针对 Claude Code 的 PreToolUse 介入点，评估六类共约 20 次重复、118 次配对前后回放。",
+ "limitations": "作者自陈 Token 对 Scope 与 Argument 两类无影响；评估仅在单一 harness。",
+ "artifact": "未提及"
+}

@@ -17,6 +17,6 @@
  "novelty": 3,
  "novelty_note": "首个系统化的 PADD 硬件设计空间探索框架，已有该方向工作，属实质推进。",
  "scope": "支持形式化方程的椭圆曲线的点加硬件模块，12nm ASIC 与 FPGA。",
- "limitations": "仅覆盖点加原语，其他 ZKP 计算瓶颈（如 MSM、NTT）不在框架内。",
+ "limitations": "框架仅覆盖点加（PADD）原语，摘要未自陈其他局限。",
  "artifact": "公开"
 }

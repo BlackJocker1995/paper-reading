@@ -17,6 +17,6 @@
  "novelty": 4,
  "novelty_note": "填补 SA-MDP 在历史依赖策略下均衡的空白，并给出不存在通用均衡的结果。",
  "scope": "观察空间被状态相关邻域扰动的 MDP，考虑历史依赖策略与近似均衡。",
- "limitations": "实验规模较小，扩展到大规模连续控制环境的可行性未在摘要中给出。",
+ "limitations": "摘要未自陈局限；实验仅演示到 12 步预视界的 Atari Freeway。",
  "artifact": "未提及"
 }

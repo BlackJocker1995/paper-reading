@@ -122,7 +122,7 @@ fetch("collections/ai-venues/data/meta.json").then(function(r){ return r.json();
     '<span>已中译 ' + m.translated.toLocaleString() + '</span>';
 }).catch(function(){ document.getElementById("aiMeta").innerHTML = '<span>数据未载入</span>'; });
 // arXiv 日榜每月一个合集；新月份加在最前面（README「换月」）
-var ARXIV_MONTHS = ["2026-09"];
+var ARXIV_MONTHS = ["2026-10", "2026-09"];
 var ARXIV_CATS = [
   { key: "se", name: "cs.SE", pill: "",
     desc: "每个公告日一张榜，当天论文按<strong>证据强度 + 新颖性</strong>排序；也可以切到全月看，" +

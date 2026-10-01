@@ -15,7 +15,7 @@
  "evidence_strength": 4,
  "evidence_note": "5 变体同时在线 24 天、6709 会话、2039 唯一 IP、2000+ 小时交互，GreyNoise 标注给出 87–97% 停留时间来自恶意 IP。",
  "novelty": 4,
- "novelty_note": "作者自称是 OT/ICS 场景下首个应用层蜜罐，利用协议状态机与异常码构造协议原生拖延。",
+ "novelty_note": "作者自称是 OT/ICS 场景下首个应用层延滞陷阱，利用协议状态机与异常码构造协议原生拖延。",
  "scope": "公网可达的 Modbus TCP 与 IEC-104 服务，面向扫描器与协议特定攻击工具。",
  "limitations": "仅覆盖两种 OT 协议、只观测到扫描阶段，对真实 ICS 攻击者长期行为推断有限。",
  "artifact": "未提及"

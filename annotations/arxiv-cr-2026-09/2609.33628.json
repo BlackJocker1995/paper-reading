@@ -17,6 +17,6 @@
  "novelty": 3,
  "novelty_note": "把课程学习引入提示注入红队训练，并要求每级能部分成功以产生学习信号。",
  "scope": "前沿商用 LLM 作为目标、AgentDyn 评测、提示注入攻击任务。",
- "limitations": "评测基准相对集中，未报对强护栏或多轮 agent 环境的鲁棒性。",
+ "limitations": "摘要未明确给出作者自陈的局限；可见的范围限制是评测集中在 AgentDyn 以及几款前沿 LLM 的提示注入场景。",
  "artifact": "公开"
 }

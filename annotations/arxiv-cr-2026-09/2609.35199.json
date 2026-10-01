@@ -2,7 +2,7 @@
  "id": "2609.35199",
  "title_cn": "LLM 编程智能体中的轨迹级安全债务",
  "abstract_cn": "LLM 编程智能体在提交解决方案之前可能经历数百个中间代码状态。仅评估最终产物会导致安全发现的演变过程无法度量。我们引入安全债务线积分（SDLI），当智能体达到新的最佳测试通过率时，对静态分析风险进行累积。我们使用四种静态应用安全测试（SAST）工具将其实例化，并研究了 830 次通过的 SWE-bench 运行、712 个 ProgramBench 最终工作空间和 13 条公开 MirrorCode 轨迹的产物。两个大规模群体使用 SDLI 的最终状态特例。在 3.9% 的 SWE-bench 运行以及通过至少 90% 官方测试的 80 个 ProgramBench 运行中的 26.2% 里，出现了双工具通用缺陷枚举（CWE）类别一致。这些是扫描器的发现，而非经验证的漏洞率。排除三个告警密集类别后，后一比率降至 6.2%。相同任务的运行在测量分数上存在差异，而一次重建的 ProgramBench 运行从其首次实现写入就暴露出持续性发现。一项修复案例研究在保留测试行为的同时减少了扫描器信号，但也揭示了对等价 API 重写的敏感性。SDLI 提供了一种将进展与安全发现一并研究的方法。其在引导智能体和确认可利用漏洞方面的价值有待进一步验证。",
- "summary_cn": "提出沿 LLM 编码 agent 轨迹累加 SAST 风险的 SDLI 指标，在 830 条 SWE-bench、712 份 ProgramBench 终态与 13 条 MirrorCode 轨迹上评估，双工具 CWE 类别一致率分别为 3.9% 与 26.2%。",
+ "summary_cn": "提出沿 LLM 编码 agent 轨迹累加 SAST 风险的 SDLI 指标，在 830 条 SWE-bench、712 份 ProgramBench 终态与 13 条 MirrorCode 轨迹上评估，双工具 CWE 类别一致率在 SWE-bench 为 3.9%，在通过至少 90% 官方测试的 80 条 ProgramBench 运行中为 26.2%。",
  "topic": "AI for Security",
  "tags": [
   "LLM 编码 agent",

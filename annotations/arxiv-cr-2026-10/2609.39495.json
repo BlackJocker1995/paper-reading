@@ -1,0 +1,22 @@
+{
+ "id": "2609.39495",
+ "title_cn": "关于简洁证明者的量子交互证明",
+ "abstract_cn": "由 Goldreich、Vadhan 和 Wigderson（CC, 2002）研究的简洁证明者交互式证明系统，在经典场景下刻画了可通过对数级证明者通信量验证的问题。对于两消息量子类比，即便证明者的响应仅为单比特，对应类也已包含由 Watrous（FOCS 2002）引入的量子统计零知识（QSZK）。然而，将验证者的问题限制为经典公共随机性会使对应类坍缩为 BQP，如 Beigi、Shor 和 Watrous（ToC, 2011）所示。我们进一步研究简洁证明者的两消息量子交互式证明系统。为此，我们引入类 QIP_{ℓ-bit}(2)，其中 ℓ 为证明者响应的长度，并建立以下结论：1. 通过多态区分（Multi-State Distinguishability）对 QIP_{ℓ-bit}(2) 给出自然完备刻画；特别地，量子态区分（QSD）是 QIP_bit-完全的；由于 QSD 是 QSZK-难的，我们的结果将 ℓ≥2 时的 QIP_{ℓ-bit}(2) 置于「恰在 QSZK 之上」的复杂度格局中。2. QIP_{ℓ-bit}(2) 坍缩至 QSZK 的简易区间：我们证明当 a(n)-b(n)≥1/O(log n) 时，QSD[a,b]（从而 QIP_bit[a,b]）属于 QSZK，并将此与从 QIP_{ℓ-bit}[2,c,s] 到 QIP_bit 的答案压缩相结合，在 2c>(1+2^(ℓ/2))s 时得到另一个简易区间；值得注意的是，我们改进的极化结论同样适用于 SD 和 SZK，解决了 Sahai 和 Vadhan（JACM, 2003）中的一个公开问题。3. 量子公共随机性同样使交互变得无用：具有常数间隔的 qc-QAM[O(√(log n))] 属于 BQP，其中 qc-QAM[ℓ] 是 QIP_{ℓ-bit}(2) 的子类，验证者的问题恰好是 EPR 对的一半。",
+ "summary_cn": "研究两消息量子交互证明中证明者回答仅 ℓ 位的类 QIP_ℓ-bit(2)：给出多态区分完全刻画，证明 QSD 是 QIP_bit 完备，并给出两类坍缩回 QSZK 的「容易区间」，顺带解决 Sahai 与 Vadhan 的一个经典 SZK 极化开放问题；还证明 qc-QAM 在常数间隙下属于 BQP（68 页）。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "量子交互证明",
+  "零知识",
+  "复杂度类",
+  "QSZK"
+ ],
+ "objective_summary": "引入 QIP_ℓ-bit(2) 并以多态区分问题给出完备刻画；通过改进的极化给出若干参数区间下该类坍缩到 QSZK 的证明，并分析带量子公币的 qc-QAM 变体。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "纯理论工作，含 4 个协议、2 个算法、3 个电路、4 个表格的证明构造，无实验。",
+ "novelty": 4,
+ "novelty_note": "刻画出一类「刚好高于 QSZK」的量子交互证明，并顺带推进了经典 SZK 极化的一个开放问题。",
+ "scope": "两消息、证明者回答 ℓ 位的量子交互证明模型，以及 qc-QAM 子类。",
+ "limitations": "结论限于两消息、短回答的交互模型；更一般的多轮或长回答情形不在本文范围。",
+ "artifact": "未提及"
+}

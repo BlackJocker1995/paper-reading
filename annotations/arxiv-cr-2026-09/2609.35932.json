@@ -13,7 +13,7 @@
  "objective_summary": "测量聊天模板中伪造 marker 以保留控制 token 还是普通子词形式送入模型对提示注入成功率的影响，用 InjecAgent 与 AgentDojo 评估四个开放权重家族，并在 67 个 tokenizer 配置与 400 热门模型上统计覆盖面。",
  "contribution_type": "实证研究",
  "evidence_strength": 4,
- "evidence_note": "4 开源家族、InjecAgent 与 AgentDojo 多轮基准、67 个 tokenizer 配置、400 热门模型的覆盖面统计。",
+ "evidence_note": "4 开放权重家族、InjecAgent 与 AgentDojo 多轮基准、67 个 tokenizer 配置、400 热门模型的覆盖面统计。",
  "novelty": 4,
  "novelty_note": "把注入权威定位到保留 marker 位置的单个学习向量，并给出用嵌入邻居实施的自适应攻击。",
  "scope": "在四个开放权重模型家族、InjecAgent 与 AgentDojo 任务、工具协议 token 通道下成立。",

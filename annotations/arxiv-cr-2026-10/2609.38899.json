@@ -1,0 +1,22 @@
+{
+ "id": "2609.38899",
+ "title_cn": "SceneJail：利用视频场景上下文对多模态大语言模型实施越狱攻击",
+ "abstract_cn": "视频多模态大语言模型（Video-MLLMs）支持对视频输入进行推理，但仍易受越狱攻击，此类攻击可诱导模型输出违反策略的回应。现有视频越狱攻击主要通过操控有害查询的视觉呈现方式，将视频仅视为一种载体，因此视频周围的场景作为上下文攻击面尚未被探索。本文证明，相同的有害查询置于不同视频场景中时，可触发不同的安全回应。为系统性地利用这一漏洞，我们提出 SceneJail，一种具有两个协同组件的自适应黑盒越狱框架。自适应场景构建（Adaptive Scenario Construction）动态搜索与有害查询在语境上兼容的周围场景；场景感知提示搜索（Scenario-aware Prompt Search）利用黑盒响应反馈，搜索针对所选场景定制的文本引导。我们在 HADES 和 SafeBench 数据集上对八个 Video-MLLMs 进行了广泛评估，包括两个专有模型 GPT-4.1 和 Gemini3.5-Flash，验证了 SceneJail 的有效性。持续呈现完整查询的 SceneJail-F 平均攻击成功率（ASR）高达 91.5%，比最强基线高出 29.1 个百分点。此外，将查询分散至连续帧中的 SceneJail-S 对现有防御手段保持高度鲁棒性，即使在严格图像过滤下仍保持 72.3% 的 ASR。",
+ "summary_cn": "提出黑盒视频 MLLM 越狱 SceneJail,自适应构造场景并反馈搜索提示，在 HADES/SafeBench 上对 8 个 Video-MLLM(含 GPT-4.1、Gemini3.5-Flash)取得最高 91.5% ASR,较最强 baseline 高 29.1 个百分点；分帧版在严格图像过滤下仍保 72.3%。",
+ "topic": "Security of AI",
+ "tags": [
+  "越狱攻击",
+  "Video-MLLM",
+  "黑盒攻击",
+  "多模态安全"
+ ],
+ "objective_summary": "提出 SceneJail 黑盒视频越狱框架，由自适应场景构造与场景感知提示搜索两部分组成，在 HADES 与 SafeBench 上对 8 个 Video-MLLM 评估攻击成功率并与强 baseline 及图像过滤防御对比。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "覆盖 2 个越狱数据集、8 个 Video-MLLM 含 2 个闭源，与最强 baseline 对比高出 29.1 个百分点，并在严格图像过滤下验证分帧版本鲁棒性。",
+ "novelty": 4,
+ "novelty_note": "把视频周围场景作为上下文攻击面，并以黑盒反馈同时搜索场景与文本提示，不同于以往把视频仅作为呈现载体的做法。",
+ "scope": "黑盒越狱 Video-MLLM,在 HADES 与 SafeBench 两个数据集与所列 8 个视频多模态模型上评估。",
+ "limitations": "摘要未讨论局限；仅在两类越狱数据集与所列模型上验证。",
+ "artifact": "未提及"
+}

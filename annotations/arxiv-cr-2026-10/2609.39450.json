@@ -1,0 +1,22 @@
+{
+ "id": "2609.39450",
+ "title_cn": "ActionGuard：投毒技能下的工具调用授权",
+ "abstract_cn": "基于 LLM 的智能体通过第三方技能扩展其能力，这些技能提供特定任务的指令、脚本和工具使用程序。然而，插入到原本正常的技能中的恶意指令，可能导致良性用户请求触发危险的工具调用，包括数据窃取、文件删除或未授权代码执行。本文提出 ActionGuard，在执行前即时检查受技能影响的工具调用。ActionGuard 将目标智能体的动作生成上下文与安全防护的授权上下文分离。目标智能体可以使用原始技能进行规划，但审查器不会接收可能被投毒的原始技能文本。审查器使用平衡的技能概要、当前及近期工具调用以及本地脚本内容，判断每个动作是否由可信用户请求所合理。ActionGuard 在 OpenClaw 的 before-tool-call 阶段拦截每个工具调用，并在失败关闭策略下强制执行审查器的 ALLOW 或 DENY 决定。我们在基于 SKILL-INJECT 的设置中，对 139 个上下文注入和 180 个明显注入评估了 ActionGuard，与 Dynamic Guardian 和 SkillGuard 进行对比，使用了三种开源和两种商业审查器模型。每个条件重复三次，使用攻击成功率（ASR）和任务成功率（TSR）进行评估。总体而言，相对于现有安全防护，ActionGuard 将 ASR 降低了 35.54% 至 46.11%，相对于无安全防护降低了 70.44%，同时维持了较高的良性任务完成率。这些结果表明，以可信用户意图和运行时证据为基础的执行边界授权能够限制由技能注入引发的未授权工具调用。",
+ "summary_cn": "提出 ActionGuard，在执行前拦截技能注入影响下的工具调用，Reviewer 不读原始技能而依据可信用户请求判断；在 139 条上下文与 180 条显性注入上，相对已有防御降低攻击成功率 35.54 到 46.11%，相对无防御降低 70.44%。",
+ "topic": "Security of AI",
+ "tags": [
+  "LLM agent",
+  "技能注入",
+  "工具调用授权",
+  "运行时防御"
+ ],
+ "objective_summary": "将代理的行动生成上下文与授权上下文分离，以可信用户请求与运行时证据判定每次工具调用的 ALLOW 或 DENY；在 SKILL-INJECT 设置下与 Dynamic Guardian、SkillGuard 对比，使用 3 个开源与 2 个商用 Reviewer 模型，每条件重复三次，以 ASR 与 TSR 评估。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "319 条注入样本、两个对照防御加无防御基线、5 个 Reviewer 模型各重复三次，报告 ASR 与 TSR。",
+ "novelty": 3,
+ "novelty_note": "在已有技能注入防御上组合「执行边界授权」与「上下文隔离」，属已有方向上的实质改进。",
+ "scope": "基于 OpenClaw before-tool-call 钩子的 SKILL-INJECT 设置，覆盖 319 条注入与 5 个 Reviewer 模型。",
+ "limitations": "摘要未讨论局限；评估仅限 SKILL-INJECT 一个注入集与 OpenClaw 环境。",
+ "artifact": "未提及"
+}

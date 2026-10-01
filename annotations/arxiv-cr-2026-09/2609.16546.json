@@ -1,8 +1,8 @@
 {
  "id": "2609.16546",
  "title_cn": "GPUThor：通过非均匀模式放大 Rowhammer 攻击以利用 ECC 保护的 GPU",
- "abstract_cn": "GPU 中的 GDDR 内存容易受到 Rowhammer 攻击——快速的内存访问会在相邻存储单元中引发比特翻转，从而实现数据篡改和权限提升。然而，现有的 GPU Rowhammer 攻击仅能触发数十至数百次比特翻转，比 CPU 攻击少几个数量级，严重限制了其实际危害。这一差距源于现有 GPU Rowhammer 攻击依赖均匀锤击模式——攻击行与诱饵行的激活次数相同，导致攻击行的锤击强度偏低。我们提出 GPUThor，一种利用非均匀锤击的高强度 NVIDIA GPU Rowhammer 攻击方案。GPUThor 对 GPU 内存访问合并行为进行逆向工程，在 GPU 上实现非均匀锤击模式，使攻击行的激活强度高于诱饵行。此外，通过识别 DRAM 内缓解措施触发时的刷新时机，GPUThor 构建出更长的攻击序列，使攻击能够跨越刷新间隔规避缓解，进一步提升锤击强度。综合上述技术，与已有 GPU Rowhammer 攻击相比，在多款 NVIDIA GPU（A4000、A4500、A5000、A6000）上可产生 500 倍至 23,500 倍更多的比特翻转，达到接近最先进 CPU Rowhammer 攻击的比特翻转率。GPUThor 还首次实现了对 ECC 保护 GPU 的 Rowhammer 利用，能够诱发不可纠正的双位和三位翻转，使得即便在启用 ECC 的 GPU 上，拒绝服务与权限提升攻击也成为切实可行的威胁。",
- "summary_cn": "提出 GPUThor，逆向 GPU 内存合并行为构造非均匀 hammering 模式，并借刷新时机构造跨刷新长模式规避 in-DRAM 缓解；在四款 NVIDIA GPU 上位翻转数比先前多 500 至 23500 倍，并首次在 ECC 保护 GPU 上诱发不可纠正的双三位翻转（CCS'26）。",
+ "abstract_cn": "GPU 中的 GDDR 内存容易受到 Rowhammer 攻击——快速的内存访问会在相邻存储单元中引发比特翻转，从而实现数据篡改和权限提升。然而，现有的 GPU Rowhammer 攻击仅能触发数十至数百次比特翻转，比 CPU 攻击少几个数量级，严重限制了其实际危害。这一差距源于现有 GPU Rowhammer 攻击依赖均匀锤击模式——攻击行与诱饵行的激活次数相同，导致攻击行的锤击强度偏低。我们提出 GPUThor，一种利用非均匀锤击的高强度 NVIDIA GPU Rowhammer 攻击方案。GPUThor 对 GPU 内存访问合并行为进行逆向工程，在 GPU 上实现非均匀锤击模式，使攻击行的激活强度高于诱饵行。此外，通过识别 DRAM 内缓解措施触发时的刷新时机，GPUThor 构建出更长的攻击序列，使攻击能够跨越刷新间隔规避缓解，进一步提升锤击强度。综合上述技术，在多款 NVIDIA GPU（A4000、A4500、A5000、A6000）上可产生 500 至 23,500 倍于已有 GPU Rowhammer 攻击的比特翻转数，达到接近最先进 CPU Rowhammer 攻击的比特翻转率。GPUThor 还首次实现了对 ECC 保护 GPU 的 Rowhammer 利用，能够诱发不可纠正的双位和三位翻转，使得即便在启用 ECC 的 GPU 上，拒绝服务与权限提升攻击也成为切实可行的威胁。",
+ "summary_cn": "提出 GPUThor，逆向 GPU 内存合并行为构造非均匀 hammering 模式，并借刷新时机构造跨刷新长模式规避 in-DRAM 缓解；在四款 NVIDIA GPU 上位翻转数达到先前 GPU Rowhammer 攻击的 500 至 23500 倍，并首次在 ECC 保护 GPU 上诱发不可纠正的双三位翻转（CCS'26）。",
  "topic": "Systems & Network Security",
  "tags": [
   "Rowhammer",
@@ -13,7 +13,7 @@
  "objective_summary": "通过逆向 GPU 内存合并、构造非均匀 hammering 模式与跨刷新长模式来规避 in-DRAM 缓解，在四款 NVIDIA GPU 上测量位翻转数并与已有 GPU Rowhammer 攻击对照。",
  "contribution_type": "新方法/新技术",
  "evidence_strength": 4,
- "evidence_note": "在 A4000、A4500、A5000、A6000 四款 NVIDIA GPU 上量化位翻转数并与已有 GPU Rowhammer 对照，得出 500 至 23500 倍提升与 ECC 下双三位翻转结果。",
+ "evidence_note": "在 A4000、A4500、A5000、A6000 四款 NVIDIA GPU 上量化位翻转数并与已有 GPU Rowhammer 对照，位翻转数达到先前方法的 500 至 23500 倍，并给出 ECC 下双三位翻转结果。",
  "novelty": 4,
  "novelty_note": "作者称首次在 ECC 保护 GPU 上诱发不可纠正翻转，非均匀 hammering 与跨刷新长模式是新构造。",
  "scope": "结论限于 A4000/A4500/A5000/A6000 与其 GDDR、in-DRAM 缓解设置。",

@@ -16,6 +16,6 @@
  "novelty": 4,
  "novelty_note": "把现代深度图像水印显式刻画为 BPSK AWGN 并给出密钥语义，据此突破二元字母表与容量限制。",
  "scope": "后置多比特深度图像水印，几何与数值变换组成的失真信道。",
- "limitations": "AWGN+BPSK 是对真实失真信道的近似，面对未入模的攻击与自适应对手仍需验证。",
+ "limitations": "摘要未讨论局限。",
  "artifact": "未提及"
 }
