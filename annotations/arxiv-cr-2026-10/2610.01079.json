@@ -1,0 +1,22 @@
+{
+ "id": "2610.01079",
+ "title_cn": "Jev-IDS：用于网络入侵检测的 System One 模型",
+ "abstract_cn": "基于机器学习的网络入侵检测系统（IDS）依赖大量标注数据集和任务专属训练，而大语言模型（LLM）检测可直接分析流量记录，但产生更高的推理成本与延迟，且输出约束较少。本文提出 JEV-IDS，一种基于 Jev System One Model（SOM）的开放实验性通用 NIDS，在标签稀缺的条件下检测零日入侵。JEV-IDS 每次请求序列化一条流记录，并向 JEV 提出两个问题：二值攻击概率和有限选择的流量类别。我们的结果表明，在 k=1 时，JEV 的速度是 GPT-5.6 Luna 的 4.8 倍、成本为其 1/3.8，新型攻击召回率为其 1.5 倍；同时，其误报数仅为低数据 Random Forest 的 1/15。在基于 300 条流的 NSL-KDD 试验划分的 5,400 次决策中，JEV 达到 F1-Score 0.859、精确率 0.941、召回率 0.790、新型攻击召回率 0.838。将 k 增至 2 时，其 F1-Score 降至 0.839。",
+ "summary_cn": "基于 Jev System One Model 的开放实验性 NIDS，让 JEV 对每条流回答二元攻击概率与流量类别；300 流 NSL-KDD 试点划分的 5,400 次决策上 F1 0.859、新型攻击召回 0.838；k=1 时速度为 GPT-5.6 Luna 的 4.8 倍、成本为其 1/3.8，误报数为低数据随机森林的 1/15。",
+ "topic": "AI for Security",
+ "tags": [
+  "Jev SOM",
+  "零日检测",
+  "低标注",
+  "NSL-KDD"
+ ],
+ "objective_summary": "将每条流序列化为一次请求，让 JEV 给出二元攻击概率与有限选项的流量类别；k=1 时与 GPT-5.6 Luna 比较速度、成本与新型攻击召回，与低数据随机森林比较误报，并在 300 流 NSL-KDD 试点划分的 5,400 次决策上报告 F1 等指标。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 2,
+ "evidence_note": "评估仅在 NSL-KDD 的 300 流 pilot 子集上做 5400 决策，基线仅两类，未报告交叉验证或显著性检验。",
+ "novelty": 2,
+ "novelty_note": "以 Jev SOM 直接对单条流记录作答来做 NIDS，思路与摘要所述 LLM 直接分析流记录的做法相近。",
+ "scope": "NSL-KDD 300 流 pilot 划分；每条流单独序列化作为一次请求的设置下成立。",
+ "limitations": "评估规模仅 300 流 pilot；k 从 1 升到 2 时 F1 由 0.859 降至 0.839。",
+ "artifact": "未提及"
+}

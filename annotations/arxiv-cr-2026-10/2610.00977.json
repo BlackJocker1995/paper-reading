@@ -1,0 +1,22 @@
+{
+ "id": "2610.00977",
+ "title_cn": "ABSENTIA：检测 Web 应用中的访问控制失效漏洞",
+ "abstract_cn": "访问控制失效，即授权机制的失败，是最普遍的 Web 安全风险之一。与注入不同——注入是不可信输入流向危险操作的过程——授权是一种关系：谁可以对什么进行操作，而非数据如何流动。每个应用自行决定该关系，因此没有任何预先编写的规则能适用于下一个应用。LLM 智能体可以从代码中推断该关系，但若缺乏系统性地覆盖应用并确定检查优先级的方法，其搜索将漫无目的，访问控制缺陷因而无法被发现。我们提出 ABSENTIA，一种安全脚手架，能够将通用 LLM 智能体转变为 Web 应用后端的系统性漏洞检测器，由维护代码的开发者和安全工程师以审计方式运行。在其指导下，智能体构建一张图，将应用的路由映射到其背后的代码。ABSENTIA 随后逐路由进行不变量证伪：推断代码应满足的属性，若某属性未被强制执行，则将该路由报告给维护者审查。我们还发布了 BAC-Bench，一个涵盖 25 个代码库、3 种语言、9 个框架的 30 条访问控制失效安全公告基准，每条均发布于 2025 年或之后，经过人工审计员验证，并与修复提交配对，评分要求标记漏洞版本而非修复版本。ABSENTIA 召回其中 19 条，在配对评分标准下召回 17 条，LLM 验证器确认了其 51% 的发现。CodeQL 和 Semgrep 均未召回任何条目，同一模型上的无结构智能体召回 3 条。在 OWASP Benchmark 的注入类别中，ABSENTIA 在 Python 上领先于专用分析器，在 Java 上仅次于 CodeQL 和 IRIS。",
+ "summary_cn": "提出 ABSENTIA 用 LLM agent 做权限控制漏洞审计：构建路由到代码的图、逐路由做不变式证伪；在新基准 BAC-Bench 25 仓库 30 条 2025 年起的公告上召回 19 条（配对计分下 17 条），LLM 验证器确认其 51% 的发现，CodeQL 与 Semgrep 召回 0，同模型的无结构 agent 召回 3。",
+ "topic": "AI for Security",
+ "tags": [
+  "权限控制漏洞",
+  "LLM agent",
+  "Web 后端审计",
+  "基准"
+ ],
+ "objective_summary": "针对 Web 后端权限控制漏洞难以用预设规则覆盖的问题，构建把路由映射到代码的图并用不变式证伪引导 LLM agent 审计，并发布 BAC-Bench 基准与 CodeQL、Semgrep 以及无结构 agent 做对照。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "BAC-Bench 覆盖 30 条 2025 年起漏洞、25 仓库、3 语言、9 框架；与 CodeQL、Semgrep 及无结构 agent 对照并报告 OWASP 结果。",
+ "novelty": 4,
+ "novelty_note": "把路由到代码图加不变式证伪作为引导 agent 系统覆盖 Web 后端权限审计的脚手架。",
+ "scope": "在 BAC-Bench 的 3 语言 9 框架 Web 后端代码上评估，OWASP Benchmark 另给出注入类别结果。",
+ "limitations": "摘要未讨论局限；BAC-Bench 仅含 30 条公告，LLM 验证器确认的发现为 51%。",
+ "artifact": "公开"
+}

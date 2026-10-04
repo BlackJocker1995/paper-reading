@@ -13,7 +13,7 @@
  "objective_summary": "提出 PrivCert 把私有报告的声明支持显式认证，给出 Proposal-and-Filter 实例、隐私-诚实边界与多声明细粒度认证的最坏代价，并在合成任务与 TAB、WildChat、Yelp 三个数据集上与 free-text DP 基线对比。",
  "contribution_type": "新方法/新技术",
  "evidence_strength": 3,
- "evidence_note": "覆盖合成任务与 TAB、WildChat、Yelp 三个真实数据集并给出理论界，摘要未报告统计检验或与完整 baseline 的广度。",
+ "evidence_note": "覆盖合成任务与 TAB、WildChat、Yelp 三个数据集，与自由文本 DP 基线对比并给出理论界；摘要未报告统计检验。",
  "novelty": 4,
  "novelty_note": "把差分隐私文本生成重述为证据设计问题，给出可用直方图、稀疏向量、高斯机制实现的 emit-or-abstain 契约。",
  "scope": "差分隐私文本报告场景，在合成任务与 TAB、WildChat、Yelp 上评估，支持直方图、稀疏向量、高斯等 DP 机制实现。",

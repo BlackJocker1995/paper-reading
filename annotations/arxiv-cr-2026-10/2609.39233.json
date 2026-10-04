@@ -2,7 +2,7 @@
  "id": "2609.39233",
  "title_cn": "MultiTable：在任意物理负载因子（直至满载）下更快的哈希表",
  "abstract_cn": "我们提出 multitable 及其 Rust 参考实现：这是一种稳定的哈希表，在相同物理内存下实质上比 Rust 的 hashbrown 实现中的 SwissTable 更快，且更灵活。在 84 种配置的算术平均下，当两者对相同原始字节进行哈希时，其吞吐量为 hashbrown 的 2.1 倍，当 hashbrown 以原生整数为键时（其最优情况），吞吐量为 hashbrown 的 1.9 倍；仅在负查找上，分别为 3.2 倍和 2.9 倍。Multitable 可达任意物理负载因子，直至满载（已演示至 0.9999），精确满足所请求的容量，而 hashbrown 对于 4 字节键值在 0.777 时容量翻倍。在 hashbrown 75% 饱和度（假设其固定阶梯的平均情况）且 multitable 物理负载因子调整为 0.97 时，hashbrown 多占用 66% 的空间。随着负载因子趋近于 1，查找探测次数没有断崖式增长。桶大小、物理负载因子和失败预算均为参数，且 multitable 可以在不重新哈希的情况下扩容。我们实现了 multitable 的两个变体：plain 和 filtered。在 Apple M2 Pro 上相同物理内存下，filtered multitable 在全部 84 种插入、命中和未命中配置中均优于 hashbrown。Multitable 更节省内存：在 4 字节键值映射上以相同的混合查找吞吐量为基准，filtered multitable 比 hashbrown 少用至多 12% 的字节，plain multitable 小 18%，在相同内存中可容纳多 22% 的键。",
- "summary_cn": "提出 multitable 哈希表及 Rust 参考实现，可达到任意物理装载因子（含 0.9999）且无需再哈希；在 84 组配置上相对 hashbrown 平均吞吐 2.1×（同字节哈希）或 1.9×（原生整数键），负查询场景 3.2×／2.9×，同吞吐下内存可省 12%—18%。",
+ "summary_cn": "提出 multitable 哈希表及 Rust 参考实现，物理装载因子可直至并包括 1（演示到 0.9999），扩容无需再哈希；84 组配置平均吞吐为 hashbrown 的 2.1 倍（同字节哈希）或 1.9 倍（原生整数键），负查询 3.2／2.9 倍；同混合查找吞吐下 filtered 版至多少用 12% 字节，plain 版小 18%。",
  "topic": "Other",
  "tags": [
   "哈希表",
@@ -13,10 +13,10 @@
  "objective_summary": "设计并实现一种支持任意物理装载因子的哈希表 multitable，并在 Apple M2 Pro 上与 Rust hashbrown 做插入、命中、未命中等 84 种配置的吞吐和内存对比。",
  "contribution_type": "新工具/系统",
  "evidence_strength": 3,
- "evidence_note": "在 Apple M2 Pro 上以 hashbrown 为唯一基线做 84 组配置的均值对比，给出吞吐与内存数字；摘要未提多机器复现或统计检验。",
+ "evidence_note": "在 Apple M2 Pro 上与 hashbrown 做 84 组配置的均值对比，给出吞吐与内存数字；摘要只提到这一个基线，未提多机器复现或统计检验。",
  "novelty": 4,
- "novelty_note": "在不再哈希前提下将物理装载因子推到 1，且装载因子、桶大小、失败预算均作为参数暴露，与 SwissTable 式阶梯扩容路线不同。",
- "scope": "在 Apple M2 Pro 上、与 Rust hashbrown 对比的插入／命中／未命中微基准成立；摘要未覆盖并发或多核场景。",
- "limitations": "摘要未讨论局限；评测仅单一硬件平台和单一对手实现，场景限于微基准。",
+ "novelty_note": "物理装载因子可直至 1、扩容无需再哈希，桶大小、装载因子、失败预算均可参数化，区别于 hashbrown 的固定阶梯扩容。",
+ "scope": "Apple M2 Pro 上与 Rust hashbrown 对比的 84 种插入／命中／未命中配置；内存结论针对 4 字节键值映射。",
+ "limitations": "摘要未讨论局限；摘要只报告 Apple M2 Pro 一个平台，且只与 hashbrown 对比。",
  "artifact": "未提及"
 }

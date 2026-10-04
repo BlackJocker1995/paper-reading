@@ -1,0 +1,22 @@
+{
+ "id": "2610.00309",
+ "title_cn": "令牌化密钥门控适配器路由：一种防止大语言模型私有数据泄露的安全访问控制机制",
+ "abstract_cn": "大语言模型（LLM）日益部署于隐私敏感领域（如医疗、金融和政府），但其记忆并披露个人可识别信息（PII）的倾向带来了严重的安全合规风险。现有防御手段通常在模型效用、隐私保护与对微调私有知识的访问之间强制取舍。我们提出 LoRA-Oriented Control via Keyed Entry Tokens（Locket），一个将细粒度、策略驱动的访问控制直接嵌入 LLM 生成过程的实用框架。Locket 训练一组轻量级 LoRA（Low-Rank Adaptation）适配器，每个适配器编码一种不同的访问策略（如完全披露、通过 PII 掩码的部分脱敏，或在指定差分隐私级别下披露）。一个紧凑的门控模块被训练为通过序列级硬路由将一个习得的密钥入口令牌与恰好一个 LoRA 适配器关联；有效令牌的存在充当解锁相应私有知识的授权密钥，而无效或缺失的令牌则触发隐私保护适配器，对敏感内容进行脱敏或净化。该设计确保 Locket 与现成 LLM 完全兼容，在满足监管和隐私要求的同时支持可扩展部署。我们在多个数据集（Enron、ECHR、Yelp）和一系列最先进的 LLM 上对 Locket 进行了评估，包括 Qwen3（1.7B 和 8B）、Meta 的 Llama-3.2（1B 和 3B）以及 Google 的 Gemma-2-2B。大量实验表明，在提供正确令牌时，Locket 保持了与在原始数据上微调（不含任何防御）相当的困惑度。反之，当令牌缺失或无效时，Locket 在将 PII 泄露大幅降低的同时，保持了与强基线防御相当的效用和困惑度。",
+ "summary_cn": "提出 Locket：训练一组各自编码不同访问策略的 LoRA 适配器，再用密钥 token 做序列级硬路由；有效 token 解锁对应私有知识，无效或缺失则触发脱敏适配器。在 Enron、ECHR、Yelp 上评估 Qwen3（1.7B、8B）、Llama-3.2（1B、3B）与 Gemma-2-2B，正确 token 时困惑度与原始数据微调相当，缺失或无效时 PII 泄露大幅下降，效用与困惑度与强基线防御相当。",
+ "topic": "Security of AI",
+ "tags": [
+  "LLM 安全",
+  "LoRA",
+  "PII 保护",
+  "访问控制"
+ ],
+ "objective_summary": "将策略驱动的访问控制嵌入 LLM 生成过程，通过密钥 token 门控硬路由到不同隐私策略的 LoRA 适配器；在三个数据集与五种 LLM 上与原始数据微调及强基线防御对比困惑度和 PII 泄露。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "覆盖三个数据集与五种 LLM，含与原始数据微调及强基线防御的对比；摘要未报告统计检验或消融。",
+ "novelty": 3,
+ "novelty_note": "把密钥 token 硬路由与多策略 LoRA 适配器结合用于分级访问控制，是在适配器与访问控制方向上的组合创新。",
+ "scope": "Qwen3（1.7B/8B）、Llama-3.2（1B/3B）、Gemma-2-2B 五个模型在 Enron、ECHR、Yelp 三个数据集上的评估。",
+ "limitations": "摘要未讨论局限；仅在五个 1B–8B 规模的 LLM 与 Enron、ECHR、Yelp 三个数据集上评估。",
+ "artifact": "未提及"
+}

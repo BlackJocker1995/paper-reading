@@ -2,7 +2,7 @@
  "id": "2609.39844",
  "title_cn": "量子提取的自然障碍：论 (O)EKE 与 Masny-Rindal OT 的后量子（不）安全性",
  "abstract_cn": "Bellovin 与 Merritt 提出的加密密钥交换（EKE，IEEE S&P 1992）以及 Masny 与 Rindal 提出的 Masny-Rindal OT（ACM CCS 2019）是高效方法，仅依赖理想化对称密钥原语，即可将几乎任意 KEM 编译为高级密码协议，即口令认证密钥交换（PAKE）与不经意传输（OT）。它们已成为实际可实现的 PAKE 与 OT 的领先候选方案，原因在于：（1）其简洁性，（2）即插即用的特性，允许灵活选择 KEM，以及（3）在经典对手模型下已有 UC 安全性证明。基于上述第（2）点，这些编译器在高效后量子 PAKE 与 OT 方面提供了极具吸引力的候选方案，尤其是考虑到近期后量子 KEM 标准化工作的进展。这引出了一个问题：这些编译器的（UC）安全性是否在量子对手模型下仍然成立。本文证明答案是否定的。具体而言，我们证明了一大类 (O)EKE 协议以及 Masny-Rindal OT 对量子多项式时间对手并不具备 UC 安全性，即便用后量子 KEM 实例化亦然。为建立 UC 不安全性，我们设计了一种对手策略，可证明地阻止模拟器提取其输入（在 PAKE 情形中为口令，在 OT 情形中为接收方的选择比特）。作为对这些否定结果的补充，我们证明两种编译器均满足某些基于游戏的安全性概念。在此过程中，我们建立了一个新颖的「优势紧致」单向到隐藏引理，该引理可能具有独立的研究价值。",
- "summary_cn": "证明一类 (O)EKE 协议与 Masny–Rindal OT 即便用后量子 KEM 实例化，也对量子多项式时间敌手不是 UC 安全：构造的敌手策略可证明阻止模拟器提取口令或接收者选择比特；作为补偿，建立两种编译器的若干基于博弈的安全性，并给出一个「优势紧」的 one-way to hiding 引理。",
+ "summary_cn": "证明一类 (O)EKE 协议与 Masny–Rindal OT 即便用后量子 KEM 实例化，也对量子多项式时间敌手不是 UC 安全：构造的敌手策略可证明阻止模拟器提取口令或接收者选择比特；作为补充，建立两种编译器的若干基于博弈的安全性，并给出一个「优势紧」的 one-way to hiding 引理。",
  "topic": "Crypto & Protocols",
  "tags": [
   "后量子",
@@ -10,13 +10,13 @@
   "OT",
   "UC 不安全"
  ],
- "objective_summary": "论文通过构造量子敌手策略证明 (O)EKE 与 Masny–Rindal OT 在量子敌手下不可 UC 模拟，并对两种编译器建立基于博弈的正面结果。",
+ "objective_summary": "论文通过构造量子敌手策略证明一类 (O)EKE 协议与 Masny–Rindal OT 在量子敌手下不可 UC 模拟，并对两种编译器建立基于博弈的正面结果。",
  "contribution_type": "理论/形式化",
  "evidence_strength": 3,
  "evidence_note": "密码学理论工作，摘要给出负面 UC 结果与基于博弈的正面结果的证明论证，未报告实验。",
  "novelty": 4,
- "novelty_note": "证明一类 (O)EKE 与 Masny–Rindal OT 在后量子 KEM 实例化下不是 UC 安全的，并给出一个优势紧的 one-way to hiding 引理。",
+ "novelty_note": "证明一类 (O)EKE 与 Masny–Rindal OT 即便用后量子 KEM 实例化，对量子多项式时间敌手也不是 UC 安全的，并给出一个优势紧的 one-way to hiding 引理。",
  "scope": "覆盖 (O)EKE 协议的一般族与 Masny–Rindal OT，威胁模型为量子多项式时间 UC 敌手。",
- "limitations": "摘要未讨论局限；仅证伪 UC 安全，未排除其它更强的量子 UC 可行编译器。",
+ "limitations": "摘要未讨论局限；负面结果只针对一类 (O)EKE 协议与 Masny–Rindal OT 在量子敌手下的 UC 安全，正面结果为某些基于博弈的安全性。",
  "artifact": "未提及"
 }

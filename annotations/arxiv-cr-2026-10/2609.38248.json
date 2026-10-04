@@ -2,7 +2,7 @@
  "id": "2609.38248",
  "title_cn": "ContractWarden：通过人工授权合约实现 AI 智能体的内核强制损害边界",
  "abstract_cn": "大型语言模型智能体可以执行命令、创建子进程并直接访问文件和网络，使得提示注入或规划错误得以演变为操作系统层面的副作用。我们提出 ContractWarden，这是一个 Linux 参考监控器，它在不信任智能体或其策略建议的前提下，强制执行人工授权的损害边界。模型可以提出包含三种状态的资产合约——allow、deny 或 no_egress——但最终决定权在人。执行门在不可信代码运行前将合约绑定到具体任务上。扩展 Berkeley 包过滤器（eBPF）Linux 安全模块（LSM）数据平面随后强制执行文件和网络决策，并通过进程、普通文件、管道、FIFO 和受支持的 Unix 域套接字单调传播 no_egress。覆盖 19 项安全测试的全部 570 次运行均满足预定义的返回值与副作用标准。在三个同主机文件 I/O 工作负载上，Linux 6.15 虚拟机中的中位开销为 11.96%–12.89%，Linux 6.15 物理平台上为 35.79%–61.54%，均低于所评估的冻结 ActPlane 基线。结果表明，针对已声明资产、受支持路径和受控对象生命周期，内核强制执行具有确定性。",
- "summary_cn": "ContractWarden 用 eBPF LSM 把人类授权的三态契约(allow/deny/no_egress)落到 Linux 内核，跨进程、常规文件、管道、FIFO 与部分 Unix 域套接字单调传播 no_egress;19 项安全测试 570 次运行全部达标,Linux 6.15 虚机中位开销 11.96–12.89%、物理机 35.79–61.54%(投稿 ICOIN 2027)。",
+ "summary_cn": "ContractWarden 用 eBPF LSM 把人类授权的三态契约（allow/deny/no_egress）落到 Linux 内核，跨进程、常规文件、管道、FIFO 与受支持的 Unix 域套接字单调传播 no_egress；19 项安全测试 570 次运行全部达标，Linux 6.15 虚机中位开销 11.96–12.89%、物理机 35.79–61.54%（投稿 ICOIN 2027）。",
  "topic": "Security of AI",
  "tags": [
   "LLM agent 治理",
@@ -15,8 +15,8 @@
  "evidence_strength": 3,
  "evidence_note": "19 项安全测试 570 次运行全部符合预设准则，并在虚机与物理机上报告三项文件 I/O 工作负载的中位开销与 ActPlane 基线对比。",
  "novelty": 3,
- "novelty_note": "在 agent 内核执行方向上提出三态资产契约，并把 no_egress 在进程、文件、管道、FIFO、部分 Unix 套接字间单调传播。",
+ "novelty_note": "在智能体内核执行方向上提出三态资产契约，并把 no_egress 在进程、文件、管道、FIFO、受支持的 Unix 域套接字间单调传播。",
  "scope": "结论限于 Linux 6.15 虚机与物理机、所声明的资产类型、受支持路径与所评估的三项文件 I/O 工作负载。",
- "limitations": "物理机开销显著高于虚机(最高 61.54%);评估限于声明的资产与受支持的对象生命周期。",
+ "limitations": "摘要未讨论局限；物理机开销明显高于虚机（最高 61.54%），结论限于已声明资产、受支持路径与受控对象生命周期。",
  "artifact": "未提及"
 }
