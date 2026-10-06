@@ -455,11 +455,15 @@ def main() -> None:
     ap.add_argument("--tr-model", default="sonnet", help="翻译用的模型，默认 sonnet")
     ap.add_argument("--ev-model", default="opus", help="分类评级用的模型，默认 opus")
     ap.add_argument("--rv-model", default="opus", help="复核用的模型，默认 opus")
-    ap.add_argument("--no-review", action="store_true", help="跳过复核（不建议：不复核时错误率很高）")
+    ap.add_argument("--no-review", action="store_true",
+                    help="不跑复核（缓存里已有的复核结果照样用上）。不建议单独用：不复核时错误率很高；"
+                         "接下来要做 agent 逐篇复核时可以用它省掉这一道")
+    ap.add_argument("--workers", type=int, default=WORKERS, help=f"每段并发的模型调用数，默认 {WORKERS}")
     ap.add_argument("--review-existing", action="store_true",
                     help="不新标，只把已有标注再复核一遍；用 --ids 或 --days 选范围")
     ap.add_argument("--days", help="配合 --review-existing：只复核这些公告日（逗号分隔）")
     a = ap.parse_args()
+    globals()["WORKERS"] = a.workers
 
     slug = f"arxiv-{a.category.split('.')[-1].lower()}-{a.month}"
     raw_f = REPO / ".cache/fetch" / f"{slug}.raw.json"
@@ -513,17 +517,17 @@ def main() -> None:
     written, changed = 0, 0
     for p in ready:
         rec = p["_rec"]
-        if not a.no_review:
-            rv = read_cached(cache / "rv" / f"{p['id']}.json", lambda x, p=p: rv_ok(a.category, p, x))
-            if rv is None:
-                missing.append(p["id"])
-                continue
+        rv = read_cached(cache / "rv" / f"{p['id']}.json", lambda x, p=p: rv_ok(a.category, p, x))
+        if rv is None and not a.no_review:
+            missing.append(p["id"])
+            continue
+        if rv is not None:
             changed += bool(rv["fix"])
             rec = apply_fix(rec, rv["fix"])
         atomic_write(ann_dir / f"{p['id']}.json", json.dumps(rec, ensure_ascii=False, indent=1))
         written += 1
-    if not a.no_review:
-        print(f"  复核改动了 {changed}/{written} 篇", file=sys.stderr)
+    print(f"  复核改动了 {changed}/{written} 篇" + ("（--no-review：只用了缓存里已有的复核）" if a.no_review else ""),
+          file=sys.stderr)
 
     days = sorted({p.get("day") for p in todo if p["id"] in missing and p.get("day")})
     print(f"✅ 写入 {written} 篇 → {ann_dir}" + (f"；还缺 {len(missing)} 篇 {missing[:5]}，"

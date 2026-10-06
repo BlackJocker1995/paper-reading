@@ -10,13 +10,13 @@
   "LLM 推理",
   "共享 GPU"
  ],
- "objective_summary": "提出利用稀疏注意力中依赖输入的 KV cache 访问模式构造 SIMA 侧信道的 SparLeak,在预填充阶段做属性推断、解码阶段做响应重建，在 3 种 LLM、3 种稀疏注意力机制与 3 个隐私数据集上评估。",
+ "objective_summary": "提出利用稀疏注意力中依赖输入的 KV cache 访问模式构造 SIMA 侧信道的 SparLeak，在预填充阶段做属性推断、解码阶段做响应重建，在 3 种 LLM、3 种稀疏注意力机制与 3 个隐私数据集上评估。",
  "contribution_type": "新方法/新技术",
  "evidence_strength": 4,
  "evidence_note": "覆盖 3 种 LLM 架构、3 种稀疏注意力机制、3 个隐私数据集，报告 90.9% 与 87.3% 平均成功率，摘要未提 baseline 与统计检验。",
  "novelty": 4,
- "novelty_note": "提出稀疏注意力诱发的 KV cache 访问侧信道 SIMA,并给出配套的属性推断与响应重建攻击流水线。",
+ "novelty_note": "提出稀疏注意力诱发的 KV cache 访问侧信道 SIMA，并给出配套的属性推断与响应重建攻击流水线。",
  "scope": "共享 GPU 的 LLM 推理场景，在所列 3 种 LLM 架构、3 种稀疏注意力机制与 3 个隐私数据集上成立。",
- "limitations": "摘要未讨论局限；基于页级观测近似重构 token 级稀疏分布，仅在所列三类设置上评估。",
+ "limitations": "摘要未讨论局限；仅在所列 3 种 LLM 架构、3 种稀疏注意力机制与 3 个隐私敏感数据集上评估。",
  "artifact": "公开"
 }

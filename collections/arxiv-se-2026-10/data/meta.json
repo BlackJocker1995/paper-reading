@@ -3,27 +3,32 @@
  "title": "arXiv cs.SE · 2026-10",
  "month": "2026-10",
  "category": "cs.SE",
- "count": 24,
- "with_objective": 24,
- "with_institution": 23,
+ "count": 55,
+ "with_objective": 55,
+ "with_institution": 51,
  "days": [
+  "2026-10-02",
   "2026-10-01"
  ],
  "topics": {
-  "AI Coding Agent": 15,
-  "LLM4SE": 3,
-  "Security & Vulnerability": 2,
-  "Code Analysis": 1,
-  "Human & Process": 1,
+  "AI Coding Agent": 32,
+  "Human & Process": 6,
+  "LLM4SE": 5,
+  "Security & Vulnerability": 4,
+  "Maintenance & Evolution": 2,
+  "Code Analysis": 2,
+  "ML/AI Security & Quality": 1,
+  "Software Testing": 1,
   "MSR & Empirical": 1,
   "Bug & Defect": 1
  },
  "contribution_types": {
-  "新方法/新技术": 9,
+  "新方法/新技术": 19,
+  "实证研究": 13,
+  "新工具/系统": 11,
   "基准/数据集": 6,
-  "新工具/系统": 5,
-  "实证研究": 3,
-  "理论/形式化": 1
+  "综述/系统性文献回顾": 4,
+  "理论/形式化": 2
  },
- "generated": "2026-10-01T04:47:28+00:00"
+ "generated": "2026-10-04T06:16:26+00:00"
 }

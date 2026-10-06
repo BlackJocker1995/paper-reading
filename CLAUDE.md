@@ -99,6 +99,11 @@ cs.CR 全在本仓库（README「日常更新」）：`fetch_arxiv.py` → `anno
   倍数说错（1.32x increase→增加了 1.32 倍）。术语表在 `TAXONOMY[...]["terms"]`，硬规则在 `FACT_RULES`。
   评级提示里带着从已发布标注（同分类所有月份）现算的分数分布与样例，新标注对齐同一把尺子。
   改了口径要回头补：`--review-existing --days ...` 只对已有标注重新复核。
+- **脚本的单次复核不够，每次更新后要再做一轮 agent 逐篇复核**（2026-10-04 起的做法）：
+  每个 agent 约 12 篇，对照英文原文直接改标注文件；改完另派一个 agent 只读抽查量残余率。
+  实测：复核前 cs.CR 144 篇里 83 篇、SE 55 篇里 35 篇有实质问题；复核后抽查 cs.CR 0/15、SE 1/10。
+  代价约每 12 篇 20 万 token。SE 的标注在 vault 缓存里（同一天在一个大 JSON），要先拆成每篇一个文件给 agent 改，
+  再合并回 `.web/<date>.json` 与 `.web/objective/<id>.json`，别让多个 agent 同时改同一个文件。
   topic 的边界口径写在脚本的 `TAXONOMY` 里，是对照已发布 323 篇归纳的，改之前先看已发布的怎么归。
 - cs.SE 与 cs.CR 的抓取都打 arxiv.org，别同时跑。
 

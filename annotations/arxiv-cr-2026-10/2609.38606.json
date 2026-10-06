@@ -2,7 +2,7 @@
  "id": "2609.38606",
  "title_cn": "SecureVibe：让 Vibe Coding 更安全",
  "abstract_cn": "随着 vibe coding 的能力不断提升并日益普及，即便在功能正确的解决方案中存在安全漏洞也日益令人担忧。在调查功能正确但不安全的解决方案时，我们发现，不安全的智能体针对功能需求背后隐藏的安全风险开展有效规划和测试的概率，不足安全智能体的一半。受此启发，我们开发了 SECUREVIBE——一套明确针对代码安全规划与测试的训练方案。SECUREVIBE 围绕这些安全行为构建训练信号，包括在含 4 个安全任务的安全套件上进行监督微调，以及后训练方法 SECUREVIBE_rl 和 SECUREVIBE_hg，分别通过可验证执行反馈和基于提示的自监督来增强安全能力。我们的 SECUREVIBE 在 4 个基准上的两类安全编码任务中均优于基线。具体而言，SECUREVIBE 在 BaxBench 上将安全 pass@1 提升了 6.9 个百分点；增益延伸至未见 CWE 类别，在 SusVibes 上提升了 11.5 个百分点。与此同时，它还在安全编码任务 SusVibes 上将功能 pass@1 提升了 13.6 个百分点，在通用编码任务 SWE-bench Verified 上提升了 4.1 个百分点。进一步分析提供了两条实践启示：（i）将监督多样化地覆盖安全规划、编码与测试，比单纯增加编码轨迹更能有效强化安全行为；（ii）当智能体现有的安全能力不足以从结果反馈中有效学习时，基于提示的监督尤为重要。",
- "summary_cn": "针对「vibe coding」中功能正确但不安全的问题，提出 SECUREVIBE 训练方案:在含 4 个安全任务的安全套件上做 SFT,再用可验证执行反馈的 RL 与提示自监督微调，在 BaxBench 上安全 pass@1 提升 6.9 点，增益延伸至未见 CWE 类别(在 SusVibes 上提升 11.5 点),同时 SusVibes 功能 pass@1 提升 13.6 点、SWE-bench Verified 提升 4.1 点。",
+ "summary_cn": "针对「vibe coding」中功能正确但不安全的问题，提出 SECUREVIBE 训练方案：在含 4 个安全任务的安全套件上做 SFT，再用可验证执行反馈的 RL 与提示自监督微调，在 BaxBench 上安全 pass@1 提升 6.9 点，增益延伸至未见 CWE 类别（在 SusVibes 上提升 11.5 点），同时 SusVibes 功能 pass@1 提升 13.6 点、SWE-bench Verified 提升 4.1 点。",
  "topic": "AI for Security",
  "tags": [
   "安全代码生成",
@@ -10,13 +10,13 @@
   "强化学习",
   "vibe coding"
  ],
- "objective_summary": "围绕安全规划、编码与测试构造训练信号，结合 SFT、RL 与提示式自监督训练 SECUREVIBE,并在 BaxBench、SusVibes 等 4 个安全编码基准及 SWE-bench Verified 上与基线比较。",
+ "objective_summary": "围绕安全规划、编码与测试构造训练信号，结合 SFT、RL 与提示式自监督训练 SECUREVIBE，并在 BaxBench、SusVibes 等 4 个安全编码基准及 SWE-bench Verified 上与基线比较。",
  "contribution_type": "新方法/新技术",
  "evidence_strength": 4,
  "evidence_note": "跨 4 个安全编码基准与通用编码任务对比基线，报告安全 pass@1 与功能 pass@1 的具体提升幅度，并分析不同训练成分的消融洞察。",
  "novelty": 3,
- "novelty_note": "把安全规划、测试诊断纳入训练目标并引入提示自监督，针对的是 vibe coding 场景下的安全行为。",
- "scope": "4 个安全编码基准(含 BaxBench、SusVibes)与 SWE-bench Verified;基础模型摘要未给。",
+ "novelty_note": "把安全规划与测试纳入训练目标并引入基于提示的自监督，针对 vibe coding 场景下的安全行为。",
+ "scope": "4 个安全编码基准（含 BaxBench、SusVibes）与 SWE-bench Verified；基础模型摘要未给。",
  "limitations": "摘要未讨论局限；基础模型与安全类别覆盖程度摘要未给。",
  "artifact": "未提及"
 }

@@ -13,7 +13,7 @@
  "objective_summary": "以双层优化刻画对互联多社区电力市场的 FDI 攻击，上层最大化电压偏差同时控制可检测性，并在 IEEE 33 节点三社区系统做案例研究。",
  "contribution_type": "新方法/新技术",
  "evidence_strength": 3,
- "evidence_note": "在 IEEE 33 节点三社区系统做案例研究，含操作与网络约束作对照，但未给与现有攻击模型的量化比较。",
+ "evidence_note": "仅在 IEEE 33 节点三社区系统上做案例研究，摘要未给与其他攻击模型或基线的量化比较。",
  "novelty": 3,
  "novelty_note": "把最坏情况 FDI 双层建模扩展到互联多社区本地能源市场的时空布点视角。",
  "scope": "配电网 IEEE 33 节点三社区本地能源市场的 FDI 攻击分析。",

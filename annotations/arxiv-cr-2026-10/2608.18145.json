@@ -10,13 +10,13 @@
   "嵌入式实现",
   "ARM Cortex-M4"
  ],
- "objective_summary": "在 NUCLEO-L4R5ZI 板上对 HQC 的 FAFFT 多项式乘法与定重采样做指令级优化，并与两种先前最快实现对比密钥生成、封装、解封装的周期数。",
+ "objective_summary": "在 NUCLEO-L4R5ZI 板上对 HQC 的 FAFFT 多项式乘法与定重采样做指令级优化，并与两种先前最先进实现中较快的一种对比密钥生成、封装、解封装的开销。",
  "contribution_type": "新方法/新技术",
  "evidence_strength": 4,
- "evidence_note": "在 NUCLEO-L4R5ZI 实测，对比两类先前最快实现报告三项操作的加速比，并给出 VMOV 减少最多 48.1% 等微观指标。",
+ "evidence_note": "在 NUCLEO-L4R5ZI 开发板上实测，以两种先前最先进实现中较快者为基线报告三项操作的降幅，并给出 VMOV 最多减少 48.1% 等微观指标。",
  "novelty": 3,
  "novelty_note": "在 FAFFT 乘法与定重采样这两个已有方向上提出脏位感知寄存器分配、XOR 重排与谓词 4 路展开等改进。",
- "scope": "结论限于 HQC 在 ARM Cortex-M4(NUCLEO-L4R5ZI)上的 C 实现,HQC-1 另有更稀疏的 FAFFT 模数。",
- "limitations": "摘要未讨论局限；仅在单一开发板与 HQC 参数集上评估。",
+ "scope": "结论限于 ARM Cortex-M4（NUCLEO-L4R5ZI 开发板）上的 HQC 实现；更稀疏的 FAFFT 模数只针对 HQC-1。",
+ "limitations": "摘要未讨论局限；仅在 NUCLEO-L4R5ZI 单一开发板上评估。",
  "artifact": "未提及"
 }
