@@ -1,0 +1,23 @@
+{
+ "id": "2610.13026",
+ "title_cn": "Matter over Thread 的后量子会话建立：消息大小、传输与协议选项",
+ "abstract_cn": "Matter 的首个后量子变更使用 ML-DSA 保护设备证明，但其运营握手 CASE 仍从 P-256 ECDH 派生会话密钥，因此一旦量子计算机出现，被记录的流量即可被解密。我们量化在 Thread 上把 CASE 迁移到 ML-KEM 与后量子签名的成本，Thread 帧至多承载 127 字节、Matter 消息至多 1178 字节。CASE 消息的字节精确模型显示，直接替换的 ML-KEM-768/ML-DSA-44 握手从 1.6 kB 增长到 22.8 kB，且由 FIPS 203/204/205 算法构建的完全后量子配置无一能放入消息上限。以 OpenThread 与 Matter 源码常数标定的多跳 Thread 蒙特卡洛模型显示，把这些消息作为分片 IPv6 数据报发送时，只要消息及其应答超出 Matter 的重传计时器就会引发虚假重传。在三到四跳时，直接替换握手比选择性重试块传输耗时 1.8 到 2.6 倍（有无干扰皆然），与昏睡设备的握手中至多 33% 失败；调大计时器无法消除该效应。缓存证书链并用预分发的 ML-KEM 密钥认证设备可把握手降到 6.1 kB 与 44 毫秒的设备计算量。作为第一步，带缓存设备证书链的混合 P-256+ML-KEM-512 密钥交换可在每条消息仍符合当前上限的同时保护会话密钥免受「先收集后解密」攻击。",
+ "summary_cn": "量化 Matter CASE 后量子迁移：ML-KEM-768/ML-DSA-44 握手 1.6→22.8 kB 超 1178 B 上限，多跳重传使握手慢 1.8–2.6 倍；缓存加混合 P-256+ML-KEM-512 可行。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子密码",
+  "Matter",
+  "Thread",
+  "物联网",
+  "密钥交换"
+ ],
+ "objective_summary": "以字节精确消息模型与标定蒙特卡洛仿真量化 Matter over Thread 会话建立的后量子迁移成本，比较分片 IPv6 与块传输的重传行为，并提出证书链缓存与混合密钥交换的渐进迁移路径。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 3,
+ "evidence_note": "字节精确消息模型加 OpenThread/Matter 源码常数标定的蒙特卡洛多跳仿真，量化多配置消息大小与时延；作者自陈硬件验证仍在进行，无实测。",
+ "novelty": 3,
+ "novelty_note": "TLS 等协议的后量子迁移已有系统研究，本文首次系统量化 Matter CASE 在 Thread 约束下的迁移成本并给出可行的混合迁移首步，属新场景的系统测量。",
+ "scope": "结论适用于 Matter 1.x over Thread（127 B 帧/1178 B 消息上限）场景；Wi-Fi/以太网承载或未来 Matter 协议修订不在建模范围内。",
+ "limitations": "全部结论基于模型与仿真，硬件验证尚在进行（作者自陈）；仿真常数取自特定 OpenThread/Matter 版本；昏睡设备行为模型可能简化了真实固件。",
+ "artifact": "未提及"
+}

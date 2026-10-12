@@ -1,0 +1,23 @@
+{
+ "id": "2610.13491",
+ "title_cn": "EviRepair：面向可靠漏洞修复的证据驱动智能体",
+ "abstract_cn": "大语言模型（LLM）的最新进展使基于智能体的仓库级自动化漏洞修复（AVR）方法成为可能，展现出有前景的修复能力。然而一个重要问题受到的关注有限：如何确保修复过程中生成的证据足够可靠以支持准确的漏洞理解与补丁生成？在本文中，我们提出 EviRepair，一个证据驱动的多智能体仓库级 AVR 框架。EviRepair 通过让智能体协作收集漏洞证据、验证证据一致性并构建经审查的漏洞模型用于补丁合成与验证，把证据审查引入修复过程。在 PatchEval 与 SecBench 基准上用多个智能体框架与 LLM 进行的广泛实验表明，EviRepair 持续优于现有基于智能体的基线，在 PatchEval 与 SecBench 上解决率平均提升 16.37% 与 40.33%。代码发布于 GitHub（lly-s/EviRepair）。",
+ "summary_cn": "证据驱动的多智能体漏洞修复 EviRepair：协作收集并交叉验证漏洞证据后再合成补丁，PatchEval/SecBench 解决率平均提升 16.37% 与 40.33%，代码开源。",
+ "topic": "AI for Security",
+ "tags": [
+  "漏洞修复",
+  "LLM 智能体",
+  "证据验证",
+  "仓库级",
+  "开源"
+ ],
+ "objective_summary": "提出在仓库级自动化漏洞修复中加入证据收集、一致性验证与经审查漏洞模型的多智能体框架 EviRepair，并在 PatchEval 与 SecBench 上以多个智能体框架与 LLM 对比基线。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "PatchEval 与 SecBench 双基准、多智能体框架与多 LLM 的系统对比，解决率平均提升 16.37%/40.33%，代码开源可复算。",
+ "novelty": 3,
+ "novelty_note": "多智能体 AVR 已有多个框架，本文新意在于把「证据可靠性」作为核心问题，引入证据审查与一致性验证阶段；整体为已有智能体流水线上的机制增量。",
+ "scope": "结论适用于 PatchEval/SecBench 类仓库级漏洞修复任务与所测智能体框架/LLM 组合；对超大型仓库与其他语言生态未评估。",
+ "limitations": "提升幅度依赖所选 LLM 与框架组合；证据审查引入的额外推理开销未在摘要量化；基准中漏洞类型分布可能偏向可证据化类别。",
+ "artifact": "公开"
+}
