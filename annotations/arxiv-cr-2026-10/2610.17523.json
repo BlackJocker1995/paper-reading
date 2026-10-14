@@ -1,0 +1,23 @@
+{
+ "id": "2610.17523",
+ "title_cn": "Enhanced Detective：联邦学习金融欺诈检测中抗内部投毒的双阶段主动防御",
+ "abstract_cn": "随着人工智能的近期发展，联邦学习（FL）等分布式学习范式相继出现。简言之，FL 让多个实体在不共享本地数据的情况下协同训练 AI 模型。FL 范式在金融服务等隐私敏感场景中尤其有价值，因为它使机构能在敏感交易数据保持本地的同时协同改进欺诈检测模型。然而 FL 方案易受安全漏洞影响：恶意客户端可投毒本地数据或模型更新并劣化全局模型，从而影响最终模型性能。因此，我们提出 Enhanced Detective，一个结合中位数绝对偏差（MAD）、基于距离的更新过滤与 FedMedian 聚合的双阶段鲁棒聚合策略。在不平衡信用卡数据集上的实验评估 50 通信轮次下的定向标签翻转与权重缩放攻击。在 40% 恶意客户端下，Enhanced Detective 取得 AUPRC 0.796 与 Recall 0.847。",
+ "summary_cn": "Enhanced Detective：MAD+距离过滤+FedMedian 双阶段鲁棒聚合，50 轮、40% 恶意客户端下 AUPRC 0.796、Recall 0.847。",
+ "topic": "Security of AI",
+ "tags": [
+  "联邦学习",
+  "投毒防御",
+  "鲁棒聚合",
+  "欺诈检测",
+  "金融安全"
+ ],
+ "objective_summary": "提出结合 MAD、距离过滤与 FedMedian 的双阶段鲁棒聚合防御，在不平衡信用卡数据集上评估 50 轮标签翻转与权重缩放攻击下的 AUPRC/Recall。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "单数据集、两种攻击类型、50 轮、40% 恶意客户端的量化结果（AUPRC 0.796、Recall 0.847）；基线对比细节与统计检验未披露。",
+ "novelty": 2,
+ "novelty_note": "MAD、距离过滤与 FedMedian 均为已知鲁棒聚合组件，双阶段组合属工程化改进，机制新意有限。",
+ "scope": "结论限于信用卡欺诈数据集与两种投毒攻击；对后门攻击、非 IID 极端场景与自适应对手未评估。",
+ "limitations": "单一数据集与攻击集；40% 恶意占比假设明确但更高占比未测；无通信/计算开销分析。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2610.16928",
+ "title_cn": "本地家庭自动化加密通信的安全与鲁棒性分析：ESPHome Native API 与 MQTT over TLS 1.3",
+ "abstract_cn": "物联网（IoT）在住宅与本地自动化环境中的扩张凸显了把内部网络视为固有可信域的局限。中间人（MitM）攻击（如 ARP 欺骗）可在通信缺乏适当机密性、完整性与认证机制时实现流量拦截或操纵。本文对 ESP 系微控制器与 Home Assistant 平台间两种通信替代方案的安全机制做系统化评述：经 TLS 1.3 保护的 MQTT，以及加密基于 Noise 协议框架（Noise_NNpsk0_25519_ChaChaPoly_SHA256 模式）的 ESPHome Native API。分析覆盖四个维度：密码学鲁棒性、攻击面、实现复杂度与资源消耗。评述识别出源于各自架构与密码学模型的显著差异：TLS 1.3 提供与公钥基础设施及正式身份管理兼容的标准化框架，但引入更大的配置复杂度与会话建立计算开销；ESPHome Native API 采用更专用的方案，操作复杂度更低、消除动态算法协商并使用 ChaCha20-Poly1305。资源消耗分析依赖项目与制造商自行发布的测量而非实验测试床，这一局限被明确承认。结果识别了各机制适用于本地家庭自动化架构的条件，并为平衡安全、互操作性与资源约束的 IoT 系统设计提供依据。",
+ "summary_cn": "系统化评述 ESPHome Native API（Noise_NNpsk0）与 MQTT over TLS 1.3 的密码学鲁棒性、攻击面、复杂度与资源消耗，识别各自适用条件。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "IoT 安全",
+  "TLS 1.3",
+  "Noise 协议",
+  "智能家居",
+  "系统化评述"
+ ],
+ "objective_summary": "沿密码学鲁棒性、攻击面、实现复杂度与资源消耗四维度系统化比较 ESPHome Native API 与 MQTT/TLS 1.3 两种家庭自动化通信方案的安全机制。",
+ "contribution_type": "综述/系统性文献回顾",
+ "evidence_strength": 2,
+ "evidence_note": "系统化评述依赖规格与项目/厂商自发布测量，无自建测试床（作者明示）；定性对比为主、无自主实验数据。",
+ "novelty": 2,
+ "novelty_note": "对两个具体 IoT 协议栈的聚焦比较有工程参考价值，但分析方法与结论属成熟安全工程知识的系统化整理。",
+ "scope": "结论适用于 ESP/ESPHome 与 Home Assistant 生态的本地自动化场景；对其他 MCU 平台与broker实现需重新评估。",
+ "limitations": "资源数据来自厂商自报、无独立测量；未覆盖实现级漏洞与真实攻击实验；单一平台生态。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2610.16087",
+ "title_cn": "机密纠错码",
+ "abstract_cn": "我们提出机密纠错码（CEC），一个使系统能从被扰动的码字可靠解码同时保持消息机密性的新密码学原语。我们通过机密性、鲁棒性与可靠性三个安全性质形式化该原语。为实现这一目标，我们开发了基于「随机性-安全性分离」（RSS）结构的 CEC 通用构造框架：先编码 nonce 引入随机性，再用伪随机函数掩蔽编码载荷。基于 RSS 框架，我们用级联 Reed-Muller 与 Reed-Solomon 码实例化 CEC（Conc-CEC），对全部三个性质给出可证明保证。值得注意的是，与另一种具纠错能力的近期密码学原语 PRC（CRYPTO'24）相比，CEC 在实用参数设置下达到显著更强的具体安全保证。作为 CEC 的主要应用，我们进一步提出面向 AI 生成图像的水印方案 CECMark。在真实生成图像模型上的实验表明，CECMark 持续优于最先进水印方法，包括 Gaussian Shading（CVPR'24）、PRCMark（ICLR'25）与 T2SMark（NeurIPS'25）：CECMark 在全部 56 个评估扰动上取得更高鲁棒性，并在不引入副作用的情况下保证低于 10⁻⁵ 的误报率。综上，本工作为可信水印方案奠定新的密码学基础，首次统一可证明安全保证与强实用可靠性。",
+ "summary_cn": "提出机密纠错码 CEC 新原语（RSS 框架 + Reed-Muller/Reed-Solomon 实例化），具体安全性显著强于 PRC；CECMark 图像水印在 56 种扰动下全面超越 SOTA 且误报 <10⁻⁵。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "密码学原语",
+  "纠错码",
+  "水印",
+  "可证明安全",
+  "图像溯源"
+ ],
+ "objective_summary": "形式化同时具备机密性与纠错能力的 CEC 原语，给出 RSS 通用框架与 Conc-CEC 实例的可证明保证，并以 CECMark 水印应用对比三个 SOTA 的鲁棒性与误报。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "三性质的可证明保证加 56 种扰动、与 CVPR'24/ICLR'25/NeurIPS'25 三个 SOTA 水印的系统对比与误报界（<10⁻⁵）。",
+ "novelty": 4,
+ "novelty_note": "提出「机密纠错码」这一新原语并统一可证明安全与实用可靠性，相对 PRC 是明确的新构造方向；水印应用为其直接产出。",
+ "scope": "结论适用于所给参数设置下的 Conc-CEC 与生成图像水印场景；到其他纠错-机密性应用与自适应水印移除者的泛化未评估。",
+ "limitations": "具体安全依赖 RSS 参数选取；CECMark 对主动对抗移除的评估限于 56 种扰动集；解码开销未详。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2610.15541",
+ "title_cn": "能抓到就抓：Fetch Metadata 的全面分析",
+ "abstract_cn": "针对跨站攻击的有效服务端防御依赖理解浏览器请求生成的上下文。然而服务器常常缺乏区分合法请求与潜在恶意跨站交互所需的信息。Fetch Metadata 是 2019 年引入的安全机制，通过向浏览器外发请求添加一组 HTTP 头解决这一局限：这些头向服务器提供请求的上下文与来源信息，使其能相应执行请求隔离策略。然而 Fetch Metadata 的真实世界采用程度及其与既有安全机制的交互在很大程度上未被探索。本文呈现首个 Fetch Metadata 采用的大规模测量研究。我们分析 Tranco 列表前 100 万网站，检测 Fetch Metadata 隔离策略的部署并识别在野使用的自定义策略。随后我们考察这些策略如何应对跨站威胁并评估其安全覆盖。最后，我们首次系统比较 Fetch Metadata 与既有客户端安全机制，揭示客户端与服务端强制执行差异所产生的安全缺口。",
+ "summary_cn": "首个 Fetch Metadata 大规模测量：Tranco 前 100 万站的隔离策略部署、在野自定义策略与安全覆盖，并系统对比客户端机制的覆盖缺口。",
+ "topic": "Measurement & Empirical",
+ "tags": [
+  "Fetch Metadata",
+  "Web 安全测量",
+  "跨站防御",
+  "Tranco",
+  "请求隔离"
+ ],
+ "objective_summary": "对 Tranco 前 100 万网站大规模测量 Fetch Metadata 隔离策略的部署与在野自定义用法，评估其跨站威胁覆盖并首次系统对比客户端安全机制的缺口。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 4,
+ "evidence_note": "Tranco 前 100 万站的大规模测量，部署检测、策略内容与安全覆盖的系统分析；摘要未给出具体采用率数字。",
+ "novelty": 3,
+ "novelty_note": "Fetch Metadata 引入多年后首个大规模采用与覆盖测量，填补服务端请求隔离机制的经验证据空白。",
+ "scope": "结论基于 Tranco 列表与可观测响应头；动态/边缘渲染场景与内部企业部署未覆盖。",
+ "limitations": "采用率测量受 crawling 条件限制；策略正确性分析依赖规格解读；对部署后效果无纵向数据。",
+ "artifact": "未提及"
+}
