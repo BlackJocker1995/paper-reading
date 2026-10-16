@@ -1,0 +1,22 @@
+{
+ "id": "2610.21488",
+ "title_cn": "到 Frobenius 共轭的最短同源的光滑性",
+ "abstract_cn": "设 E 从 F̄_p 上超奇异椭圆曲线的几何同构类中均匀选取，δ_E 为从 E 到其 Frobenius 共轭 E^(p) 的同源最小次数。我们证明 δ_E 的光滑性，从而肯定 Wesolowski 针对超奇异自同态环问题的 p^(1/3+o(1)) 攻击是无条件的。",
+ "summary_cn": "证明超奇异曲线到 Frobenius 共轭最短同源次数的光滑性，使 Wesolowski 的 p^(1/3+o(1)) 自同态环攻击成为无条件结果。",
+ "objective_summary": "证明从随机超奇异椭圆曲线到其 Frobenius 共轭的最短同源次数具有光滑性，解除 Wesolowski 超奇异自同态环攻击的启发式假设。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "超奇异曲线",
+  "同源",
+  "自同态环",
+  "后量子密码"
+ ],
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "理论论文：单一定理的完整证明，直接支持已发表攻击分析的严格化；无实验成分。",
+ "novelty": 3,
+ "novelty_note": "把依赖启发式的攻击分析变为无条件定理，属关键引理补全；攻击框架与结果本身来自已有工作（Wesolowski）。",
+ "scope": "限于超奇异椭圆曲线与其 p 幂 Frobenius 共轭间的同源；对具体密码方案参数选择无直接改动建议。",
+ "limitations": "为单一理论结果，覆盖面窄；对同源密码实际部署的影响是间接的；证明依赖既有数论工具。",
+ "artifact": "未提及"
+}
