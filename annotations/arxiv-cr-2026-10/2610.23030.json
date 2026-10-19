@@ -1,0 +1,23 @@
+{
+ "id": "2610.23030",
+ "title_cn": "ECHO：在优化式越狱攻击中以响应有害性取代依从代理指标",
+ "abstract_cn": "尽管有广泛的安全对齐，大语言模型仍然易受越狱攻击。现有优化式攻击共享单一目标：最大化受害者依从性的 token 级代理——如在提示上计算的肯定前缀似然——而非解码后的回复。该代理无法区分谨慎的含糊其辞与完全可操作的有害答案，使搜索对模型实际说什么视而不见。我们提出 ECHO（Evaluation-Conditioned Harmfulness Optimization），用 HarmSig——一个基于实际有害能力的 1.7B 回归器——产生的响应级连续有害性分数取代依从代理。ECHO 将 HarmSig 与五个词级扰动算子及带全局 top-m 记忆的关键词锚定束搜索耦合，在严格黑盒威胁模型下工作。在 AdvBench 上跨五个开源权重受害者，ECHO 取得最高 0.898 的 StrongREJECT 均分与 89.23% 的 HarmBench 成功率。代码公开可得。",
+ "summary_cn": "以 1.7B 有害性回归器 HarmSig 的响应级分数替代肯定前缀代理的越狱攻击 ECHO：五个开源模型 AdvBench 上 StrongREJECT 均分最高 0.898、HarmBench 成功率 89.23%，严格黑盒。",
+ "objective_summary": "提出以响应级有害性回归分数为优化目标的黑盒越狱攻击框架，结合词级扰动与关键词锚定束搜索，并在两个越狱基准上量化成功率。",
+ "topic": "Security of AI",
+ "tags": [
+  "越狱攻击",
+  "黑盒优化",
+  "有害性评估",
+  "束搜索",
+  "安全对齐"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "五个开源权重模型 × AdvBench，报告 StrongREJECT 与 HarmBench 双指标；无统计检验，受害者以开源模型为主。",
+ "novelty": 3,
+ "novelty_note": "优化目标从「依从代理」换成「响应级有害性」是对优化式越狱的实质性改进，但依赖已有 HarmSig 回归器与常规搜索算子。",
+ "scope": "结论适用于开源权重 LLM 与英文有害行为基准；对闭源 API 的严格查询限制、多轮策略与防御部署下的表现未评估。",
+ "limitations": "依赖 HarmSig 回归器的打分质量，可被针对性欺骗；仅评估英文单轮场景；未测试对推理时防御等最新对齐的穿透力。",
+ "artifact": "公开"
+}
