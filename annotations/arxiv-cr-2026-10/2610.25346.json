@@ -1,0 +1,23 @@
+{
+ "id": "2610.25346",
+ "title_cn": "等价非线性移位寄存器变换与 Espresso",
+ "abstract_cn": "流密码 Espresso 由 E. Dubrova 与 M. Hell 设计，是面向 5G 安全的高效硬件候选。它有两个组件：带 14 个反馈抽头的 256 位二元非线性反馈移位寄存器（NFSR），与一个 20 变量非线性输出函数。然而，Espresso 针对若干标准密码分析攻击的安全性评估使用的是一个只有两个反馈抽头的替代 NFSR。上述分析基于一个断言：该替代 NFSR 由保持原 NFSR 输出序列的变换算法得到。鉴于近期硬件性能评估结果均假设所述等价成立，这一问题愈发重要。本文首次成功解决 Espresso NFSR 等价性问题。我们通过对相关变换方法的细致分析得到主要结果：首先发现并修正 E. Dubrova 一个基础结果证明中的关键缺陷；随后在 Espresso 等价的语境下分析并统一 Dubrova 的变换框架与 Yao 和 Parampalli 提出的框架。基于该分析，我们成功把 Yao 和 Parampalli 报告的 Espresso 等价设计中的 LFSR 变换为 Espresso 替代 NFSR，并进一步得到与该 LFSR 设计输出等价（从而与 Espresso 输出等价）的相应非线性输出函数。",
+ "summary_cn": "解决 Espresso 流密码 NFSR 等价性悬案：发现并修正 Dubrova 基础结果证明缺陷，统一两个变换框架，成功把 LFSR 设计变换为 Espresso 替代 NFSR 并给出输出等价的非线性函数。",
+ "objective_summary": "分析并修正既有 NFSR 变换理论的证明缺陷，统一 Dubrova 与 Yao–Parampalli 变换框架，据此解决 Espresso 替代 NFSR 与原设计的输出等价问题。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "流密码",
+  "Espresso",
+  "NFSR",
+  "等价变换",
+  "密码分析基础"
+ ],
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "理论证明修正与构造性变换结果、可验证的输出等价；密码理论论证完整、无实验。",
+ "novelty": 4,
+ "novelty_note": "解决一个悬置且被后续硬件评估依赖的基础等价问题，并修正权威结果证明中的缺陷，修正性价值高。",
+ "scope": "结论限于 Espresso 及相关 NFSR/LFSR 变换理论；对其他流密码或安全界数值的直接更新未展开。",
+ "limitations": "结论为等价性确立而非新攻击；此前依赖该等价假设的安全与硬件评估是否需修正，本文未量化。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2610.26501",
+ "title_cn": "连接托管：把 AI 智能体 Pod 出站连接扣在内核中直到隔离验证器裁决",
+ "abstract_cn": "容器中的 AI 智能体通过打开网络连接行动，而驱动它们的文本可能充满敌意。放在智能体与其工具之间的控制可被子进程或直接 socket 绕过，且其批准与内核随后打开的连接无关。我们提出连接托管（connection escrow）：来自受管 pod 的每条出站 TCP 连接在存在任何数据包之前就被停在内核 connect() 路径内——由 pod cgroup 上的 98 条指令 eBPF 程序完成。节点拦截器把被扣 socket 归因到其内核 socket cookie、进程、可执行文件摘要、cgroup 与 pod 身份，扣留智能体写入的首批字节，并向独立容器中持有自身密钥的验证器请求裁决。只有当签名裁决指明该 socket cookie 与目的地、未过期且未使用时连接才被释放；截止前无裁决则重置，迟到的批准被拒绝。智能体无需修改。36 项检查的对抗套件在真实 cgroup 下于 eBPF 扣留点全部通过（其中 33 项也适用于 iptables 扣留点并通过）：被拒连接永不到达目的地；伪造、重绑、重放、过期与迟到裁决均被拒绝；智能体试图访问验证器本身也被托管；子进程与改名二进制绕过失败；UDP 被钉到解析器。在 Kubernetes 集群上，未修改 pod 的连接按条扣留并归因到 SPIFFE 身份，绕过 sidecar 代理的裸 socket 被扣留，六个 pod 的 600 条连接被门控。扣留为每条放行连接增加 4.5 ms 中位时延，其中 24 µs 是策略。最后，我们在不终止 TLS 的情况下按请求内容门控：eBPF uprobe 在智能体 TLS 库边界读取明文（共享 OpenSSL、静态 OpenSSL、Go crypto/tls），由模型打分，连接据裁决扣留——TLS 保持端到端，执行器不持密钥。",
+ "summary_cn": "提出连接托管：eBPF 在内核 connect() 路径扣留智能体出站 TCP、独立验证器签名裁决放行，36 项对抗检查通过、绕过路径全被封堵，每连接中位仅增 4.5 ms，并支持不终止 TLS 的内容门控。",
+ "objective_summary": "设计内核级出站连接扣留与隔离验证器裁决机制，保证执行者无密钥、TLS 端到端，用对抗套件与 K8s 集群实验验证安全性与开销。",
+ "topic": "Security of AI",
+ "tags": [
+  "智能体出站控制",
+  "eBPF",
+  "内核安全",
+  "Kubernetes",
+  "容器隔离"
+ ],
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "36 项对抗检查套件、真实 cgroup 与 K8s 集群实验、600 条连接门控、开销量化（4.5 ms 中位）；系统实现完整。",
+ "novelty": 3,
+ "novelty_note": "内核级扣留加外部裁决在出站控制方向有近亲，「连接粒度+socket cookie 归因+TLS 不终止」的系统化落地是贡献。",
+ "scope": "结论适用于 Linux/Kubernetes 与 TCP/UDP 出站控制；非容器环境、其他传输与攻击内核本身的对手未覆盖。",
+ "limitations": "验证器成为新的信任与可用性瓶颈；4.5 ms 时延对高吞吐场景可能显著；内容门控依赖 uprobe 对 TLS 库实现版本的适配。",
+ "artifact": "公开"
+}
