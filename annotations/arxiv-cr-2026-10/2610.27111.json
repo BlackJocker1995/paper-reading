@@ -1,0 +1,23 @@
+{
+ "id": "2610.27111",
+ "title_cn": "后量子密码在受限与通用架构上的能耗测量",
+ "abstract_cn": "随着 Q-day 临近，向后量子密码（PQC）的迁移已经开始，美国、英国和欧盟的政府都在强制要求迁移到抗量子标准。本文对三个 NIST 标准化 PQC 算法——FIPS 203（ML-KEM）、FIPS 204（ML-DSA）与 FIPS 205（SLH-DSA）——的密钥生成、签名与验证操作进行基准测试，在从 32 位树莓派 1 和 Zero 到 64 位树莓派 4 的一系列受限 IoT 级设备以及普通笔记本硬件上，同时测量计算性能与能耗。使用 FNIRSI FNB58 USB 功率计与 OpenSSL 3.5，结果显示 ML-KEM 与 ML-DSA 在所有受测架构上的能耗与速度效率均可比肩经典椭圆曲线密码。然而，在受限硬件上进行 SLH-DSA 签名并不可取：32 位设备上 SLH-DSA 签名的能耗比同等 64 位硬件最高高出 243%，使其在资源受限的 IoT 部署中不切实际。这些发现对规划 PQC 迁移的 IoT 安全从业者具有直接意义。",
+ "summary_cn": "实测三种 NIST PQC 算法从树莓派 1 到笔记本的性能与能耗：ML-KEM/ML-DSA 与椭圆曲线相当，SLH-DSA 签名在 32 位设备上能耗最高比 64 位高出 243%，不适合受限 IoT。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子密码",
+  "能耗测量",
+  "IoT",
+  "SLH-DSA",
+  "ML-KEM"
+ ],
+ "objective_summary": "用 USB 功率计在树莓派 1/Zero/4 与笔记本上系统测量 ML-KEM、ML-DSA、SLH-DSA 的性能与能耗，与椭圆曲线基线对比并给出迁移建议。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 3,
+ "evidence_note": "覆盖 32/64 位多档真实设备、三种算法全操作、专用功率计测量；但仅 OpenSSL 3.5 单一实现、无统计检验，数据为自测基准。",
+ "novelty": 2,
+ "novelty_note": "PQC 在 IoT 上的性能基准已有大量工作，本文主要增量是以能耗为统一指标并量化 SLH-DSA 在 32 位设备上的劣势，属成熟技术的工程化测量。",
+ "scope": "结论适用于 OpenSSL 3.5 参考实现与树莓派级硬件；不同实现优化（汇编、硬件加速）与更低端微控制器未覆盖。",
+ "limitations": "仅 OpenSSL 3.5 一种实现，结果可能随实现优化改变；未测微控制器级设备；能耗测量依赖 USB 功率计精度。",
+ "artifact": "未提及"
+}
