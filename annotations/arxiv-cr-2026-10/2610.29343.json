@@ -1,0 +1,23 @@
+{
+ "id": "2610.29343",
+ "title_cn": "MASAR：面向电信网络的多阶段攻击面分析与推理框架",
+ "abstract_cn": "现代电信网络日益复杂，带来需要系统性威胁分析的安全挑战。然而，STRIDE（欺骗、篡改、抵赖、信息泄露、拒绝服务、权限提升）等架构性威胁建模框架与 MITRE FiGHT（5G 威胁层级）等运营知识库之间仍存在鸿沟，限制了把架构弱点与具体协议行为及攻击序列关联起来的能力。本文提出多阶段攻击面分析与推理（MASAR）形式化框架，通过三层弥合该鸿沟：战略威胁映射、基于有向无环图（DAG）的逻辑攻击路径分解，以及战术、技术与程序（TTP）的运营综合。MASAR 在 5G 就绪的 IP 多媒体子系统（IMS）架构上评估，考察两个信令攻击场景：通过 SIP 信令的早期媒体计费绕过，以及通过 Diameter Cx 接口的用户信息泄露与拓扑发现。分析使用 MiniZinc 约束模型判定不安全协议状态的可达性。结果表明 MASAR 能把架构威胁与具体协议行为关联，并支持考虑网络状态的电信安全控制。",
+ "summary_cn": "MASAR 以「战略映射→DAG 攻击路径→TTP 综合」三层形式化框架打通 STRIDE 与 MITRE FiGHT，在 5G IMS 上用 MiniZinc 分析 SIP 计费绕过与 Diameter Cx 信息泄露两个场景的可达性。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "电信安全",
+  "5G IMS",
+  "威胁建模",
+  "STRIDE",
+  "攻击路径"
+ ],
+ "objective_summary": "提出三层形式化框架 MASAR，把 STRIDE 类架构威胁映射到 FiGHT 运营 TTP，用 DAG 分解攻击路径并以 MiniZinc 约束模型分析 5G IMS 上两个信令攻击场景的可达性。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "在 5G 就绪 IMS 架构上以两个信令攻击场景与 MiniZinc 可达性分析验证框架；场景数量少，无实际运营商网络验证。",
+ "novelty": 3,
+ "novelty_note": "以形式化方式把 STRIDE 架构威胁与 FiGHT 运营知识库系统性桥接并落到具体协议行为，属已有构件（STRIDE、FiGHT、DAG、约束求解）的新场景组合。",
+ "scope": "评估限于 5G IMS 架构与两个信令攻击场景；框架适用性依赖人工建模的准确性。",
+ "limitations": "仅两个场景验证；网络架构与协议模型需人工构建；未在真实运营商环境或流量上验证。",
+ "artifact": "未提及"
+}
