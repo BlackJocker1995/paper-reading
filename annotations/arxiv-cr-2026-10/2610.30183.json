@@ -1,0 +1,27 @@
+{
+ "id": "2610.30183",
+ "title_cn": "当 EVM 默认假设失效时：面向 UTXO 系钱包的三种 SDK 模式",
+ "abstract_cn": "主流 Web3 SDK（如 ethers.js、viem）捆绑了三个耦合假设：账户模型账本、单一 secp256k1 签名器、以及无需输入选择的交易构造。一旦链采用扩展 UTXO 模型（此处指 Nervos CKB 的 Cell 模型），且钱包群体横跨异构密码学原语（secp256k1、WebAuthn、Schnorr），这些假设便会失效。本文利用 TypeScript SDK「CKBers' Codebase（CCC）」做回顾性案例研究，从发布历史与导出 API 中提炼出三种反复出现的模式：把容量感知的输入补全与费用估算声明化的 Transaction Composer；把异构钱包的签名行为归一到单一接口之后的 Unified Signer Abstraction；以及作为即插组件提供各钱包引导流程的 Connector UI。本文的贡献是将这些模式表述为面向 UTXO 系账本与异构钱包群体的 SDK 可迁移设计经验。",
+ "summary_cn": "从开源 SDK CCC 的发布史提炼面向扩展 UTXO 链与异构钱包的三种设计模式：声明化交易构造、统一签名器抽象、即插式钱包连接器。",
+ "topic": "Other",
+ "tags": [
+  "UTXO",
+  "Web3 SDK",
+  "钱包签名",
+  "Nervos CKB",
+  "设计模式"
+ ],
+ "objective_summary": "以 CCC SDK 为回顾性案例，分析 EVM 默认假设在扩展 UTXO 链与异构签名原语下失效的位置，并从发布历史与导出 API 提炼三种可迁移的 SDK 设计模式。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 2,
+ "evidence_note": "单一 SDK 的回顾性案例研究，依据发布历史与 API 表面归纳模式，无定量评估；2 页 poster 论文（IEEE ICDLT 2026）。",
+ "novelty": 2,
+ "novelty_note": "三种模式是对既有工程实践的命名与系统化，属经验整理而非新机制。",
+ "scope": "结论适用于扩展 UTXO（Cell 模型）账本与多签名原语钱包生态的 SDK 设计；对账户模型链不直接适用。",
+ "limitations": [
+  "单一 SDK 案例，可迁移性未在其他链上检验",
+  "无安全属性的定量评估",
+  "poster 篇幅限制论证深度"
+ ],
+ "artifact": "未提及"
+}

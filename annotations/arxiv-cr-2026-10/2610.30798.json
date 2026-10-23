@@ -1,0 +1,27 @@
+{
+ "id": "2610.30798",
+ "title_cn": "经 Rowhammer 放大 LLM 推理的时延与成本",
+ "abstract_cn": "大语言模型（LLM）借助 Triton 等 JIT 编译框架生成的优化 GPU 内核实现高推理效率。Triton 经由基于 MLIR/LLVM 的流水线编译 GPU 内核。我们研究 CPU DRAM 中 Rowhammer 诱导的比特翻转能否在保持输出正确性的同时降低 GPU 上的 LLM 推理性能。我们提出 LLVMhammer——首个通过在 Triton 编译流水线中诱导比特翻转造成 LLM 推理变慢的 Rowhammer 攻击。性能关键优化 pass 中的一个比特翻转使 Triton 生成功能等价但次优的 GPU 内核。由于 Triton 把生成的内核缓存到磁盘，一次成功的比特翻转就造成后续推理执行的持续变慢。Triton 的目标无关编译阶段被各 GPU 厂商共享，这使我们的攻击与 GPU 厂商无关。为在不做人工检查的情况下找到可利用的比特翻转位置，我们构建 Karnage 工具，隔离 Triton 目标无关编译流水线中有用的比特翻转位置。我们在 Qwen2.5-7B-Instruct、Llama-3.1-8B-Instruct、Mistral-7B-Instruct-v0.3 与 Deepseek-llm-7B-chat 等多个 LLM、NVIDIA RTX 4090 与 AMD RX 7900 XTX 两种 GPU 上评估 LLVMhammer。LLVMhammer 使单 GPU 上运行的 LLM 推理服务器时延增加 4–16%，进而可在多 GPU 部署规模上折算为额外的年度运营成本。我们进一步表明 LLVMhammer 也能跨 GPU 厂商破坏 LLM 输出，把 BERTScore 最低降到 25%，说明 Triton 编译流水线中比特翻转的更广泛安全影响。",
+ "summary_cn": "首个针对 Triton JIT 编译流水线的 Rowhammer 攻击 LLVMhammer：一次比特翻转持久放慢 LLM 推理 4–16%（跨 NVIDIA/AMD），还可把输出 BERTScore 破坏到 25%。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "Rowhammer",
+  "JIT 编译",
+  "Triton",
+  "供应链安全",
+  "拒绝服务"
+ ],
+ "objective_summary": "提出经 CPU DRAM 比特翻转污染 Triton 编译缓存的持续性降速攻击 LLVMhammer，并系统评估其在多模型、双 GPU 厂商上的时延影响与输出破坏能力。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "4 个 LLM 与 2 种 GPU 的实测，量化时延与输出质量；实验室受控设定，无统计检验，攻击前提依赖目标 DRAM 可被 Rowhammer 利用。",
+ "novelty": 4,
+ "novelty_note": "把 Rowhammer 从数据破坏转向「编译器缓存投毒致性能退化」是新攻击面，持久性与厂商无关性放大其现实影响。",
+ "scope": "结论适用于使用 Triton（或共享 MLIR/LLVM 目标无关阶段）的 GPU 推理服务；对非 JIT 或预编译内核部署不适用。",
+ "limitations": [
+  "依赖目标机器 DRAM 可被 Rowhammer 利用",
+  "4–16% 的降速幅度有限，经济影响为外推估算",
+  "对内核缓存完整性校验等防御未评估"
+ ],
+ "artifact": "未提及"
+}

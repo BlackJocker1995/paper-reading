@@ -1,0 +1,27 @@
+{
+ "id": "2610.30222",
+ "title_cn": "面向 IoT 入侵检测的带潜空间交叉注意力的参数高效语言模型",
+ "abstract_cn": "语言模型在入侵检测上展现出强大潜力，但其高内存与计算需求使其难以部署到资源受限的 IoT 环境。我们提出一种紧凑的 Transformer 架构：先把输入压缩进一个很小的潜空间，再用一个极小的 Transformer 核心处理。我们分析九种压缩配置、比较参数共享与层堆叠，并在 Edge-IIoTset 与 CICIoT2023 两个 IoT 入侵检测数据集上与 SecurityBERT 对比。我们的模型仅有 30.6 万非嵌入参数、总参数 160 万（6MB），比 SecurityBERT（1120 万参数、45MB）小约 7 倍；在相同隐私保护编码下，它在 Edge-IIoTset 上宏 F1 高出约 2 个点，在 CICIoT2023 上相差不到 0.7 个点；在模拟边缘设备上快约 89 倍。我们进一步证明单层 Transformer 即可足够，且参数共享以少 66% 的参数达到与层堆叠相当的效果。这些发现表明轻量 Transformer 架构可以为资源受限 IoT 环境中的入侵检测提供实用且准确的方案。",
+ "summary_cn": "潜空间压缩加极小 Transformer 核做 IoT 入侵检测：160 万参数（6MB，约 SecurityBERT 的 1/7），Edge-IIoTset 宏 F1 高约 2 点，模拟边缘设备快约 89 倍。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "IoT 入侵检测",
+  "模型压缩",
+  "Transformer",
+  "边缘部署",
+  "SecurityBERT"
+ ],
+ "objective_summary": "提出潜空间压缩加单层 Transformer 核心的紧凑入侵检测架构，比较九种压缩配置与参数共享/层堆叠，并在两个公开 IoT 数据集上与 SecurityBERT 对比精度与推理开销。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "两个公开数据集、九种配置消融、与 SecurityBERT 同编码对比，报告 F1 差与速度倍数；但无统计检验，速度基于模拟边缘设备。",
+ "novelty": 2,
+ "novelty_note": "在 SecurityBERT 一类语言模型 IDS 基础上做压缩与结构精简，属已有技术路线的增量工程改进。",
+ "scope": "结论适用于 Edge-IIoTset 与 CICIoT2023 两类 IoT 流量数据及所测编码；「89 倍加速」来自模拟边缘设备而非真实硬件。",
+ "limitations": [
+  "仅在两个公开数据集验证，真实 IoT 部署未测",
+  "速度对比基于模拟边缘设备",
+  "对新型攻击与概念漂移的泛化未讨论"
+ ],
+ "artifact": "未提及"
+}

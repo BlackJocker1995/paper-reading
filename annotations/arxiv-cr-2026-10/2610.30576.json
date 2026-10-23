@@ -1,0 +1,27 @@
+{
+ "id": "2610.30576",
+ "title_cn": "弥合闭世界鸿沟：BETH 数据集上 TSK-FCM 混合集成的可解释异常检测",
+ "abstract_cn": "机器学习在网络安全部署中面临一个根本悖论：有监督模型对新颖的分布外（OoD）攻击泛化差，而无监督模型往往可分性差、误报率难以接受。BETH 数据集集中体现了这一挑战：其训练数据仅含良性代码与可疑内部人行为，而测试集几乎全部是新颖的僵尸网络激活攻击。为弥合这一检测鸿沟，我们提出混合模糊集成：把梯度优化的 Takagi-Sugeno-Kang（TSK）模糊分类器（充当已知内部威胁的专家）与并行的模糊 C 均值（FCM）模块（检测几何异常）协同起来。一个关键研究发现是传统模糊隶属度在高维特征空间因维数灾难而退化。我们用利用僵尸网络激活攻击原始几何孤立性的鲁棒 Min Distance 度量克服它。该方法在 BETH 测试集取得 0.9951 的 SOTA AUROC，比原始 Isolation Forest 基线高 17.1%。通过将近乎完美的 OoD 检测与模糊逻辑的内在可解释性结合，我们的框架为稳健、透明、自主的网络防御提供了可行路径。",
+ "summary_cn": "TSK 模糊分类器加 FCM 异常模块、Min Distance 度量对抗高维退化：在全是新僵尸网络攻击的 BETH 测试集上 AUROC 0.9951，超 Isolation Forest 基线 17.1%。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "异常检测",
+  "模糊逻辑",
+  "BETH",
+  "分布外攻击",
+  "可解释性"
+ ],
+ "objective_summary": "针对训练与测试分布高度错位的 BETH 基准，提出有监督 TSK 与无监督 FCM 并联的混合模糊集成，并引入几何 Min Distance 度量改进 OoD 可分性。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "单一公开基准上的基线对比（Isolation Forest）与消融（Min Distance 的必要性）；无统计检验，仅一个数据集。",
+ "novelty": 2,
+ "novelty_note": "模糊集成异常检测与 TSK/FCM 均为成熟组件，新意主要在 Min Distance 度量及其在 BETH 闭世界场景的组合应用。",
+ "scope": "结论基于 BETH 内核级数据集的特定训练/测试切分；向其他主机或网络数据集的迁移未验证。",
+ "limitations": [
+  "仅在 BETH 单一基准验证",
+  "0.9951 AUROC 对应该基准的较易分离攻击形态，泛化未知",
+  "实时性开销未报告"
+ ],
+ "artifact": "未提及"
+}
