@@ -1,0 +1,23 @@
+{
+ "id": "2610.31984",
+ "title_cn": "WADE：面向 WebAssembly 应用的 LSTM 异常检测引擎",
+ "abstract_cn": "WebAssembly（Wasm）通过可移植且沙箱化的执行模型为 Web 应用带来接近原生的性能。然而其有限的运行时保护机制（如缺少栈金丝雀与地址空间布局随机化 ASLR）使 Wasm 应用容易受到传统攻击。我们提出 WADE（WebAssembly Anomaly Detection Engine），一个检测浏览器执行的 Wasm 应用中异常运行时行为的系统。WADE 在良性条件下采集函数级执行踪迹，训练长短期记忆（LSTM）网络学习每个应用的正常执行行为；运行时，模型把偏离已学习模式的行为标记为潜在攻击。与基于签名的方法不同，WADE 为每个应用构建行为模型，无需按漏洞定制签名即可检测已知与未见过的攻击。我们在覆盖十类漏洞的 67 个 WebAssembly 应用数据集上评估 WADE，实现零漏报与 0.42% 的误报率。",
+ "summary_cn": "Wasm 异常检测引擎 WADE 用函数级执行踪迹训练 LSTM 学习各应用正常行为：在覆盖十类漏洞的 67 个 Wasm 应用上实现零漏报、0.42% 误报率，无需按漏洞签名即可检出未见攻击。",
+ "objective_summary": "构建基于函数级执行踪迹与 LSTM 的应用级异常检测系统 WADE，监测浏览器端 Wasm 应用的运行时攻击行为。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "WebAssembly",
+  "异常检测",
+  "LSTM",
+  "运行时防御",
+  "浏览器安全"
+ ],
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "自建 67 个 Wasm 应用、十类漏洞的数据集，报告零漏报与 0.42% 误报；未与其他检测系统对比，无统计检验。",
+ "novelty": 3,
+ "novelty_note": "把 LSTM 行为异常检测移植到缺少栈金丝雀/ASLR 的 Wasm 运行时这一新场景，按应用建模规避签名维护成本；检测方法本身成熟。",
+ "scope": "结论适用于浏览器执行的 Wasm 应用与所测十类漏洞；对非浏览器 Wasm 运行时（服务端、嵌入式）与模仿正常行为模型的对抗性攻击未验证。",
+ "limitations": "需要在良性条件下采集踪迹并按应用训练，部署与更新成本高；对模仿正常控制流的低频慢速攻击敏感性未知；数据集自建，覆盖面有限。",
+ "artifact": "未提及"
+}
