@@ -1,0 +1,23 @@
+{
+ "id": "2610.34404",
+ "title_cn": "Gabidulin 码的最大似然译码即使维数为一也是 NP 难的",
+ "abstract_cn": "固定素数幂 q。作者证明：判定接收字 y ∈ F_qm^n 与一维 Gabidulin 码的秩距离是否至多 n−2 是 NP 完全的。因此 Gabidulin 码的最大似然译码即使 k=1 也 NP 难——这是 Reed-Solomon 码 Guruswami-Vardy 定理的类似物。相比之下，在 Hamming 度量下该半径的难度要求维数随码长增长，正如 Guruswami-Vardy 定理。归约是确定性的；因此 F_qm-线性码的 Rank Syndrome Decoding（RSD）与 Rank Minimum Distance（RMD）在确定性多项式归约下 NP 完全，而已知归约此前是随机的。证明经由引入的枢纽问题 Twisted Square Membership（TSM）：给定 F_q-子空间 U、W，判定是否存在非零 a ∈ U 使 a^(q+1) ∈ W。把 d 个未知数的二次系统编码进 TSM，再把 TSM 编码进 Gabidulin 译码：把接收字视为 F_q-线性映射，在半径 n−2 的译码即寻找其作用为标量的 F_q-平面。借助三次扩张中的构造与 Frobenius 映射，两个扭转迫使解平面编码关系 a^(q+1) ∈ W。所有构造均显式且多项式，N=O(qd^2)、n<N+d、m=3N。",
+ "summary_cn": "证明一维 Gabidulin 码在半径 n−2 的最大似然译码已 NP 完全（RS 码 Guruswami-Vardy 定理的秩度量类似物），并经由新枢纽问题 TSM 给出确定性归约，使 RSD 与 RMD 的 NP 完全性从随机归约强化为确定性。",
+ "objective_summary": "经由自引入的 Twisted Square Membership 问题与双重 Frobenius 扭转构造，证明一维 Gabidulin 译码的 NP 完全性并去随机化秩度量问题的归约。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "秩度量码",
+  "Gabidulin",
+  "NP 完全性",
+  "后量子密码",
+  "确定性归约"
+ ],
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 4,
+ "evidence_note": "理论工作：显式多项式构造的完整归约链（二次系统→TSM→Gabidulin 译码），并去随机化已知结果。",
+ "novelty": 4,
+ "novelty_note": "把已知的「需维数增长」难度现象在秩度量下推翻（k=1 即难），并首次给出确定性归约，是显著的理论推进。",
+ "scope": "结论为复杂度理论结果，适用于秩度量译码与相关后量子方案的安全论证；不直接给出或否定具体参数方案的实用性。",
+ "limitations": "难度针对最大似然译码半径，不排除其他半径的更易算法；对具体码族的平均情形难度未回答。",
+ "artifact": "未提及"
+}

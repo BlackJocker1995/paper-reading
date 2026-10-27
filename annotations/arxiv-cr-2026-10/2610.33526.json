@@ -1,0 +1,23 @@
+{
+ "id": "2610.33526",
+ "title_cn": "通过定向攻击评估面向 6G 的 O-RAN 网络安全",
+ "abstract_cn": "第六代（6G）网络靠增大的带宽与 O-RAN 技术带来的自动化支撑。与此同时，自主运行导致广泛的威胁面与复杂攻击。理解攻击影响与攻击者使用的战术、技术与程序（TTP）极具挑战，但对制定防御与缓解策略至关重要。本文在一个虚拟化的、面向 6G 的 O-RAN 试验床上评估定向攻击链，其中 F1 中传接口对攻击者可达且未启用传输层保护。该攻击破坏合法 O-DU 关联，利用观测到的配置参数引入 rogue O-DU，并窃听用户面流量。攻击在基于 Open5GS、srsRAN Project、FlexRIC 以及基于 OCPP 1.6 的电动汽车充电基础设施的全虚拟化试验床上评估。",
+ "summary_cn": "在 Open5GS+srsRAN+FlexRIC 全虚拟化 6G O-RAN 试验床上演示定向攻击链：破坏合法 O-DU 关联、以观测参数注入 rogue O-DU 并窃听用户面流量，暴露未启用传输层保护时 F1 中传接口的风险。",
+ "objective_summary": "构建含 EV 充电场景的虚拟化 O-RAN 试验床，实施并评估一条针对 F1 中传接口的定向攻击链，记录攻击步骤与影响。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "O-RAN",
+  "6G 安全",
+  "rogue O-DU",
+  "中间人攻击",
+  "虚拟化试验床"
+ ],
+ "contribution_type": "实证研究",
+ "evidence_strength": 2,
+ "evidence_note": "在真实组件构成的单个虚拟化试验床上完成攻击链示证；单一场景、无量化检测/防护指标与多设置对比。",
+ "novelty": 3,
+ "novelty_note": "把 rogue 基站类攻击组合延伸到 6G O-RAN F1 接口与 EV 充电场景，攻击链在该新架构语境下有整理价值。",
+ "scope": "结论适用于未启用传输层保护、F1 可达的虚拟化 O-RAN 部署；对启用 IPsec/DTLS 或有检测机制的部署不直接适用。",
+ "limitations": "单一试验床与单一攻击链；未评估检测与缓解方案；真实硬件与商用网配置未覆盖。",
+ "artifact": "未提及"
+}
