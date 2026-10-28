@@ -1,0 +1,23 @@
+{
+ "id": "2610.36808",
+ "title_cn": "HqcLethe：面向微型无状态服务器的流式 HQC 封装",
+ "abstract_cn": "无状态后量子认证密钥交换（如后量子 WireGuard）通过组合格 KEM 与基于编码的 Classic McEliece 来对冲未预期的密码分析进展。但近期攻击已使德国 BSI 建议不再使用 McEliece，这让这些协议只剩格算法。NIST 选定的基于编码的 KEM——HQC——可以恢复多样性，但其密钥无法装入单个数据包，服务器将不得不缓冲多包握手，从而留下内存耗尽攻击面，而这正是 WireGuard 无状态握手最初要避免的。McTiny 已证明 Classic McEliece 的无状态密钥封装可以通过逐包流式传输密钥块实现。然而 HQC 的封装不像矩阵—向量乘那样容易拆分为独立的包：循环多项式乘法本质上是全局的。我们提出 HqcLethe，一种以包尺寸分片流式传输 HQC 封装的无状态密钥交换。它利用中国剩余定理把多项式乘法拆分为独立的余项（每包一个），并对余项加掩码，使其泄露不超过普通 HQC 密文——我们在 Rocq 中用 SSProve 证明了这一点；我们还在 ProVerif 中验证会话保密性、服务器认证与前向保密。客户端谜题约束 CPU 耗尽，HqcLethe 消除内存耗尽：在 Raspberry Pi 3B+ 上每个 worker 固定运行于 1.2–1.6 MiB。在类别 5 下，它比早先的无状态编码方案 McTiny 少发送 27 倍字节、少用 9.0 倍服务器 CPU。",
+ "summary_cn": "提出用 CRT 把 HQC 封装按包拆分加掩码的无状态密钥交换 HqcLethe：Rocq/SSProve 证明掩码安全、ProVerif 验证会话性质；树莓派 3B+ 每 worker 固定 1.2–1.6 MiB，比 McTiny 少发 27 倍字节、省 9 倍 CPU。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子密码",
+  "HQC",
+  "无状态握手",
+  "流式封装",
+  "形式化验证"
+ ],
+ "objective_summary": "设计流式传输 HQC 封装的无状态后量子密钥交换：以中国剩余定理拆分多项式乘法为逐包余项并加掩码，机器检验证明掩码性质、符号验证协议性质，并在树莓派上评估内存与性能。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "掩码性质在 Rocq/SSProve 中机器检验，会话保密/服务器认证/前向保密经 ProVerif 验证，并有树莓派 3B+ 实测（固定 1.2–1.6 MiB、比 McTiny 少 27 倍字节、9 倍 CPU）；预印本待投稿，无侧信道评估。",
+ "novelty": 3,
+ "novelty_note": "沿 McTiny 的无状态流式范式，核心新机制是用 CRT 把本质全局的 HQC 多项式乘法拆成独立余项并加掩码，恢复编码基 KEM 多样性；属既有范式上的实质构造推进。",
+ "scope": "结论适用于无状态服务器上的后量子握手与 HQC 类编码 KEM；未评估实现侧信道与真实互联网部署；掩码证明针对被动泄露语义。",
+ "limitations": "未做计时/功耗等侧信道评估；CRT 分片引入额外客户端计算；BSI 对 McEliece 的建议基于的具体攻击谱可能变化，方案动机随之波动。",
+ "artifact": "未提及"
+}

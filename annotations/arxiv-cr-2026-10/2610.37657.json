@@ -1,0 +1,23 @@
+{
+ "id": "2610.37657",
+ "title_cn": "安全之首：学习型注意力门控提升提示注入鲁棒性",
+ "abstract_cn": "我们提出 Heads of Security（HoS），一个通过小型学习型逐头注意力门控强制指令—数据分离的提示注入防御。HoS 学习每个头应如何在受信与不受信 token 之间重新分配注意力，使模型能在推理不受信内容的同时不服从注入的指令。我们在 Llama-3.3-70B-Instruct 与 GPT-OSS-20B 上评估 HoS，与基于微调的最先进防御 SecAlign++ 以及同样把指令—数据分离内建进模型架构的 ASIDE 比较。结果显示 HoS 对自适应攻击更鲁棒、在标准效用基准上表现更好，并在标准智能体提示注入基准上达到最优水平：黑盒攻击 RL-Hammer 对 GPT-OSS-20B 达 97% ASR、对 SecAlign 达 85%，而对 HoS 仅 10%；针对 HoS 经 autoresearch 强化的最先进白盒攻击 Claudini 需要多 3 倍的 FLOPs 才能在 HoS 上达到与 GPT-OSS-20B 或 SecAlign 相同的 ASR。HoS 在标准多选基准与提示设定下保持基座模型效用，而 SecAlign 与 ASIDE 在少样本设定下退化。在静态攻击的智能体基准上，HoS 与 SecAlign 表现相近并大幅改善安全—效用权衡；ASIDE 则难以使用工具，效用仅 10%。这些结果表明提示注入鲁棒性可以通过定向注意力干预达成并改进。",
+ "summary_cn": "提出学习型逐头注意力门控防御 HoS 强制指令—数据分离：黑盒 RL-Hammer 对其 ASR 仅 10%（GPT-OSS-20B 97%、SecAlign 85%），白盒 Claudini 需 3 倍 FLOPs，少样本效用不退化，工具调用正常。",
+ "topic": "Security of AI",
+ "tags": [
+  "提示注入",
+  "注意力门控",
+  "指令隔离",
+  "架构防御",
+  "自适应攻击"
+ ],
+ "objective_summary": "提出通过学习逐头注意力门控实现指令—数据分离的提示注入防御 HoS，在两个模型上与微调式与架构式基线比较自适应攻击鲁棒性、效用与智能体场景表现。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "覆盖黑盒（RL-Hammer）与强化白盒（Claudini，autoresearch 强化＋FLOPs 对比）自适应攻击、标准效用基准与智能体基准的多维评估，并报告具体 ASR 数字；venue 未注明，模型覆盖两个。",
+ "novelty": 3,
+ "novelty_note": "「学习型逐头注意力门控」把架构级指令—数据分离从固定机制（ASIDE）推进为可学习机制，是实质机制增量；注意力导向防御与微调防御已有多条工作线。",
+ "scope": "结论适用于 Llama-3.3-70B 与 GPT-OSS-20B 两模型及所述攻击套件；对更大模型谱系、多模态注入与绕过门控学习的定向攻击未验证。",
+ "limitations": "防御需对每个头训练门控，部署与更新成本未量化；自适应攻击强化方式有限（白盒强化一种）；对组合式间接注入与多轮策略攻击的覆盖有限。",
+ "artifact": "未提及"
+}
