@@ -1,0 +1,23 @@
+{
+ "id": "2610.17406",
+ "title_cn": "用 SIMD 指令实现快速宽容的 Base64 解码",
+ "abstract_cn": "在互联网上，我们用 Base64 格式把二进制数据（如图像或加密密钥）表示为文本。ES2026 JavaScript 标准（遵循 WHATWG 宽容 base64 规则）要求解码器忽略 ASCII 空白并拒绝其他非字母表字符。先前的 SIMD Base64 解码器假设输入无空白。我们提出一个块导向解码算法，在 SIMD 循环内部移除空白：干净的 64 字符块直接解码，含可忽略字符的块被压缩进小型栈缓冲。我们提供 x64（SSSE3 至 AVX-512 VBMI2）、ARM NEON 与 LoongArch 实现。我们的 C++ 解码器在近期 AMD Zen 5 处理器上达到最高 94 GB/s。在 Node.js 25 中，集成我们的解码器把 Uint8Array.fromBase64 吞吐量较 Node.js 19 提升最高 6 倍。该实现已被主流浏览器与 JavaScript 运行时采纳。",
+ "summary_cn": "SIMD 循环内处理空白的宽容 Base64 解码算法，x64/ARM/LoongArch 实现达 94 GB/s（Zen 5），Node.js 集成提升至 6×，已被主流运行时采纳。",
+ "topic": "Other",
+ "tags": [
+  "Base64",
+  "SIMD",
+  "高性能解析",
+  "标准实现",
+  "系统软件"
+ ],
+ "objective_summary": "设计在 SIMD 循环内移除空白的宽容 Base64 块导向解码算法，给出三架构实现并报告吞吐与真实运行时集成收益。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "实测 94 GB/s（Zen 5）与 Node.js 6× 端到端提升，实现被主流浏览器与 JS 运行时采纳（生产检验）。",
+ "novelty": 2,
+ "novelty_note": "SIMD Base64 解码已有成熟工作，贡献是宽容规则（空白处理）下的算法变体与工程化落地，属增量改进。",
+ "scope": "结论限于 base64 文本解码场景与所测架构；对其他编码与安全解析（如严格模式）不直接适用。",
+ "limitations": "含空白的块走压缩慢路径；性能依赖具体微架构；无安全性（如常量时间）声明。",
+ "artifact": "公开"
+}

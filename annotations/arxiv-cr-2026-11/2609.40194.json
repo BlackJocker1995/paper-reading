@@ -1,0 +1,22 @@
+{
+ "id": "2609.40194",
+ "title_cn": "查询受限 RAM 程序及其应用",
+ "abstract_cn": "量子一次性程序（Broadbent、Gutoski 与 Stebila，CRYPTO 2013，简称 OTP）能够将某个功能编码进量子令牌，该令牌可对单一选定输入求值，此后即失效。尽管功能强大，这一原语本质上是无状态的，且局限于每次电路求值都需要发行并分发量子令牌的场景。这引出一个自然的问题：一次性计算范式能否扩展到更丰富的、有状态的受控访问形式？这样的扩展是否能提供超越标准 OTP 的固有优势？我们引入查询受限 RAM 程序（QLPs），这是 QOTP 的 RAM 推广，支持在有界或策略驱动的访问下进行结构化的有状态计算。QLPs 允许受控的求值序列，同时防止对手对计算状态进行分叉或回滚。这使得超越无状态一次性程序的新应用成为可能，包括：大小仅取决于代码长度（而非运行时间）的图灵机量子令牌、可转移的 k 次或预算受限程序，以及在软件即服务（Software-as-a-Service）等场景中委托计算的低通信开销机制。为构造 QLPs，我们引入 one-shot 程序（one-shot programs），将 one-shot 签名（Amos、Georgiou、Kiayias 与 Zhandry，STOC 2020）与单次有效查询范式（Gupte、Liu、Raizes、Roberts 与 Vaikuntanathan，STOC 2025）统一起来。我们证明 one-shot 程序可通用地蕴含查询受限程序，表明 one-shot 签名增强的不可克隆性保证可转化为更强的功能。在此过程中，我们通过一般性构造阐明了签名令牌原语与量子一次性程序之间的关系，从本质上表明一次性签名程序蕴含一次性通用计算。",
+ "summary_cn": "提出查询受限 RAM 程序（QLP），将量子一次性程序推广到有状态、受控访问的计算；为构造 QLP 引入统一 one-shot 签名与单次有效查询范式的 one-shot 程序，证明其可通用地蕴含 QLP，并说明一次性签名程序蕴含一次性通用计算。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "量子密码",
+  "一次性程序",
+  "one-shot 签名",
+  "委托计算"
+ ],
+ "objective_summary": "定义查询受限 RAM 程序这一原语，引入由 one-shot 签名与单次有效查询范式统一而来的 one-shot 程序，并证明其可通用地构造出 QLP；摘要列出图灵机量子令牌、可转移 k 次或预算受限程序、SaaS 低通信委托等应用。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "纯理论构造与通用归约证明；摘要未给出具体定理数、参数或实例化效率分析。",
+ "novelty": 4,
+ "novelty_note": "提出 QLP 原语，把一次性程序推广到有状态设定，并以 one-shot 程序统一 one-shot 签名与单次有效查询范式。",
+ "scope": "量子密码设定；构造依赖 one-shot 程序与 one-shot 签名等原语，应用涵盖图灵机令牌、k 次程序与 SaaS 委托计算。",
+ "limitations": "摘要未讨论局限；为纯理论构造，未给出具体效率或参数边界。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2610.21269",
+ "title_cn": "干净标签恶意软件后门中的触发值选择：有效性-可检测性分析",
+ "abstract_cn": "干净标签后门投毒对基于机器学习的恶意软件分类器构成威胁，因为被投毒样本可以在不改变标签的情况下插入训练数据。以往的解释引导攻击主要聚焦选择重要触发特征，但赋给这些特征的值也会影响攻击行为。本文把触发值选择作为针对基于特征的恶意软件分类器的干净标签后门攻击的独立设计因素进行研究。我们在 EMBER 2018 与 EMBER 2024 的 Win64 PE 子集上、使用 LightGBM 分类器评估多种值选择策略，在随机与基于分布的恶意样本相似良性采样下比较稀有值、基于 SHAP、频率有界、共现感知与分位数选择器。结果表明：MinPopulation 与 CountAbsSHAP 等激进选择器能取得高攻击成功率，尤其在基于分布的采样下，但也更易被 Isolation Forest 等消毒方法检测；CorrCountAbsSHAP 与 Quantile95 等选择器则能在保持有效攻击力的同时降低投毒召回率。这些发现表明触发值选择不仅是实现细节，而是塑造干净标签恶意软件后门攻击有效性与可检测性轮廓的重要设计选择。",
+ "summary_cn": "在 EMBER 2018/2024 与 LightGBM 上系统评估干净标签后门的触发值选择：激进策略（MinPopulation 等）成功率高但易被 Isolation Forest 检出，CorrCountAbsSHAP 等可平衡两者。",
+ "objective_summary": "把触发值选择作为干净标签后门攻击的独立设计维度，在 EMBER 2018/2024 上用 LightGBM 比较五种值选择策略在两种良性采样下的攻击成功率与 Isolation Forest 检测召回。",
+ "topic": "Malware & Attacks",
+ "tags": [
+  "后门投毒",
+  "恶意软件分类",
+  "EMBER",
+  "SHAP",
+  "可检测性"
+ ],
+ "contribution_type": "实证研究",
+ "evidence_strength": 3,
+ "evidence_note": "两个公开数据集（EMBER 2018/2024）、LightGBM 分类器、五种选择器与两种采样机制的系统对比，指标明确；无统计检验，限于特征向量式分类器。",
+ "novelty": 3,
+ "novelty_note": "把以往被当作实现细节的触发值选择提为独立设计因素并量化其有效-可检测性权衡，属对既有攻击面的诊断性实证分析。",
+ "scope": "结论适用于基于特征的恶意软件分类器（LightGBM）与 EMBER 数据分布；对深度或序列恶意代码模型的适用性未验证。",
+ "limitations": "消毒评估限于 Isolation Forest 等有限方法；攻击者假设可向训练集插入不改标签的样本，现实投放链可行性未验证；仅覆盖 Windows PE 特征。",
+ "artifact": "未提及"
+}

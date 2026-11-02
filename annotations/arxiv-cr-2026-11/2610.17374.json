@@ -1,0 +1,23 @@
+{
+ "id": "2610.17374",
+ "title_cn": "VulnBump：在保持构建与测试通过的前提下修复真实项目易受攻击依赖的基准",
+ "abstract_cn": "软件组成分析（SCA）工具报告的易受攻击依赖远多于团队修复的：在 Snyk Open Source 生产数据中，94% 的漏洞发现已知修复版本，但只有约 10% 被解决。智能体编码工具可以弥合这一差距，但没有基准在跨生态、可运行的真实项目上、且独立于智能体验证地评估它们做漏洞驱动升级的能力。我们提出 VulnBump：307 个升级任务，覆盖六个包管理器、43 个仓库中的 2066 个可修复漏洞，匹配 Snyk Open Source 生产漏洞分布。升级只有在全新容器中依赖可解析、重扫显示目标漏洞已修复、项目可构建且所有此前通过的测试仍通过时才算通过。仅应用 Snyk 推荐版本的非智能体基线通过 46.9%；同一模型（Claude Sonnet 5.5）下，Snyk 的 Evo Remediation Agent 通过 90.2%，Claude Code + Snyk 扫描 77.5%，裸 Claude Code 59.6%。两类智能体以相反方式失败：Claude Code 大多把漏洞留在原地，而 Evo Remediation Agent 的失败多为破坏构建或测试。SCA 扫描器是智能体的关键工具：Snyk 指引把 Claude Code 的通过率提高 17.9 个百分点；没有它时 Claude Code 常停在一个仍有漏洞的版本。但知道目标不够：给定相同 Snyk 发现，Evo Remediation Agent 的专用 harness 比 Claude Code + Snyk 扫描多通过 12.7 个点。重大框架迁移对所有 harness 都难。由于各智能体保持项目可用的比率相近，评估依赖升级中的修复质量需要同时验证修复、构建与测试。",
+ "summary_cn": "VulnBump：307 个真实依赖升级任务（2066 漏洞、6 包管理器）独立验证修复+构建+测试；同模型下专用 harness 90.2% vs 裸智能体 59.6%。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "依赖治理",
+  "漏洞修复",
+  "智能体基准",
+  "SCA",
+  "软件供应链"
+ ],
+ "objective_summary": "构建以「修复+构建+测试全绿」为通过标准、独立于智能体验证的依赖升级基准 VulnBump，量化非智能体基线与多 harness 的通过率与失败模式。",
+ "contribution_type": "基准/数据集",
+ "evidence_strength": 4,
+ "evidence_note": "307 任务 × 独立容器验证（重扫+构建+测试）、匹配生产分布、多 harness 同模型对照（46.9/59.6/77.5/90.2%）与失败模式分析；代码数据公开。",
+ "novelty": 4,
+ "novelty_note": "首个针对智能体漏洞驱动依赖升级、以独立验证判定通过的基准，揭示「留漏洞」与「破坏构建」两类相反失败，填补评估空白。",
+ "scope": "结论覆盖六个包管理器与 Snyk 生产分布；对非 Snyk 漏洞源、私有依赖与 monorepo 场景未覆盖。",
+ "limitations": "任务规模受 Snyk 数据约束；重大框架迁移仍普遍失败；判定依赖测试套件质量。",
+ "artifact": "公开"
+}

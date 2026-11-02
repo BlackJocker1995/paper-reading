@@ -1,0 +1,23 @@
+{
+ "id": "2610.13043",
+ "title_cn": "少样本有界误差 LWE 的可证亚指数算法",
+ "abstract_cn": "我们证明 Kirchner 与 Fouque [KF15] 的 Wagner/BKW 风格 LWE 算法的一个变体，可对素数模数 q=n^(κ+o(1))（任意固定 κ>0）、误差以 exp((ln n)^(o(1))) 为界、规模为 n 的秘密，在给定 n+O(n/ln ln n) 个原始样本时以 2^(O(n/ln ln n)) 时间求解决策与搜索 LWE。此外，若秘密的每个坐标也以 exp((ln n)^(o(1))) 为界，则在误差以 n^(o(1)) 为界且仅有 O(n/ln ln q) 个样本时保持同样的时间界。此前已知 Kirchner 与 Fouque 的算法能以亚指数时间求解这些参数的 LWE，但需要大得多的样本量 m=Ω(n log n) [HKM18]。Ducas 等人 [DEL25] 证明该算法的一个改编能在合适范数界 q/polylog(n) 与 m=n+ω(n/ln ln n) 变量下以亚指数时间求解相应对偶问题 SIS^∞。他们的分析依赖把算法解释为格链，而我们的方法相当初等，基于对一个傅里叶统计量低阶矩的界定。",
+ "summary_cn": "改进 BKW 型 LWE 分析：q=n^(κ+o(1))、小误差下仅需 n+O(n/ln ln n) 样本即可 2^(O(n/ln ln n)) 时间求解，远少于 HKM18 的 Ω(n log n) 样本。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "LWE",
+  "BKW",
+  "格密码",
+  "亚指数算法",
+  "密码分析"
+ ],
+ "objective_summary": "分析 Kirchner–Fouque BKW 型 LWE 算法的变体，以傅里叶统计量低阶矩的初等界定证明少样本条件下的亚指数时间求解，并与 HKM18、DEL25 的样本量与变量数要求对比。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 4,
+ "evidence_note": "理论工作：严格证明少样本（n+O(n/ln ln n)）下的亚指数时间界，较 HKM18 的 Ω(n log n) 样本要求实质改进，并给出有界秘密变体。",
+ "novelty": 4,
+ "novelty_note": "在 KF15/HKM18/DEL25 一脉上把亚指数求解所需样本降到近线性，分析技术（傅里叶统计量低阶矩）较格链解释更初等，实质改进已知参数边界。",
+ "scope": "结论适用于素数模数 q=n^(κ+o(1))、误差与（变体中）秘密坐标均为 exp((ln n)^(o(1))) 量级的 LWE 实例；不直接覆盖更小模数或标准噪声分布的参数区。",
+ "limitations": "时间界 2^(O(n/ln ln n)) 在实际参数下仍可能不可行；结果限于渐近参数区，对具体 q 与 n 的安全性影响未给数值估计。",
+ "artifact": "未提及"
+}

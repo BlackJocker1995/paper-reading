@@ -1,0 +1,23 @@
+{
+ "id": "2610.13597",
+ "title_cn": "Android 组件间边界安全执行的系统性研究",
+ "abstract_cn": "Android 的进程间通信（IPC）机制（Activity、Service、BroadcastReceiver、ContentProvider 与 URI scheme handler）构成应用之间以及应用与系统之间的主要接口。我们呈现一项包含 120 次评估的安全执行系统性研究（跨五个接口类别的 99 次组件间接口评估、10 次平台安全控制评估与 11 次专门阳性对照），覆盖 Android 17（API 37）上超过 30 个 Google 与 AOSP 包。使用零权限攻击者模型下的「预期对观测」框架，我们评估每个边界的执行机制是否如设计运作。我们发现 97 个执行缺口（80.8%）与 23 个执行保持（19.2%）。从这些观察中，我们归纳出横跨 manifest、代码、平台与架构四个层的 14 类执行缺口分类法。在我们目的性选取的语料内，观测到的执行结果在接口类别间差异显著：被评估的 Activity 与 BroadcastReceiver 呈现 100% 缺口率，而受益于 setStrict() 等框架防御的 ContentProvider 达到 27.6% 的保持率。我们发现七个被评估的带安全意图的平台兼容性变更全部被禁用或门控在语料中无应用瞄准的 targetSdkVersion 上。我们记录了 18 个处理敏感数据（认证令牌、支付凭证、医疗信息）的自定义 URI scheme 注册，尽管自定义 scheme 的不可验证性已知（RFC 8252 第 8.1 节）。我们的研究包含 23 个阳性对照——校准案例，证明评估流程能区分正常运作的执行与观测到的执行失败。",
+ "summary_cn": "Android 17 上对 30+ Google/AOSP 包做 120 次组件间边界评估：80.8% 执行缺口，Activity/BroadcastReceiver 缺口率 100%，平台安全变更全部失效或被门控。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "Android",
+  "IPC 安全",
+  "权限",
+  "实证评估",
+  "平台安全"
+ ],
+ "objective_summary": "以预期对观测框架与零权限攻击者模型系统评估 Android 17 五类 IPC 边界与平台控制的安全执行，辅以阳性对照校准，并归纳执行缺口分类法与敏感数据暴露模式。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 4,
+ "evidence_note": "120 次系统评估（99 接口 + 10 平台控制 + 11 阳性对照）、30+ Google/AOSP 包、Android 17 实测，附录索引全部评估；阳性对照保证方法效度。",
+ "novelty": 3,
+ "novelty_note": "Android IPC 与组件暴露安全已有长期研究，本文新意在于对 Android 17 的系统重测、跨接口类别的量化对比（100% 缺口对 27.6% 保持）与平台兼容性安全变更失效的发现。",
+ "scope": "结论适用于 Android 17（API 37）上 30+ Google/AOSP 包与零权限攻击者模型；目的性抽样语料，缺口率不可直接外推到全生态第三方应用。",
+ "limitations": "语料为目的性选取，覆盖面不代表全生态；部分执行缺口可能为文档化权衡而非缺陷；未评估缺口在真实恶意应用中的实际利用频率。",
+ "artifact": "未提及"
+}

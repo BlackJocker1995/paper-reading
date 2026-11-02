@@ -1,0 +1,33 @@
+{
+ "slug": "arxiv-cr-2026-11",
+ "title": "arXiv cs.CR · 2026-11",
+ "month": "2026-11",
+ "category": "cs.CR",
+ "count": 46,
+ "with_objective": 1240,
+ "with_institution": 0,
+ "annotated_days": [
+  "2026-11-02"
+ ],
+ "days": [
+  "2026-11-02"
+ ],
+ "topics": {
+  "Security of AI": 21,
+  "Crypto & Protocols": 6,
+  "Measurement & Empirical": 5,
+  "Systems & Network Security": 5,
+  "Privacy": 4,
+  "AI for Security": 4,
+  "Other": 1
+ },
+ "contribution_types": {
+  "新方法/新技术": 22,
+  "实证研究": 12,
+  "新工具/系统": 5,
+  "理论/形式化": 3,
+  "基准/数据集": 3,
+  "立场/展望": 1
+ },
+ "generated": "2026-11-02T16:28:11+00:00"
+}

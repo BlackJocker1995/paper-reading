@@ -1,0 +1,23 @@
+{
+ "id": "2610.27383",
+ "title_cn": "AgenticVulHunter：把本地智能体漏洞猎捕带入你的终端",
+ "abstract_cn": "在漏洞影响生产系统之前尽早发现它们，对降低软件攻击风险非常重要。然而在安全代码审查中检测漏洞仍然困难，因为易受攻击的代码逻辑可能依赖分布于仓库不同文件中的行。近期方法如 AgenticSCR 表明，LLM 智能体可以探索仓库文件并利用安全知识改进安全代码审查。但这些方法主要依赖外部商业 LLM，且可能一次性向智能体提供大量安全知识。这引出一个重要问题：使用本地部署的开源权重 LLM、辅以更聚焦更相关的安全知识，能否同样有效地进行智能体化安全代码审查？本文提出 AgenticVulHunter，一种可在本地部署开源权重 LLM 上运行的智能体化安全代码审查方法与工具。我们在 SCRBench 的 144 个漏洞案例上、使用 Qwen3-Coder-30B 与 DeepSeek V3.1 Terminus 评估 AgenticVulHunter。我们衡量生成的审查评论同时正确识别漏洞位置、匹配漏洞类型并提供相关安全审查评论的百分比。AgenticVulHunter 使用 Qwen3-Coder-30B 达到 18.4%、使用 DeepSeek V3.1 Terminus 达到 23.8%，相比之下我们用 Qwen3-Coder-30B 复现的 AgenticSCR 风格基线为 11.8%，而使用 Claude Sonnet 4 的 AgenticSCR 为 17.5%。APSEC 2026 录用。",
+ "summary_cn": "本地开源 LLM 的智能体漏洞猎捕工具：SCRBench 144 例上三重命中标准达 18.4%（Qwen3-Coder-30B）/23.8%（DeepSeek V3.1），超本地复现基线 11.8% 与 Claude Sonnet 4 版 AgenticSCR 的 17.5%。",
+ "topic": "AI for Security",
+ "tags": [
+  "智能体安全审查",
+  "漏洞检测",
+  "本地 LLM",
+  "代码审查",
+  "漏洞猎捕"
+ ],
+ "objective_summary": "在本地开源权重 LLM 上实现聚焦安全知识的智能体化代码审查，与商业 LLM 基线在 SCRBench 上按位置、类型、评论三重命中标准对比。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "SCRBench 144 例、两个本地 LLM 与两个基线的系统对比，三重命中标准明确；绝对准确率低（18–24%），APSEC 2026 录用。",
+ "novelty": 2,
+ "novelty_note": "在自家 AgenticSCR 基础上做增量：换用本地开源 LLM 并聚焦安全知识检索，机制上属已有智能体审查框架的工程化改进。",
+ "scope": "结论适用于 SCRBench 的漏洞案例与所测两个开源模型；对更大代码库、其他语言与真实仓库级漏洞未验证。",
+ "limitations": "三重命中的绝对准确率仍低于 24%，距实用有差距；评估限于 SCRBench 基准；本地模型能力上限制约审查质量。",
+ "artifact": "未提及"
+}

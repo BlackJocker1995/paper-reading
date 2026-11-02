@@ -1,0 +1,23 @@
+{
+ "id": "2610.22047",
+ "title_cn": "SMT 增强的低层 MPC 安全类型与正确性",
+ "abstract_cn": "安全多方计算（MPC）是现代分布式应用中数据隐私的使能技术。我们开发新的霍尔逻辑与类型理论，自动强制为以 Prelude/Overture 语言框架编写的协议提供正确性、机密性与完整性性质。我们分析的定义与自动化都利用 SMT 验证，支持精度与效率。我们的方法可组合、可扩展，并推广到任意素域与秘密共享方案。",
+ "summary_cn": "为 Prelude/Overture 框架的 MPC 协议开发 SMT 驱动的霍尔逻辑与类型理论，自动验证正确性、机密性与完整性，可组合且推广到任意素域与秘密共享。",
+ "objective_summary": "构建以 SMT 求解为后端的霍尔逻辑与类型系统，自动检查 Prelude/Overture 语言编写的低层 MPC 协议的正确性、机密性与完整性性质。",
+ "topic": "Formal Methods & Theory",
+ "tags": [
+  "安全多方计算",
+  "霍尔逻辑",
+  "类型系统",
+  "SMT",
+  "形式化验证"
+ ],
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 2,
+ "evidence_note": "形式化方法论文：给出逻辑与类型系统的定义及自动化机制；摘要未报告具体协议案例数量或与既有验证工具的量化对比。",
+ "novelty": 3,
+ "novelty_note": "把 SMT 自动化引入 Prelude/Overture 低层 MPC 的安全类型检查，是该框架上验证能力的实质扩展；验证思路（霍尔逻辑+类型+SMT）为已有组合。",
+ "scope": "适用于 Prelude/Overture 框架内、素域与秘密共享设定下的 MPC 协议；框架外语言需重新建模。",
+ "limitations": "绑定特定语言框架；自动化对复杂协议的覆盖上限未说明；与既有 MPC 验证工作的实证比较缺失。",
+ "artifact": "未提及"
+}

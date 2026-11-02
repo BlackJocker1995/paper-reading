@@ -1,0 +1,22 @@
+{
+ "id": "2610.20827",
+ "title_cn": "Pulsar 软件定义水印验证器的性能表征",
+ "abstract_cn": "Pulsar 通过在其测距服务中加入组合水印（Combinatorial Watermark）提供高度安全的定位、导航与授时（PNT）服务。在保守信号条件下，Pulsar 的组合水印——在 1023 个测距码码片中反转 21 个——每秒提供 32 位认证安全。本工作给出 Pulsar 水印处理器的软件定义无线电（SDR）实现。我们讨论多种威胁模型、多种接收机架构、对接收机的影响，以及使用 Pulsar 的 SDR 每日处理来自 Pulsar-0 任务水印信号的结果。结果证明 Pulsar 水印验证流程在商用 GNSS 接收机中可行实现，这是在今年晚些时候部署首批四颗生产卫星、向客户开放 Xona Pulsar 服务之前的里程碑。",
+ "summary_cn": "给出 Pulsar 组合水印（1023 码片反转 21、每秒 32 位认证）的 SDR 验证器实现，基于 Pulsar-0 任务每日信号验证其在商用 GNSS 接收机中可行。",
+ "objective_summary": "实现 Pulsar 组合水印的软件定义无线电验证处理器，讨论威胁模型与接收机架构，并报告对 Pulsar-0 任务真实水印信号的日常处理结果。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "GNSS 认证",
+  "信号水印",
+  "SDR",
+  "PNT 安全"
+ ],
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "基于 Pulsar-0 任务真实信号的日常运行结果与多种接收机架构讨论；属厂商工程报告，无受控对比、消融或统计检验。",
+ "novelty": 2,
+ "novelty_note": "将已有的组合水印设计落地为 SDR 验证实现并报告性能，属成熟方案的工程化与可行性验证。",
+ "scope": "结论限于 Pulsar-0 任务信号、SDR 实现与所讨论的接收机架构；认证强度数字依赖保守信号条件假设。",
+ "limitations": "性能数据来自单一任务的日常运行而非受控基准；安全论证依赖信号条件假设；未覆盖对抗性接收环境下的完整评估。",
+ "artifact": "未提及"
+}

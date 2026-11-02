@@ -1,0 +1,23 @@
+{
+ "id": "2610.40742",
+ "title_cn": "被阻止不等于被保护：攻击成功率掩盖了 RAG 的什么",
+ "abstract_cn": "检索增强生成（RAG）易受知识投毒攻击：对手操纵被检索的证据来影响模型输出。现有防御主要用攻击成功率（ASR）评估，这一指标既掩盖防御自身引入的失败，也掩盖表面攻击被阻止背后的机制。为此，本工作提出对齐 RAG 评估（Aligned RAG Evaluation），一个联合考察干净与被投毒响应、有防御与无防御的匹配查询协议。通过结合匹配条件分析、LLM 裁判背书与检索依赖控制，该框架区分被阻止的失败与被引入的失败、目标提及与 LLM 背书、单段落影响与证据组合效应。在 HotpotQA 与 Natural Questions 上的实验揭示：现有防御虽能阻止部分攻击，却会引入意料之外的正向目标答案；且评估标准的改变也会改变防御的排名。这些发现暴露了基于 ASR 的评估的关键盲区，并推动对 RAG 投毒防御更全面的评估。代码与评估工件见 https://github.com/chxhana/aligned-rag-eval。",
+ "summary_cn": "提出匹配查询的 Aligned RAG Evaluation 协议，揭示 ASR 指标的盲区：HotpotQA 与 NQ 上现有 RAG 投毒防御会引入额外的目标正向答案，评估标准不同会改变防御排名。",
+ "topic": "Security of AI",
+ "tags": [
+  "RAG 投毒",
+  "评估方法",
+  "攻击成功率",
+  "防御评估",
+  "LLM 裁判"
+ ],
+ "objective_summary": "构建联合考察干净/投毒 × 有/无防御的匹配查询评估协议，配合 LLM 裁判背书与检索依赖控制，系统区分防御阻止与防御引入的失败并重排现有防御。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 3,
+ "evidence_note": "HotpotQA 与 Natural Questions 两个公开基准、匹配条件对照与多评估准则交叉比较，代码与评估工件公开；未报告统计检验，无会议信息。",
+ "novelty": 3,
+ "novelty_note": "对 ASR 式防御评估的诊断性修正：区分「被阻止」与「被引入」的失败是评估方法论上的实质改进，但所用构件（LLM 裁判、匹配对照）均为已有技术。",
+ "scope": "结论适用于知识投毒威胁下的 RAG 防御评估；实验限于 HotpotQA 与 NQ 两个问答基准及所测防御集合。",
+ "limitations": "LLM 裁判本身可能引入偏差；所测防御集合有限；只改进评估方法，未提出新防御。",
+ "artifact": "公开"
+}

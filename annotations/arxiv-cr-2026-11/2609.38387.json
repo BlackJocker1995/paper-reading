@@ -1,0 +1,22 @@
+{
+ "id": "2609.38387",
+ "title_cn": "关于从量子证明中去除交互",
+ "abstract_cn": "量子密码学中一个重要的开放问题是为 QMA 构造可公开验证的非交互式零知识证明（NIZK）。经典情形下，可以通过 Fiat-Shamir 变换将 NP 的诚实验证者零知识（HVZK）Σ-协议编译，从而在随机预言机模型（有时也在标准模型）中为 NP 构造 NIZK。Broadbent 和 Grilo 引入了 Σ-协议的量子类比（称为 Ξ-协议），其中证明者的第一条消息是量子的，并证明了 QMA 存在 HVZK Ξ-协议。然而，如何在（量子）随机预言机模型（(Q)ROM）中将此类协议编译成 NIZK 尚不明确，因为 Fiat-Shamir 变换似乎与量子消息不相容。本文给出了这确实是事实的形式化证据：我们证明，若在 QROM 中存在用于量子协议的通用「类 Fiat-Shamir」编译器（且完备性误差与可靠性误差均较小），则 QMA = BQP。",
+ "summary_cn": "针对 QMA 的公开可验证 NIZK 构造障碍，给出形式化证据：若 QROM 中存在带小完备性与可靠性误差的通用「类 Fiat-Shamir」量子协议编译器，则 QMA 等于 BQP。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "量子密码",
+  "NIZK",
+  "Fiat-Shamir",
+  "QMA"
+ ],
+ "objective_summary": "研究 Broadbent-Grilo 提出的 Ξ 协议是否可被类 Fiat-Shamir 变换编译为 QROM 中的 NIZK，证明在小完备性与可靠性误差下该通用编译将蕴含 QMA 等于 BQP。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "纯理论工作，给出一条条件性不可能式结果；无实证实验。",
+ "novelty": 4,
+ "novelty_note": "为 QMA 的 NIZK 构造中 Fiat-Shamir 兼容性问题提供了条件性障碍证据。",
+ "scope": "QROM 下通用「类 Fiat-Shamir」编译器且完备性与可靠性误差较小的设定。",
+ "limitations": "结论限于小误差的通用编译器形式，摘要未讨论对特定协议的影响。",
+ "artifact": "未提及"
+}

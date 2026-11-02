@@ -1,0 +1,23 @@
+{
+ "id": "2610.32356",
+ "title_cn": "把大型后量子 KEM 嵌入 IKEv2",
+ "abstract_cn": "后量子密钥封装机制的公钥远超既有 VPN 握手协议 IKEv2 设计时的尺寸，而其包含公钥的初始交换无法分片。为此，IETF 正在讨论一系列协议调整，但这些提案从未在相同条件下比较过性能与稳定性。我们系统筛查了 IETF 文档库中的此类提案，加入我们自己的三个方案（一个使用前向纠错，两个使用 IKEv2 over QUIC，即 QUIKE 与带复合密钥交换的 QUIKE），识别出现有确认草案中的两个规范缺口，并在同一开源代码库上实现了全部八个方案。在不同带宽、延迟与丢包率下、配合 ML-KEM、FrodoKEM 与 Classic McEliece 的测量共计 1296 种配置中的 126,500 次握手，表明没有任何机制能完全抵消密钥尺寸对性能的影响。对 Classic McEliece，没有方案能在严苛条件下可接受地工作：各方案要么拥塞链路，要么平均每次握手耗时接近两分钟。对 ML-KEM 与 FrodoKEM，有两条可行路径：基于已标准化的扩展构建，或将传输委托出去。前者需要更大的实现改动并需进一步优化（如确认机制或纠错码），但保持连续性与兼容性；后者可用复合密钥交换规避这些缺点，实现更快、更具韧性的握手与更精简的实现，其中 QUIKE-composite 综合性能最佳。",
+ "summary_cn": "在同一代码库实现 8 种 IKEv2 后量子嵌入选案并实测 1,296 种配置共 126,500 次握手：无一能完全抵消密钥尺寸影响，Classic McEliece 在严苛条件下均不可接受，ML-KEM/FrodoKEM 下 QUIKE-composite 综合最优。",
+ "objective_summary": "系统实现并统一测量 IETF 讨论中的 IKEv2 后量子嵌入方案及自提的三个新方案（含 QUIKE-composite），覆盖三种 KEM 与 1,296 种网络配置。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子密码",
+  "IKEv2",
+  "VPN",
+  "密钥封装",
+  "协议测量"
+ ],
+ "contribution_type": "实证研究",
+ "evidence_strength": 4,
+ "evidence_note": "同一开源代码库实现全部 8 方案；三种 KEM、跨带宽/延迟/丢包 1,296 配置、126,500 次握手的受控测量；并指出两个规范缺口。",
+ "novelty": 3,
+ "novelty_note": "首次在相同条件下系统比较 IETF 各 IKEv2-PQC 提案，自提 FEC 方案与 IKEv2-over-QUIC 的 QUIKE/QUIKE-composite 并识别草案缺口；单个机制多为已知组件的组合。",
+ "scope": "结论适用于 IKEv2 生态与所测三种 KEM 参数；对 TLS 等其他握手协议与其他 KEM 参数集不外推；测量基于特定开源实现。",
+ "limitations": "性能结论依赖所实现的代码质量；未覆盖所有 IETF 提案的参数组合；QUIC 路径的部署与防火墙穿透等运维因素未测量。",
+ "artifact": "未提及"
+}

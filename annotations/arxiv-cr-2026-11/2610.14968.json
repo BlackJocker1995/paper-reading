@@ -1,0 +1,23 @@
+{
+ "id": "2610.14968",
+ "title_cn": "SEEK：面向安全代码生成的智能体知识图谱检索",
+ "abstract_cn": "大语言模型（LLM）可以生成功能正确但引入可利用安全弱点的代码，尤其在开发者只指定功能而无明确安全要求时。近期最先进方法用外部安全知识缓解该问题，但大多依赖对独立工件的扁平相似度检索，难以在无直接匹配时推断相关漏洞空间并检索有针对性的知识。我们提出 SEEK，一个面向安全代码生成的智能体 Graph RAG 框架：以 Common Weakness Enumeration（CWE）分类为结构骨架构建安全知识图谱，并注入精选的真实 CVE 漏洞修复实例。推理时，规划器智能体预测与开发者查询相关的潜在 CWE 弱点，引导图范围限定把检索限制到 CWE 分类的相关区域，再进行确定性的多面候选排序；选择智能体随后在代码生成前验证预测的弱点与检索到的候选。在五个开源 LLM 上，我们在 CodeGuard+ 与 CyberSecEval 的分布外设定下评估，覆盖 C、C++ 与 Python。SEEK 在 CodeGuard+ 上取得最高 77.45% 的 SecurePass@1，在 CyberSecEval 上取得最高 79.45% 的聚合 ICD 通过率，超过既有方法。在 13 个没有直接关联漏洞修复实例的未见 CWE 类型上，SEEK 取得 85.2% 的 SecurePass@1，显示较强泛化性，同时保持可接受的推理延迟成本。",
+ "summary_cn": "SEEK：以 CWE 分类为骨架的 Graph RAG 智能体检索，CodeGuard+ 上 SecurePass@1 77.45%、CyberSecEval ICD 79.45%，13 个未见 CWE 上仍达 85.2%。",
+ "topic": "AI for Security",
+ "tags": [
+  "安全代码生成",
+  "Graph RAG",
+  "CWE 知识图谱",
+  "智能体检索",
+  "漏洞修复知识"
+ ],
+ "objective_summary": "构建以 CWE 分类为骨架、注入 CVE 修复实例的安全知识图谱，用规划器做弱点预测与图范围限定、选择器验证候选，在 5 个开源 LLM 与两基准的分布外设定下量化安全代码生成提升。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "5 个开源 LLM × 2 基准的分布外评估，报告 SecurePass@1 77.45%、ICD 79.45% 及 13 个未见 CWE 的 85.2% 泛化，附延迟成本分析；无统计检验。",
+ "novelty": 3,
+ "novelty_note": "把外部安全知识从扁平相似度检索升级为 CWE 分类骨架上的智能体图检索与多面排序，属检索结构上的实质改进；组件多为已有技术。",
+ "scope": "结论适用于 C/C++/Python 函数级安全代码生成与 CWE 可分类弱点；跨语言泛化、语义级漏洞与闭源模型未覆盖。",
+ "limitations": "依赖 CWE 分类的可映射性；知识图谱质量受 CVE 修复实例覆盖限制；推理延迟虽可接受但高于无检索基线。",
+ "artifact": "未提及"
+}

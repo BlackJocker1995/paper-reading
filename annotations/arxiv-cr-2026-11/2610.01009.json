@@ -1,0 +1,22 @@
+{
+ "id": "2610.01009",
+ "title_cn": "Helol Tunnel：利用 TLS 可扩展性与隐私特性的隐蔽信道",
+ "abstract_cn": "利用网络协议进行数据窃取和命令与控制（C2）的隐蔽信道是现代网络攻击不可或缺的组成部分。为在互联网基础架构中寻找重要的隐蔽信道，我们将目标锁定在无处不在的传输层安全（TLS）协议中 Client Hello（CHLO）报文的组合属性上。所提出的 Helol tunnel 是一种将信息嵌入 TLS Client Hello 报文的新型隐蔽方法，通过对其加密信息元素进行策略性重排来实现。为维护 TLS 协议的可扩展性，近期的抗固化 TLS 合规措施鼓励交互式中间盒和下一代防火墙（NGFW）保留 Client Hello 报文中的参数配置。此外，为提升用户隐私保护，主流互联网应用正在变化其 TLS CHLO 参数配置，以抵御第三方网络实体的 TLS 指纹识别。我们展示了 Helol tunnel 利用上述近期进展规避具有交互代理和综合威胁保护功能的 NGFW 的能力。我们还通过使用真实流量抓包和公开 TLS 指纹数据，以量化方式展示了 Helol tunneling 相比利用 TLS 的现有最先进隐蔽信道的有效性。",
+ "summary_cn": "提出 Helol tunnel：利用 TLS 抗固化与指纹变化趋势，在 Client Hello 的加密信息元素中通过策略重排编码隐蔽信息，用真实流量与公开 TLS 指纹数据对照已有 TLS 隐蔽信道，演示绕过带交互代理与综合威胁防护的下一代防火墙（SVCC 2025 最佳论文）。",
+ "topic": "Privacy",
+ "tags": [
+  "隐蔽信道",
+  "TLS",
+  "数据外泄",
+  "C2"
+ ],
+ "objective_summary": "针对 TLS Client Hello 的组合性与抗固化趋势，设计通过重排加密信息元素嵌入信息的隐蔽通道，并在真实流量与公开指纹数据上与现有 TLS 隐蔽信道做数值对比。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "使用真实流量捕获与公开 TLS 指纹数据与现有 TLS 隐蔽信道数值对比，并演示绕过下一代防火墙；规模与统计检验未给。",
+ "novelty": 4,
+ "novelty_note": "把 TLS 抗固化措施与应用为抵御指纹识别而变换参数配置的趋势反向利用，在 Client Hello 加密信息元素的排列中编码隐蔽信道。",
+ "scope": "针对现行 TLS Client Hello 与带交互代理及综合威胁防护的下一代防火墙，基于真实流量与公开指纹数据。",
+ "limitations": "摘要未讨论局限；评估限于所用真实流量样本与所测防火墙配置。",
+ "artifact": "未提及"
+}

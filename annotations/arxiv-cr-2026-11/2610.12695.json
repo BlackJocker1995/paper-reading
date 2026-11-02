@@ -1,0 +1,23 @@
+{
+ "id": "2610.12695",
+ "title_cn": "在机密虚拟机中启用扩展 SGX Enclave",
+ "abstract_cn": "机密虚拟机（CVM，如 AMD SEV-SNP）与进程 enclave（如 Intel SGX）为工作负载提供抵御云威胁的保护。然而两者在 TCB、部署成本与速度、对等工作负载保护、资源共享、细粒度隔离与证明、编程能力上差异显著。将进程 enclave 嵌套于 CVM 内提供了最优解，也是解决 SGX 长期局限的机会：缺乏 enclave 内保护、昂贵的转换与异常路径、缓慢的 enclave 克隆、以及限制库操作系统（LibOS）的受限编程模型。本文提出 TEEVisor，一种驻留 CVM 的架构，由安全监视器与内核驱动组成，利用 AMD SEV-SNP 虚拟机特权级（VMPL）在客户 CVM 内构建硬件保护的进程级 enclave，提供两种模式：(1) 运行未修改 SGX 应用的 SGX 二进制兼容模式；(2) 优化慢执行路径并提供更丰富 enclave 编程能力的新型扩展 SGX（eSGX）模式。在商用 AMD EPYC 硬件上，相对原生 CVM 执行，TEEVisor 在计算与内存密集型负载上开销低于 5%，在 I/O 密集型应用上约 12%，并将 enclave 克隆加速到每 MB enclave 大小 93 µs 的速率，证明 CVM 内的 eSGX 语义对生产使用是实用的。",
+ "summary_cn": "TEEVisor 借 SEV-SNP VMPL 在 CVM 内构建进程级 enclave：兼容未修改 SGX 程序并提供 eSGX 扩展，计算/内存负载开销 <5%、I/O 约 12%、克隆 93 µs/MB。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "TEE",
+  "SEV-SNP",
+  "SGX",
+  "机密计算",
+  "VMPL"
+ ],
+ "objective_summary": "设计驻留 CVM 的安全监视器与内核驱动 TEEVisor，用 VMPL 在客户机内实现 SGX 二进制兼容与扩展 eSGX 两种 enclave 模式，并在商用 AMD EPYC 硬件上量化其相对原生 CVM 的开销与克隆速率。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "商用 AMD EPYC 硬件实测：相对原生 CVM 计算与内存负载开销 <5%、I/O 约 12%、enclave 克隆 93 µs/MB，覆盖多类负载。",
+ "novelty": 4,
+ "novelty_note": "在 CVM 内经 VMPL 实现 SGX 二进制兼容运行与扩展 eSGX 语义的嵌套 enclave 架构，同时缓解 enclave 内保护、转换开销、克隆速度与 LibOS 编程模型等长期局限。",
+ "scope": "结论适用于带 SEV-SNP（VMPL 支持）的 AMD EPYC 平台；Intel TDX 等其他 CVM 或无 VMPL 能力的平台未评估。",
+ "limitations": "安全监视器自身成为新 TCB，摘要未报告对其的攻击面分析；I/O 密集负载仍有约 12% 开销；仅评估 AMD 平台。",
+ "artifact": "未提及"
+}

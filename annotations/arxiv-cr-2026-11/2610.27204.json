@@ -1,0 +1,23 @@
+{
+ "id": "2610.27204",
+ "title_cn": "客户端 CKKS 编码与加密的流式 FPGA 融合架构",
+ "abstract_cn": "同态加密允许计算服务处理加密数据，但客户端必须先对输入进行编码和加密。让浮点编码与模加密共享硬件可以减少面积，但这要求两种变换在不同时间执行。我们提出一种面向 CKKS 编码与加密的流式 FPGA 架构：共享的浮点编码变换只计算一次，而六个剩余模数的整数变换并行执行。专用变换流水线在片上交换中间结果而非经由片外存储器。DSP Builder 生成变换 RTL，Altera HLS IP Gen 编译器将周围的 SYCL 流水线编译为与 DMA 及控制逻辑集成的加速器功能单元。在多项式阶 N = 8192 下，Altera Agilex 7 实现以 471 MHz 交付每秒 5,143 个完整密文；同一工作站上一个 SEAL-Embedded CPU worker 对实值输入（使用全部 4,096 个槽位）每秒仅交付 113 个密文。测量覆盖从准备好的输入计算到完整密文构建，包括 FPGA 提交与输出交付。",
+ "summary_cn": "FPGA 上共享 CKKS 编码变换并并行执行六路模数加密：N=8192 时在 Agilex 7 达 471 MHz、每秒 5,143 个完整密文，约为同工作站 CPU 的 45 倍。FPT 2026。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "同态加密",
+  "CKKS",
+  "FPGA 加速",
+  "客户端加密",
+  "硬件实现"
+ ],
+ "objective_summary": "设计并实现编码与加密共享浮点变换的流式 FPGA 加速器，测量端到端密文生成吞吐并与 SEAL-Embedded CPU 实现对比。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "给出真实 FPGA 实现的频率与吞吐（5,143 密文/秒）并与 SEAL-Embedded CPU 对比；单一设计、单一平台，无统计检验；FPT 2026 录用。",
+ "novelty": 3,
+ "novelty_note": "把浮点编码与模加密融合为共享变换的流式架构并给出完整工具链实现，是已有 CKKS 硬件加速方案中的新组合设计。",
+ "scope": "结论限于 N=8192、六模数 RNS 参数下的 Altera Agilex 7 平台与 SYCL 工具链；其他参数、其他 FPGA 家族与更强 CPU/GPU 基线未比较。",
+ "limitations": "仅与单个 CPU 基线比较，未对比其他 FPGA/ASIC CKKS 加速器；固定参数设置，可扩展性未验证；测量含提交与输出交付开销。",
+ "artifact": "未提及"
+}

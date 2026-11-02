@@ -1,0 +1,23 @@
+{
+ "id": "2610.27288",
+ "title_cn": "面向 Android 混合应用的混合信息流分析框架",
+ "abstract_cn": "Android（混合）应用中的 WebView 接口使原生侧（如 Java）能与 Web 侧（如 JavaScript）交换数据，形成现有单语言分析器无法分析的跨语言信息流通道。现有混合应用分析只解决问题的一部分：一些构建桥感知调用图但信息流分析有限，一些依赖粗糙假设，一些只关注 Web 漏洞。我们提出 MifDroid，一个静态分析引导的动态分析框架，包含生命周期感知的逐 WebView 调用图、桥感知的类型-效果系统与模块化 JavaScript 分析引擎。我们在 F-Droid 仓库 4,126 个应用中使用 addJavascriptInterface（即 Java 与 JavaScript 间主动通信）的 338 个应用上评估了 MifDroid。引导的动态阶段在静态分析产出的 444 个条目上新增 662 个条目，将解析率从 36.5% 提升至 74.5%，并为 115 个静态分析结果为空的应用解析出桥相关条目。MifDroid 报告了 14 条易受攻击的跨语言信息流，其中 5 条已被维护者接受并修复。",
+ "summary_cn": "静态引导动态的混合应用信息流分析 MifDroid：338 个 F-Droid 应用上把桥条目解析率从 36.5% 提至 74.5%，报告 14 条跨语言漏洞流，5 条已被维护者确认修复。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "Android 混合应用",
+  "WebView",
+  "信息流分析",
+  "跨语言分析",
+  "漏洞发现"
+ ],
+ "objective_summary": "构建生命周期感知调用图、桥感知类型-效果系统与模块化 JS 分析引擎，在 F-Droid 混合应用上量化 Java/JavaScript 跨语言信息流的解析率与漏洞发现。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "338 个真实 F-Droid 应用评估、解析率前后对比（36.5%→74.5%）、5 个漏洞获维护者确认修复；无与同类工具的横向对比，无统计检验。",
+ "novelty": 3,
+ "novelty_note": "首个将生命周期感知逐 WebView 调用图与桥感知类型-效果系统组合的混合应用信息流框架，补齐单语言分析器的结构性空白。",
+ "scope": "结论适用于使用 addJavascriptInterface 的 Android 混合应用；对其他自定义 JSBridge 方案与非 Android 平台的混合框架未验证。",
+ "limitations": "动态分析依赖触发路径可达性，未触发的流仍可能漏报；仅评估 F-Droid 应用；14 条报告之外的完整假阳率未给出。",
+ "artifact": "未提及"
+}

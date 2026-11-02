@@ -1,0 +1,23 @@
+{
+ "id": "2610.40744",
+ "title_cn": "CLIC：面向 O-RAN 中 LLM 驱动控制安全的闭环意图一致性",
+ "abstract_cn": "随着大语言模型（LLM）能力增强，研究者正把它们接入开放无线接入网（O-RAN）的控制回路，通过用户意图实现切片与资源管理。然而经 RAN 智能控制器（RIC）把 LLM 接入 O-RAN 控制回路，使系统暴露于运行时提示注入威胁——它在不违反接口认证的情况下操纵控制决策——以及残留虚拟提示注入（VPI）攻击——它在微调时埋设触发机制、此后悄悄改变行为。现有研究只处理运行时威胁，且未在整个控制路径（从经认证的 A1 意图，经多步 LLM 轨迹，到最终 E2 动作）上强制一致性。我们提出闭环意图一致性层（CLIC）联合缓解两类威胁。CLIC 用一个小型量化语言模型定义形式化一致性分数，部署为 Non-RT rApp 做模型完整性认证、Near-RT xApp 做运行时强制。我们在 OpenAI Cellular（OAIC）平台上实现 CLIC，并在领域适配的 JailbreakBench、AdvBench 与 VPI 负载下评估。实验结果表明 CLIC 把攻击成功率从 0.92 降到 0.29，把残留 VPI 攻击从 0.37 降到 0.04，同时以约 27 ms 的稍高时延代价改善隔离与公平性。",
+ "summary_cn": "在 O-RAN 控制回路部署量化小模型一致性分数层 CLIC：OAIC 平台上把运行时提示注入成功率从 0.92 降到 0.29、残留 VPI 从 0.37 降到 0.04，时延代价约 27 ms。",
+ "topic": "Security of AI",
+ "tags": [
+  "O-RAN",
+  "提示注入",
+  "LLM 控制回路",
+  "意图一致性",
+  "虚拟提示注入"
+ ],
+ "objective_summary": "提出覆盖 A1 意图—LLM 轨迹—E2 动作全路径的一致性分数层 CLIC，以 rApp/xApp 双组件联合缓解运行时提示注入与微调残留 VPI，并在 OAIC 平台上量化攻防效果。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "在 OpenAI Cellular 平台上实现并用领域适配的 JailbreakBench、AdvBench 与 VPI 负载评估，报告 ASR 与时延数字；6 页短文，无统计检验与会议信息。",
+ "novelty": 3,
+ "novelty_note": "首次把运行时注入与微调期残留 VPI 纳入同一闭环一致性框架并落到 O-RAN 控制路径；机制（量化小模型一致性评分）属已有组件的新场景组合。",
+ "scope": "结论适用于经 RIC 接入 LLM 的 O-RAN 切片与资源管理控制回路；评估基于 OAIC 实验平台与领域适配攻击集，未覆盖真实运营商网络。",
+ "limitations": "一致性分数依赖小型量化模型，可能被自适应攻击绕过；约 27 ms 时延对硬实时控制可能仍偏高；VPI 威胁模型假设攻击者能影响微调数据。",
+ "artifact": "未提及"
+}

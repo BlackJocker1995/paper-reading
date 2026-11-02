@@ -1,0 +1,23 @@
+{
+ "id": "2610.16442",
+ "title_cn": "重访 Fast Tendermint：一个一致性违背与两个修复",
+ "abstract_cn": "Fast Tendermint 把 Tendermint 的好情形延迟降到 n≥5f+1 下的两个通信步。我们证明其已发表的轮变更规则违背一致性（Agreement）：对每个 f≥1，一个拜占庭进程即足够；对 f≥2，两个拜占庭进程无需双签即可。失效发生在进程推进过一轮却未记录该轮可能已决定的值时。随协议附带的 Quint 规约不允许这种轮跳过且不受影响；违背存在于已发表的伪代码中。我们提出两个修复。Walk 要求进程在该轮预提交法定人数上离开每一轮，并在离开前预提交；它保留记录的有效值并移除预提交法定人数后的等待。Justify 把接受提案所需的证据放入提案本身，同时移除记录的有效值与提议者的同步等待。两者在异步性下满足一致性与有效性，并在 Tendermint 与 Fast Tendermint 的部分同步 gossip 模型下满足终止性，均保留提案超时。正文给出违背一致性的执行与两个修复；附录提供证明、与其他轮变更设计的简要比及到链的扩展。",
+ "summary_cn": "证明 Fast Tendermint 已发表伪代码的轮变更规则违背一致性（f≥1 一个拜占庭即足），提出 Walk/Justify 两个带证明的修复；Quint 规约本身无此缺陷。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "拜占庭共识",
+  "一致性违背",
+  "协议修复",
+  "Fast Tendermint",
+  "形式化验证"
+ ],
+ "objective_summary": "给出 Fast Tendermint 轮变更规则违背一致性的反例执行，提出 Walk 与 Justify 两个修复并证明其在异步与部分同步模型下的一致性、有效性与终止性。",
+ "contribution_type": "复现/负面结果",
+ "evidence_strength": 4,
+ "evidence_note": "明确的反例执行、两个修复的正确性证明（异步下 Agreement/Validity、部分同步下 Termination）与规格-伪代码差异定位。",
+ "novelty": 3,
+ "novelty_note": "对已发表协议（两步 BFT 共识）发现具体一致性漏洞并给出保留性能的修复，对共识实现社区有直接价值；方法为标准协议分析。",
+ "scope": "结论限于 Fast Tendermint 伪代码与其系统模型；对其他轮变更协议仅作简要比。",
+ "limitations": "修复的代价分析限于通信步与等待的理论层面；未在真实网络部署验证；扩展到链的设计在附录。",
+ "artifact": "未提及"
+}

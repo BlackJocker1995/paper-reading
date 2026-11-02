@@ -1,0 +1,23 @@
+{
+ "id": "2610.32803",
+ "title_cn": "Quantum Cadence：多并发提议者的后量子共识",
+ "abstract_cn": "大多数高性能区块链的共识协议使用法定人数证书（quorum certificate），将一个法定人数的验证者签名打包在一起。BLS 等签名方案能把整个法定人数的签名聚合成一个短签名，使证书保持很小。大规模量子计算机会打破这些方案，而目前没有已知聚合尺寸与聚合时间相当的后量子方案。没有聚合，一张证书就要装入法定人数中每个成员的一份大后量子签名，每个验证者广播证书变得不可行，而现代共识协议常要求这一点。我们提出 Quantum Cadence，一个避免证书的多并发提议者后量子共识协议：每个验证者只统计自己收到的消息中的法定人数。其安全性与活性甚至不依赖签名，不过我们加入签名以获得问责能力。Quantum Cadence 构建于 Cadence 之上，把其槽位共识 Chorus 替换为 Quantum Chorus，后者保持 Chorus 的最优快速路径延迟：一次分发加两轮投票。当快速路径失败时，Quantum Chorus 运行 Coda——我们面向多提议者的免签名拜占庭一致。我们还概述了调度 Cadence 槽位的 Conductor 如何适配 Quantum Cadence。在 200 个验证者的仿真中，Quantum Chorus 的延迟与 Chorus 相当，且随提议者数量增加扩展性更好。",
+ "summary_cn": "免证书后量子共识 Quantum Cadence：验证者本地统计法定人数替代广播证书，含保持最优快路径延迟的 Quantum Chorus 与免签名拜占庭一致 Coda；200 验证者仿真中延迟与原 Chorus 相当且随提议者数扩展更好。",
+ "objective_summary": "设计不依赖聚合签名的后量子共识协议 Quantum Cadence，以本地法定人数计数与免签名拜占庭一致替换证书机制并仿真评估。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "后量子",
+  "拜占庭共识",
+  "区块链",
+  "法定人数",
+  "协议设计"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "200 验证者仿真对比原 Chorus 的延迟与扩展性；安全性/活性论证见 35 页正文；无真实网络部署。",
+ "novelty": 3,
+ "novelty_note": "在 Cadence/Chorus 谱系上系统移除证书依赖以适配后量子签名尺寸，新组件 Coda（多提议者免签名拜占庭一致）有实质设计含量；整体属既有协议家族的后量子改造。",
+ "scope": "结论适用于采用法定人数证书的 BFT 区块链共识；对动态成员变更与真实互联网延迟环境未验证。",
+ "limitations": "免签名路径削弱即时问责（需附加签名恢复）；评估限于 200 节点仿真；与 BLS 方案在正常条件下的性能差距未量化。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2610.41565",
+ "title_cn": "Poly 对 Polyval",
+ "abstract_cn": "我们重新审视基于 GF(2^n)（n = 64k，k ≥ 2）二元扩域上多项式求值的哈希函数基本构造，称之为 Poly。与 n = 128 的 NIST 标准多项式求值哈希 GHASH 不同，Poly 不对每个 n 位块做本可省去的位反转，因而比 GHASH 更快；与 GHASH 的更快替代 Polyval 不同，Poly 执行常规约减，而 Polyval 执行 Montgomery 约减。我们找出了使常规与 Montgomery 约减都高效的域表示不可约多项式的合适选择，给出两类约减的详细算法与正确性证明。基于这些算法，我们报告针对 n = 128、256 与 512 的 Poly 与 Polyval 的精心优化的汇编实现。理论分析与实验计时表明：n = 128 时 Polyval 快于 Poly，而 n = 256 与 512（以及更大的 n）时 Poly 快于 Polyval。n = 128 与 256 两种情形因 NIST 正在进行的密码学手风琴（accordion）标准化进程而具有现实意义。",
+ "summary_cn": "重审 GF(2^n) 多项式求值哈希：Poly（常规约减）与 Polyval（Montgomery 约减）的理论对比与汇编实现表明 n=128 时 Polyval 更快、n≥256 时 Poly 更快，正对 NIST 手风琴标准化进程。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "多项式哈希",
+  "GHASH",
+  "Montgomery 约减",
+  "汇编优化",
+  "NIST 标准化"
+ ],
+ "objective_summary": "分析 GF(2^n) 上常规约减（Poly）与 Montgomery 约减（Polyval）两类多项式求值哈希，给出算法、正确性证明与 n = 128/256/512 的优化汇编实现及计时对比。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "正确性证明 + 精心优化的汇编实现与计时实验，理论与实现闭环；非紧界突破型论文，无会议信息。",
+ "novelty": 3,
+ "novelty_note": "Poly 本体是 GHASH 家族的直接变体，新意在于找出使两类约减各自高效的不可约多项式并给出交叉点分析（n=128 对 n≥256），对 NIST 手风琴进程有直接参考价值。",
+ "scope": "结论适用于 n = 64k 二元扩域上多项式求值哈希的软件实现选择；硬件实现与抗侧信道考量未涉及。",
+ "limitations": "结论限于软件汇编实现与所测平台；安全强度与 GHASH 家族相同（无新安全 claim）；未讨论与 AEAD 模式集成的完整开销。",
+ "artifact": "未提及"
+}
