@@ -1,0 +1,23 @@
+{
+ "id": "2611.03009",
+ "title_cn": "Massey 秘密共享方案泄漏的系统化推导",
+ "abstract_cn": "对秘密共享方案的泄漏攻击可以利用关于单个份额的部分信息恢复底层秘密。在编码理论中，线性精确修复方案（LERS）允许从其余符号获得的有限信息恢复码字符号。当应用于基于码的秘密共享方案时，此类修复方案可解释为从以子域符号表述的份额部分信息恢复秘密。Guruswami 与 Wootters 为低速率 Reed-Solomon 码引入了首个带宽最优的显式 LERS 构造。本工作首先研究 LERS 的构造与代数性质，在 Guruswami-Wootters 构造之上推导新的显式修复方案并建立所得方案的结构性质。其次，我们发展基于 Gröbner 基的系统化计算方法，识别与任意线性码的 LERS 相关联的泄漏函数。该方法使我们能考察不同码族与参数范围下 LERS 的存在性与结构性质。我们先把方法用于 Reed-Solomon 码，从中获得对其代数结构的进一步洞见；再把方法应用于广义 Reed-Muller 与 Tamo-Barg 码，识别出若干据我们所知此前未在文献中描述的 LERS。",
+ "summary_cn": "基于 Guruswami-Wootters 构造研究线性精确修复方案的构造与代数性质，提出 Gröbner 基方法系统识别任意线性码的泄漏函数；在 RS、广义 Reed-Muller 与 Tamo-Barg 码上发现若干新修复方案。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "秘密共享",
+  "线性精确修复",
+  "Gröbner 基",
+  "Reed-Solomon",
+  "泄漏分析"
+ ],
+ "objective_summary": "发展 LERS 的构造理论与基于 Gröbner 基的泄漏函数系统化计算方法，跨 RS/RM/Tamo-Barg 码族识别新修复方案并分析其结构。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "代数构造+计算方法+多码族应用的理论工作；新方案的存在性与结构有推导支撑；无攻击实验或实现性能测量。",
+ "novelty": 3,
+ "novelty_note": "把「修复即泄漏」的分析从特定构造推广为可计算的系统化方法并在新码族找到此前未描述的 LERS，是该方向的方法学推进。",
+ "scope": "结论适用于基于线性码的秘密共享/存储系统的修复泄漏分析；对非线性码与主动攻击者模型未覆盖。",
+ "limitations": "Gröbner 基计算受参数规模限制，大参数下可能不可行；新 LERS 的实际攻击可用性未演示；带宽最优性仅限低速率场景。",
+ "artifact": "未提及"
+}

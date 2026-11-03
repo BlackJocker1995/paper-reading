@@ -1,0 +1,23 @@
+{
+ "id": "2611.01989",
+ "title_cn": "用 WASM-SIMD 加速 WebAssembly 中的 QUIC 加密",
+ "abstract_cn": "WebAssembly（Wasm）在可移植的轻量沙箱中运行不受信代码，日益被用于在共享服务器与边缘平台承载服务。在 Wasm 内运行 QUIC 传输协议可让每个应用自行选择与更新传输层而无需改动宿主。但 QUIC 加密每个数据包，而 Wasm 既无专用 AES 指令也无无进位乘法；已有报告称 Wasm QUIC 栈仅达原生有效吞吐的 17.6%，密码学是其最大成本。WASM-SIMD 的 128 位 SIMD 扩展能否收回该成本、以及收回后纯 Wasm 栈的极限何在，此前一直不清楚。我们证明显式 WASM-SIMD 内核能收回大部分密码学成本，此后非密码学成本成为极限。在由 10 千兆以太网连接的两个宿主上，每趟处理 8 个 AES 块或 4 个 ChaCha20 块的内核把接收端有效吞吐较非 SIMD 基线提升 61.34%（AES-128-GCM）与 31.55%（ChaCha20-Poly1305），而编译器自动向量化对 AES-128-GCM 仅增益 1.28%。ChaCha20-Poly1305 仍交付 1.99 倍于 AES-128-GCM 的有效吞吐，端到端确认了独立密码基准的偏好。结合接收端剖析与 Amdahl 定律预测：即使密码学达到原生速度，Wasm 也只约为最快原生栈三分之一的有效吞吐。因此密码学加速必要但不充分：内存分配、运行时开销与每数据报 UDP I/O 现在约束纯 Wasm 传输。我们预计这一分项成本分解将指导 Wasm 网络栈的进一步优化与批量 I/O 系统接口设计。",
+ "summary_cn": "显式 WASM-SIMD 内核把 Wasm QUIC 吞吐较非 SIMD 基线提升 61.34%（AES）/31.55%（ChaCha20）；即使密码学达原生速度，纯 Wasm 栈也仅约原生 1/3 吞吐，瓶颈转向内存分配与 UDP I/O。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "WebAssembly",
+  "QUIC",
+  "SIMD 优化",
+  "TLS 加密",
+  "性能测量"
+ ],
+ "objective_summary": "为 Wasm QUIC 栈设计显式 WASM-SIMD 密码内核，在 10GbE 双宿主环境量化 AES/ChaCha20 吞吐增益，并结合剖析与 Amdahl 模型给出纯 Wasm 栈的成本分解与极限预测。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "双宿主 10GbE 实测、与非 SIMD 基线及编译器自动向量化对照（61.34%/31.55% vs 1.28%），接收端剖析+Amdahl 预测给出结构性结论；环境规模有限、无统计检验。",
+ "novelty": 2,
+ "novelty_note": "把已知 SIMD 手写内核技术工程化到 Wasm QUIC 场景并给出分项成本结论，属成熟技术的工程优化与测量。",
+ "scope": "结论适用于纯 Wasm 环境中的 QUIC 传输与所测两种密码套件；对原生 Wasm-EMScripten 之外的运行时与多核并行未覆盖。",
+ "limitations": "仅测接收端路径；单一 10GbE 环境；SIMD 内核仅覆盖 AES/ChaCha20 两类密码，其他套件需重写。",
+ "artifact": "未提及"
+}

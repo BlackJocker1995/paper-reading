@@ -1,0 +1,23 @@
+{
+ "id": "2611.01450",
+ "title_cn": "CipherFlow：面向高效密码学安全推理的 AI 程序编译器",
+ "abstract_cn": "密码学安全推理面临两个实际挑战：让安全编程对 AI 开发者与数据科学家可及，以及在部署环境间实现高效执行。开发者必须正确组合密码学原语，而性能取决于硬件、网络与演化的密文状态。我们提出 CipherFlow，一个编译器框架：输入高层 AI 计算图、可用密码学原语与目标硬件及网络配置，生成可执行的、延迟优化的安全推理程序。CipherFlow 通过三项技术自动化密码学执行决策：MicroBench 剖析部署特定的原语成本；状态扩展规划在密码学状态约束下联合优化同态加密（HE）与安全多方计算（MPC）的放置、转换与密文维护；BlockFold 概括分支区域使规划可扩展到 Transformer 图。用实测 HE/MPC 后端成本在 CPU/GPU 与网络设置上的评估显示，与静态混合放置基线相比，BERT-base 上提速至 16.5 倍、ViT 上超过 22 倍。CipherFlow 把模型编程与密码学执行决策分离，使开发者能表达 AI 计算而由编译器构造高效安全程序。",
+ "summary_cn": "提出安全推理编译器 CipherFlow：MicroBench 剖析成本+状态扩展规划联合优化 HE/MPC 放置与密文维护+BlockFold 处理分支，BERT-base 提速至 16.5×、ViT 超 22×。",
+ "topic": "Privacy",
+ "tags": [
+  "安全推理",
+  "编译器",
+  "同态加密",
+  "安全多方计算",
+  "NeurIPS"
+ ],
+ "objective_summary": "构建把 AI 计算图编译为延迟优化安全推理程序的框架：成本剖析、密码学状态约束下的 HE/MPC 联合规划与分支概括三技术，并用实测后端成本评估多种模型与部署配置。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "NeurIPS 2026 录用；基于实测 HE/MPC 后端成本的 CPU/GPU 与多网络设置评估，BERT-base/ViT 等模型对静态混合放置基线量化提速（16.5×/22×）；代码与交互式 demo 公开。",
+ "novelty": 3,
+ "novelty_note": "把「密码学执行决策」（原语选择、放置、转换、密文维护）自动化为编译器规划问题并引入状态约束建模，是混合 HE/MPC 编译的系统化新组合。",
+ "scope": "结论适用于所支持的 AI 计算图（含 Transformer 分支结构）与被剖析的 HE/MPC 后端配置；对未经剖析的新后端与训练任务未覆盖。",
+ "limitations": "规划质量依赖 MicroBench 剖析的代表性；分支概括对极端分支密度可能退化；与更多端到端安全推理框架的对比有限。",
+ "artifact": "公开"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2611.01095",
+ "title_cn": "验证器的爆音：针对语音活体检测的音素定向数据投毒",
+ "abstract_cn": "许多自动说话人验证系统（ASV）采用活体检测技术，如 VoicePop：利用Gammatone 频率倒谱系数（GFCC）与 SVM 分类器分析来自爆破音的低频爆音来识别真实语音。此类系统虽对传统重放攻击有效，但易受数据投毒攻击。已有工作表明，广泛应用的 SyntheticPop 攻击仅用 20% 投毒样本即可把模型精度压到低至 14.01%，但其产生的伪影在波形能量可视化中容易被检测。本文提出更隐蔽的音素注入投毒攻击「Pop Goes the Verifier」：利用 FastSpeech 2（FS2）与改造的 HiFi-GAN 声码器在爆破音位置注入局部爆音，并叠加微弱高斯噪声以降低注入伪影在波形与语谱图分析中的可见性。在 ASVSpoof 2019 数据集上，该方法实现中等强度的投毒攻击，同时对信号级检查的抵抗力显著高于原始 SyntheticPop 攻击。",
+ "summary_cn": "提出比 SyntheticPop 更隐蔽的音素定向投毒：用 FastSpeech 2+改造 HiFi-GAN 在爆破音位置注入局部爆音并叠加微弱噪声，在 ASVSpoof 2019 上取得中等攻击效果且更抗信号级检查。",
+ "topic": "Security of AI",
+ "tags": [
+  "语音活体检测",
+  "数据投毒",
+  "说话人验证",
+  "TTS",
+  "隐蔽性"
+ ],
+ "objective_summary": "针对 VoicePop 活体检测设计音素定向投毒：以 TTS+vocoder 在爆破音位置注入局部爆音并叠加噪声掩蔽伪影，在 ASVSpoof 2019 上与 SyntheticPop 对比攻击效果与可检测性。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 2,
+ "evidence_note": "单一数据集（ASVSpoof 2019）、单一目标系统（VoicePop 类 GFCC+SVM）上的投毒实验；「更隐蔽」以波形/语谱图人工检查为参照，未给出系统化隐蔽性指标与统计检验；IJCB 2026 录用。",
+ "novelty": 3,
+ "novelty_note": "把既有 SyntheticPop 从全域注入改为音素定向局部注入并用噪声掩蔽，显著提升对信号级检查的抵抗力；为已知攻击的实质性机制改进。",
+ "scope": "结论适用于基于爆音特征与浅层分类器的语音活体检测系统；对深度学习活体模型、自适应防御与真实部署管线未覆盖。",
+ "limitations": "攻击效果为「中等」，未达到原始 SyntheticPop 的崩溃程度；隐蔽性评估以人工可视化为主；仅在单一数据集与系统上验证。",
+ "artifact": "未提及"
+}
