@@ -1,0 +1,23 @@
+{
+ "id": "2611.04701",
+ "title_cn": "证明错误的程序：误编译对 zkVM 保证的威胁",
+ "abstract_cn": "零知识虚拟机（zkVM）让不受信的证明者使验证者相信某个程序（通常是编译到 RISC-V 的 Rust）正确运行。证明覆盖的是编译后的二进制，因此误编译可以使正确的 zkVM 产生一个与开发者源码不同的计算的有效证明。我们在生产级 zkVM SP1 与 Jolt 上首次实证研究误编译对 zkVM 保证的威胁。我们汇集 88 个带 Rust 复现器的已知 rustc 与 LLVM 误编译，用 LLM 智能体为 124 个仅以 LLVM IR 报告的 LLVM bug 中的 60 个恢复 Rust 触发器。许多 bug 会带到 zkVM：88 个中有 48 个使 guest 在 SP1 上提交错误输出，Jolt 上为 46 个，包括两平台上相同的 15 个 rustc bug。多数未复现的 bug 从未在 zkVM 目标上到达故障代码，例如需要指令集扩展。现有 guest 程序很少偶然受影响：在 10 个流行 SP1 项目的 13 个 guest 上，有 bug 与已修复编译器在 552 个可构建的 guest-bug 对中的 447 个产生字节相同的二进制，其余 105 个在我们运行的所有输入上行为一致。然而，向 guest 贡献代码的攻击者可以故意触发这些 bug：在每个项目约 40 美元的成本下，LLM 智能体在 366 个项目-bug 对中的 12 个（跨 20 个项目中的 11 个）找到看似普通优化、保持 guest 源码行为却暴露已知 bug 的补丁；其中 4 例 guest 提交错误输出——包括一个拒绝有效区块的以太坊客户端，其余 8 例在有效输入上失败。审查或形式化验证 zkVM 或 guest 源码都无法捕获此类补丁，因为二者都正确。zkVM 项目应把编译器视为可信基础的一部分并跟踪其工具链的已知 bug。",
+ "summary_cn": "首次实证 zkVM 误编译威胁：88 个已知 rustc/LLVM bug 中 48 个使 SP1 guest 提交错误输出（Jolt 46 个）；LLM 以约 40 美元/项目成本生成伪装优化的补丁，在 12/366 项目-bug 对暴露 bug，含以太坊客户端拒有效区块。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "zkVM",
+  "误编译",
+  "供应链安全",
+  "RISC-V",
+  "以太坊"
+ ],
+ "objective_summary": "汇集带 Rust 复现器的已知编译器误编译并在生产 zkVM SP1 与 Jolt 上复现，测量其对真实 guest 项目的偶发影响，并用 LLM 智能体评估低成本故意触发补丁的可行性与后果。",
+ "contribution_type": "实证研究",
+ "evidence_strength": 4,
+ "evidence_note": "首个系统实证：88 个已知 bug 的复现、10 个流行项目的 13 个 guest 全量对比（552 对中 447 字节一致）、LLM 攻击实验量化成本（约 40 美元/项目）与后果。",
+ "novelty": 4,
+ "novelty_note": "首次把证明二进制而非源码这一 zkVM 结构性缺口与真实编译器 bug 数据库连接，并量化故意触发的低成本可行性；单个编译器 bug 与 LLM 生成补丁组件为已有技术。",
+ "scope": "适用于以 RISC-V Rust 为主线、证明编译产物的 zkVM（SP1/Jolt）；对非 LLVM 工具链、电路级 ZK 系统与运行时 JIT 不适用。",
+ "limitations": "复现限于已知 bug 列表，未知误编译未覆盖；LLM 补丁搜索的覆盖率受预算限制；未提出 zkVM 侧检测机制。",
+ "artifact": "未提及"
+}

@@ -1,0 +1,23 @@
+{
+ "id": "2611.03709",
+ "title_cn": "InterceptFuzz：基于拦截的单进程目标有状态模糊测试",
+ "abstract_cn": "有状态协议实现通常由作为网络客户端、通过套接字与目标交换消息的工具进行模糊测试。一些无线与 IoT 协议栈转而提供单进程仿真平台：所有节点运行在同一二进制中，在内存中交换数据包。这类仿真是确定性的且速度快，适合模糊测试，但不提供可供现有有状态模糊测试器挂接的套接字；与此同时，Google 的 OSS-Fuzz 等模糊测试基础设施只支持无状态引擎。本文提出 InterceptFuzz，一个中间件，使得在未修改的无状态模糊测试引擎之上对单进程目标进行有状态模糊测试成为可能。InterceptFuzz 只需要在目标于节点间传递数据包的位置有一个钩子；通过该钩子，它记录良性流量并注入被变异的数据包。它把观察到的数据包序列组织在一棵前缀树中：每个种子携带一个选择该树某节点的 State ID，InterceptFuzz 在投递变异包之前确定性地重放已记录的前缀。该树随新发现的序列生长，同时剪除冗余状态以抑制其增长。由 AFL++ 驱动的 InterceptFuzz 在 OpenThread 的 Nexus 测试框架以及 ns-3 的 LTE 与 Wi-Fi 模型上，与基于拦截改造的 AFLNet 以及把整条消息序列作为单一输入变异的 AFL++ 基线 Concat 进行对比评估。在 OpenThread 与 ns-3 Wi-Fi 上，InterceptFuzz 覆盖的分支显著多于两个基线，并在 OpenThread 中发现 7 个此前未知的崩溃签名。尽管简单，Concat 在 OpenThread 与 ns-3 Wi-Fi 的每次实验中覆盖的分支都多于 AFLNet，并且在 OpenThread 上暴露出与 InterceptFuzz 相同的崩溃签名，尽管部分签名只出现在更少的实验中。",
+ "summary_cn": "提出中间件 InterceptFuzz：以前缀树记录状态并确定性重放，让无状态模糊引擎可对单进程协议仿真做有状态测试，在 OpenThread/ns-3 上分支覆盖超 AFLNet 与 Concat，发现 7 个未知崩溃。",
+ "topic": "Vulnerability & Exploitation",
+ "tags": [
+  "有状态模糊测试",
+  "单进程仿真",
+  "协议 fuzzing",
+  "OpenThread",
+  "覆盖率引导"
+ ],
+ "objective_summary": "实现中间件 InterceptFuzz，通过在节点间传包位置挂钩、以前缀树记录并确定性重放前缀，使未修改的无状态模糊引擎可对单进程协议仿真目标执行有状态模糊测试，并在 OpenThread 与 ns-3 上与 AFLNet 改造版及 Concat 基线比较分支覆盖与崩溃发现。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "在 OpenThread Nexus 与 ns-3 LTE/Wi-Fi 两类真实仿真平台上与 AFLNet（拦截改造版）和 Concat 基线做多轮分支覆盖对比，发现 7 个未知崩溃签名；但无统计检验，目标限定于单进程仿真框架。",
+ "novelty": 3,
+ "novelty_note": "首次让未修改的无状态引擎对无套接口的单进程仿真目标做有状态 fuzzing，填补 OSS-Fuzz 类基础设施的空白；前缀树加确定性重放属已有组件的新组合。",
+ "scope": "适用于提供单进程仿真、可在节点间传包处挂钩的目标；依赖可记录并重放良性流量前缀的确定性环境，套接字型网络目标与分布式部署不在范围内。",
+ "limitations": "评估集中于 OpenThread 与 ns-3 两类平台；需要人工选定挂钩点；摘要仅称 OpenThread 与 ns-3 Wi-Fi 上覆盖差距显著，ns-3 LTE 上的显著性未报告。",
+ "artifact": "未提及"
+}
