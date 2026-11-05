@@ -1,0 +1,23 @@
+{
+ "id": "2611.06138",
+ "title_cn": "KVGuard：面向 LLM 服务系统的 KV 缓存安全检查器",
+ "abstract_cn": "现代 LLM 服务系统通过 PagedAttention 管理 KV 缓存：一个自定义 GPU 分配器把单个 CUDA 分配区域划分为固定大小物理块，并通过 CPU 构建的块表把每个请求映射到这些块。这种基于块的设计暴露了一类此前未被研究的 KV 缓存内存安全缺陷，包括双重释放、释放后使用、越界访问、未初始化读取与权限违规，它们会静默破坏输出或破坏请求隔离而系统从不崩溃。现有内存消毒器无法检测它们，因为其推理对象是 CUDA 级地址而非 KV 缓存块、请求与块表，且其基于 redzone 与隔离区的设计不适配 LLM 服务紧张的 GPU 内存预算。本文提出 KVGuard，首个面向 LLM 服务系统中 KV 缓存管理的系统性内存安全抽象。KVGuard 为每个物理 KV 块维护一个紧凑的影子块，记录 per-request 权限与 per-entry 初始化状态，并据此在 PagedAttention 工作流的五个环节执行五项安全检查，覆盖 CPU 分配、块表构建与翻译、以及 GPU 侧块表查找与 KV 条目访问。每项检查都在引入违规的边界处触发，使缺陷能在开发期被及早发现，而不是在许多请求之后报告下游输出损坏。KVGuard 在 vLLM 与 SGLang 上的原型覆盖了从两个系统补丁历史收集的全部 29 个真实历史 KV 缓存安全缺陷；并在零误报的情况下新发现 8 个此前未知的安全违规。在 Qwen 2.5 14B 上，它在 vLLM 与 SGLang 上分别只增加 3.0% 与 7.4% 的几何平均 TPOT 开销，内存开销至多占 KV 缓存的 0.11%，比相同工作负载下的 NVIDIA Compute Sanitizer 低两个数量级。",
+ "summary_cn": "KVGuard 首个 KV 缓存内存安全抽象：影子块元数据+五项检查覆盖 vLLM/SGLang 全部 29 个历史缺陷并新发现 8 个，TPOT 开销 3.0–7.4%。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "KV 缓存",
+  "内存安全",
+  "LLM 服务",
+  "PagedAttention",
+  "安全检查器"
+ ],
+ "objective_summary": "提出 KV 缓存内存安全抽象 KVGuard：以影子块记录权限与初始化元数据，在 PagedAttention 工作流五个边界执行五项检查，在 vLLM 与 SGLang 上验证历史缺陷覆盖与新缺陷发现。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "覆盖 vLLM/SGLang 补丁历史全部 29 个真实缺陷，新发现 8 个违规且零误报；Qwen 2.5 14B 上 TPOT 开销 3.0%/7.4%、内存 ≤0.11%，并与 NVIDIA Compute Sanitizer 定量对比。",
+ "novelty": 4,
+ "novelty_note": "首次为 KV 缓存管理建立系统性内存安全抽象，识别并命名 PagedAttention 下的新缺陷类；适配 GPU 内存预算的影子元数据设计为新机制。",
+ "scope": "采用 PagedAttention 类块式 KV 缓存管理的 LLM 服务系统（vLLM/SGLang 原型）；覆盖五类内存安全违规。",
+ "limitations": "影子元数据与检查需随块操作维护，扩展性依赖实现；只覆盖定义的五类内存安全违规；需服务框架集成才能上线。",
+ "artifact": "未提及"
+}

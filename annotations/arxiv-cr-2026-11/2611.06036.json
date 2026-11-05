@@ -1,0 +1,23 @@
+{
+ "id": "2611.06036",
+ "title_cn": "PIMROP：商用存内计算架构上返回导向编程的可行性研究",
+ "abstract_cn": "存内计算（Processing-in-Memory，PIM）把小型可编程核心放到内存设备上，与 DRAM 存储体并行执行，处于保护宿主程序的控制流防御之外。这种内存中代码的安全性是一个基本未被研究的攻击面。我们提出 PIMROP，据我们所知是首个在商用 PIM 指令集上演示的代码复用攻击。我们证明返回导向编程（ROP）在真实商用 PIM 指令集 UPMEM DPU 上是可行的，其 DRAM 处理单元（DPU）运行由专用 LLVM 工具链编译的 C 程序。我们构建了适配 DPU 定宽、8 字节对齐 RISC 编码的 gadget 扫描器 Galileo-for-DPU，并完全在 UPMEM 功能仿真器上、在可复现的 Docker 与 VM 环境中运行。我们发现每个内核都会链接的运行时库已产出 517 个覆盖全部五类经典 ROP 原语的实质性 gadget，且我们扫描的全部 13 个 PrIM 基准都携带 gadget。我们随后演示两个经过验证的端到端攻击，各自在 10 次运行中全部复现：其一，DPU 内核中的栈缓冲区溢出覆写保存的返回地址，把控制流劫持到把秘密复制进宿主可读内存的例程；其二，仅用一串复用的 gadget 泄漏同一秘密，不劫持控制流到任何此类例程。我们进一步证明两种标准防御——栈金丝雀与 _FORTIFY_SOURCE 式边界检查加固——在 DPU 上以平台特有的方式失效（金丝雀错位、包装器静默失效），并验证了一个边界检查的 DMA，能在 10 次运行中全部阻断攻击且不影响良性请求。为推动 PIM 安全研究，我们在 GitHub 开源了 Galileo-for-DPU 与测试 harness。",
+ "summary_cn": "PIMROP 首次在商用 UPMEM DPU 上演示 ROP：运行时库 517 个 gadget，两个端到端攻击 10/10 复现，栈金丝雀与 FORTIFY 失效，边界检查 DMA 可阻断。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "存内计算",
+  "返回导向编程",
+  "代码复用攻击",
+  "UPMEM DPU",
+  "内存安全"
+ ],
+ "objective_summary": "构建适配 UPMEM DPU 定宽 RISC 编码的 gadget 扫描器 Galileo-for-DPU，统计运行时库与 13 个 PrIM 基准中的 gadget，并在功能仿真器上演示并验证两个端到端 ROP 攻击与一种有效防御。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "商用 UPMEM DPU 指令集与真实 LLVM 工具链，可复现 Docker/VM 仿真环境；gadget 扫描覆盖运行时库与 13 个 PrIM 基准；两个端到端攻击各 10/10 复现，防御含修复验证；工件开源。",
+ "novelty": 4,
+ "novelty_note": "首个在商用存内计算 ISA 上演示的代码复用攻击，开辟 PIM 安全攻击面；ROP 技术本体为已知，新意在于平台适配与实证。",
+ "scope": "UPMEM DPU（商用 PIM）上的 C 代码与控制流完整性；攻击以栈缓冲溢出等内存破坏为前提；验证在功能仿真器完成。",
+ "limitations": "攻击验证在功能仿真器而非物理 DPU 上完成；以内存破坏原语（栈溢出）为前提；仅评估两种标准防御。",
+ "artifact": "公开"
+}

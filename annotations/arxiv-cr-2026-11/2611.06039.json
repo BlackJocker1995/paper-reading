@@ -1,0 +1,23 @@
+{
+ "id": "2611.06039",
+ "title_cn": "用「先编译后执行」范式保护 Web 智能体",
+ "abstract_cn": "Web 智能体通常遵循 ReAct 范式，从运行时观察中选择每个动作，而这些观察天然混合了可信与不可信内容。这一设计使其控制流容易被嵌入网页的提示注入劫持。我们提出 Baya，一个「先编译后执行」的 Web 智能体，从设计上防止由提示注入驱动的控制流劫持。在访问真实网站之前，Baya 把用户请求编译为调用可信网站 API 的可执行 Python 程序。规划模型不观察真实网站内容；只有编译后的程序处理这些内容。不可信数据可以决定程序取值或在编译期定义的分支之间选择，但不能重定义用户任务，也不能让模型在运行时合成新的网站操作。可信网站 API 给编译器提供网站动作空间的统一视图，使得无需反应式智能体那种逐步动作发现即可进行预先规划。在 581 个有效的 WebArena Verified 任务上的评估显示，Baya 取得 77.8% 的聚合效用，优于纯浏览器 ReAct（55.1%）与带 API 的 ReAct（66.7%）。在 Web 智能体安全基准 WASP 上，Baya 的攻击成功率为 0%，而带 API 的 ReAct 为 16.2%，纯浏览器 ReAct 为 25.5%。",
+ "summary_cn": "Baya 以「先编译后执行」防 Web 智能体提示注入劫持：581 个 WebArena 任务 77.8% 效用超 ReAct 基线，WASP 攻击成功率 0%（基线 16.2–25.5%）。",
+ "topic": "Security of AI",
+ "tags": [
+  "Web 智能体",
+  "提示注入防御",
+  "先编译后执行",
+  "WebArena",
+  "控制流劫持"
+ ],
+ "objective_summary": "提出「先编译后执行」的 Web 智能体 Baya：规划模型离线编译用户请求为调用可信网站 API 的 Python 程序，运行时不可信内容只能填充取值与选择分支，在 WebArena Verified 与 WASP 上评估。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "581 个有效 WebArena Verified 任务与 WASP 安全基准，与纯浏览器 ReAct、API-enabled ReAct 两基线对比并报告聚合效用（77.8% vs 55.1%/66.7%）与攻击成功率（0% vs 16.2%/25.5%）。",
+ "novelty": 4,
+ "novelty_note": "编译期固定任务、运行时数据只能填值选分支的「先编译后执行」范式在结构上消除运行时改写任务的可能，是应对提示注入控制流劫持的实质性新机制。",
+ "scope": "具有 API 可表达动作空间的网站上的 Web 智能体任务（WebArena Verified 581 任务、WASP 基准）。",
+ "limitations": "依赖网站提供可表达动作空间的 Trusted Website API，不适用无 API 覆盖的站点；编译期规划无法应对规划外页面状态；评测限于 WebArena/WASP 基准站点。",
+ "artifact": "未提及"
+}

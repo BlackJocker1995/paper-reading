@@ -1,0 +1,23 @@
+{
+ "id": "2611.05985",
+ "title_cn": "从公开量子货币构造量子密钥交换",
+ "abstract_cn": "两消息量子密钥交换（2QKE）无法以统计安全方式实现，因此需要某种计算假设。目前 2QKE 已知的最弱假设是单向函数（OWF）的存在。我们能从比 OWF 更弱的假设构造 2QKE 吗？本文给出 2QKE 的首个完整刻画。我们证明以下四个原语（存在性地）等价：持久安全的 2QKE、标准 2QKE、可高效验证的状态难题（EV-StatePuzzs）、以及带量子签名与量子签名密钥的一次性安全数字签名。由于 EV-StatePuzzs 可能弱于 OWF [Kretschmer, Qian and Tal 2025]，该等价意味着 2QKE 可能弱于 OWF。此外，我们的结果证明标准 2QKE 与持久安全 2QKE 等价，即持久安全是免费的。最后，one-shot signatures、quantum lightning 与公钥量子货币 mini-scheme 都蕴含 EV-StatePuzzs，因此我们的结果也给出这些公钥不可克隆原语的一个新下界，即持久安全 2QKE。我们还证明 one-shot signatures 蕴含量子公钥的 QPKE。[Kitagawa, Morimae, Nishimaki and Yamakawa, 2024] 从 OWF 构造了量子公钥 QPKE，而量子公钥 QPKE 能否从弱于或不可比于 OWF 的假设构造是开放的。我们的结果给出该问题的潜在答案，因为 one-shot signatures 看似与 OWF 不可比。而且，由 one-shot signatures 构造的 QPKE 具有我们称为 certified freeze 的额外功能，允许接收方发布一个公开可验证的经典证书，把接收方计算性地绑定到其验证密钥下不同有效密文总数的上界。",
+ "summary_cn": "首个 2QKE 完整刻画：与 EV-StatePuzzs、量子一次性签名等价，可能弱于 OWF；持久安全免费，并由 one-shot signatures 得到量子公钥 QPKE 新构造。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "量子密码",
+  "密钥交换",
+  "原语等价",
+  "量子货币",
+  "复杂度归约"
+ ],
+ "objective_summary": "证明持久安全 2QKE、标准 2QKE、EV-StatePuzzs 与量子一次性签名四原语存在性等价，给出 2QKE 的完整刻画，并由此推出 one-shot signatures 蕴含量子公钥 QPKE 等新归约。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 4,
+ "evidence_note": "四原语存在性等价的完整刻画与多重归约证明，含从 one-shot signatures 到量子公钥 QPKE 的新构造，回答既有开放问题；纯理论结果。",
+ "novelty": 4,
+ "novelty_note": "2QKE 的首个完整刻画；证明持久安全免费并给出公钥不可克隆原语的新下界与 QPKE 新构造路径。",
+ "scope": "量子密码原语刻画：2QKE、EV-StatePuzzs、量子一次性签名；结论为存在性等价与归约，非具体高效协议。",
+ "limitations": "等价为存在性刻画，未给出具体高效协议；量子假设谱系的相对强度仍部分依赖猜想；certified freeze 的绑定限于其重放模型。",
+ "artifact": "未提及"
+}

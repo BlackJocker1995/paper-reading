@@ -1,0 +1,23 @@
+{
+ "id": "2611.05971",
+ "title_cn": "CORDE：机密 AI 中可问责披露的强制执行",
+ "abstract_cn": "CPU 与 GPU 机密计算的进展催生了机密 AI：LLM 可以在不向服务提供商或基础设施运营者暴露提示词的情况下处理用户提示。然而 AI 智能体常常需要把提示派生的信息发送给外部服务，提供商也可能出于安全监控与故障诊断要求有限披露。我们提出 CORDE，一个面向机密虚拟机（CVM）的系统，用以满足「要么隔离、要么声明」（Confine or Declare）原则：用户派生数据默认被隔离，必要时只有在「声明」之后才可离开 CVM。「声明」即把数据的精确内容、接收方与所述理由记录在用户可访问、防篡改的声明日志中。为落实该原则，我们给出一个集成系统设计，在 Rust 中结合 per-user 信息流控制、基于 TEE 的账本与远程证明。在 NVIDIA H100 GPU 上的评估显示，披露前声明在任务时延上开销很小，在 AppWorld 智能体基准上约为 0.5%。CORDE 为用户数据的可问责披露提供了基础，支持 AI 服务中负责任、透明的数据管理。",
+ "summary_cn": "CORDE 落实「要么隔离、要么声明」：CVM 内 per-user 信息流控制+TEE 声明账本，披露前记录内容/接收方/理由，H100 上 AppWorld 时延开销约 0.5%。",
+ "topic": "Security of AI",
+ "tags": [
+  "机密计算",
+  "TEE",
+  "信息流控制",
+  "可问责披露",
+  "LLM 智能体"
+ ],
+ "objective_summary": "提出面向机密虚拟机的 CORDE 系统，落实 Confine or Declare 原则：用户派生数据默认隔离，披露前须在 TEE 防篡改日志中声明内容、接收方与理由，并在 H100 上测量 AppWorld 开销。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "在 NVIDIA H100 上实现并在 AppWorld 智能体基准测得声明开销约 0.5%；无对抗性或攻击场景下的安全评估。",
+ "novelty": 3,
+ "novelty_note": "Confine or Declare 原则与 per-user 信息流控制+TEE 声明账本的集成组合较新；各组件均为已有技术。",
+ "scope": "机密虚拟机（NVIDIA H100 CVM）中的 LLM 智能体数据披露；声明日志的可靠性依赖 TEE 与策略正确性。",
+ "limitations": "安全边界依赖 TEE 不被攻破与声明策略的正确配置；仅报告 AppWorld 上的时延开销，无攻击场景评估；策略与日志的用户可用性未评估。",
+ "artifact": "未提及"
+}
