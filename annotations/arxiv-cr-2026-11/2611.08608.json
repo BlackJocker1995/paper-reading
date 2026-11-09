@@ -1,0 +1,23 @@
+{
+ "id": "2611.08608",
+ "title_cn": "AutoPYara：面向恶意软件家族聚类的新一代 YARA 规则生成器",
+ "abstract_cn": "每天有数百万恶意软件变种威胁用户，对这些样本做聚类是快速事件响应的关键。AutoYara 是当前自动 YARA 规则生成的最先进方法，但在真实数据集上该任务仍具挑战性：家族内多样性和噪声聚类会降低规则质量。我们提出 AutoPYara，其改进包括：(1) 基于相似度哈希的精确聚类质心选择，(2) 利用 VirusTotal 历史数据估计恶意软件家族内子聚类的改进启发式。我们将 AutoPYara 实现为开源 Python 包（pip install autopyara）以支持可复现性与实用。结果表明 AutoPYara：(1) 规则覆盖率提升 14 个百分点；(2) 方差降低 7.1 个百分点（与 AutoYara 的平均方差相比）；(3) 威胁狩猎准确率提升 10%。在实际场景中，AutoPYara 产生的 YARA 规则比以往自动方法更稳健有效。",
+ "summary_cn": "ACSAC 2026；在 AutoYara 基础上引入相似度哈希质心选择与基于 VirusTotal 的子聚类启发式：规则覆盖率提升 14 个百分点、方差降 7.1、威胁狩猎准确率升 10%。",
+ "objective_summary": "改进自动 YARA 规则生成：用相似度哈希做聚类质心选择、用 VirusTotal 历史数据估计家族内子聚类，发布开源 Python 包，并在覆盖率、方差与威胁狩猎准确率上与 AutoYara 对比。",
+ "topic": "Malware & Attacks",
+ "tags": [
+  "YARA 规则",
+  "恶意软件家族聚类",
+  "威胁狩猎",
+  "VirusTotal",
+  "事件响应"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "ACSAC 2026 录用；与 SOTA 方法 AutoYara 系统对比，报告覆盖率、方差、威胁狩猎准确率三项指标并开源工具；统计检验与数据集规模细节摘要未详述。",
+ "novelty": 3,
+ "novelty_note": "在 SOTA 方法上做两项针对性改进（相似度哈希质心、VT 子聚类启发式）并工程化为可用工具，属已有方法的实质性场景改进而非新问题开辟。",
+ "scope": "结论适用于带家族标签的真实恶意软件样本聚类与 YARA 规则生成；依赖 VirusTotal 历史数据可得性，规则在极端变形家族上的表现未报告。",
+ "limitations": "改进依赖 VirusTotal 历史数据的可得性与质量；对比基线限于 AutoYara 一系；评估数据集的构成与规模细节摘要未给出。",
+ "artifact": "公开"
+}

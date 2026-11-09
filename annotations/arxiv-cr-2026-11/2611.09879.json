@@ -1,0 +1,23 @@
+{
+ "id": "2611.09879",
+ "title_cn": "PhotoFinish：微架构延迟的便携无计时器探测",
+ "abstract_cn": "计时测量是微架构攻击的基础构件，使软件能把不可见的延迟差转化为架构可见的观测。因此限制高分辨率计时器是常见防御，尤其在网页浏览器等受限环境。无计时器探测原语提供了替代路径：不读取或构造计时器，而是观测与微架构状态相关的架构事件。但这类原语通常依赖平台特定行为，没有一种能泛化到更广的计算版图。我们提出 PhotoFinish，一种便携的无计时器探测原语，把延迟差直接转换为架构值。PhotoFinish 让被测操作与固定参照在两个并行线程中竞速，二者随后向同一共享位置写入不同的值，得到依赖延迟的架构值。PhotoFinish 只需并行执行与共享内存，无需构造或读取时钟。我们在跨四种 ISA 的 38 个 CPU 上评估，证明其在差异巨大的微架构上都能可靠分类缓存状态，编译为 WebAssembly 在浏览器内执行时保真度相当。我们进一步把 PhotoFinish 用于 AES T-table 与 Evict+Reload 攻击，表明其适用范围超出缓存、覆盖 TLB 与执行引擎延迟，并演示足以识别地址所属 LLC slice 的精度。结果表明共享内存竞速可作为显式计时的通用且精确的替代，仅限制计时器并不能阻止软件观测细粒度的微架构延迟差。",
+ "summary_cn": "提出无计时器探测原语 PhotoFinish：双线程共享内存竞速把延迟差转为架构值，跨 4 种 ISA 38 个 CPU 可靠分类缓存状态，WebAssembly 下同样有效并支撑 AES T-table/Evict+Reload 攻击。",
+ "objective_summary": "设计基于共享内存竞速的无计时器探测原语，把微架构延迟差直接编码为架构值，并在跨 ISA 的多 CPU、浏览器 WebAssembly 与多种侧信道攻击上验证精度与便携性。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "无计时器攻击",
+  "微架构侧信道",
+  "共享内存竞速",
+  "WebAssembly",
+  "缓存攻击"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "38 个 CPU、四种 ISA 的大规模硬件验证，含浏览器 WebAssembly、AES T-table、Evict+Reload、TLB 与 LLC slice 识别等多场景实测。",
+ "novelty": 4,
+ "novelty_note": "首个跨 ISA 泛化的无计时器探测原语，用共享内存竞速直接编码延迟差，直接削弱「限制计时器」类防御的前提。",
+ "scope": "结论覆盖所测 38 CPU 与四种 ISA、需要并行执行与共享内存的环境；对串行执行环境、无共享内存的沙箱与基于硬件计数器的防御未评估。",
+ "limitations": "需要并行线程与共享内存可用性；竞速结果的噪声依赖调度与系统负载；对检测此类原语运行的防御未讨论。",
+ "artifact": "未提及"
+}
