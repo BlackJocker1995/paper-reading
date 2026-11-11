@@ -1,0 +1,27 @@
+{
+ "id": "2611.10394",
+ "title_cn": "Crustify：用 LLM 智能体与覆盖引导测试生成仓库级的安全 Rust 绑定",
+ "abstract_cn": "把 C 代码包装进安全的 Rust 接口可让 Rust 应用在不写 unsafe 代码的情况下使用它，直到代码本身迁移到 Rust。然而这类绑定编写繁琐且易错：其内部使用 Rust 编译器不检查的 unsafe 代码，单个错误就可能引入未定义行为（UB），且迄今基本靠手写。我们提出 Crustify，一个为仓库级 C 库生成安全 Rust 绑定的智能体协同翻译器。Crustify 把目标的类型与符号调度为按依赖排序的独立批次波，由智能体并发绑定。其智能体为每个被包装的指针与类型推导所有权与生命周期契约，用 sanitizer 与 Miri 下的覆盖引导等价与 UB 测试检查每个绑定，并评审每一波。它们建立在三个我们贡献的工具之上：(a) ffibox——为 C 对象镜像 Box、Arc 与 Vec 的 Rust C/Rust 互操作原语，从不形成指向 C 可能别名的内存的引用；(b) Wavefront——按依赖排序目标条目的神经符号静态分析器，包括被类型转换与类型擦除指针隐藏的依赖；(c) ffimap——映射绑定 unsafe 面的基于 rustc 的分析。在 libgit2 与 ffmpeg 上、有一名开发者参与的情况下，Crustify 用约 51.9 与 58.9 小时为其 41.9% 与 42.8% 的公共 API 生成了安全绑定。在被期望使用的接口上，绑定的公共函数只有 1.6% 与 0.4% 是 unsafe，签名含裸指针的只有 0.1% 与 0.6%；其测试覆盖 Rust 代码的 98.92% 与 99.07%，以及 libgit2 与 ffmpeg libavutil 的 45.95% 与 67.20%；评审者修复了 8 与 13 个从 Rust 可达的致 UB 缺陷。据我们所知，这是首个自动化生成 C 库安全 Rust 绑定的工作。",
+ "summary_cn": "Crustify 用智能体波次并发生成 C 库安全 Rust 绑定：libgit2/ffmpeg 41.9%/42.8% 公共 API，unsafe 函数占比 ≤1.6%，修复 8/13 个可达 UB 缺陷，首个自动化安全绑定工作。",
+ "objective_summary": "构建智能体协同翻译器 Crustify：按依赖波次并发生成安全 Rust 绑定，推导所有权契约并以 sanitizer/Miri 覆盖引导测试验证，配套 ffibox/Wavefront/ffimap 三工具。",
+ "topic": "AI for Security",
+ "tags": [
+  "Rust",
+  "内存安全",
+  "LLM 智能体",
+  "绑定生成",
+  "Miri"
+ ],
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "libgit2 与 ffmpeg 两个真实大型仓库的端到端结果：API 覆盖率、unsafe 占比、测试覆盖率与评审修复的 UB 缺陷数（8/13）均为具体可查数字；一名开发者在环。",
+ "novelty": 4,
+ "novelty_note": "首个自动化生成 C 库安全 Rust 绑定的工作；所有权契约推导 + 覆盖引导 UB 测试 + 神经符号依赖排序的组合是实质性新系统。",
+ "scope": "C 库到 Rust 的安全绑定生成；依赖可被静态/动态分析排序的目标；需开发者在环评审。",
+ "limitations": [
+  "API 覆盖约四成，其余仍需人工",
+  "单开发者参与的人力成本未系统量化",
+  "非 C ABI 或高度宏驱动的接口适配未述"
+ ],
+ "artifact": "未提及"
+}

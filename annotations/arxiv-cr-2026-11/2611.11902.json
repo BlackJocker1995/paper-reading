@@ -1,0 +1,27 @@
+{
+ "id": "2611.11902",
+ "title_cn": "谱遗忘：面向语言模型的保持结构 Transformer 更新",
+ "abstract_cn": "大语言模型（LLM）中的机器遗忘旨在移除特定的已学知识、能力或行为，同时保持模型效用。现有方法大多聚焦遗忘目标的设计，而在很大程度上忽视 transformer 权重的内在矩阵结构。特别是标准优化器在独立标量坐标上操作，忽视该结构。我们提出谱遗忘（spectral unlearning），一个把标准遗忘目标与矩阵结构化优化结合的更新框架。我们证明谱更新对应于由归一化输入输出的线性层组成的 transformer 的最速下降方向。该方法应用于现有遗忘方法之上，并在记忆、隐私与效用三个互补轴上评估（以其调和均值汇总）。谱遗忘一致优于广泛基线，并基本追平到 retain 训练参照的差距。代码见 github.com/unlearn-ml/spectral-unlearning。NeurIPS 2026 录用。",
+ "summary_cn": "谱遗忘把矩阵结构纳入遗忘更新：谱方向即归一化线性层 transformer 的最速下降，三轴调和均值上一致优于基线并基本追平 retain 参照，NeurIPS 2026。",
+ "objective_summary": "提出结合遗忘目标与权重矩阵结构的谱更新框架，证明其为归一化线性层 transformer 的最速下降方向并系统评估。",
+ "topic": "Privacy",
+ "tags": [
+  "机器遗忘",
+  "谱方法",
+  "LLM",
+  "隐私保护",
+  "优化"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "NeurIPS 2026 录用；记忆/隐私/效用三轴调和均值的一致改进与理论对应（最速下降方向）；基线广泛。",
+ "novelty": 3,
+ "novelty_note": "把权重矩阵结构引入遗忘优化的视角较新且有理论支撑（最速下降方向等价性）；属遗忘目标之上的正交改进框架。",
+ "scope": "LLM 机器遗忘；线性层 + 归一化输入输出的 transformer 结构假设之内。",
+ "limitations": [
+  "理论对应依赖线性层假设",
+  "对非 LoRA 全参数场景的开销未述",
+  "遗忘边界的法律/语义度量未涉及"
+ ],
+ "artifact": "公开"
+}

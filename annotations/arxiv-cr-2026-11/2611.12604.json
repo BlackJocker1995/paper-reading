@@ -1,0 +1,27 @@
+{
+ "id": "2611.12604",
+ "title_cn": "双盲评估：化解 AI 安全审计中的双重机密困境",
+ "abstract_cn": "AI 安全评估常涉及敏感提示与专有模型。评估方希望其评估提示对模型所有者保密，以防蓄意或附带的数据泄露、延长基准的有效期；模型所有者则希望其专有模型权重与推理代码留在自己的安全基础设施内以保护知识产权。我们为「双盲评估」指出一条路径：提供密码学保证，使评估方的提示不与模型所有者共享，同时保持模型权重与推理代码的机密性。为此我们使用在硬件层加密 RAM 数据的安全 enclave。在全球首次试点中，我们以该方法在 Google Cloud Platform 的 NVIDIA H100 安全 enclave 上、使用 OpenMined 的 PySyft 维护数据与模型隐私，对专有 Google DeepMind 模型（Gemini 2.5 Flash Lite）评测私有 AILuminate 基准语料的选段。我们相信这一努力标志着首次用该技术为一个组织的前沿专有模型权重与另一组织的封闭基准提供相互保密。",
+ "summary_cn": "双盲评估基础设施：H100 安全 enclave + PySyft 使评估提示与专有模型权重互相保密，全球首次试点（Gemini 2.5 Flash Lite × 私有 AILuminate 语料）。",
+ "objective_summary": "提出基于硬件安全 enclave 的双盲 AI 评估方案，使评估方提示与模型方权重/推理代码互相保密，并以世界首次试点验证可行性。",
+ "topic": "Security of AI",
+ "tags": [
+  "AI 安全评估",
+  "可信执行环境",
+  "双盲协议",
+  "基准保护",
+  "PySyft"
+ ],
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 3,
+ "evidence_note": "真实试点（GCP H100 enclave、专有模型 × 私有基准、PySyft）证明工程可行性；单次试点、无系统性能与对抗分析。",
+ "novelty": 4,
+ "novelty_note": "以安全 enclave 同时保证评估方与模型方双向机密是评估基础设施的新范式；首次真实试点具先行价值。",
+ "scope": "AI 安全评估的双向机密场景；所选 enclave 平台与基准类型之内。",
+ "limitations": [
+  "单次试点规模",
+  "enclave 侧信道残余风险未讨论",
+  "评分可复现性与审计流程未详述"
+ ],
+ "artifact": "未提及"
+}

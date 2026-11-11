@@ -1,0 +1,27 @@
+{
+ "id": "2611.14083",
+ "title_cn": "Sable：面向大语言模型逐比特精确推理的小域 sumcheck 论证",
+ "abstract_cn": "我们提出 Sable，一个论证系统与单 GPU 证明器，证明对象是：一个已承诺的整数量化 transformer 从给定提示逐比特生成了给定 token 序列。Sable 固定一个无浮点步骤的整数函数 F_O——每个舍入、归一化、softmax 与采样决策都由输入决定——并用一个其关系在 31 比特 KoalaBear 素数模下可证明不回绕的约束系统证明它。证明把 zerocheck 与 LogUp-GKR 查找按域批处理成单个 sumcheck，并把每个见证张量与权重提交到一个由 Reed-Solomon 码、BLAKE3 Merkle 树与混合长度 BaseFold 打开构成的多线性承诺中。证明者在单 GPU 上逐层流式处理。在一块 NVIDIA RTX PRO 6000 Blackwell GPU 上，Sable 对 Qwen2.5-32B 的全部 64 层，4,096 token 用时 92.5 秒、16,384 token 用时 398 秒，并覆盖 Qwen3-32B 与混合专家 Qwen3-30B-A3B（4,096 token 分别为 121.8 与 84.7 秒）。一次证明的代价是服务时间的 41 到 50 倍，按公开 GPU 价格合每个 4,096 token 请求 6.4 美分，且每参数每 token 用时比 zkLLM 少 40 到 64 倍。在 WikiText-2 上，F_O 的贪心 token 与 BF16 模型在 86.3% 位置一致；在 Qwen3 上，F_O 的 MMLU 与 BF16 相差 1.6 分以内、GSM8K 相差 1.7 分以内。带编译核心的验证器在单 CPU 核上 19 到 56 秒完成验证。在随机预言机模型下，该交互式证明具有 2⁻¹⁰³ 的逐轮可靠性误差。该证明不是零知识的，因此系统面向开放权重模型。代码：github.com/moonmath-ai/Sable。",
+ "summary_cn": "Sable 用 31 位素数 sumcheck 论证逐比特证明量化 LLM 推理：单 GPU 92.5 秒证明 Qwen2.5-32B 4,096 token，较 zkLLM 每参数快 40–64 倍，验证 19–56 秒。",
+ "objective_summary": "构建面向整数量化 transformer 逐比特推理的论证系统与单 GPU 证明器：KoalaBear 域上批处理 zerocheck 与 LogUp-GKR、Reed-Solomon+BaseFold 承诺、逐层流式证明，覆盖 Qwen3 与 MoE 模型。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "可验证推理",
+  "sumcheck",
+  "零知识证明",
+  "LLM",
+  "密码实现"
+ ],
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "多模型（Qwen2.5-32B、Qwen3-32B、MoE 30B-A3B）具体计时、与 zkLLM 的 40–64 倍对比、WikiText-2/MMLU/GSM8K 精度差、2⁻¹⁰³ 逐轮可靠性误差；代码开源。",
+ "novelty": 4,
+ "novelty_note": "把逐比特整数语义 + 小域 sumcheck 推到 32B 级 LLM 的实用证明成本属实质性推进；明确非零知识定位（面向开放权重）是清晰的取舍。",
+ "scope": "开放权重模型的验证推理；整数函数 F_O 语义（WikiText-2 上与 BF16 一致性 86.3%）；单 GPU 证明者。",
+ "limitations": [
+  "非零知识，要求模型权重公开",
+  "F_O 与浮点模型输出存在差异（86.3% 位置一致）",
+  "证明开销为服务时间的 41–50 倍"
+ ],
+ "artifact": "公开"
+}

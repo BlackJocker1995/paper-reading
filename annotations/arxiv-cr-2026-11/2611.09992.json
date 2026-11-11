@@ -1,0 +1,27 @@
+{
+ "id": "2611.09992",
+ "title_cn": "面向 O-RAN 网络层网络攻击检测的联邦轻量 Transformer",
+ "abstract_cn": "开放无线接入网（O-RAN）通过解耦、开放接口与可编程 RAN 智能控制器（RIC）提升无线接入网的灵活性。然而同样的开放性与分布式也扩大了攻击面，使集中式入侵检测难以跨异构 RAN 站点扩展。本文提出一个联邦轻量 Transformer 框架，用于 O-RAN 中隐私保护的网络层网络攻击检测。每个参与站点在按时间排序的网络流记录上本地训练紧凑 Transformer，仅把模型参数共享给联邦协调者。为建模现实的站点异构性，客户端数据集按 Dirichlet 分布划分，形成非独立同分布（non-IID）本地数据。本地检测器使用特征投影、位置编码、多头自注意力、前馈层与时序池化，分类五类网络层攻击：ICMP、Slowloris、SYN、TCP-ACK 与 UDP。在 NetsLab 5G O-RAN 入侵检测数据集上的实验显示总体准确率 94.89%、宏平均 F1 为 81.09%。",
+ "summary_cn": "O-RAN 联邦轻量 Transformer 检测五类网络层攻击：NetsLab 5G 数据集上总体准确率 94.89%、宏 F1 81.09%，客户端按 Dirichlet 非 IID 划分。",
+ "objective_summary": "为 O-RAN 设计联邦轻量 Transformer 入侵检测框架：本地训练仅共享参数，按 Dirichlet 分布模拟站点异构，分类五类网络层攻击。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "O-RAN",
+  "联邦学习",
+  "入侵检测",
+  "Transformer",
+  "非 IID"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "RIVF 会议录用；NetsLab 5G O-RAN 数据集实验并给出总体准确率 94.89% 与宏 F1 81.09%；无统计检验与真实多站点部署验证。",
+ "novelty": 3,
+ "novelty_note": "联邦 + 轻量 Transformer 用于 O-RAN 网络层检测属已有组件的新场景组合；非 IID 站点异构建模是常规做法。",
+ "scope": "O-RAN 网络层入侵检测；五类流量攻击（ICMP、Slowloris、SYN、TCP-ACK、UDP）；NetsLab 数据集。",
+ "limitations": [
+  "仅单一 NetsLab 数据集",
+  "五类攻击之外的威胁未覆盖",
+  "联邦通信开销与站点间收敛差异未详述"
+ ],
+ "artifact": "未提及"
+}

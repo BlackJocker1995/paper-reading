@@ -1,0 +1,27 @@
+{
+ "id": "2611.12064",
+ "title_cn": "基于全同态加密的隐私保护 UAV 辅助安全无线通信与计算系统",
+ "abstract_cn": "随着超 5G 网络的发展，无线信道的开放性使隐私保护通信与安全计算面临关键挑战。现有安全机制保护数据传输，但未能保护计算过程本身。本文提出一个无人机（UAV）辅助的安全计算框架，集成 Cheon-Kim-Kim-Song（CKKS）全同态加密（FHE）与多方安全计算（MPC）。借助 UAV 的灵活性，框架把密钥分发与加密计算解耦，支持安全的加密加权聚合（EWA）、加密矩阵乘法（EMM）与加密决策树（EDT）推理。实验结果表明框架优于现有方案：EDT 支持浮点运算且时间效率优于 Brakerski-Fan-Vercauteren（BFV）；EMM 相比 Brakerski-Gentry-Vaikuntanathan（BGV）与部分同态加密（SHE）展现更优的时空效率；EWA 在不同数据长度下保持高数值精度与鲁棒性。",
+ "summary_cn": "UAV 辅助的 CKKS+MPC 安全计算框架：密钥分发与加密计算解耦，支持加密加权聚合/矩阵乘法/决策树，实验中 EDT 与 EMM 优于 BFV/BGV/SHE。",
+ "objective_summary": "提出 UAV 辅助的 FHE+MPC 框架：解耦密钥分发与加密计算，实现加密加权聚合、矩阵乘法与决策树推理并做性能对比。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "全同态加密",
+  "UAV",
+  "MPC",
+  "安全计算",
+  "超 5G"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "与 BFV/BGV/SHE 的实验对比（时间/空间/精度）；UAV 场景为仿真设定，无实飞或现网验证。",
+ "novelty": 2,
+ "novelty_note": "CKKS+MPC 与 UAV 中继的组合属应用层集成；核心计算组件（CKKS 算子、聚合协议）为已有技术。",
+ "scope": "UAV 中继的无线安全计算场景；CKKS/MPC 组件假设之内。",
+ "limitations": [
+  "UAV 移动性与失效模型未建模",
+  "通信带宽与能耗开销未量化",
+  "威胁模型未覆盖 UAV 自身被劫持"
+ ],
+ "artifact": "未提及"
+}

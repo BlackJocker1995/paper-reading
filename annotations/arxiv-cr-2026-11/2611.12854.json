@@ -1,0 +1,27 @@
+{
+ "id": "2611.12854",
+ "title_cn": "TUTTI：CPU 上低于 3 毫秒的并行 CKKS 自举",
+ "abstract_cn": "本文提出 TUTTI，一种新的 CKKS 自举程序：对任意消息数都优于先前低延迟方案的多线程延迟，最显著的是在自举单条消息时延迟低于 TFHE。我们的自举构建于 SPRU（CK，TCHES 2027）之上，以利用并行性与增加消息数的新方法改进它，并以对 LMSS（AsiaCCS 2023）块二进制密钥的精化安全分析为独立贡献。TUTTI 在 192 线程上 46 至 83.4 毫秒自举 4096 个实数消息以恢复 1 到 9 个乘法层级，在同一机器上较 SHIP（CHKS，Eurocrypt 2025）最多快 3 倍。与 SHIP 不同，TUTTI 在自举更少消息时立即获益：256 条消息的自举在 32 线程上只需 15 至 34 毫秒。对单条消息，TUTTI 在 32 线程上用 4.6 毫秒，而 TFHE-rs 在同一机器与线程数下对 4 比特自举需 7.3 毫秒。我们展示该优势跨架构保持：在 Apple M5 Pro 笔记本（ARM）上，TUTTI 在 14 线程用 2.4 毫秒，TFHE-rs 为 4.5 毫秒。CKKS 与 TFHE 等轻量方案在功能、密钥尺寸与安全假设等多方面仍有差异，但我们的工作表明多线程延迟不再是其中之一，弥合了实践 FHE 文献中的长期缺口。",
+ "summary_cn": "TUTTI 并行 CKKS 自举：4096 消息 46–83.4 ms（较 SHIP 快至 3×），单消息 4.6 ms 低于 TFHE-rs 的 7.3 ms，Apple M5 上 2.4 vs 4.5 ms——多线程延迟差距被弥合。",
+ "objective_summary": "提出并行化 CKKS 自举 TUTTI：基于 SPRU 改进并行与消息批量，附块二进制密钥的精化安全分析，在多架构上量化延迟优势。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "CKKS",
+  "自举",
+  "全同态加密",
+  "并行计算",
+  "延迟优化"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "多机器（192 线程服务器与 Apple M5 Pro）的具体延迟数字、与 SHIP/TFHE-rs 的同机对照、恢复 1–9 层级的功能范围及精化安全分析。",
+ "novelty": 4,
+ "novelty_note": "把 CKKS 自举的单消息多线程延迟压到低于 TFHE，弥合长期存在的实践缺口；消息数可伸缩性设计与安全分析精化为实质贡献。",
+ "scope": "CKKS 自举的延迟优化；块二进制密钥安全模型与所测硬件之内。",
+ "limitations": [
+  "通信与密钥尺寸仍大于 TFHE（作者自陈差异尚存）",
+  "仅多线程 CPU，GPU 未覆盖",
+  "并行度受线程数限制"
+ ],
+ "artifact": "未提及"
+}
