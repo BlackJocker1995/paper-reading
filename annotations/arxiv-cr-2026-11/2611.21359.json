@@ -1,0 +1,23 @@
+{
+ "id": "2611.21359",
+ "title_cn": "擦除信道上的 K-out-of-N 不经意传输：容量与归约",
+ "abstract_cn": "我们研究离散无记忆信道上服务器与客户端之间的 K-out-of-N 不经意传输（OT），模型为诚实但好奇。客户端须取回服务器存储的 N 条消息中的 K 条，而对其余 N−K 条一无所知，服务器也不得获知客户端的选择。对擦除参数为 ε 的二元擦除信道（BEC），我们证明 K-out-of-N OT 容量为 min(K·ε/(N−K), 1−ε)。该刻画推广了 ε≥(N−1)/N 时已知的 1-out-of-2 OT 与 1-out-of-N OT 容量结果。我们还研究 OT 归约：把最优 1-out-of-N OT 协议重复 K 次来构造 K-out-of-N OT 可能次优；但我们识别出某些 ε 与 M<N 的区间，使 1-out-of-N OT 可经重复 1-out-of-M OT 最优实现。最后讨论结果向广义擦除信道（GEC）的扩展。",
+ "summary_cn": "证明 BEC 上 K-out-of-N 不经意传输容量为 min(K·ε/(N−K), 1−ε)，推广已知 1-out-of-2/N 结果；给出重复归约的最优/次优区间刻画并讨论 GEC 扩展（投稿 IEEE Trans. IT）。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "不经意传输",
+  "信道容量",
+  "擦除信道",
+  "密码归约",
+  "信息论安全"
+ ],
+ "objective_summary": "刻画二元擦除信道上 K-out-of-N 不经意传输的精确容量，分析经由重复低参数 OT 协议构造高参数协议的最优性与次优区间，并讨论广义擦除信道扩展。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "容量结果的完整刻画（含可达性与逆）并推广已知结果到一般 K、N；理论论文、无实现实验；投稿 IEEE Trans. IT。",
+ "novelty": 3,
+ "novelty_note": "K-out-of-N OT 在一般擦除信道上的精确容量为新的完整刻画，并首次给出重复归约最优性的区间条件；技术路线承袭 OT 容量分析的既有框架。",
+ "scope": "结论适用于 BEC/GEC 上诚实但好奇模型的信息论 OT；对噪声为任意 DMC、恶意模型与计算安全 OT 未覆盖。",
+ "limitations": "限于擦除型信道族；恶意参与者与可组合性未处理；GEC 扩展为讨论性结果。",
+ "artifact": "未提及"
+}

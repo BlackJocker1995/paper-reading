@@ -1,0 +1,23 @@
+{
+ "id": "2611.21548",
+ "title_cn": "TRACE：通过对比嵌入的拓扑表示异常检测",
+ "abstract_cn": "入侵检测器必须在确认攻击标签稀缺或不完整时识别演化中的恶意行为。我们提出 TRACE，一个面向标签高效入侵检测的拓扑感知图对比学习框架。TRACE 通过组合消息传递与拓扑表示从良性的系统活动图中学习，然后在同一投影嵌入空间中分配异常分数，该空间由对比目标优化。该设计在表示学习期间不使用攻击标签的情况下同时捕获局部交互与图尺度的结构偏差。包含良性与恶意图的带标签验证集仅用于校准异常阈值。我们在 StreamSpot、GraSec-IoT 与 Unicorn Wget 上对比监督图神经网络与仅良性的 GraphCL 基线评估 TRACE：F1 分别为 0.923、0.790 与 0.583；与 GraphCL 相比在 StreamSpot（0.450）与 Unicorn Wget（0.203）上更高，但在 GraSec-IoT 上更低（0.975）。监督模型在 StreamSpot 与 GraSec-IoT 上领先，而 TRACE 在 Unicorn Wget 上 F1 最高。混合结果表明拓扑感知的仅良性学习可以在部分图设置中改进检测，但不具备一致优势。",
+ "summary_cn": "拓扑感知图对比学习框架 TRACE 做仅良性训练的入侵检测：F1 为 0.923/0.790/0.583（StreamSpot/GraSec-IoT/Unicorn Wget），对比 GraphCL 两升一降，结论为部分场景有效、无一致优势。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "入侵检测",
+  "图对比学习",
+  "拓扑表示",
+  "仅良性训练",
+  "异常检测"
+ ],
+ "objective_summary": "提出组合消息传递与拓扑表示的图对比学习框架 TRACE，仅用良性系统活动图学习表示、留出验证集校准阈值，在三个图数据集上与监督 GNN 及 GraphCL 比较 F1。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 3,
+ "evidence_note": "三个图数据集×两类基线（监督 GNN、GraphCL）的系统对比并如实报告混合结果；无统计检验、阈值校准集的作用与规模细节有限。",
+ "novelty": 2,
+ "novelty_note": "把拓扑表示加入图对比学习属已有组件的组合；跨数据集表现不一（两升一降）说明贡献以诚实评估为主而非新机制。",
+ "scope": "结论适用于所测三个图入侵检测数据集与仅良性训练设定；对在线流式检测、标签更多时的表现与对抗性图结构未覆盖。",
+ "limitations": "GraSec-IoT 上低于 GraphCL 基线；拓扑模块的增益来源未做组件级消融；阈值校准依赖带标签验证集、与「标签稀缺」动机部分张力。",
+ "artifact": "未提及"
+}

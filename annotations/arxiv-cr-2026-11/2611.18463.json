@@ -1,0 +1,23 @@
+{
+ "id": "2611.18463",
+ "title_cn": "VellSSLH：面向 LLVM IR 的可靠类型引导选择性推测加载加固",
+ "abstract_cn": "以 C 编写的常时密码程序在推测执行期间仍可能泄露秘密：误预测分支可能允许指令访问秘密数据并经可观测行为暴露。推测加载加固（SLH）解决这些泄露，但不必要地保护值会引入显著运行时开销。我们提出 VellSSLH：在 LLVM IR 上选择性插入推测加载加固。程序员在带注解的 C 程序中指定 Public 与 Secret 输入，我们的分析推断哪些值在推测期间可能变为秘密；变换只在需要处插入误推测标志操作与保护。我们提取的检查器 VellSCT 验证所得 LLVM IR。我们通过给 Vellvm 的 LLVM 语义扩展推测执行、攻击者指令与泄露观测来形式化推测常时（SCT）安全；我们的安全类型系统处理 SSA 汇合、符号值、poison、指针来源与可观测故障，并支持声明的去分类与可信外部服务。在 Rocq 中，我们证明被检查器接受的程序满足 SCT，参考加固变换保持架构行为。被评估的优化变体重新检查 SCT 但不在该保持定理覆盖内。我们的机械化保证作用于 LLVM IR；生成二进制的安全性还依赖后端与硬件假设。我们在裸机 Intel 处理器上对 24 个密码学入口评估 VellSSLH：几何平均运行时比 LLVM SLH 低 4.03%（13 项 VellSSLH 占优、8 项 LLVM SLH 占优、3 项无定论）；对 X25519，VellSSLH 比 LLVM SLH 快 22.69%，相对未保护代码仅 1.86% 开销；相对 Ultimate SLH 运行时低 19.65%。",
+ "summary_cn": "提出类型引导选择性推测加载加固 VellSSLH：Vellvm 扩展形式化 SCT 并在 Rocq 证明可靠性，24 个密码入口实测几何均值比 LLVM SLH 快 4.03%（X25519 快 22.69%、开销仅 1.86%）。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "推测执行",
+  "侧信道防御",
+  "常时安全",
+  "形式化验证",
+  "LLVM IR"
+ ],
+ "objective_summary": "以类型注解驱动选择性推测加载加固并在 Vellvm 语义扩展上形式化推测常时安全，Rocq 证明检查器可靠性与变换行为保持，在裸机 Intel 上与 LLVM SLH/Ultimate SLH 对比性能。",
+ "contribution_type": "新工具/系统",
+ "evidence_strength": 4,
+ "evidence_note": "Rocq 机械化的 SCT 可靠性与行为保持定理+裸机 Intel 24 个密码入口的性能对比（几何均值 −4.03%、X25519 −22.69%、开销 1.86%）；安全保证范围（IR 级）明示。",
+ "novelty": 3,
+ "novelty_note": "把 SLH 从全量加固改为类型引导的选择性加固并配机械化 SCT 证明，是对推测执行防御的实质性工具贡献；SLH、Vellvm 与常时验证工具链均有前作。",
+ "scope": "结论适用于 LLVM IR 级的常时密码代码与 x86 裸机评估设置；生成二进制安全依赖后端与硬件假设；对非 LLVM 工具链与 GPU/嵌入式未覆盖。",
+ "limitations": "需程序员注解 Public/Secret 且分析推断有保守性；优化变体不在保持定理覆盖内；对非推测侧信道（时序/功耗）未处理。",
+ "artifact": "未提及"
+}

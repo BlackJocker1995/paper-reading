@@ -1,0 +1,23 @@
+{
+ "id": "2611.18449",
+ "title_cn": "secp256k1 上的确定性 ECDSA：RFC 6979 假设、一个反例与已部署实现现状",
+ "abstract_cn": "RFC 6979 把 ECDSA nonce 派生为 k=F_x(h)，其中 F_x 是以签名私钥 x 为密钥的 HMAC_DRBG。我们分离其安全所依赖的假设 A*：在已知公钥 Q=xG 下，以 F_x() 为 nonce 的签名转录与以均匀 nonce 的转录不可区分。A* 即足够，且它既不是 HMAC 的 PRF 安全性、也不是 F_x 的辅助输入 PRF（AI-PRF）安全性。函数 F'(x,h)=P_{Ext(xG)}(h) 在标准假设下是 PRF 却从一条签名泄露 x；对保持 HMAC 证明所用 PRF 与对偶 PRF 性质的压缩函数，在抗碰撞前提下，未修改的 RFC 6979 也如此。A* 与 AI-PRF 在两个方向上都可分离：若一比特隐位数问题困难，A* 不蕴含 AI-PRF；反之在标准模型中，任何 AI-PRF 都可被改造为保持 AI-PRF 性质但两次选定摘要签名查询即泄露 x；在 DDH（或无公开随机点时的决策平方 DH）下存在 AI-PRF 其密钥可从两条普通哈希消息的签名恢复；第三个函数在 PRF 安全与 DLP 下违反 A* 而方案仍不可伪造。在理想压缩函数下，A* 在存在随机化 ECDSA 签名预言机时紧随 DLP 成立；与 x 独立的 nonce 密钥则移除该假设。HMAC 秘密消息块在 secp256k1 上偏离均匀 2^{-127.65}、P-256 上 2^{-32}、brainpoolP256r1 上 0.336。对 31 个 secp256k1 实现的审计发现 28 个确定性签名且不加熵，而 libsecp256k1 0.2.0 之前 bits2octets 的原始消息偏差仍存续于 NBitcoin、dcrd 与 btcec v2。低 R 研磨除 A* 外无需假设，低 R nonce 集的每个非零傅里叶系数无条件低于 2^{-116.9}。我们给出未经测试的 h≥n 分支的测试向量。",
+ "summary_cn": "分离 RFC 6979 确定性 ECDSA 安全的真实假设 A* 并证明它既非 HMAC PRF 也非 AI-PRF（含双向分离与反例）；审计 31 个 secp256k1 实现：28 个确定性签名，bits2octets 偏差仍存于 3 个库。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "ECDSA",
+  "RFC 6979",
+  "nonce 安全",
+  "假设分离",
+  "实现审计"
+ ],
+ "objective_summary": "形式化 RFC 6979 确定性 ECDSA 所依赖的不可区分性假设 A*，证明其与 HMAC PRF/AI-PRF 的双向分离与反例构造，并审计 31 个 secp256k1 实现的确定性签名与 bits2octets 偏差现状。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 4,
+ "evidence_note": "假设隔离+标准模型双向分离与显式反例构造的完整理论分析+31 个真实实现的部署审计与量化偏差（2^{-127.65} 等）；理论论证链条完整并落到部署现实。",
+ "novelty": 3,
+ "novelty_note": "首次把 RFC 6979 的安全论证归约到显式假设 A* 并证明既有 PRF/AI-PRF 不足以蕴含之，纠正了对该标准安全性的普遍误解；未发现实际可用的密钥恢复攻击。",
+ "scope": "结论适用于 RFC 6979 风格的确定性 ECDSA 与其 nonce 派生函数族；对 EdDSA、随机化 nonce 与门限 ECDSA 的对应问题未覆盖。",
+ "limitations": "反例基于构造性压缩函数/扩展、非现实部署；bits2octets 偏差的实际可利用性未演示；对 h≥n 分支只有测试向量而无分析。",
+ "artifact": "未提及"
+}

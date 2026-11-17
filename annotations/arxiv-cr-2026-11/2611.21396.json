@@ -1,0 +1,23 @@
+{
+ "id": "2611.21396",
+ "title_cn": "对图码 Flowering IOPP 可靠性的一个反例",
+ "abstract_cn": "Delavenne、Medevielle 与 Roussel（ISIT 2025，arXiv:2501.14337）的 Flowering 协议及其由 Delavenne 与 Lallemand 的推广（CANS 2025，arXiv:2508.10510）是针对带 Reed-Solomon 局部码的图码的交互式预言机邻近证明（IOPP）。与 Reed-Solomon 码的 FRI 类似，图被递归切割为同构子图，字沿切割折叠。我们证明两篇论文的可靠性声明均为假。其承诺可靠性的证明把字的顶点距离等同于其不满足局部约束的比例，而实际上只有一个不等式成立，且方向相反。我们进而给出显式反例。",
+ "summary_cn": "给出显式反例证明 Flowering IOPP（ISIT 2025）及其 CANS 2025 推广的可靠性声明为假：原证明把顶点距离与不满足局部约束比例等同，实际唯一成立的不等式方向相反。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "IOPP",
+  "可靠性反例",
+  "FRI 类协议",
+  "图码",
+  "证明系统"
+ ],
+ "objective_summary": "分析 Flowering IOPP 两篇论文的承诺可靠性证明，指出其把顶点距离与局部约束违反比例等同的错误（不等式方向相反），并构造显式反例推翻可靠性声明。",
+ "contribution_type": "复现/负面结果",
+ "evidence_strength": 3,
+ "evidence_note": "针对两篇已发表论文的可靠性证明给出明确的论证错误定位与显式反例；单一反例、无统计维度，属确定性数学结果。",
+ "novelty": 3,
+ "novelty_note": "推翻两个新发表的 IOPP 协议的可靠性声明对该子领域有直接诊断价值（防止后续工作建立在错误前提上）；反驳手法为标准的证明审查+反例构造。",
+ "scope": "结论精确适用于 Flowering（ISIT 2025）与其 CANS 2025 推广的承诺可靠性声明；不涉及 FRI 本身或其他 IOPP 构造。",
+ "limitations": "反例针对已声明参数设置，未系统刻画协议失败参数域；两协议是否有可修复变体未探讨。",
+ "artifact": "未提及"
+}

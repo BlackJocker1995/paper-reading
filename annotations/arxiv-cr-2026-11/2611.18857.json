@@ -1,0 +1,23 @@
+{
+ "id": "2611.18857",
+ "title_cn": "光滑模数下向量二面角陪集问题的准多项式量子算法",
+ "abstract_cn": "我们给出向量二面角陪集问题在 Z_q^n 上的一个量子算法：给定形如 (|0,x⟩+|1,x+s⟩)/√2 的独立样本（x 服从 Z_q^n 均匀分布），目标是恢复 s∈Z_q^n。当模数 q 为 B-smooth 时，算法使用 n^{O(B^{1+o(1)}·log q)}·B^{O(B^{2+o(1)}·log q)} 的样本与时间。对 B=polylog(n) 且 q=poly(n)，这给出准多项式的时间与样本复杂度。它把此前仅对 2 的幂次模数成立的准多项式时间结果（Bonnetain、Naya-Plasencia，ASIACRYPT 2018；Bai 等，CRYPTO 2025）做了推广。算法的思路是每次消去模数的一个素因子 p|q，关键成分是一个筛法程序：借助 Ivanyos 与 Santha（TCS 2017）的算法在模 p 下清除相位中的非线性项，即给定向量 a_1,…,a_ℓ∈F_p^n，对 1≤d≤p−1 的各次数找到非零 u∈F_p^ℓ 使 Σ u_i^d·a_i≡0 (mod p)。该算法同样适用于 Brakerski、Kirshanova、Stéhlé、Wen（PKC 2018）提出的外推二面角陪集问题（EDCP），后者在多项式样本情形已知与 LWE 等价。但由于已知的 LWE 到 EDCP 归约只提供多项式数量的干净样本，而我们的算法需要准多项式数量的样本，因此该结果在任何参数区域都不构成对 LWE 的新攻击。主算法由作者在与 GPT-5.6 Sol 的对话中获得；所有陈述、证明与正确性由作者负责。Boucher、Fouque、Shen 的并行工作对素数幂模数给出了保证相近的算法。",
+ "summary_cn": "给出 B-smooth 模数下向量二面角陪集问题的准多项式样本/时间量子算法，把 2 的幂次模数的已知结果推广到 polylog 光滑模数；因样本需求超多项式，不构成对 LWE 的新攻击。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "量子算法",
+  "二面角陪集问题",
+  "LWE",
+  "光滑模数",
+  "格密码分析"
+ ],
+ "objective_summary": "为 Z_q^n 上的向量二面角陪集问题设计逐素因子消模的量子算法，核心是用 Ivanyos–Santha 筛法清除模 p 相位的非线性项，并讨论其对 EDCP 的适用性与对 LWE 的含义。",
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 3,
+ "evidence_note": "理论论文：给出完整复杂度界与算法正确性论证，推广 ASIACRYPT 2018/CRYPTO 2025 已知结果到 B-smooth 模数；无实现或数值实验，作者说明算法思想源于 GPT-5.6 对话、证明责任在作者。",
+ "novelty": 3,
+ "novelty_note": "把准多项式时间二面角陪集算法从 2 的幂次模数推广到一般 B-smooth 模数并延伸到 EDCP，是对已知路线的实质性扩展；但未开启新的 LWE 攻击区域，且与并行工作（素数幂模数）结果相近。",
+ "scope": "结论适用于 B=polylog(n)、q=poly(n) 的光滑模数陪集与 EDCP 实例；不适用于多项式干净样本约束下的 LWE 攻击场景。",
+ "limitations": "复杂度指数中 B 的超多项式因子使适用参数受限；无实现验证；证明依赖已有筛法子程序，且作者自陈算法系 GPT 对话产物。",
+ "artifact": "未提及"
+}

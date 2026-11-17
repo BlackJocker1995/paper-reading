@@ -1,0 +1,23 @@
+{
+ "id": "2611.18126",
+ "title_cn": "Hello Again：利用重放保护单调计数器暴力破解 Windows Hello PIN",
+ "abstract_cn": "Windows Hello 是超过十亿台 Windows 11 设备上的主要认证机制，支持短至四位的 PIN。如此低熵的 PIN 之所以可行，只因 TPM 的反锤击（anti-hammering）保护缓解暴力破解。多数现代 x86 平台依赖固件 TPM（fTPM），其非易失（NV）状态——包括锁定状态——持久化到 SPI 闪存。在较新平台上，该状态的回滚防护被委托给闪存芯片的重放保护单调计数器（RPMC）：一个 JEDEC 标准化、运行在物理可达总线上的机制。我们首次对出货 x86 系统中的 RPMC 做实用性安全分析。用低成本拦截器硬件，我们发现多个实现缺陷，其中两个从根本上破坏 RPMC 的安全模型：其一，Winbond SPI 闪存——市场份额超 25% 的领先 NOR 闪存厂商——在电压毛刺下泄露其 HMAC 密钥，使任意计数器伪造成为可能；其二，AMD 的 NV 控制器不校验 RPMC 递增，拦截器可以不被察觉地抑制递增。此外，无 RPMC 闪存的 AMD 平台似乎完全没有 NV 回滚防护：在两台 AMD 台式机上，刷回旧镜像即可重置 fTPM 的锁定计数器。两个缺陷都能回滚 fTPM 的 NV 状态（AMD、Intel 或 Pluton），包括其锁定计数器。我们在锁定、加密的硬件上端到端演示：我们的装置在 40 小时而非 69 天内找到四位 Windows Hello PIN。被攻陷的 PIN 还能访问设备绑定密钥与基于 Hello 的企业 SSO。同一原语击败 BitLocker 的 TPM+PIN 预启动保护器，把默认长度六位 PIN 的最坏情况时间从 19 年缩到 20 天。",
+ "summary_cn": "首次实用性分析出货 x86 的 RPMC（CCS 2026）：Winbond 电压毛刺泄 HMAC 密钥、AMD 不校验递增，均可回滚 fTPM 锁定计数——4 位 Hello PIN 破解 69 天→40 小时，BitLocker 6 位 PIN 19 年→20 天。",
+ "topic": "Systems & Network Security",
+ "tags": [
+  "TPM",
+  "RPMC",
+  "Windows Hello",
+  "暴力破解",
+  "硬件攻击"
+ ],
+ "objective_summary": "以低成本拦截器对出货 x86 系统的 RPMC 机制做首个实用性安全分析，发现 Winbond HMAC 密钥泄露与 AMD 递增不校验两处实现缺陷，端到端演示 fTPM 状态回滚对 Windows Hello 与 BitLocker 的暴力破解加速。",
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "ACM CCS 2026 录用；低成本拦截器在真实锁定加密硬件上的端到端攻击演示（40 小时破解 4 位 PIN、BitLocker 19 年→20 天），多家厂商平台对比并量化。",
+ "novelty": 4,
+ "novelty_note": "首次对 RPMC 在出货 x86 系统中的安全性做系统分析，揭示两家主要供应商的实现缺陷并确立「总线物理可达即可回滚 fTPM 反锤击状态」的新攻击原语；此前无该威胁的系统研究。",
+ "scope": "结论适用于依赖 SPI 闪存 RPMC 或无 NV 回滚防护的 x86 fTPM 平台（AMD/Intel/Pluton）；对串行调试口锁定、硬件防拆与移动端 ARM 平台未覆盖。",
+ "limitations": "需要物理接触与拦截器硬件；攻击时间仍以数十小时/天计；缓解需固件与硬件供应链协同、文中未给出完整方案。",
+ "artifact": "未提及"
+}
