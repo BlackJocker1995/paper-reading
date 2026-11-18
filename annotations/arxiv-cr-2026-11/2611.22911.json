@@ -1,0 +1,23 @@
+{
+ "id": "2611.22911",
+ "title_cn": "可验证 PIR 能匹配 SimplePIR 的在线效率吗？",
+ "abstract_cn": "可验证隐私信息检索（vPIR）确保恶意服务器不能返回被篡改的数据库记录，但相比经典 PIR 传统上有显著开销。近期进展（尤其是 VeriSimplePIR）通过引入证明预处理阶段与仅要求轻量的客户端在线验证，逼近了 SimplePIR 的在线效率。然而该方案依赖额外的短整数解（SIS）假设与基于 SIS 的承诺，后者只支持松弛的范围证明，因此这些方案被迫采用明显更弱的参数选择，带来额外在线开销。本文提出新的 vPIR 协议，采用新设计的基于纠错码的承诺方案作为数据库摘要。该方案 (i) 支持线性关系的高效证明，(ii) 实现精确的范围证明，(iii) 消除对 SIS 假设的依赖。因此我们的协议成功采用与 SimplePIR 完全相同的参数选择。结果是：我们的 vPIR 协议首次实现在线通信与服务器计算成本与 SimplePIR 完全相同，同时在线客户端计算几乎相同。此外，相比 VeriSimplePIR，我们的协议把在线通信与客户端计算降低约 20%，在线服务器计算降低超过 35%。",
+ "summary_cn": "提出基于纠错码承诺的 vPIR：首次在线通信与服务器计算成本与 SimplePIR 完全相同，去除 SIS 假设，较 VeriSimplePIR 通信/客户端计算降约 20%、服务器计算降超 35%，S&P 2027 录用。",
+ "objective_summary": "设计基于纠错码承诺的 vPIR 协议，支持精确范围证明并去除 SIS 假设，使在线成本与 SimplePIR 完全一致。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "PIR",
+  "可验证计算",
+  "承诺方案",
+  "范围证明",
+  "SIS 假设"
+ ],
+ "contribution_type": "新方法/新技术",
+ "evidence_strength": 4,
+ "evidence_note": "IEEE S&P 2027 录用；报告与 SimplePIR/VeriSimplePIR 的具体成本对比（通信与客户端约 -20%、服务器 >35%）及协议安全性论证。",
+ "novelty": 4,
+ "novelty_note": "首个在线成本与经典 SimplePIR 完全持平的 vPIR；纠错码承诺使精确范围证明并摆脱 SIS 假设属实质性新密码学构件。",
+ "scope": "结论适用于 SimplePIR 类格基 PIR 与其参数体制；其他 PIR 家族与恶意客户端威胁未涉及。",
+ "limitations": "预处理阶段开销未在摘要量化；基于纠错码承诺的安全性依赖码参数选择；仅针对 SimplePIR 体系。",
+ "artifact": "未提及"
+}

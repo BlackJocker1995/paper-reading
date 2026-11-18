@@ -1,0 +1,23 @@
+{
+ "id": "2611.22290",
+ "title_cn": "一点建议就够了：Diffie-Hellman 与离散对数一样难",
+ "abstract_cn": "计算 Diffie-Hellman 密钥是否与计算离散对数一样难？Maurer 证明在给定少量建议比特的前提下是——条件是短区间包含足够多只有小素因子的整数；这一前提已存在三十年。我们把它去掉。对每个素数 p，存在一个仅依赖 p、长为 O(log p) 的建议串，使得在阶为 p 的每个群中都能从 Diffie-Hellman 预言机在多项式时间内计算离散对数。归约仍是经典归约；缺少的是「短区间包含多对数光滑整数」的证明。我们证明：对黎曼 zeta 函数现已知晓的零点自由半平面，可以推出每个区间 [x, x+x^θ]（θ>17/30）中 (log x)^K 光滑整数的期望数量。光滑度小到这个程度时，计数积分的鞍点恰好位于 Re s=1 左侧附近，而任意固定宽度的零点自由带在 K 足够大时吸收该偏移。阶填满此类区间的亏格 2 雅可比簇随后把其中一个整数变成辅助群的阶。同样的输入还去掉了 Maurer 与 Raub 关于域同态单向函数不可能性中的光滑性假设，以及 Koblitz、Menezes 与 Shparlinski 的 yes/no 查询归约中的对应前提；它还使 Wolf 的刻画无条件化：离散对数与 Diffie-Hellman 恰在群阶没有大的重复素因子时一般性等价。",
+ "summary_cn": "去掉 Maurer 归约中悬置三十年的光滑性前提：用 zeta 零点自由半平面证明短区间含 polylog 光滑整数，从而无条件证明带 O(log p) 建议时 DH 与 DL 等价。",
+ "objective_summary": "证明每个素数 p 存在 O(log p) 比特建议使任意 p 阶群上的离散对数可由 Diffie-Hellman 预言机多项式时间计算，关键是用解析数论结果证明短区间含足够光滑整数。",
+ "topic": "Crypto & Protocols",
+ "tags": [
+  "Diffie-Hellman",
+  "离散对数",
+  "归约",
+  "光滑数",
+  "解析数论"
+ ],
+ "contribution_type": "理论/形式化",
+ "evidence_strength": 4,
+ "evidence_note": "理论证明完整：从 zeta 函数零点自由半平面推出 θ>17/30 区间的光滑整数计数，经鞍点分析完成归约；注释说明开发过程使用 Claude 模型辅助。",
+ "novelty": 4,
+ "novelty_note": "解决悬置三十年的开放前提，首次无条件建立「带少量建议时 DH 与 DL 一样难」，并顺带无条件化 Maurer–Raub、Koblitz–Menezes–Shparlinski 与 Wolf 等多个结果。",
+ "scope": "结论适用于阶为素数 p 的群与经典归约模型；量子攻击与其他群族未涉及。",
+ "limitations": "建议串依赖 p 且需预计算；归约为经典复杂性意义，不改变具体安全参数选取；依赖已知的 zeta 零点自由区域结果。",
+ "artifact": "未提及"
+}
